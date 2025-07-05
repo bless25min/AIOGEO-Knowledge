@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIOGEO 知識庫｜AI搜尋摘要引用演算法權威指南</title>
+    <meta name="description" content="深入探討AI搜尋引擎優化(GEO)、摘要生成演算法、引用優化策略等前沿技術，掌握ChatGPT、Claude、Perplexity等AI搜尋工具的內容優化秘訣。">
+    
+    <!-- Schema.org結構化資料 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "AIOGEO 知識庫",
+        "description": "AI搜尋摘要引用演算法權威指南",
+        "url": "https://bless25min.github.io/AIOGEO-Knowledge/",
+        "author": {
+            "@type": "Person",
+            "name": "AIOGEO 研究團隊"
+        },
+        "keywords": ["GEO", "AI搜尋", "摘要演算法", "引用優化", "生成式AI"],
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://bless25min.github.io/AIOGEO-Knowledge/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
+    <!-- Docsify CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+    
+    <!-- 自訂樣式 -->
+    <style>
+        :root {
+            --theme-color: #6366f1;
+            --text-color-base: #1f2937;
+            --sidebar-bg: #f8fafc;
+            --accent-color: #ec4899;
+        }
+        
+        .app-name-link {
+            color: var(--theme-color) !important;
+            font-weight: bold !important;
+        }
+        
+        .sidebar {
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid #e2e8f0;
+        }
+        
+        .summary {
+            background: linear-gradient(135deg, #667eea20, #764ba220);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--theme-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .hero-banner h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .tech-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--theme-color);
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .badge {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .algorithm-viz {
+            background: #f1f5f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 3px solid var(--theme-color);
+        }
+        
+        .trend-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #ecfdf5;
+            border-radius: 20px;
+            color: #065f46;
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">🤖 載入中...</div>
+    
+    <script>
+        window.$docsify = {
+            name: '🤖 AIOGEO 知識庫',
+            repo: 'https://github.com/bless25min/AIOGEO-Knowledge',
+            loadSidebar: true,
+            subMaxLevel: 3,
+            homepage: 'README.md',
+            search: {
+                maxAge: 86400000,
+                paths: 'auto',
+                placeholder: '搜尋 AI 搜尋技術...',
+                noData: '找不到相關內容',
+                depth: 6
+            },
+            plugins: [
+                function(hook, vm) {
+                    hook.beforeEach(function (html) {
+                        var url = 'https://github.com/bless25min/AIOGEO-Knowledge/blob/main/' + vm.route.file
+                        var editHtml = '[:memo: 編輯此頁](' + url + ') | [:star: Star this repo](https://github.com/bless25min/AIOGEO-Knowledge)\n\n'
+                        return editHtml + html
+                    })
+                }
+            ]
+        }
+    </script>
+    
+    <!-- Docsify 核心 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+    <!-- 搜尋插件 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+    <!-- 複製程式碼插件 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code@2"></script>
+    <!-- Zoom 圖片插件 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+    <!-- Prism 語法高亮 -->
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+</body>
+</html>
