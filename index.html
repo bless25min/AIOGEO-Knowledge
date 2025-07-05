@@ -3,8 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AIOGEO 知識庫｜AI搜尋摘要引用演算法權威指南</title>
+    <title>AIOGEO 知識庫｜AI搜尋摘要引用演算法權威指南 - 廖天佑 Bless</title>
     <meta name="description" content="深入探討AI搜尋引擎優化(GEO)、摘要生成演算法、引用優化策略等前沿技術，掌握ChatGPT、Claude、Perplexity等AI搜尋工具的內容優化秘訣。">
+    <meta name="author" content="廖天佑 Bless Liao">
+    <meta name="keywords" content="GEO, AI搜尋, 摘要演算法, 引用優化, 生成式AI, 廖天佑, Bless">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="AIOGEO 知識庫 - AI搜尋優化權威指南">
+    <meta property="og:description" content="由廖天佑 Bless 主導的AI搜尋引擎優化知識庫，探討GEO技術與演算法">
+    <meta property="og:url" content="https://bless25min.github.io/AIOGEO-Knowledge/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://bless25min.github.io/AIOGEO-Knowledge/assets/images/og-image.png">
     
     <!-- Schema.org結構化資料 -->
     <script type="application/ld+json">
@@ -16,13 +25,23 @@
         "url": "https://bless25min.github.io/AIOGEO-Knowledge/",
         "author": {
             "@type": "Person",
-            "name": "AIOGEO 研究團隊"
+            "name": "廖天佑 Bless Liao",
+            "url": "https://github.com/bless25min",
+            "sameAs": [
+                "https://github.com/bless25min",
+                "https://bless25min.github.io/MetaAd/"
+            ]
         },
         "keywords": ["GEO", "AI搜尋", "摘要演算法", "引用優化", "生成式AI"],
+        "inLanguage": "zh-TW",
         "potentialAction": {
             "@type": "SearchAction",
             "target": "https://bless25min.github.io/AIOGEO-Knowledge/search?q={search_term_string}",
             "query-input": "required name=search_term_string"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "廖天佑 Bless Liao"
         }
     }
     </script>
@@ -37,16 +56,32 @@
             --text-color-base: #1f2937;
             --sidebar-bg: #f8fafc;
             --accent-color: #ec4899;
+            --bless-purple: #8b5cf6;
         }
         
         .app-name-link {
             color: var(--theme-color) !important;
             font-weight: bold !important;
+            font-size: 1.1rem !important;
         }
         
         .sidebar {
             background-color: var(--sidebar-bg);
             border-right: 1px solid #e2e8f0;
+        }
+        
+        .sidebar ul li a {
+            color: var(--text-color-base);
+            border-bottom: none;
+        }
+        
+        .sidebar ul li a:hover {
+            color: var(--theme-color);
+        }
+        
+        .sidebar ul li.active > a {
+            color: var(--theme-color);
+            font-weight: 600;
         }
         
         .summary {
@@ -56,6 +91,8 @@
             margin: 2rem 0;
             border-left: 4px solid var(--theme-color);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            font-size: 1.05rem;
+            line-height: 1.7;
         }
         
         .hero-banner {
@@ -71,6 +108,11 @@
             font-size: 2rem;
             margin-bottom: 1rem;
             color: white;
+        }
+        
+        .hero-banner p {
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
         
         .tech-grid {
@@ -95,6 +137,11 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
         
+        .tech-card h3 {
+            color: var(--theme-color);
+            margin-bottom: 1rem;
+        }
+        
         .badge {
             display: inline-block;
             background: var(--accent-color);
@@ -112,6 +159,7 @@
             border-radius: 8px;
             margin: 1rem 0;
             border-left: 3px solid var(--theme-color);
+            font-family: 'Courier New', monospace;
         }
         
         .trend-indicator {
@@ -125,34 +173,129 @@
             font-weight: 600;
             margin: 0.5rem 0;
         }
+        
+        .author-signature {
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: center;
+            border: 1px solid #d1d5db;
+        }
+        
+        .author-signature .author-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--bless-purple);
+            margin-bottom: 0.5rem;
+        }
+        
+        .author-signature .author-title {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        
+        /* 代碼區塊樣式優化 */
+        .markdown-section pre {
+            background: #1e293b !important;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        
+        .markdown-section code {
+            color: #e2e8f0;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+        }
+        
+        /* 表格樣式優化 */
+        .markdown-section table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1rem 0;
+        }
+        
+        .markdown-section table th,
+        .markdown-section table td {
+            border: 1px solid #e2e8f0;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        .markdown-section table th {
+            background: var(--sidebar-bg);
+            font-weight: 600;
+            color: var(--theme-color);
+        }
+        
+        /* 移動端優化 */
+        @media (max-width: 768px) {
+            .hero-banner {
+                padding: 2rem 1rem;
+            }
+            
+            .hero-banner h2 {
+                font-size: 1.5rem;
+            }
+            
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .summary {
+                padding: 1.5rem;
+                margin: 1rem 0;
+            }
+        }
     </style>
 </head>
 <body>
-    <div id="app">🤖 載入中...</div>
+    <div id="app">
+        <div style="text-align: center; padding: 2rem;">
+            <h1>🤖 AIOGEO 知識庫載入中...</h1>
+            <p>由廖天佑 Bless 打造的AI搜尋優化權威指南</p>
+        </div>
+    </div>
     
     <script>
         window.$docsify = {
             name: '🤖 AIOGEO 知識庫',
+            nameLink: '/',
             repo: 'https://github.com/bless25min/AIOGEO-Knowledge',
             loadSidebar: true,
             subMaxLevel: 3,
             homepage: 'README.md',
+            auto2top: true,
+            maxLevel: 4,
             search: {
                 maxAge: 86400000,
                 paths: 'auto',
-                placeholder: '搜尋 AI 搜尋技術...',
-                noData: '找不到相關內容',
-                depth: 6
+                placeholder: '🔍 搜尋 AI 搜尋技術...',
+                noData: '😔 找不到相關內容',
+                depth: 6,
+                hideOtherSidebarContent: false
+            },
+            copyCode: {
+                buttonText: '📋 複製代碼',
+                errorText: '❌ 複製失敗',
+                successText: '✅ 已複製'
             },
             plugins: [
                 function(hook, vm) {
                     hook.beforeEach(function (html) {
                         var url = 'https://github.com/bless25min/AIOGEO-Knowledge/blob/main/' + vm.route.file
-                        var editHtml = '[:memo: 編輯此頁](' + url + ') | [:star: Star this repo](https://github.com/bless25min/AIOGEO-Knowledge)\n\n'
+                        var editHtml = '[📝 編輯此頁](' + url + ') | [⭐ 給個星星](https://github.com/bless25min/AIOGEO-Knowledge) | [🔗 作者其他專案](https://github.com/bless25min)\n\n'
                         return editHtml + html
+                    }),
+                    hook.afterEach(function (html, next) {
+                        var footer = '\n\n---\n\n<div class="author-signature">' +
+                                   '<div class="author-name">廖天佑 Bless Liao</div>' +
+                                   '<div class="author-title">AI搜尋優化研究者 | 數位行銷專家</div>' +
+                                   '</div>'
+                        next(html + footer)
                     })
                 }
-            ]
+            ],
+            themeColor: '#6366f1'
         }
     </script>
     
@@ -167,5 +310,8 @@
     <!-- Prism 語法高亮 -->
     <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
 </body>
 </html>
