@@ -33,11 +33,9 @@ AIOGEO知識庫致力於推廣**GEO（Generative Engine Optimization，生成式
 
 ### 🎓 初學者路徑（預計學習時間：1週）
 
-```mermaid
-graph LR
-    A[GEO基礎原理] --> B[Answer Layer設計]
-    B --> C[雙軌整合實戰]
-    C --> D[成效評估]
+**學習流程：**
+```
+📖 GEO基礎原理 → 🎯 Answer Layer設計 → ⚖️ 雙軌整合實戰 → 📊 成效評估
 ```
 
 **推薦學習順序：**
@@ -46,20 +44,52 @@ graph LR
 3. ⚖️ [SEO×GEO雙軌整合](posts/seo-geo-integration.md) ⏱️ 18分鐘
 4. 📊 [成效評估與追蹤](posts/geo-measurement.md) ⏱️ 10分鐘
 
+> **🎯 學習目標：** 理解GEO基本概念，掌握內容優化基礎技巧，能夠獨立進行基礎的AI搜尋優化。
+
 ### 🚀 進階者路徑（預計學習時間：2週）
 
-```mermaid
-graph TD
-    A[Semantic Mesh架構] --> B[多模態轉譯]
-    B --> C[AI搜尋演算法]
-    C --> D[前沿技術應用]
+**學習流程：**
+```
+🕸️ Semantic Mesh架構 → 🎨 多模態轉譯 → 🤖 AI搜尋演算法 → 🔮 前沿技術應用
 ```
 
 **深度學習順序：**
 1. 🕸️ [Semantic Mesh內容網](posts/semantic-mesh.md) ⏱️ 20分鐘
 2. 🎨 [多模態轉譯策略](posts/multimodal-optimization.md) ⏱️ 15分鐘
-3. 🤖 [AI搜尋演算法解析](posts/ai-search-algorithm.md) ⏱️ 25分鐘
-4. 🔮 [前沿技術趨勢](posts/future-trends.md) ⏱️ 12分鐘
+3. 🤖 [AI搜尋演算法解析](posts/ai-search-algorithm.md) ⏱️ 25分鐘 *(即將推出)*
+4. 🔮 [前沿技術趨勢](posts/future-trends.md) ⏱️ 12分鐘 *(即將推出)*
+
+> **🎯 學習目標：** 建立系統化內容架構，掌握多模態優化技能，成為GEO領域的專業實踐者。
+
+---
+
+### 📋 學習建議
+
+#### 🌱 **給初學者的建議**
+- **循序漸進**：按照推薦順序學習，每篇文章都有實戰練習
+- **實際操作**：邊學邊做，立即將理論應用到您的內容上
+- **記錄進度**：建議建立學習筆記，記錄重點和心得
+
+#### 🎯 **給進階者的建議**  
+- **深度實踐**：結合實際專案進行系統性優化
+- **案例分析**：收集和分析成功的GEO案例
+- **社群參與**：加入討論，分享經驗和見解
+
+#### 🤝 **學習支援**
+- 📚 **延伸閱讀**：每篇文章都提供相關資源連結
+- 🛠️ **實用工具**：[檢查清單](tools/checklists.md)和[內容模板](tools/content-templates.md)
+- 💬 **社群討論**：[GitHub Discussions](https://github.com/bless25min/AIOGEO-Knowledge/discussions)
+- 🆘 **問題求助**：[Issues](https://github.com/bless25min/AIOGEO-Knowledge/issues)頁面
+
+---
+
+### ⏰ 學習時程規劃
+
+| 學習階段 | 時間投入 | 主要成果 | 後續行動 |
+|---------|---------|---------|----------|
+| **第1週** | 3-5小時 | 掌握GEO基礎概念 | 優化1-2篇現有內容 |
+| **第2-3週** | 5-8小時 | 建立完整優化流程 | 設計內容架構體系 |
+| **第4週+** | 持續實踐 | 成為GEO專業者 | 分享經驗，幫助他人 |
 
 ## 🛠️ 實用工具
 
@@ -90,8 +120,6 @@ graph TD
 
 ## 🔥 熱門文章
 
-<div class="featured-posts">
-
 ### 🏆 最受歡迎
 **[GEO引用技術完全指南](posts/geo-fundamentals.md)**  
 *掌握讓AI看見你內容的核心技術*  
@@ -106,8 +134,6 @@ graph TD
 **[SEO×GEO雙軌整合指南](posts/seo-geo-integration.md)**  
 *讓內容同時排名與被引用的實戰策略*  
 ⏱️ 18分鐘 | 🌟 推薦
-
-</div>
 
 ## 🌟 專案特色
 
