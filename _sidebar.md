@@ -6,7 +6,6 @@
 
 * [📖 GEO基礎原理](posts/geo-fundamentals.md)
 * [🎯 Answer Layer語段設計](posts/answer-layer-design.md)
-* [🧠 AI搜尋演算法解析](posts/ai-search-algorithm.md)
 
 ---
 
@@ -21,55 +20,19 @@
 ## 📊 成效評估與追蹤
 
 * [📈 GEO成效評估指南](posts/geo-measurement.md)
-* [🔍 AI引用追蹤技術](posts/citation-tracking.md)
-* [📋 優化檢查清單](posts/optimization-checklist.md)
 
 ---
 
-## 🔬 前沿技術探索
-
-* [🤖 LLM訓練數據優化](posts/llm-data-optimization.md)
-* [🎙️ 語音搜尋SEO策略](posts/voice-search-seo.md)
-* [👁️ 視覺搜尋優化](posts/visual-search-optimization.md)
-
----
-
-## 🔮 趨勢與預測
-
-* [🌟 AI搜尋未來趨勢](posts/future-trends.md)
-* [💡 創新應用案例](posts/innovation-cases.md)
-* [🎯 行業應用指南](posts/industry-applications.md)
-
----
-
-## 🛠️ 實用工具
-
-* [🧰 AIOGEO工具清單](tools/aiogeo-toolkit.md)
-* [📝 內容模板庫](tools/content-templates.md)
-* [📊 檢查清單集合](tools/checklists.md)
-* [🔗 推薦資源清單](tools/recommended-resources.md)
-
----
-
-## 💼 案例研究
-
-* [🏢 企業級GEO實施](cases/enterprise-geo.md)
-* [🛒 電商內容優化](cases/ecommerce-optimization.md)
-* [👨‍💼 個人品牌建立](cases/personal-branding.md)
-* [🎓 教育內容策略](cases/education-content.md)
-
----
-
-## 🤝 社群參與
+## 🤝 專案資訊
 
 * [👥 關於作者](about.md)
 * [🤝 貢獻指南](contributing.md)
-* [💬 討論區](https://github.com/bless25min/AIOGEO-Knowledge/discussions)
+* [💬 GitHub討論區](https://github.com/bless25min/AIOGEO-Knowledge/discussions)
 * [🐛 問題回報](https://github.com/bless25min/AIOGEO-Knowledge/issues)
 
 ---
 
-## 🎓 學習路徑
+## 🎓 學習路徑指南
 
 <details>
 <summary>🌱 <strong>初學者路徑</strong> (1週完成)</summary>
@@ -90,24 +53,9 @@
 **深度學習順序：**
 1. [🕸️ Semantic Mesh內容網](posts/semantic-mesh.md) ⏱️ 20分鐘
 2. [🎨 多模態轉譯策略](posts/multimodal-optimization.md) ⏱️ 15分鐘
-3. [🧠 AI搜尋演算法解析](posts/ai-search-algorithm.md) ⏱️ 25分鐘
-4. [🌟 AI搜尋未來趨勢](posts/future-trends.md) ⏱️ 12分鐘
+3. 更多進階內容陸續新增...
 
 **學習目標：** 建立系統化內容架構，掌握多模態優化技能
-
-</details>
-
-<details>
-<summary>🏆 <strong>專家路徑</strong> (1個月完成)</summary>
-
-**全面掌握順序：**
-1. 完成初學者+進階者所有內容
-2. [🏢 企業級GEO實施](cases/enterprise-geo.md) ⏱️ 30分鐘
-3. [🤖 LLM訓練數據優化](posts/llm-data-optimization.md) ⏱️ 25分鐘
-4. [🎙️ 語音搜尋SEO策略](posts/voice-search-seo.md) ⏱️ 20分鐘
-5. [💡 創新應用案例](posts/innovation-cases.md) ⏱️ 15分鐘
-
-**學習目標：** 成為GEO領域專家，能夠指導團隊實施複雜策略
 
 </details>
 
@@ -123,21 +71,40 @@
 
 ---
 
-## 🔗 快速連結
-
-* [📋 GEO優化檢查清單](tools/checklists.md#geo-optimization-checklist)
-* [🧰 推薦工具清單](tools/aiogeo-toolkit.md)
-* [📝 內容模板下載](tools/content-templates.md)
-* [🎯 學習進度追蹤](tools/progress-tracker.md)
-
----
-
 ## 📞 聯絡支援
 
 * **作者**：廖天佑 Bless Liao
 * **GitHub**：[@bless25min](https://github.com/bless25min)
 * **專案**：[AIOGEO Knowledge](https://github.com/bless25min/AIOGEO-Knowledge)
 * **討論**：[GitHub Discussions](https://github.com/bless25min/AIOGEO-Knowledge/discussions)
+
+---
+
+## 🚧 即將推出
+
+<div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border: 1px solid #f59e0b; border-radius: 8px; padding: 16px; margin: 16px 0;">
+
+### 📅 第二階段內容 (開發中)
+- 🧠 AI搜尋演算法解析
+- 🎙️ 語音搜尋SEO策略  
+- 👁️ 視覺搜尋優化
+- 🤖 LLM訓練數據優化
+
+### 🛠️ 實用工具 (規劃中)
+- 🧰 AIOGEO工具清單
+- 📝 內容模板庫
+- 📋 優化檢查清單
+- 🔗 推薦資源整理
+
+### 💼 案例研究 (募集中)
+- 🏢 企業級GEO實施案例
+- 🛒 電商內容優化案例
+- 👨‍💼 個人品牌建立案例
+- 🎓 教育內容策略案例
+
+**想要貢獻內容？** [查看貢獻指南](contributing.md)
+
+</div>
 
 ---
 
