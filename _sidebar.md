@@ -1,4 +1,4 @@
-* [🏠 首頁](/)
+* [🏠 首頁](https://bless25min.github.io/AIOGEO-Knowledge/)
 
 ---
 
