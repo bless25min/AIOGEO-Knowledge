@@ -80,7 +80,10 @@ AIOGEO知識庫致力於推廣**GEO（Generative Engine Optimization，生成式
 - 🛠️ **實用工具**：[檢查清單](tools/checklists.md)和[內容模板](tools/content-templates.md)
 - 💬 **社群討論**：[GitHub Discussions](https://github.com/bless25min/AIOGEO-Knowledge/discussions)
 - 🆘 **問題求助**：[Issues](https://github.com/bless25min/AIOGEO-Knowledge/issues)頁面
+### 🔥 **AI分析工具**
+[![AIOGEO Optimizer](https://img.shields.io/badge/🚀%20AIOGEO-SearchAware%20Optimizer-blue)](https://chatgpt.com/g/g-682c377e0d1c8191b1a6267f8bd008df-geoqian-li-fen-xi-gong-ju)
 
+**專業AI內容分析工具**：逐句分析內容引用潛力，提供具體優化建議
 ---
 
 ### ⏰ 學習時程規劃
