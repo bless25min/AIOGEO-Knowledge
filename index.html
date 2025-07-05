@@ -237,8 +237,22 @@
             plugins: [
                 function(hook, vm) {
                     hook.beforeEach(function (html) {
+                        // 處理編輯連結
                         var url = 'https://github.com/bless25min/AIOGEO-Knowledge/blob/main/' + vm.route.file
                         var editHtml = '[📝 編輯此頁](' + url + ') | [⭐ 給個星星](https://github.com/bless25min/AIOGEO-Knowledge) | [🔗 作者其他專案](https://github.com/bless25min)\n\n'
+                        
+                        // 如果當前在 posts 目錄下，修復內部連結
+                        if (vm.route.path && vm.route.path.startsWith('posts/')) {
+                            // 修復指向同目錄文件的連結
+                            html = html.replace(/\]\(([^\/\#\)\.]+\.md)\)/g, function(match, filename) {
+                                // 排除已經有路徑的連結
+                                if (!filename.includes('/') && !filename.startsWith('http')) {
+                                    return '](posts/' + filename + ')';
+                                }
+                                return match;
+                            });
+                        }
+                        
                         return editHtml + html
                     }),
                     hook.afterEach(function (html, next) {
