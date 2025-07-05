@@ -2,30 +2,49 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <title>🤖 AIOGEO 知識庫 | AI搜尋優化完整指南</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="description" content="專為AI搜尋優化(GEO)打造的權威知識庫，深度探討GEO優化技術，由廖天佑 Bless 維護。涵蓋生成式引擎優化、AI引用策略、內容結構化設計等前沿主題。" />
-    <meta name="keywords" content="GEO,生成式引擎優化,AI搜尋,ChatGPT,廖天佑,Bless,AIOGEO,搜尋引擎優化,內容優化" />
-    <meta name="author" content="廖天佑 Bless Liao" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIOGEO 知識庫｜AI搜尋優化權威指南</title>
+    <!-- 🔥 在這裡加入Google驗證標籤 -->
+    <meta name="google-site-verification" content="6-lu11K6CnSMg6sKWXW9YyQdB0sQaK8aOccT-3zhoQQ" />
+    <meta name="description" content="深入探討AI搜尋引擎優化(GEO)、摘要生成演算法、引用優化策略等前沿技術，掌握ChatGPT、Claude、Perplexity等AI搜尋工具的內容優化秘訣。">
+    <meta name="author" content="AIOGEO技術團隊">
+    <meta name="keywords" content="GEO, AI搜尋, 摘要演算法, 引用優化, 生成式AI, AIOGEO">
     
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://bless25min.github.io/AIOGEO-Knowledge/" />
-    <meta property="og:title" content="🤖 AIOGEO 知識庫 | AI搜尋優化完整指南" />
-    <meta property="og:description" content="專為AI搜尋優化(GEO)打造的權威知識庫，深度探討GEO優化技術，由廖天佑 Bless 維護。" />
-    <meta property="og:image" content="https://bless25min.github.io/AIOGEO-Knowledge/assets/images/og-image.png" />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://bless25min.github.io/AIOGEO-Knowledge/" />
-    <meta property="twitter:title" content="🤖 AIOGEO 知識庫 | AI搜尋優化完整指南" />
-    <meta property="twitter:description" content="專為AI搜尋優化(GEO)打造的權威知識庫，深度探討GEO優化技術，由廖天佑 Bless 維護。" />
-    <meta property="twitter:image" content="https://bless25min.github.io/AIOGEO-Knowledge/assets/images/og-image.png" />
-
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="AIOGEO 知識庫 - AI搜尋優化權威指南">
+    <meta property="og:description" content="專業的AI搜尋引擎優化知識庫，探討GEO技術與演算法">
+    <meta property="og:url" content="https://bless25min.github.io/AIOGEO-Knowledge/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://bless25min.github.io/AIOGEO-Knowledge/assets/images/og-image.png">
     
+    <!-- Schema.org結構化資料 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "AIOGEO 知識庫",
+        "description": "AI搜尋優化權威指南",
+        "url": "https://bless25min.github.io/AIOGEO-Knowledge/",
+        "author": {
+            "@type": "Person",
+            "name": "廖天佑 Bless Liao",
+            "url": "https://github.com/bless25min"
+        },
+        "keywords": ["GEO", "AI搜尋", "摘要演算法", "引用優化", "生成式AI"],
+        "inLanguage": "zh-TW",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://bless25min.github.io/AIOGEO-Knowledge/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "AIOGEO 知識庫",
+            "url": "https://bless25min.github.io/AIOGEO-Knowledge/"
+        }
+    }
+    </script>
+
     <!-- Docsify CSS -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
     
@@ -101,49 +120,7 @@
             gap: 1.5rem;
             margin: 2rem 0;
         }
-        
-        .tech-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .tech-card:hover {
-            border-color: var(--theme-color);
-            box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.1);
-            transform: translateY(-2px);
-        }
-        
-        .tech-card h3 {
-            color: var(--theme-color);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-        
-        .author-signature {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            border: 1px solid #cbd5e1;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-top: 2rem;
-            text-align: center;
-        }
-        
-        .author-name {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: var(--bless-purple);
-            margin-bottom: 0.5rem;
-        }
-        
-        .author-title {
-            color: #64748b;
-            font-size: 0.9rem;
-        }
-        
+       
         /* 代碼區塊樣式優化 */
         .markdown-section pre {
             background: #1e293b !important;
@@ -201,12 +178,12 @@
     <div id="app">
         <div style="text-align: center; padding: 2rem;">
             <h1>🤖 AIOGEO 知識庫載入中...</h1>
-            <p>由廖天佑 Bless 打造的AI搜尋優化權威指南</p>
+            <p>專業的AI搜尋優化權威指南</p>
         </div>
     </div>
     
     <script>
-       window.$docsify = {
+        window.$docsify = {
             name: '🤖 AIOGEO 知識庫',
             nameLink: '/',
             repo: 'https://github.com/bless25min/AIOGEO-Knowledge',
@@ -215,12 +192,6 @@
             homepage: 'README.md',
             auto2top: true,
             maxLevel: 4,
-            alias: {
-                '/.*/_sidebar.md': '/_sidebar.md',
-                '/geo-fundamentals-overview.md': '/posts/geo-fundamentals.md'
-            },
-            notFoundPage: true,
-            relativePath: false,
             search: {
                 maxAge: 86400000,
                 paths: 'auto',
@@ -231,34 +202,20 @@
             },
             copyCode: {
                 buttonText: '📋 複製代碼',
-                errorText: '❌複製失敗',
+                errorText: '❌ 複製失敗',
                 successText: '✅ 已複製'
             },
             plugins: [
                 function(hook, vm) {
                     hook.beforeEach(function (html) {
-                        // 處理編輯連結
                         var url = 'https://github.com/bless25min/AIOGEO-Knowledge/blob/main/' + vm.route.file
-                        var editHtml = '[📝 編輯此頁](' + url + ') | [⭐ 給個星星](https://github.com/bless25min/AIOGEO-Knowledge) | [🔗 作者其他專案](https://github.com/bless25min)\n\n'
-                        
-                        // 如果當前在 posts 目錄下，修復內部連結
-                        if (vm.route.path && vm.route.path.startsWith('posts/')) {
-                            // 修復指向同目錄文件的連結
-                            html = html.replace(/\]\(([^\/\#\)\.]+\.md)\)/g, function(match, filename) {
-                                // 排除已經有路徑的連結
-                                if (!filename.includes('/') && !filename.startsWith('http')) {
-                                    return '](posts/' + filename + ')';
-                                }
-                                return match;
-                            });
-                        }
-                        
+                        var editHtml = '[📝 編輯此頁](' + url + ') | [⭐ 給個星星](https://github.com/bless25min/AIOGEO-Knowledge)\n\n'
                         return editHtml + html
                     }),
                     hook.afterEach(function (html, next) {
                         var footer = '\n\n---\n\n<div class="author-signature">' +
-                                   '<div class="author-name">廖天佑 Bless Liao</div>' +
-                                   '<div class="author-title">AI搜尋優化研究者 | 數位行銷專家</div>' +
+                                   '<div class="author-name">AIOGEO 知識庫</div>' +
+                                   '<div class="author-title">AI搜尋優化權威指南</div>' +
                                    '</div>'
                         next(html + footer)
                     })
