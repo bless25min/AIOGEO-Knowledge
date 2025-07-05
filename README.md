@@ -121,6 +121,7 @@ graph LR
 - **五大指標體系**：量化GEO優化效果的評估標準
 - **競爭對手分析**：系統化的市場分析方法
 - **自動化監測**：完整的KPI追蹤和預警系統
+- **AIOGEO SearchAware Optimizer**：結合AIO/GEO引用邏輯，對每句內容產生結構化的評估報告
 
 ### 🌐 多模態支援
 - **圖文轉譯**：五段式圖卡架構設計
@@ -134,6 +135,7 @@ graph LR
 
 ### 📋 第一步：基礎評估
 使用我們的[GEO成效評估工具](posts/geo-measurement.md#aiogeo-searchaware-optimizer)診斷現有內容：
+
 
 ```markdown
 ✅ 檢查清單：
