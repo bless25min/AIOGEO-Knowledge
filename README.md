@@ -6,7 +6,7 @@
 
 > 🎯 **專案使命**：讓每一段精心創作的內容都能被AI看見、理解並引用，在AI驅動的未來中發揮更大的影響力。
 > 
-> 👨‍💻 **作者**：[廖天佑 Bless Liao](about.md) | 📧 bless.liao@aiogeo.com | 🐙 [@bless25min](https://github.com/bless25min)
+> 👨‍💻 **作者**：[廖天佑 Bless Liao](about.md) | 📧 (https://bless25min.github.io/AIOGEO-Knowledge/) | 🐙 [@bless25min](https://github.com/bless25min)
 
 ---
 
