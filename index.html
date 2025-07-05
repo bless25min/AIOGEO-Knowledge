@@ -211,12 +211,13 @@
             nameLink: '/',
             repo: 'https://github.com/bless25min/AIOGEO-Knowledge',
             loadSidebar: true,
-            loadSidebar: '_sidebar.md',     // 🔧 明確指定側邊欄檔案路徑
             subMaxLevel: 3,
             homepage: 'README.md',
             auto2top: true,
             maxLevel: 4,
-            relativePath: false,            // 🔧 重要：使用絕對路徑解決404問題
+            alias: {
+                '/.*/_sidebar.md': '/_sidebar.md'
+            },
             search: {
                 maxAge: 86400000,
                 paths: 'auto',
