@@ -259,47 +259,49 @@
     </div>
     
     <script>
-        window.$docsify = {
-            name: '🤖 AIOGEO 知識庫',
-            nameLink: 'https://bless25min.github.io/AIOGEO-Knowledge/',
-            repo: 'https://github.com/bless25min/AIOGEO-Knowledge',
-            loadSidebar: true,
-            subMaxLevel: 3,
-            homepage: 'README.md',
-            auto2top: true,
-            maxLevel: 4,
-            search: {
-                maxAge: 86400000,
-                paths: 'auto',
-                placeholder: '🔍 搜尋 AI 搜尋技術...',
-                noData: '😔 找不到相關內容',
-                depth: 6,
-                hideOtherSidebarContent: false
-            },
-            copyCode: {
-                buttonText: '📋 複製代碼',
-                errorText: '❌ 複製失敗',
-                successText: '✅ 已複製'
-            },
-            plugins: [
-                function(hook, vm) {
-                    hook.beforeEach(function (html) {
-                        var url = 'https://github.com/bless25min/AIOGEO-Knowledge/blob/main/' + vm.route.file
-                        var editHtml = '[📝 編輯此頁](' + url + ') | [⭐ 給個星星](https://github.com/bless25min/AIOGEO-Knowledge) | [🔗 作者其他專案](https://github.com/bless25min)\n\n'
-                        return editHtml + html
-                    }),
-                    hook.afterEach(function (html, next) {
-                        var footer = '\n\n---\n\n<div class="author-signature">' +
-                                   '<div class="author-name">廖天佑 Bless Liao</div>' +
-                                   '<div class="author-title">AI搜尋優化研究者 | 數位行銷專家</div>' +
-                                   '</div>'
-                        next(html + footer)
-                    })
-                }
-            ],
-            themeColor: '#6366f1'
-        }
-    </script>
+    window.$docsify = {
+        name: '🤖 AIOGEO 知識庫',
+        nameLink: '/',
+        repo: 'https://github.com/bless25min/AIOGEO-Knowledge',
+        loadSidebar: true,
+        loadSidebar: '_sidebar.md',     // 🔧 明確指定側邊欄檔案
+        subMaxLevel: 3,
+        homepage: 'README.md',
+        auto2top: true,
+        maxLevel: 4,
+        relativePath: false,            // 🔧 重要：使用絕對路徑
+        search: {
+            maxAge: 86400000,
+            paths: 'auto',
+            placeholder: '🔍 搜尋 AI 搜尋技術...',
+            noData: '😔 找不到相關內容',
+            depth: 6,
+            hideOtherSidebarContent: false
+        },
+        copyCode: {
+            buttonText: '📋 複製代碼',
+            errorText: '❌ 複製失敗',
+            successText: '✅ 已複製'
+        },
+        plugins: [
+            function(hook, vm) {
+                hook.beforeEach(function (html) {
+                    var url = 'https://github.com/bless25min/AIOGEO-Knowledge/blob/main/' + vm.route.file
+                    var editHtml = '[📝 編輯此頁](' + url + ') | [⭐ 給個星星](https://github.com/bless25min/AIOGEO-Knowledge) | [🔗 作者其他專案](https://github.com/bless25min)\n\n'
+                    return editHtml + html
+                }),
+                hook.afterEach(function (html, next) {
+                    var footer = '\n\n---\n\n<div class="author-signature">' +
+                               '<div class="author-name">廖天佑 Bless Liao</div>' +
+                               '<div class="author-title">AI搜尋優化研究者 | 數位行銷專家</div>' +
+                               '</div>'
+                    next(html + footer)
+                })
+            }
+        ],
+        themeColor: '#6366f1'
+    }
+</script>
     
     <!-- Docsify 核心 -->
     <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
