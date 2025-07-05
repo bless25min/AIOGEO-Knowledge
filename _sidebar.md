@@ -5,14 +5,14 @@
 ## 📚 GEO基礎理論
 
 * [📖 GEO基礎原理](posts/geo-fundamentals.md)
-* [🎯 Answer Layer語段設計](posts/answer-layer-design.md)
+* [🎯 Answer Layer語段設計](posts/answer-layer-design.md) ✅
 
 ---
 
 ## 🛠️ 實戰優化策略
 
 * [🕸️ Semantic Mesh內容網](posts/semantic-mesh.md)
-* [🎨 多模態轉譯策略](posts/multimodal-optimization.md)
+* [🎨 多模態轉譯策略](posts/multimodal-optimization.md) 🆕
 * [⚖️ SEO×GEO雙軌整合](posts/seo-geo-integration.md)
 
 ---
@@ -23,10 +23,19 @@
 
 ---
 
-## 🛠️ 實用工具
+## 🛠️ 實用工具與資源
 
-* [📋 GEO優化檢查清單](tools/checklists.md)
-* [📝 內容模板庫](tools/content-templates.md)
+* [📋 GEO優化檢查清單](tools/geo-checklist.md) 🔜
+* [🎨 內容模板庫](tools/content-templates.md) 🔜
+* [⚙️ Schema標記產生器](tools/schema-generator.md) 🔜
+
+---
+
+## 📚 可下載資源
+
+* [📄 GEO優化完整指南 PDF](resources/geo-complete-guide.pdf) 🔜
+* [📊 引用潛力評估報告](resources/citation-potential-assessment.pdf) 🔜
+* [🎯 Answer Layer設計模板](resources/answer-layer-templates.pdf) 🔜
 
 ---
 
@@ -59,11 +68,23 @@
 
 **深度學習順序：**
 1. [🕸️ Semantic Mesh內容網](posts/semantic-mesh.md) ⏱️ 20分鐘
-2. [🎨 多模態轉譯策略](posts/multimodal-optimization.md) ⏱️ 15分鐘
-3. [📋 GEO優化檢查清單](tools/checklists.md) ⏱️ 10分鐘
-4. [📝 內容模板實作](tools/content-templates.md) ⏱️ 15分鐘
+2. [🎨 多模態轉譯策略](posts/multimodal-optimization.md) ⏱️ 18分鐘 🆕
+3. 更多進階內容陸續新增...
 
 **學習目標：** 建立系統化內容架構，掌握多模態優化技能
+
+</details>
+
+<details>
+<summary>🎯 <strong>實戰應用路徑</strong> (專業工作者)</summary>
+
+**實作導向學習：**
+1. [📋 GEO優化檢查清單](tools/geo-checklist.md) ⏱️ 10分鐘
+2. [🎨 內容模板庫](tools/content-templates.md) ⏱️ 15分鐘
+3. [⚙️ Schema標記產生器](tools/schema-generator.md) ⏱️ 20分鐘
+4. [📄 完整實施指南 PDF](resources/geo-complete-guide.pdf) ⏱️ 45分鐘
+
+**學習目標：** 立即可執行的優化策略，建立GEO工作流程
 
 </details>
 
@@ -72,45 +93,46 @@
 ## 🔥 熱門文章
 
 * 🏆 [GEO引用技術完全指南](posts/geo-fundamentals.md)
-* ⚡ [Semantic Mesh實作教學](posts/semantic-mesh.md)  
+* ⚡ [Answer Layer設計實戰](posts/answer-layer-design.md) ✅
+* 🎨 [多模態內容轉譯策略](posts/multimodal-optimization.md) 🆕  
+* 🕸️ [Semantic Mesh實作教學](posts/semantic-mesh.md)
 * 🎯 [雙軌整合實戰指南](posts/seo-geo-integration.md)
-* 🎨 [多模態內容轉譯](posts/multimodal-optimization.md)
 * 📊 [AI引用成效追蹤](posts/geo-measurement.md)
 
 ---
 
 ## 📞 聯絡支援
 
-* **專案維護**：AIOGEO技術團隊
+* **作者**：廖天佑 Bless Liao
 * **GitHub**：[@bless25min](https://github.com/bless25min)
 * **專案**：[AIOGEO Knowledge](https://github.com/bless25min/AIOGEO-Knowledge)
 * **討論**：[GitHub Discussions](https://github.com/bless25min/AIOGEO-Knowledge/discussions)
 
 ---
 
-## 🚧 發展規劃
+## 🚧 第四階段進行中
 
-<div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border: 1px solid #f59e0b; border-radius: 8px; padding: 16px; margin: 16px 0;">
+<div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border: 1px solid #10b981; border-radius: 8px; padding: 16px; margin: 16px 0;">
 
-### 📅 近期更新計畫
-- 🧠 AI搜尋演算法深度解析
-- 🎙️ 語音搜尋GEO優化策略
-- 👁️ 視覺內容AI引用技術
-- 🤖 LLM訓練數據最佳化
+### 🎨 多模態內容製作 (當前階段)
+- ✅ 多模態轉譯策略文章完成
+- 🔄 PDF資源製作中
+- 🔄 圖文內容範例設計中
+- 📅 短影音腳本規劃中
 
-### 🛠️ 工具開發中
-- 🧰 AIOGEO自動分析工具
-- 📝 智能內容模板生成器
-- 📋 個人化檢查清單系統
-- 🔗 AI引用追蹤儀表板
+### 📋 即將完成的資源
+- 📄 GEO優化檢查清單 PDF
+- 🎯 Answer Layer設計模板
+- ⚙️ Schema標記產生器工具
+- 📊 引用潛力評估報告
 
-### 💼 應用案例庫
-- 🏢 企業級GEO實施案例
-- 📚 教育內容優化案例
-- 🛒 電商產品描述優化
-- 🎓 技術文檔GEO策略
+### 🛠️ 實用工具 (開發中)
+- 🧰 AIOGEO工具清單
+- 📝 內容模板庫  
+- 📋 優化檢查清單
+- 🔗 推薦資源整理
 
-**想要貢獻內容？** [查看貢獻指南](contributing.md)
+**進度追蹤：** 第四階段 65% 完成
 
 </div>
 
