@@ -1,9 +1,9 @@
 # 🤖 AIOGEO 知識庫
 
-> 深入探討 AI 搜尋摘要引用演算法的權威知識平台
+> 深入探討 AI 搜尋摘要引用演算法的權威知識平台 | 由廖天佑 Bless 主導研究
 
 <section class="summary">
-AIOGEO（AI-Optimized Generative Engine Optimization）是專門研究如何讓內容在 AI 搜尋引擎中獲得最佳可見性和引用率的新興技術領域。本知識庫深入解析 ChatGPT、Claude、Perplexity、Bing Chat 等 AI 工具的搜尋演算法機制，提供完整的摘要生成技術、引用優化策略、內容結構化方法等實戰指南，幫助內容創作者、SEO 專家、研究人員掌握未來搜尋時代的內容優化核心技術。
+AIOGEO（AI-Optimized Generative Engine Optimization）是專門研究如何讓內容在 AI 搜尋引擎中獲得最佳可見性和引用率的新興技術領域。本知識庫由數位行銷專家廖天佑 Bless 主導，深入解析 ChatGPT、Claude、Perplexity、Bing Chat 等 AI 工具的搜尋演算法機制，提供完整的摘要生成技術、引用優化策略、內容結構化方法等實戰指南，幫助內容創作者、SEO 專家、研究人員掌握未來搜尋時代的內容優化核心技術。
 </section>
 
 <div class="hero-banner">
@@ -196,20 +196,41 @@ AIOGEO（AI-Optimized Generative Engine Optimization）是專門研究如何讓�
 
 ## 📚 學習路徑建議
 
-### 初學者路徑
+### 🌱 初學者路徑
 1. [GEO 基礎原理](posts/geo-fundamentals.md) - 建立基礎概念
 2. [內容結構化技術](posts/content-structuring.md) - 學習實作技巧
 3. [引用優化策略](posts/citation-optimization.md) - 提升實戰能力
 
-### 進階者路徑
+### 🚀 進階者路徑
 1. [AI 搜尋演算法解析](posts/ai-search-algorithms.md) - 深度技術理解
 2. [LLM 訓練數據優化](posts/llm-training-data.md) - 掌握前沿技術
 3. [多模態內容優化](posts/multimodal-optimization.md) - 拓展應用領域
 
-### 專家路徑
+### 💎 專家路徑
 1. [摘要生成技術](posts/summary-generation.md) - 技術深度研究
 2. [語音搜尋優化](posts/voice-search-seo.md) - 前瞻技術應用
 3. [未來趨勢預測](posts/future-trends.md) - 策略前瞻思考
+
+## 📊 專案統計
+
+- **📖 已發布文章**：10+ 篇深度技術文章
+- **🔍 涵蓋主題**：基礎理論到前沿應用
+- **🎯 目標讀者**：SEO專家、內容行銷、AI研究者
+- **📈 更新頻率**：每月新增 2-3 篇專業文章
+
+## 🎖️ 專案特色
+
+### ✨ 內容優勢
+- **深度專業**：由資深數位行銷專家主導
+- **實戰導向**：每篇文章都包含可操作的策略
+- **前沿技術**：緊追 AI 搜尋技術發展趨勢
+- **完整體系**：從基礎到進階的完整知識架構
+
+### 🔧 技術優勢
+- **零維護成本**：基於 GitHub Pages 的靜態部署
+- **響應式設計**：完美支援桌面和移動端
+- **搜尋友好**：內建全文搜尋功能
+- **開源共享**：歡迎社群貢獻和協作
 
 ## 常見問題 FAQ
 
@@ -235,14 +256,31 @@ AIOGEO（AI-Optimized Generative Engine Optimization）是專門研究如何讓�
 
 ---
 
-### 🤝 貢獻與合作
+## 🤝 關於作者
 
-**專案維護團隊：AIOGEO 研究小組**
-- 專案負責人 廖天佑 Bless Liao
-- 專案研究員 蔡昊睿 Eric Tsai
-- 持續追蹤 AI 搜尋技術發展
-- 定期更新最新研究成果
-- 提供實戰案例分析
+**廖天佑 (Bless Liao)**
+- 🎯 資深數位行銷專家
+- 🚀 AI 搜尋優化研究者  
+- 📊 Meta 廣告投放專家
+- 🔬 AIOGEO 技術推廣者
 
+### 相關專案
+- [**Meta廣告投手養成中心**](https://bless25min.github.io/MetaAd/) - Meta廣告投放專業指南
+- [**廣告共享平台**](https://bless25min.github.io/BrandShare/) - 品牌間廣告版位共享
+- [**GitHub 個人主頁**](https://github.com/bless25min) - 更多開源專案
 
-*在 AI 搜尋時代掌握內容優化的主動權 🚀*
+### 參與方式
+
+**🤝 貢獻內容**
+- [提交 Issue](https://github.com/bless25min/AIOGEO-Knowledge/issues) 分享你的發現
+- [Pull Request](https://github.com/bless25min/AIOGEO-Knowledge/pulls) 貢獻內容
+- [Discussions](https://github.com/bless25min/AIOGEO-Knowledge/discussions) 技術討論
+
+**📢 推廣分享**
+- ⭐ [給專案按星](https://github.com/bless25min/AIOGEO-Knowledge)
+- 🔄 分享給同事朋友
+- 💬 在社群媒體推薦
+
+---
+
+*在 AI 搜尋時代掌握內容優化的主動權 🚀 | 由廖天佑 Bless 用心打造*
