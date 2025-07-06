@@ -2,9 +2,7 @@
 
 > **讓AI看見你的內容**：探索生成式引擎優化（GEO）的理論與實戰
 
-<section class="summary">
 AIOGEO知識庫是全球首個系統性的生成式引擎優化（GEO）專業資源庫。在ChatGPT、Google SGE、Perplexity等AI搜尋工具主導的新時代，傳統SEO策略面臨根本性挑戰。本知識庫提供完整的GEO理論基礎、實戰技巧和工具模板，幫助內容創作者提升在AI答案中的引用率和可見性，實現從「搜尋排名」到「AI引用」的策略轉型。
-</section>
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://bless25min.github.io/AIOGEO-Knowledge/)
 [![Last Updated](https://img.shields.io/badge/Last%20Updated-2025.07-blue)](#)
@@ -18,8 +16,6 @@ AIOGEO知識庫是全球首個系統性的生成式引擎優化（GEO）專業�
 
 現代用戶的資訊獲取行為正在經歷歷史性變革：
 
-<div class="learning-path">
-
 #### 🔍 傳統搜尋 vs AI搜尋對比
 
 | 比較維度 | 傳統Google搜尋 | AI搜尋 (ChatGPT/SGE) |
@@ -29,8 +25,6 @@ AIOGEO知識庫是全球首個系統性的生成式引擎優化（GEO）專業�
 | **價值實現** | 網站流量轉換 | 品牌提及與權威認知 |
 | **優化重點** | 關鍵字排名 | 引用可信度 |
 | **成功指標** | CTR、停留時間 | 引用頻次、準確性 |
-
-</div>
 
 #### 📈 關鍵趨勢數據
 
@@ -79,8 +73,7 @@ graph TD
 
 #### 🔍 各層級詳細說明
 
-<details>
-<summary><strong>第一層：語意錨定 (Semantic Anchoring)</strong></summary>
+**第一層：語意錨定 (Semantic Anchoring)**
 
 **目標**：確保內容主題明確、邊界清晰，便於AI準確分類和理解。
 
@@ -94,10 +87,7 @@ graph TD
 - ❌ 不佳：「關於那些行銷的小秘密」
 - ✅ 優秀：「Facebook廣告投放ROI優化策略：數據驅動的五大技巧」
 
-</details>
-
-<details>
-<summary><strong>第二層：語境觸發 (Context Triggering)</strong></summary>
+**第二層：語境觸發 (Context Triggering)**
 
 **目標**：涵蓋多種相關查詢場景，擴大被召回的機會。
 
@@ -110,10 +100,7 @@ graph TD
 **實例應用**：
 針對「SEO優化」的內容，同時涵蓋「搜尋引擎優化」、「網站排名提升」、「Google演算法應對」等相關表達。
 
-</details>
-
-<details>
-<summary><strong>第三層：語用重組 (Pragmatic Recomposition)</strong></summary>
+**第三層：語用重組 (Pragmatic Recomposition)**
 
 **目標**：內容易於被AI拆解、重組為新的表達形式。
 
@@ -134,8 +121,6 @@ graph TD
 2. **主題一致性**：...
 3. **邊界清晰**：...
 ```
-
-</details>
 
 ### 📊 五大GEO優化指標
 
@@ -223,8 +208,6 @@ graph LR
 
 ### 🏆 真實優化成果展示
 
-<div class="learning-path">
-
 #### 📈 量化改善數據
 
 **基於AIOGEO方法論優化的實際案例**：
@@ -244,8 +227,6 @@ graph LR
    - 客戶自助解決率：**78%**
    - 內容維護效率提升：**60%**
 
-</div>
-
 ### 🎯 優化前後對比範例
 
 **優化前的內容結構**：
@@ -260,11 +241,9 @@ graph LR
 ```markdown
 # Google演算法更新應對策略：2025年SEO優化完整指南
 
-<section class="summary">
 Google演算法持續演進對SEO策略帶來新挑戰。本指南基於2025年最新更新，
 提供系統性的應對策略，包括內容品質優化、技術SEO強化、用戶體驗提升等
 三大核心方向，幫助網站維持並提升搜尋排名表現。
-</section>
 
 ## 🎯 演算法更新的核心趨勢
 ### 1. E-E-A-T權威性強化
@@ -344,8 +323,6 @@ Google演算法持續演進對SEO策略帶來新挑戰。本指南基於2025年�
 
 ## 🚀 立即開始您的GEO優化之旅
 
-<div style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; padding: 24px; border-radius: 12px; text-align: center; margin: 32px 0;">
-
 ### 🎯 三步驟快速啟動
 
 **步驟一**：閱讀 [📖 GEO基礎原理](posts/geo-fundamentals.md) 建立理論基礎  
@@ -358,146 +335,6 @@ Google演算法持續演進對SEO策略帶來新挑戰。本指南基於2025年�
 
 **[🚀 現在就開始 →](posts/geo-fundamentals.md)**
 
-</div>
-
 ---
 
-<small style="color: #6b7280; text-align: center; display: block; margin-top: 40px;">
-📅 最後更新：2025-07-06 | 🌟 持續更新中 | ⭐ <a href="https://github.com/bless25min/AIOGEO-Knowledge">支持我們的工作</a> | 📈 版本：v2.0 優化版
-</small>
-
-<style>
-.learning-path {
-  margin: 20px 0;
-  padding: 20px;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  border-radius: 12px;
-  border-left: 4px solid #6366f1;
-}
-
-.summary {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-  border: 1px solid #f59e0b;
-  border-radius: 12px;
-  padding: 24px;
-  margin: 24px 0;
-  position: relative;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.summary::before {
-  content: "💡 核心摘要";
-  position: absolute;
-  top: -12px;
-  left: 16px;
-  background: #fbbf24;
-  color: #92400e;
-  padding: 4px 12px;
-  border-radius: 6px;
-  font-size: 0.8em;
-  font-weight: bold;
-}
-
-details {
-  background: #f1f5f9;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 12px 0;
-}
-
-details summary {
-  font-weight: bold;
-  color: #6366f1;
-  cursor: pointer;
-  padding: 8px 0;
-}
-
-details[open] summary {
-  border-bottom: 1px solid #cbd5e1;
-  margin-bottom: 12px;
-}
-</style>
-
-<!-- Schema.org JSON-LD for Homepage -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "TechArticle",
-  "headline": "AIOGEO 知識庫：生成式引擎優化專業指南",
-  "description": "系統性的GEO理論基礎與實戰技巧，幫助內容創作者提升在AI搜尋中的引用率和可見性",
-  "author": {
-    "@type": "Person",
-    "name": "廖天佑 Bless Liao",
-    "url": "https://bless25min.github.io/AIOGEO-Knowledge/about",
-    "sameAs": [
-      "https://github.com/bless25min",
-      "https://linkedin.com/in/bless-liao"
-    ]
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "AIOGEO 知識庫",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://bless25min.github.io/AIOGEO-Knowledge/assets/images/logo.png"
-    }
-  },
-  "datePublished": "2025-07-05",
-  "dateModified": "2025-07-06",
-  "keywords": ["GEO", "生成式引擎優化", "AI搜尋", "ChatGPT", "Google SGE", "內容優化", "SEO", "AI引用"],
-  "about": [
-    {
-      "@type": "Thing",
-      "name": "生成式引擎優化",
-      "description": "針對AI搜尋系統的內容優化策略"
-    },
-    {
-      "@type": "Thing", 
-      "name": "AI搜尋",
-      "description": "基於人工智慧的資訊檢索與答案生成技術"
-    }
-  ],
-  "teaches": [
-    {
-      "@type": "Course",
-      "name": "GEO基礎理論",
-      "description": "生成式引擎優化的核心概念與三層語意可見性架構"
-    },
-    {
-      "@type": "Course",
-      "name": "實戰優化技巧", 
-      "description": "Semantic Mesh架構設計、Schema標記實作等實務技能"
-    }
-  ],
-  "mainEntity": {
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "什麼是GEO（生成式引擎優化）？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "GEO是一套系統性方法論，旨在優化內容以提高在AI生成回答中被引用的機率和準確性。不同於傳統SEO關注搜尋排名，GEO專注於成為AI知識來源和權威參考。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "為什麼需要GEO而不只是SEO？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "隨著AI搜尋工具的興起，用戶越來越依賴AI整合答案而非點擊連結。AI搜尋成長率達247%，傳統點擊率下降30%。GEO幫助內容在新的搜尋生態中保持可見性和影響力。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "GEO優化的核心策略是什麼？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "GEO基於三層語意可見性架構：語意錨定（主題明確）、語境觸發（多查詢涵蓋）、語用重組（模組化內容）。同時需要實施Semantic Mesh內容網絡、Schema標記、多模態轉譯等技術策略。"
-        }
-      }
-    ]
-  }
-}
-</script>
+📅 最後更新：2025-07-06 | 🌟 持續更新中 | ⭐ [支持我們的工作](https://github.com/bless25min/AIOGEO-Knowledge) | 📈 版本：v2.0 優化版
