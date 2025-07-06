@@ -27,8 +27,8 @@
   <link rel="canonical" href="https://bless25min.github.io/AIOGEO-Knowledge/">
   
   <!-- Favicon -->
-  <link rel="icon" href="assets/images/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+  <link rel="icon" href="./assets/images/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/apple-touch-icon.png">
   
   <!-- Docsify Theme -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
@@ -274,9 +274,13 @@
       auto2top: true,
       maxLevel: 4,
       
-      // 🔧 關鍵修復：讓所有目錄都使用根目錄的 _sidebar.md
+      // 🔧 修正：確保所有目錄都使用根目錄的 _sidebar.md
       alias: {
-        '/.*/_sidebar.md': '/_sidebar.md'
+        '/.*/_sidebar.md': '/_sidebar.md',
+        // 新增：為不同路徑提供更明確的對應
+        '/posts/_sidebar.md': '/_sidebar.md',
+        '/micro/_sidebar.md': '/_sidebar.md',
+        '/tools/_sidebar.md': '/_sidebar.md'
       },
       
       // Search Configuration
@@ -327,7 +331,7 @@
         function(hook, vm) {
           hook.beforeEach(function(html) {
             const wordCount = html.replace(/<[^>]*>/g, '').length;
-            const readTime = Math.ceil(wordCount / 500); // 假設每分鐘閱讀500字
+            const readTime = Math.ceil(wordCount / 500);
             
             if (readTime > 1) {
               return `<div style="background: #f1f5f9; padding: 8px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.9em; color: #64748b;">
@@ -338,7 +342,7 @@
           });
         },
         
-        // Add article navigation
+        // Add article navigation - 修正內部連結
         function(hook, vm) {
           hook.afterEach(function(html, next) {
             const footer = `
@@ -352,6 +356,14 @@
                   <a href="#/about" class="nav-link">
                     <strong>👤 關於作者</strong><br>
                     <small>廖天佑 Bless 專業背景</small>
+                  </a>
+                  <a href="#/contributing" class="nav-link">
+                    <strong>🤝 參與貢獻</strong><br>
+                    <small>協助改善知識庫</small>
+                  </a>
+                  <a href="#/privacy" class="nav-link">
+                    <strong>🔒 隱私政策</strong><br>
+                    <small>資料保護說明</small>
                   </a>
                   <a href="https://github.com/bless25min/AIOGEO-Knowledge/discussions" target="_blank" class="nav-link">
                     <strong>💬 社群討論</strong><br>
@@ -375,10 +387,13 @@
         }
       ],
       
-      // Custom 404
+      // Custom 404 - 修正為首頁重導向
       notFoundPage: {
-        '/': '_404.md'
-      }
+        '/': 'README.md'  // 如果 _404.md 不存在，重導向到首頁
+      },
+      
+      // 新增：錯誤處理
+      catchPluginErrors: true
     };
   </script>
   
