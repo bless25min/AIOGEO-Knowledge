@@ -2,7 +2,7 @@
 
 <section class="summary">
 Schema.org結構化資料是提升AI搜尋引擎理解度的關鍵技術，能讓ChatGPT、Perplexity等AI平台更精準地識別、解析和引用您的內容。本指南涵蓋從基礎概念到進階實作的完整技術路徑，包含JSON-LD格式撰寫、不同內容類型的Schema選擇、驗證測試方法，以及針對GEO優化的特殊策略。適合網站開發者、SEO技術人員和內容管理者深度學習應用。
-</summary>
+</section>
 
 ## 🎯 Schema.org在AI搜尋中的核心價值
 
@@ -560,7 +560,7 @@ export function generateArticleSchema(article) {
 
 ### 📖 相關文章連結
 - ⬅️ 基礎準備：[GEO基礎原理](geo-fundamentals.md)
-- ➡️ 實戰應用：[FAQ模組設計指南](faq-design.md)
+- ➡️ 實戰應用：[FAQ模組設計指南](../micro/faq-design.md)
 - 🔄 平行學習：[AI搜尋演算法解析](ai-search-algorithm.md)
 - 📊 效果評估：[GEO成效追蹤與評估](geo-measurement.md)
 
