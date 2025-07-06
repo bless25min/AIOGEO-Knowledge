@@ -18,45 +18,26 @@
 
 #### GEO 基礎技術
 - [什麼是引用增強技術？](citation-enhancement.md) - 提升 AI 引用率的核心方法
-- [語義錨定技術詳解](semantic-anchoring.md) ⚠️ *即將推出*
-- [語境觸發優化指南](context-triggering.md) ⚠️ *即將推出*
-
-#### Schema 標記技術  
-- [什麼是 Schema.org？](schema-basics.md) ⚠️ *即將推出*
-- [FAQ Schema 實作教學](faq-schema.md) ⚠️ *即將推出*
-- [Article Schema 設定指南](article-schema.md) ⚠️ *即將推出*
-
-### 📊 分析評估類
-
-#### 效果監控
-- [如何追蹤 AI 引用情況？](citation-tracking.md) ⚠️ *即將推出*
-- [內容引用率計算方法](citation-rate-calculation.md) ⚠️ *即將推出*
-- [AI 平台偏好分析](platform-preferences.md) ⚠️ *即將推出*
-
-#### 內容分析
-- [語義集中度評估方法](semantic-concentration.md) ⚠️ *即將推出*
-- [引用潛力評分系統](citation-potential-scoring.md) ⚠️ *即將推出*
 
 ### 🎨 內容製作類
 
 #### 寫作技巧
-- [如何設計 AI 友善的標題？](ai-friendly-titles.md) ⚠️ *即將推出*
-- [FAQ 模組設計最佳實務](faq-design.md) ⚠️ *即將推出*
-- [摘要段落撰寫技巧](summary-writing.md) ⚠️ *即將推出*
+- [如何設計 AI 友善的標題？](../posts/geo-fundamentals.md#標題設計) - 連結到主要指南相關章節
+- [摘要段落撰寫技巧](../posts/answer-layer-design.md#摘要設計) - 連結到相關教學
 
 #### 結構優化
-- [Answer Layer 語段建構法](answer-layer-construction.md) ⚠️ *即將推出*
-- [內容模組化設計原則](content-modularization.md) ⚠️ *即將推出*
+- [Answer Layer 語段建構法](../posts/answer-layer-design.md) - 完整的語段設計指南
+- [內容模組化設計原則](../posts/semantic-mesh.md#模組化設計) - 連結到架構指南
 
 ### 🔗 策略整合類
 
 #### SEO×GEO 整合
-- [雙軌優化平衡技巧](dual-optimization.md) ⚠️ *即將推出*
-- [內鏈網絡建構策略](internal-linking-strategy.md) ⚠️ *即將推出*
+- [雙軌優化平衡技巧](../posts/seo-geo-integration.md#雙軌策略) - 連結到整合指南
+- [內鏈網絡建構策略](../posts/semantic-mesh.md#連結策略) - 連結到網絡設計
 
 #### 多模態轉譯
-- [圖文轉譯準備清單](visual-content-prep.md) ⚠️ *即將推出*
-- [影音內容 GEO 優化](video-geo-optimization.md) ⚠️ *即將推出*
+- [圖文轉譯準備清單](../posts/multimodal-optimization.md#圖文策略) - 連結到轉譯指南
+- [影音內容 GEO 優化](../posts/multimodal-optimization.md#影音優化) - 連結到多模態指南
 
 ## 📋 微型頁標準結構
 
@@ -185,4 +166,4 @@
 
 **微型頁是 GEO 策略中最靈活且高效的內容單元。每個精心製作的微型頁都是一個獨立的 AI 引用入口，為您的知識庫增添可見性和價值！**
 
-**最後更新**：2025-07-06 | **頁面總數**：1 個（待擴充至 20+ 個）
+**最後更新**：2025-07-06 | **頁面總數**：1 個（持續擴充中）
