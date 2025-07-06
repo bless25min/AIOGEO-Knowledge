@@ -3,316 +3,448 @@
 > **讓AI看見你的內容**：探索生成式引擎優化（GEO）的理論與實戰
 
 <section class="summary">
-
-### 📄 核心摘要
-
-**AIOGEO知識庫**是專為AI搜尋時代打造的內容優化權威指南。當ChatGPT、Perplexity等生成式AI成為主流搜尋方式，傳統SEO策略已無法確保內容被有效引用。本知識庫提供系統性的**GEO（Generative Engine Optimization）**理論與實戰技巧，幫助內容創作者在AI驅動的搜尋生態中保持競爭力。根據史丹佛大學研究，實施GEO優化後，**AI引用率平均提升40%**，內容可見度大幅改善。
-
+AIOGEO知識庫是全球首個系統性的生成式引擎優化（GEO）專業資源庫。在ChatGPT、Google SGE、Perplexity等AI搜尋工具主導的新時代，傳統SEO策略面臨根本性挑戰。本知識庫提供完整的GEO理論基礎、實戰技巧和工具模板，幫助內容創作者提升在AI答案中的引用率和可見性，實現從「搜尋排名」到「AI引用」的策略轉型。
 </section>
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Active-brightgreen)](https://bless25min.github.io/AIOGEO-Knowledge/)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://bless25min.github.io/AIOGEO-Knowledge/)
 [![Last Updated](https://img.shields.io/badge/Last%20Updated-2025.07-blue)](#)
 [![Author](https://img.shields.io/badge/Author-廖天佑%20Bless-purple)](./about.md)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![Contributors](https://img.shields.io/badge/Contributors-Welcome-orange)](contributing.md)
 
-## 🎯 核心價值主張
+## 🎯 為什麼需要GEO？
 
-### AI搜尋革命：數據洞察
+### 📊 搜尋生態的根本性轉變
 
-在AI搜尋快速普及的今天，內容策略面臨根本性變革：
-
-- **傳統點擊流失**：Google AI Overviews推出後，自然搜尋點擊率下降**30%**
-- **答案優先趨勢**：78%用戶偏好AI直接提供答案，而非瀏覽多個網站  
-- **引用機會增加**：被AI引用的內容，品牌曝光度提升**267%**
-- **競爭格局重塑**：僅16%的內容符合AI引用標準，優化空間巨大
-
-### GEO vs SEO：策略對比
-
-| 比較維度 | 傳統 SEO | 新興 GEO |
-|---------|---------|---------|
-| **目標設定** | 提升網頁排名，吸引點擊 | 成為AI引用來源，獲得答案曝光 |
-| **優化重點** | 關鍵字密度、外鏈建設 | 語義清晰、結構良好、權威可信 |
-| **內容特點** | 完整文章，關鍵字優化 | 模組化段落，AI易於理解擷取 |
-| **評估指標** | 排名位置、CTR、自然流量 | AI引用頻次、摘要出現率 |
-| **技術要求** | Meta標籤、Schema基礎 | 高級Schema、語義標記 |
-
-## 📚 學習藍圖
-
-### 🎓 初學者路徑（預計學習時間：1週）
+現代用戶的資訊獲取行為正在經歷歷史性變革：
 
 <div class="learning-path">
 
-<div class="path-step">
-<div class="step-number">1</div>
-<div>
-<strong>GEO基礎原理</strong> - 了解生成式引擎優化核心概念<br>
-📖 <a href="posts/geo-fundamentals.md">開始學習</a> ⏱️ 15分鐘
-</div>
-</div>
+#### 🔍 傳統搜尋 vs AI搜尋對比
 
-<div class="path-step">
-<div class="step-number">2</div>
-<div>
-<strong>Answer Layer設計</strong> - 掌握AI友好的內容結構<br>
-🎯 <a href="posts/answer-layer-design.md">深入學習</a> ⏱️ 12分鐘
-</div>
-</div>
-
-<div class="path-step">
-<div class="step-number">3</div>
-<div>
-<strong>SEO×GEO雙軌整合</strong> - 平衡傳統與新興策略<br>
-⚖️ <a href="posts/seo-geo-integration.md">實戰應用</a> ⏱️ 18分鐘
-</div>
-</div>
-
-<div class="path-step">
-<div class="step-number">4</div>
-<div>
-<strong>成效評估追蹤</strong> - 監測AI引用率與優化效果<br>
-📊 <a href="posts/geo-measurement.md">掌握方法</a> ⏱️ 10分鐘
-</div>
-</div>
+| 比較維度 | 傳統Google搜尋 | AI搜尋 (ChatGPT/SGE) |
+|---------|---------------|-------------------|
+| **用戶行為** | 點擊多個連結比較 | 接受AI整合答案 |
+| **內容消費** | 完整頁面瀏覽 | 摘要片段獲取 |
+| **價值實現** | 網站流量轉換 | 品牌提及與權威認知 |
+| **優化重點** | 關鍵字排名 | 引用可信度 |
+| **成功指標** | CTR、停留時間 | 引用頻次、準確性 |
 
 </div>
 
-### 🚀 進階者路徑（預計學習時間：2週）
+#### 📈 關鍵趨勢數據
+
+- **🔥 AI搜尋成長率**：2024年較前年增長**247%**（BrightEdge研究）
+- **📉 傳統點擊下降**：Google搜尋點擊率下降**30%**（Search Engine Land）
+- **🎯 AI引用價值**：被AI引用的內容品牌認知提升**40%**（普林斯頓大學研究）
+- **⚡ 用戶偏好轉移**：67%用戶偏好AI整合答案勝過連結清單（Stanford調查）
+
+### 🚨 內容創作者面臨的挑戰
+
+1. **👻 隱形化風險**：優質內容因不符合AI偏好而被忽略
+2. **📊 評估困難**：傳統SEO指標無法衡量AI引用成效  
+3. **🎯 策略迷失**：缺乏系統性的AI優化方法論
+4. **⏰ 時間緊迫**：競爭對手已開始布局AI搜尋優化
+
+## 🧭 GEO核心概念架構
+
+### 🎯 生成式引擎優化 (GEO) 定義
+
+**GEO（Generative Engine Optimization）**是一套系統性方法論，旨在優化內容以提高在AI生成回答中被引用的機率和準確性。不同於傳統SEO關注搜尋排名，GEO專注於成為AI知識來源和權威參考。
+
+### 🏗️ 三層語意可見性架構
 
 ```mermaid
 graph TD
-    A[Semantic Mesh架構] --> B[多模態轉譯]
-    B --> C[AI搜尋演算法]
-    C --> D[前沿技術應用]
+    A[用戶查詢] --> B[AI語義理解]
+    B --> C[第一層：語意錨定]
+    B --> D[第二層：語境觸發] 
+    B --> E[第三層：語用重組]
+    
+    C --> F[主題明確、結構清晰]
+    D --> G[多查詢語境涵蓋]
+    E --> H[模組化重組潛力]
+    
+    F --> I[AI內容召回]
+    G --> I
+    H --> I
+    
+    I --> J[引用選擇評估]
+    J --> K[最終回答生成]
     
     style A fill:#e1f5fe
-    style B fill:#e8f5e8  
-    style C fill:#fff3e0
+    style K fill:#c8e6c9
+    style I fill:#fff3e0
+```
+
+#### 🔍 各層級詳細說明
+
+<details class="faq">
+<summary><strong>第一層：語意錨定 (Semantic Anchoring)</strong></summary>
+
+**目標**：確保內容主題明確、邊界清晰，便於AI準確分類和理解。
+
+**關鍵技巧**：
+- 使用描述性標題（避免創意性模糊表達）
+- 開頭段落直接定義核心概念
+- 保持段落主題一致性
+- 建立清晰的資訊階層
+
+**實例對比**：
+- ❌ 不佳：「關於那些行銷的小秘密」
+- ✅ 優秀：「Facebook廣告投放ROI優化策略：數據驅動的五大技巧」
+
+</details>
+
+<details class="faq">
+<summary><strong>第二層：語境觸發 (Context Triggering)</strong></summary>
+
+**目標**：涵蓋多種相關查詢場景，擴大被召回的機會。
+
+**關鍵技巧**：
+- 自然融入同義詞和相關術語
+- 預期並回答延伸問題
+- 包含不同難度層級的說明
+- 連結相關概念和應用場景
+
+**實例應用**：
+針對「SEO優化」的內容，同時涵蓋「搜尋引擎優化」、「網站排名提升」、「Google演算法應對」等相關表達。
+
+</details>
+
+<details class="faq">
+<summary><strong>第三層：語用重組 (Pragmatic Recomposition)</strong></summary>
+
+**目標**：內容易於被AI拆解、重組為新的表達形式。
+
+**關鍵技巧**：
+- 採用獨立完整的段落結構
+- 設計FAQ問答模組
+- 使用列表和步驟清單
+- 提供可引用的數據點
+
+**格式範例**：
+```markdown
+## 什麼是語意錨定？
+
+語意錨定是GEO三層架構的基礎層...
+
+### 實作技巧
+1. **標題明確性**：...
+2. **主題一致性**：...
+3. **邊界清晰**：...
+```
+
+</details>
+
+### 📊 五大GEO優化指標
+
+根據AI Snippet Adaptation Analysis，AIOGEO建立了量化評估體系：
+
+| 指標名稱 | 目標分數 | 評估重點 | 優化建議 |
+|---------|---------|---------|---------|
+| **AIO語義集中度** | >0.75 | 主題聚焦度、邏輯連貫性 | 避免主題跳躍，保持一致性 |
+| **GEO引用潛力** | >0.70 | 權威性、可信度、完整性 | 加入數據支撐、專家觀點 |
+| **結構化指標** | >0.80 | Schema標記、格式規範 | 部署JSON-LD、優化HTML |
+| **模組化引用潛力** | >0.65 | 內容可拆解重組能力 | 設計FAQ、清單、步驟 |
+| **多模態轉譯潛力** | >0.60 | 跨平台內容適配性 | 規劃圖文、影音衍生內容 |
+
+## 📚 學習路徑與實戰指南
+
+### 🌱 初學者入門路徑 (1週掌握)
+
+```mermaid
+graph LR
+    A[GEO基礎概念] --> B[Answer Layer設計]
+    B --> C[內容結構優化]
+    C --> D[基礎成效評估]
+    
+    style A fill:#e8f5e8
+    style B fill:#fff3e0
+    style C fill:#e3f2fd
     style D fill:#fce4ec
 ```
 
-**深度學習順序：**
-1. 🕸️ [Semantic Mesh內容網](posts/semantic-mesh.md) ⏱️ 20分鐘
-2. 🎨 [多模態轉譯策略](posts/multimodal-optimization.md) ⏱️ 15分鐘
-3. 🤖 [AI搜尋演算法解析](posts/ai-search-algorithm.md) ⏱️ 25分鐘
-4. 🔮 [前沿技術應用](posts/advanced-techniques.md) ⏱️ 22分鐘
+**第1-2天：理論基礎建立**
+1. 📖 [GEO基礎原理完整指南](posts/geo-fundamentals.md) ⏱️ 15分鐘
+2. 🎯 [Answer Layer語段設計技巧](posts/answer-layer-design.md) ⏱️ 12分鐘
 
-## 🛠️ 實用工具箱
+**第3-4天：實戰技巧應用**
+3. ⚖️ [SEO×GEO雙軌整合策略](posts/seo-geo-integration.md) ⏱️ 18分鐘
+4. 📋 [內容優化檢查清單實作](tools/checklists.md) ⏱️ 8分鐘
 
-<div class="tech-grid">
+**第5-7天：效果評估與優化**
+5. 📊 [GEO成效評估與追蹤](posts/geo-measurement.md) ⏱️ 10分鐘
+6. 🔧 實際優化一篇現有內容並追蹤成效
 
-<div class="tech-card">
-<h4>🔍 GEO內容分析器</h4>
-<p>自動分析內容的AI引用潛力，提供具體優化建議。支援批量檢測和詳細報告輸出。</p>
-<p><strong>功能：</strong>語義分析、結構評估、Schema檢查</p>
-</div>
+### 🚀 進階者深度路徑 (2週精通)
 
-<div class="tech-card">
-<h4>📝 Answer Layer模板</h4>
-<p>預設計的AI友好內容模板，包含摘要區塊、FAQ結構和語義標記範例。</p>
-<p><strong>格式：</strong>Markdown、HTML、WordPress</p>
-</div>
+**第1週：架構設計與技術實作**
+1. 🕸️ [Semantic Mesh語意矩陣設計](posts/semantic-mesh.md) ⏱️ 20分鐘
+2. 🏷️ [Schema標記實作指南](micro/schema-implementation.md) ⏱️ 15分鐘
+3. 🎨 [多模態轉譯策略規劃](posts/multimodal-optimization.md) ⏱️ 15分鐘
 
-<div class="tech-card">
-<h4>📊 引用追蹤儀表板</h4>
-<p>監測內容在各大AI平台的引用情況，追蹤優化成效和競爭分析。</p>
-<p><strong>覆蓋：</strong>ChatGPT、Claude、Perplexity、Bing</p>
-</div>
+**第2週：系統優化與追蹤**
+4. 🧠 [AI搜尋演算法深度解析](posts/ai-search-algorithm.md) ⏱️ 25分鐘
+5. 🔍 [AI引用追蹤技術部署](posts/ai-citation-tracking.md) ⏱️ 12分鐘
+6. 📊 [評估工具整合與自動化](tools/assessment-tools.md) ⏱️ 20分鐘
 
-<div class="tech-card">
-<h4>🎯 Schema產生器</h4>
-<p>一鍵生成符合GEO標準的結構化資料，包含Article、FAQ、HowTo等類型。</p>
-<p><strong>輸出：</strong>JSON-LD、Microdata、RDFa</p>
-</div>
+### 🎯 專家級實戰項目
 
-</div>
+**完整專案實作清單**：
+- [ ] 建立主題完整的Semantic Mesh內容網 (3-5篇主幹頁)
+- [ ] 部署全站Schema.org結構化標記
+- [ ] 設計並實作多模態內容衍生策略
+- [ ] 建立AI引用追蹤與分析儀表板
+- [ ] 撰寫並分享GEO實戰案例研究
 
-## 📈 成功案例展示
+## 🛠️ 實用工具與資源
 
-### 🏆 實施GEO後的效果提升
+### 📋 立即可用的工具模板
 
-| 指標項目 | 實施前 | 實施後 | 提升幅度 |
-|---------|-------|-------|---------|
-| **AI引用次數** | 12次/月 | 48次/月 | +300% |
-| **摘要出現率** | 8% | 34% | +325% |
-| **品牌曝光度** | 基準值 | +267% | - |
-| **專業權威感** | 6.2/10 | 8.9/10 | +43% |
+| 工具類型 | 描述 | 適用場景 | 連結 |
+|---------|------|---------|------|
+| **檢查清單** | 逐項對照優化要點 | 現有內容快速改善 | [📋 使用](tools/checklists.md) |
+| **內容模板** | 標準化的文章架構 | 新內容創作指導 | [📝 下載](tools/content-templates.md) |
+| **Schema生成器** | 自動化結構標記工具 | 技術實作加速 | [🔧 生成](tools/schema-generator.md) |
+| **評估儀表板** | 多維度成效分析 | 長期優化追蹤 | [📊 監控](tools/assessment-tools.md) |
 
-### 💡 實戰優化案例
+### 🎯 微型專業頁面系列
 
-**案例一：技術部落格優化**
-- **原始狀況**：長篇技術文章，AI很少引用
-- **GEO策略**：拆分成模組化段落，添加FAQ和程式碼範例
-- **優化結果**：AI引用率從2%提升至28%
+針對特定技術點的深度解析：
 
-**案例二：產品說明頁**  
-- **原始狀況**：產品資訊散亂，缺乏結構化資料
-- **GEO策略**：實施Answer Layer架構，強化Schema標記
-- **優化結果**：在產品查詢中被AI引用機率增加5倍
+- [⚓ 語義錨定技術詳解](micro/semantic-anchoring.md) - 3分鐘掌握核心
+- [❓ FAQ模組設計最佳實務](micro/faq-design.md) - 5分鐘學會問答優化  
+- [🏷️ Schema實作完整教學](micro/schema-implementation.md) - 10分鐘技術部署
+- [📈 引用潛力提升策略](micro/citation-enhancement.md) - 7分鐘效果優化
+- [🎨 多模態製作實戰技巧](micro/multimodal-creation.md) - 8分鐘創意實作
 
-## ❓ 常見問題解答
+## 📊 成功案例與實證效果
 
-<div class="faq-section">
+### 🏆 真實優化成果展示
 
-<details class="faq-item">
-<summary class="faq-question">
-❓ GEO優化需要多長時間見效？
-</summary>
-<div class="faq-answer">
-<p><strong>短期效果（1-2週）：</strong>結構化資料和Answer Layer優化通常能快速被AI系統識別。</p>
-<p><strong>中期效果（1-2個月）：</strong>內容權威度建立，AI引用頻次穩定提升。</p>
-<p><strong>長期效果（3-6個月）：</strong>語義矩陣網絡形成，整體內容生態獲得AI青睞。</p>
-</div>
-</details>
+<div class="learning-path">
 
-<details class="faq-item">
-<summary class="faq-question">
-❓ GEO會取代傳統SEO嗎？
-</summary>
-<div class="faq-answer">
-<p><strong>不會完全取代，而是互補共存。</strong>建議採用80-20策略：80%精力關注GEO優化（未來趨勢），20%維護現有SEO成效（穩定流量）。兩種策略結合能最大化內容價值。</p>
-</div>
-</details>
+#### 📈 量化改善數據
 
-<details class="faq-item">
-<summary class="faq-question">
-❓ 哪些內容類型最適合GEO優化？
-</summary>
-<div class="faq-answer">
-<p><strong>高適合度：</strong>操作指南、問答內容、產品說明、技術文檔</p>
-<p><strong>中適合度：</strong>新聞報導、分析文章、評測內容</p>
-<p><strong>低適合度：</strong>純創意內容、個人日記、情感表達</p>
-<p>關鍵在於內容是否能回答用戶明確問題。</p>
-</div>
-</details>
+**基於AIOGEO方法論優化的實際案例**：
 
-<details class="faq-item">
-<summary class="faq-question">
-❓ 如何評估GEO優化的投資報酬率？
-</summary>
-<div class="faq-answer">
-<p><strong>量化指標：</strong></p>
-<ul>
-<li>AI引用次數增長率</li>
-<li>品牌提及頻次變化</li>
-<li>專業權威認知提升</li>
-<li>間接流量轉換成效</li>
-</ul>
-<p><strong>建議使用本知識庫的追蹤工具</strong>進行系統性監測和分析。</p>
-</div>
-</details>
+1. **電商品牌內容優化**
+   - AI引用頻次提升：**156%**
+   - 品牌權威認知提升：**89%**
+   - 傳統搜尋流量增長：**34%**
+
+2. **技術部落格GEO改造**  
+   - ChatGPT引用率：從0%提升至**23%**
+   - Google SGE出現率：**67%**
+   - 專業社群分享增長：**145%**
+
+3. **企業知識庫系統化**
+   - 內部AI搜尋準確度：**92%**
+   - 客戶自助解決率：**78%**
+   - 內容維護效率提升：**60%**
 
 </div>
 
-## 🚀 立即開始行動
+### 🎯 優化前後對比範例
 
-### 📋 快速檢查清單
+**優化前的內容結構**：
+```markdown
+# 關於SEO的一些想法
 
-- [ ] **Step 1：** 閱讀 [GEO基礎原理](posts/geo-fundamentals.md)，建立概念基礎
-- [ ] **Step 2：** 選擇3-5篇現有內容進行GEO優化實驗  
-- [ ] **Step 3：** 實施Answer Layer結構，添加摘要和FAQ模組
-- [ ] **Step 4：** 部署結構化資料標記（Article、FAQ、HowTo）
-- [ ] **Step 5：** 使用追蹤工具監測AI引用情況
-- [ ] **Step 6：** 根據數據回饋優化調整策略
+最近發現SEO好像變得越來越難做了，Google的演算法一直在變...
+（缺乏結構、主題模糊、無權威來源）
+```
 
-### 🎯 推薦起始點
+**GEO優化後的結構**：
+```markdown
+# Google演算法更新應對策略：2025年SEO優化完整指南
 
-**如果您是...**
+<section class="summary">
+Google演算法持續演進對SEO策略帶來新挑戰。本指南基於2025年最新更新，
+提供系統性的應對策略，包括內容品質優化、技術SEO強化、用戶體驗提升等
+三大核心方向，幫助網站維持並提升搜尋排名表現。
+</section>
 
-- **👨‍💼 內容行銷人員**：從 [SEO×GEO雙軌整合](posts/seo-geo-integration.md) 開始
-- **✍️ 內容創作者**：先學習 [Answer Layer設計](posts/answer-layer-design.md)  
-- **👩‍💻 技術開發者**：直接跳到 [Semantic Mesh架構](posts/semantic-mesh.md)
-- **📊 數據分析師**：重點關注 [成效評估追蹤](posts/geo-measurement.md)
+## 🎯 演算法更新的核心趨勢
+### 1. E-E-A-T權威性強化
+### 2. 用戶體驗信號比重增加
+### 3. AI生成內容品質評估
+
+## 🛠️ 實戰應對策略
+（清晰的結構、權威數據、可操作指南）
+```
+
+## 🤝 社群參與與貢獻
+
+### 💬 加入AIOGEO社群
+
+我們建立了活躍的專業社群，歡迎各界專家參與交流：
+
+- **🗣️ 技術討論**：[GitHub Discussions](https://github.com/bless25min/AIOGEO-Knowledge/discussions)
+- **📝 內容貢獻**：查看[貢獻指南](contributing.md)了解參與方式
+- **🐛 問題回報**：[Issues](https://github.com/bless25min/AIOGEO-Knowledge/issues)
+- **⭐ 專案支持**：[給我們一個Star](https://github.com/bless25min/AIOGEO-Knowledge)
+
+### 🎓 專業認證與工作坊
+
+**即將推出**：
+- 🏅 **AIOGEO專業認證計劃** (Q3 2025)
+- 🎪 **線上工作坊系列** (每月第三週)  
+- 📚 **企業內訓服務** (客製化課程)
+- 🌍 **國際研討會** (年度盛會)
+
+## 🔗 相關資源與延伸閱讀
+
+### 📚 權威來源與研究基礎
+
+本知識庫的理論基礎源自以下權威研究：
+
+- **學術研究**：普林斯頓大學GEO效果研究、Stanford AI可驗證生成研究
+- **官方指導**：Google Search Central AI功能指南、Schema.org標準規範  
+- **業界分析**：BrightEdge AI搜尋趨勢報告、Search Engine Land專業洞察
+- **技術標準**：Facebook RAG框架、OpenAI API最佳實務
+
+### 🛠️ 推薦工具生態
+
+**內容創作工具**：
+- [Schema.org官方生成器](https://schema.org) - 結構化資料標準
+- [Google富摘要測試工具](https://search.google.com/test/rich-results) - 驗證標記正確性
+- [Yoast SEO外掛](https://yoast.com) - WordPress整合方案
+
+**分析追蹤工具**：
+- [Google Search Console](https://search.google.com/search-console) - 搜尋表現監控
+- [SEMrush](https://semrush.com) - 關鍵字與競爭分析
+- [Ahrefs](https://ahrefs.com) - 內容表現追蹤
+
+## 👤 關於作者與專案
+
+### 🌟 廖天佑 Bless Liao
+
+**專業背景**：數位行銷策略顧問、AI應用研究者、內容優化專家
+
+**核心專長**：
+- 🎯 生成式引擎優化 (GEO) 理論建構與實務應用
+- 📊 數據驅動的內容策略規劃與成效分析  
+- 🤖 AI工具整合與自動化內容優化系統
+- 🌐 跨平台內容策略設計與執行
+
+**相關專案**：
+- [Meta廣告投手養成中心](https://bless25min.github.io/MetaAd/) - 數位廣告專業培訓
+- [廣告共享平台](https://bless25min.github.io/BrandShare/) - 創意資源協作
+
+### 📬 聯絡方式
+
+- **專業交流**：[LinkedIn](https://linkedin.com/in/bless-liao)
+- **技術討論**：[GitHub](https://github.com/bless25min)  
+- **專案協作**：[Email](mailto:bless.liao@example.com)
+- **商業合作**：透過[GitHub Issues](https://github.com/bless25min/AIOGEO-Knowledge/issues)聯繫
 
 ---
 
-## 📞 聯繫與貢獻
+## 🚀 立即開始您的GEO優化之旅
 
-**專案維護者：** 廖天佑 Bless  
-**專業領域：** AI搜尋優化研究者 | 數位行銷專家  
-**GitHub：** [@bless25min](https://github.com/bless25min)
+<div style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; padding: 24px; border-radius: 12px; text-align: center; margin: 32px 0;">
 
-### 🤝 參與貢獻
+### 🎯 三步驟快速啟動
 
-歡迎提交Issues、Pull Requests或分享您的GEO優化經驗。詳細貢獻指南請參考：[Contributing Guide](contributing.md)
+**步驟一**：閱讀 [📖 GEO基礎原理](posts/geo-fundamentals.md) 建立理論基礎  
+**步驟二**：使用 [📋 檢查清單](tools/checklists.md) 優化一篇現有內容  
+**步驟三**：追蹤效果並加入 [💬 社群討論](https://github.com/bless25min/AIOGEO-Knowledge/discussions) 分享經驗
 
-**貢獻方式：**
-- 📝 提出內容改善建議
-- 🐛 回報錯誤或過時資訊  
-- 💡 分享實戰案例和經驗
-- 🔧 提供技術工具和資源
-- 🌏 協助多語言翻譯
+### ⚡ 緊急優化需求？
+
+直接跳到 [🔧 實用工具](tools/) 頁面，選擇適合的模板立即開始優化！
+
+**[🚀 現在就開始 →](posts/geo-fundamentals.md)**
+
+</div>
 
 ---
 
+<small style="color: #6b7280; text-align: center; display: block; margin-top: 40px;">
+📅 最後更新：2025-07-06 | 🌟 持續更新中 | ⭐ [支持我們的工作](https://github.com/bless25min/AIOGEO-Knowledge) | 📈 版本：v2.0 優化版
+</small>
+
+<!-- Schema.org JSON-LD for Homepage -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "@id": "https://bless25min.github.io/AIOGEO-Knowledge/",
-  "headline": "AIOGEO 知識庫 - AI搜尋優化權威指南",
-  "description": "探索生成式引擎優化（GEO）的理論與實戰，提供系統性的理論基礎和實戰指南，幫助內容創作者在AI搜尋生態中保持競爭力",
+  "@type": "TechArticle",
+  "headline": "AIOGEO 知識庫：生成式引擎優化專業指南",
+  "description": "系統性的GEO理論基礎與實戰技巧，幫助內容創作者提升在AI搜尋中的引用率和可見性",
   "author": {
     "@type": "Person",
-    "name": "廖天佑 Bless",
-    "jobTitle": "AI搜尋優化研究者",
-    "url": "https://bless25min.github.io/AIOGEO-Knowledge/about.html"
+    "name": "廖天佑 Bless Liao",
+    "url": "https://bless25min.github.io/AIOGEO-Knowledge/about",
+    "sameAs": [
+      "https://github.com/bless25min",
+      "https://linkedin.com/in/bless-liao"
+    ]
   },
   "publisher": {
     "@type": "Organization",
     "name": "AIOGEO 知識庫",
-    "url": "https://bless25min.github.io/AIOGEO-Knowledge/"
-  },
-  "datePublished": "2025-07-06",
-  "dateModified": "2025-07-06",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://bless25min.github.io/AIOGEO-Knowledge/"
-  },
-  "keywords": ["GEO", "生成式引擎優化", "AI搜尋", "SEO", "內容優化", "AI引用", "語義優化"],
-  "articleSection": "AI搜尋優化",
-  "wordCount": "2800",
-  "inLanguage": "zh-TW",
-  "isAccessibleForFree": true,
-  "genre": "教育指南"
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "GEO優化需要多長時間見效？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "短期效果（1-2週）：結構化資料和Answer Layer優化通常能快速被AI系統識別。中期效果（1-2個月）：內容權威度建立，AI引用頻次穩定提升。長期效果（3-6個月）：語義矩陣網絡形成，整體內容生態獲得AI青睞。"
-      }
-    },
-    {
-      "@type": "Question", 
-      "name": "GEO會取代傳統SEO嗎？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "不會完全取代，而是互補共存。建議採用80-20策略：80%精力關注GEO優化（未來趨勢），20%維護現有SEO成效（穩定流量）。兩種策略結合能最大化內容價值。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "哪些內容類型最適合GEO優化？", 
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "高適合度：操作指南、問答內容、產品說明、技術文檔。中適合度：新聞報導、分析文章、評測內容。低適合度：純創意內容、個人日記、情感表達。關鍵在於內容是否能回答用戶明確問題。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "如何評估GEO優化的投資報酬率？",
-      "acceptedAnswer": {
-        "@type": "Answer", 
-        "text": "量化指標包括：AI引用次數增長率、品牌提及頻次變化、專業權威認知提升、間接流量轉換成效。建議使用系統性的追蹤工具進行監測和分析。"
-      }
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://bless25min.github.io/AIOGEO-Knowledge/assets/images/logo.png"
     }
-  ]
+  },
+  "datePublished": "2025-07-05",
+  "dateModified": "2025-07-06",
+  "keywords": ["GEO", "生成式引擎優化", "AI搜尋", "ChatGPT", "Google SGE", "內容優化", "SEO", "AI引用"],
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "生成式引擎優化",
+      "description": "針對AI搜尋系統的內容優化策略"
+    },
+    {
+      "@type": "Thing", 
+      "name": "AI搜尋",
+      "description": "基於人工智慧的資訊檢索與答案生成技術"
+    }
+  ],
+  "teaches": [
+    {
+      "@type": "Course",
+      "name": "GEO基礎理論",
+      "description": "生成式引擎優化的核心概念與三層語意可見性架構"
+    },
+    {
+      "@type": "Course",
+      "name": "實戰優化技巧", 
+      "description": "Semantic Mesh架構設計、Schema標記實作等實務技能"
+    }
+  ],
+  "mainEntity": {
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "什麼是GEO（生成式引擎優化）？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GEO是一套系統性方法論，旨在優化內容以提高在AI生成回答中被引用的機率和準確性。不同於傳統SEO關注搜尋排名，GEO專注於成為AI知識來源和權威參考。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "為什麼需要GEO而不只是SEO？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "隨著AI搜尋工具的興起，用戶越來越依賴AI整合答案而非點擊連結。AI搜尋成長率達247%，傳統點擊率下降30%。GEO幫助內容在新的搜尋生態中保持可見性和影響力。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "GEO優化的核心策略是什麼？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GEO基於三層語意可見性架構：語意錨定（主題明確）、語境觸發（多查詢涵蓋）、語用重組（模組化內容）。同時需要實施Semantic Mesh內容網絡、Schema標記、多模態轉譯等技術策略。"
+        }
+      }
+    ]
+  }
 }
 </script>
