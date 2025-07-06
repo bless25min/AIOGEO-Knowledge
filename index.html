@@ -256,10 +256,12 @@
       subMaxLevel: 3,
       auto2top: true,
       maxLevel: 4,
+      
       // 🔧 關鍵修復：讓所有目錄都使用根目錄的 _sidebar.md
-alias: {
-    '/.*/_sidebar.md': '/_sidebar.md'
-}
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      },
+      
       // Search Configuration
       search: {
         maxAge: 86400000,
@@ -282,7 +284,7 @@ alias: {
         previousText: '⬅️ 上一頁',
         nextText: '下一頁 ➡️',
         crossChapter: true,
-        crossChapterText: true,
+        crossChapterText: true
       },
       
       // Tabs
