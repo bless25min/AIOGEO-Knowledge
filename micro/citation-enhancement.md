@@ -63,7 +63,6 @@
 ## 🔗 相關資源
 
 - [回到：Semantic Mesh 內容網](../posts/semantic-mesh.md)
-- [延伸閱讀：AI 引用追蹤方法](../posts/ai-citation-tracking.md)
 - [工具推薦：評估工具清單](../tools/assessment-tools.md)
 
 ---
