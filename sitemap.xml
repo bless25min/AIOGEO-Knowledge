@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- 首頁 -->
@@ -39,7 +40,7 @@
     <priority>0.9</priority>
   </url>
 
-  <!-- 技術架構實作文章 -->
+  <!-- 實戰優化策略文章 -->
   <url>
     <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/posts/semantic-mesh</loc>
     <lastmod>2025-07-06</lastmod>
@@ -47,15 +48,6 @@
     <priority>0.9</priority>
   </url>
 
-  <!-- 策略整合應用文章 -->
-  <url>
-    <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/posts/seo-geo-integration</loc>
-    <lastmod>2025-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- 多模態內容優化文章 -->
   <url>
     <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/posts/multimodal-optimization</loc>
     <lastmod>2025-07-06</lastmod>
@@ -63,7 +55,14 @@
     <priority>0.9</priority>
   </url>
 
-  <!-- 成效監測與評估文章 -->
+  <url>
+    <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/posts/seo-geo-integration</loc>
+    <lastmod>2025-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 成效評估與追蹤文章 -->
   <url>
     <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/posts/geo-measurement</loc>
     <lastmod>2025-07-06</lastmod>
@@ -71,17 +70,30 @@
     <priority>0.9</priority>
   </url>
 
-  <!-- AI引用追蹤指南 -->
   <url>
     <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/posts/ai-citation-tracking</loc>
+    <lastmod>2025-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 實戰工具庫 -->
+  <url>
+    <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/tools/README</loc>
     <lastmod>2025-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- 工具庫頁面 -->
   <url>
-    <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/tools/README</loc>
+    <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/tools/assessment-tools</loc>
+    <lastmod>2025-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/tools/schema-generator</loc>
     <lastmod>2025-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -95,24 +107,10 @@
   </url>
 
   <url>
-    <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/tools/assessment-tools</loc>
-    <lastmod>2025-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/tools/schema-generator</loc>
-    <lastmod>2025-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
     <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/tools/content-templates</loc>
     <lastmod>2025-07-06</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
   <!-- 微型頁面 -->
@@ -120,35 +118,14 @@
     <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/micro/README</loc>
     <lastmod>2025-07-06</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/micro/citation-enhancement</loc>
     <lastmod>2025-07-06</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/micro/semantic-anchoring</loc>
-    <lastmod>2025-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/micro/faq-design</loc>
-    <lastmod>2025-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/micro/schema-implementation</loc>
-    <lastmod>2025-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
 
 </urlset>
