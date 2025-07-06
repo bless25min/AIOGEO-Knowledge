@@ -79,7 +79,7 @@ graph TD
 
 #### 🔍 各層級詳細說明
 
-<details class="faq">
+<details>
 <summary><strong>第一層：語意錨定 (Semantic Anchoring)</strong></summary>
 
 **目標**：確保內容主題明確、邊界清晰，便於AI準確分類和理解。
@@ -96,7 +96,7 @@ graph TD
 
 </details>
 
-<details class="faq">
+<details>
 <summary><strong>第二層：語境觸發 (Context Triggering)</strong></summary>
 
 **目標**：涵蓋多種相關查詢場景，擴大被召回的機會。
@@ -112,7 +112,7 @@ graph TD
 
 </details>
 
-<details class="faq">
+<details>
 <summary><strong>第三層：語用重組 (Pragmatic Recomposition)</strong></summary>
 
 **目標**：內容易於被AI拆解、重組為新的表達形式。
@@ -181,7 +181,7 @@ graph LR
 
 **第1週：架構設計與技術實作**
 1. 🕸️ [Semantic Mesh語意矩陣設計](posts/semantic-mesh.md) ⏱️ 20分鐘
-2. 🏷️ [Schema標記實作指南](micro/schema-implementation.md) ⏱️ 15分鐘
+2. 🏷️ [Schema標記實作指南](posts/schema-implementation.md) ⏱️ 15分鐘
 3. 🎨 [多模態轉譯策略規劃](posts/multimodal-optimization.md) ⏱️ 15分鐘
 
 **第2週：系統優化與追蹤**
@@ -213,11 +213,11 @@ graph LR
 
 針對特定技術點的深度解析：
 
-- [⚓ 語義錨定技術詳解](micro/semantic-anchoring.md) - 3分鐘掌握核心
-- [❓ FAQ模組設計最佳實務](micro/faq-design.md) - 5分鐘學會問答優化  
-- [🏷️ Schema實作完整教學](micro/schema-implementation.md) - 10分鐘技術部署
-- [📈 引用潛力提升策略](micro/citation-enhancement.md) - 7分鐘效果優化
-- [🎨 多模態製作實戰技巧](micro/multimodal-creation.md) - 8分鐘創意實作
+- [⚓ 語義錨定技術詳解](posts/semantic-anchoring.md) - 3分鐘掌握核心
+- [❓ FAQ模組設計最佳實務](posts/faq-design.md) - 5分鐘學會問答優化  
+- [🏷️ Schema實作完整教學](posts/schema-implementation.md) - 10分鐘技術部署
+- [📈 引用潛力提升策略](posts/citation-enhancement.md) - 7分鐘效果優化
+- [🎨 多模態製作實戰技巧](posts/multimodal-creation.md) - 8分鐘創意實作
 
 ## 📊 成功案例與實證效果
 
@@ -363,8 +363,61 @@ Google演算法持續演進對SEO策略帶來新挑戰。本指南基於2025年�
 ---
 
 <small style="color: #6b7280; text-align: center; display: block; margin-top: 40px;">
-📅 最後更新：2025-07-06 | 🌟 持續更新中 | ⭐ [支持我們的工作](https://github.com/bless25min/AIOGEO-Knowledge) | 📈 版本：v2.0 優化版
+📅 最後更新：2025-07-06 | 🌟 持續更新中 | ⭐ <a href="https://github.com/bless25min/AIOGEO-Knowledge">支持我們的工作</a> | 📈 版本：v2.0 優化版
 </small>
+
+<style>
+.learning-path {
+  margin: 20px 0;
+  padding: 20px;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 12px;
+  border-left: 4px solid #6366f1;
+}
+
+.summary {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border: 1px solid #f59e0b;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.summary::before {
+  content: "💡 核心摘要";
+  position: absolute;
+  top: -12px;
+  left: 16px;
+  background: #fbbf24;
+  color: #92400e;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+details {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 12px 0;
+}
+
+details summary {
+  font-weight: bold;
+  color: #6366f1;
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+details[open] summary {
+  border-bottom: 1px solid #cbd5e1;
+  margin-bottom: 12px;
+}
+</style>
 
 <!-- Schema.org JSON-LD for Homepage -->
 <script type="application/ld+json">
