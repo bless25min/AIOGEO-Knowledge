@@ -206,3 +206,7 @@
 ⭐ [給我們一個Star](https://github.com/bless25min/AIOGEO-Knowledge) |
 📈 當前版本：v2.0 優化版
 </small>
+
+---
+
+* 🔒 [隱私權政策](privacy.md)
