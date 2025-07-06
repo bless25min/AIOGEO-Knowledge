@@ -95,16 +95,35 @@
       margin: 0;
     }
     
+    /* Learning Path Styling */
+    .learning-path {
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+      border: 1px solid #10b981;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    
+    .learning-path h4 {
+      color: #065f46;
+      margin-top: 0;
+    }
+    
     /* Enhanced Code Blocks */
     .markdown-section pre {
-      background: var(--code-bg);
+      background: var(--code-bg) !important;
       border: 1px solid #e5e7eb;
       border-radius: 8px;
       padding: 16px;
     }
     
+    .markdown-section code {
+      color: #374151;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+    
     /* FAQ Styling */
-    details.faq {
+    .markdown-section details {
       background: #f1f5f9;
       border: 1px solid #cbd5e1;
       border-radius: 8px;
@@ -112,14 +131,14 @@
       margin: 12px 0;
     }
     
-    details.faq summary {
+    .markdown-section details summary {
       font-weight: bold;
       color: var(--theme-color);
       cursor: pointer;
       padding: 8px 0;
     }
     
-    details.faq[open] summary {
+    .markdown-section details[open] summary {
       border-bottom: 1px solid #cbd5e1;
       margin-bottom: 12px;
     }
@@ -176,31 +195,24 @@
       color: var(--theme-color);
     }
     
-    /* Learning Path Styling */
-    .learning-path {
-      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-      border: 1px solid #10b981;
-      border-radius: 12px;
-      padding: 20px;
-      margin: 20px 0;
+    /* Table Styling */
+    .markdown-section table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 1rem 0;
     }
     
-    .learning-path h4 {
-      color: #065f46;
-      margin-top: 0;
+    .markdown-section table th,
+    .markdown-section table td {
+      border: 1px solid #e2e8f0;
+      padding: 0.75rem;
+      text-align: left;
     }
     
-    /* Schema Markup Display (for development) */
-    .schema-preview {
-      background: #f3f4f6;
-      border: 1px solid #d1d5db;
-      border-radius: 6px;
-      padding: 12px;
-      margin: 16px 0;
-      font-family: 'Courier New', monospace;
-      font-size: 0.85em;
-      max-height: 200px;
-      overflow-y: auto;
+    .markdown-section table th {
+      background: var(--sidebar-bg);
+      font-weight: 600;
+      color: var(--theme-color);
     }
     
     /* Responsive Design */
@@ -216,6 +228,11 @@
       
       .nav-links {
         grid-template-columns: 1fr;
+      }
+      
+      .learning-path {
+        padding: 16px;
+        margin: 16px 0;
       }
     }
     
@@ -381,17 +398,6 @@
   <script>
     mermaid.initialize({ startOnLoad: true });
   </script>
-  
-  <!-- Google Analytics (Optional - replace with your GA ID) -->
-  <!-- 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'GA_MEASUREMENT_ID');
-  </script>
-  -->
   
   <!-- Schema.org JSON-LD for Website -->
   <script type="application/ld+json">
