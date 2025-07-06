@@ -1,152 +1,208 @@
-<!-- 側邊欄導航 - AIOGEO 知識庫 -->
-
 * [🏠 首頁](/)
-* [👤 關於作者](about.md)
 
 ---
 
-## 📚 基礎理論篇
-> 建立GEO核心概念與理論基礎
+## 📚 GEO基礎理論
 
-* [📘 GEO基礎原理完整指南](posts/geo-fundamentals.md)
-  * [🎯 AI搜尋趨勢分析](posts/ai-search-trends.md) 
-  * [⚖️ GEO vs SEO 策略對比](posts/geo-vs-seo.md)
-  * [📊 引用潛力評估方法](posts/citation-potential.md)
-
-* [🤖 AI搜尋演算法解析](posts/ai-search-algorithm.md)
-  * [🔍 語義理解機制](posts/semantic-understanding.md)
-  * [📝 內容抓取邏輯](posts/content-extraction.md)
-  * [🎲 引用決策因子](posts/citation-factors.md)
-
-* [📄 Answer Layer 設計原理](posts/answer-layer-design.md)
-  * [✍️ 摘要撰寫技巧](posts/summary-writing.md)
-  * [❓ FAQ模組設計](posts/faq-design.md)
-  * [📋 清單結構優化](posts/list-optimization.md)
+* [📖 GEO基礎原理](posts/geo-fundamentals.md)
+* [🎯 Answer Layer語段設計](posts/answer-layer-design.md)
+* [🧠 AI搜尋演算法解析](posts/ai-search-algorithm.md)
 
 ---
 
-## 🎯 實戰策略篇
-> 掌握具體的優化技術與實施方法
+## 🛠️ 實戰優化策略
 
-* [⚖️ SEO×GEO 雙軌整合實戰](posts/seo-geo-integration.md)
-  * [📈 流量平衡策略](posts/traffic-balance.md)
-  * [🔧 技術實施指南](posts/technical-implementation.md)
-  * [📊 KPI設定與追蹤](posts/kpi-tracking.md)
-
-* [🕸️ Semantic Mesh 內容網佈局](posts/semantic-mesh.md)
-  * [🏗️ 主幹頁架構設計](posts/pillar-page-design.md)
-  * [🔗 內部連結策略](posts/internal-linking.md)
-  * [🏷️ Schema 標記實作](posts/schema-implementation.md)
-
-* [🎨 多模態轉譯優化策略](posts/multimodal-optimization.md)
-  * [🖼️ 圖文內容優化](posts/visual-content.md)
-  * [🎬 影片內容策略](posts/video-strategy.md)
-  * [🎙️ 語音搜尋優化](posts/voice-optimization.md)
+* [🕸️ Semantic Mesh內容網](posts/semantic-mesh.md)
+* [🎨 多模態轉譯策略](posts/multimodal-optimization.md)
+* [⚖️ SEO×GEO雙軌整合](posts/seo-geo-integration.md)
 
 ---
 
-## 🔬 前沿技術篇
-> 探索最新的AI優化技術與趨勢
+## 📊 成效評估與追蹤
 
-* [🚀 LLM 訓練數據優化](posts/llm-data-optimization.md)
-  * [📊 數據集構建策略](posts/dataset-building.md)
-  * [🔄 模型微調技術](posts/model-fine-tuning.md)
-  * [⚡ 推理優化方法](posts/inference-optimization.md)
-
-* [🔮 生成式AI 未來趨勢](posts/generative-ai-trends.md)
-  * [🌐 跨語言內容優化](posts/multilingual-optimization.md)
-  * [🎯 個人化內容生成](posts/personalized-content.md)
-  * [🤝 人機協作模式](posts/human-ai-collaboration.md)
-
-* [📡 即時優化技術](posts/real-time-optimization.md)
-  * [⚡ 動態內容調整](posts/dynamic-content.md)
-  * [🔄 自適應優化算法](posts/adaptive-algorithms.md)
-  * [📱 移動端策略](posts/mobile-strategy.md)
+* [📈 GEO成效評估指南](posts/geo-measurement.md)
+* [🔍 AI引用追蹤技術](posts/ai-citation-tracking.md)
 
 ---
 
-## 📊 分析評估篇
-> 掌握成效追蹤與數據分析方法
+## 🎓 實用工具與模板
 
-* [📈 GEO 成效評估與追蹤](posts/geo-measurement.md)
-  * [🎯 AI引用率監測](posts/citation-tracking.md)
-  * [📊 競爭分析方法](posts/competitive-analysis.md)
-  * [💰 ROI計算模型](posts/roi-calculation.md)
-
-* [🔍 SearchAware Optimizer 工具](posts/searchaware-optimizer.md)
-  * [⚙️ 工具安裝配置](posts/tool-installation.md)
-  * [📋 分析報告解讀](posts/report-interpretation.md)
-  * [🔧 自定義配置指南](posts/custom-configuration.md)
-
-* [📋 診斷檢查清單](posts/diagnostic-checklist.md)
-  * [✅ 內容品質檢查](posts/content-quality-check.md)
-  * [🏷️ Schema 標記驗證](posts/schema-validation.md)
-  * [🚀 性能優化建議](posts/performance-optimization.md)
+* [📋 內容優化檢查清單](tools/checklists.md)
+* [📝 GEO內容模板庫](tools/content-templates.md)
+* [🔧 Schema標記生成器](tools/schema-generator.md)
+* [📊 評估工具整合](tools/assessment-tools.md)
 
 ---
 
-## 🛠️ 實用工具篇
-> 提供便利的工具、模板與資源
+## 🔬 微型專業頁面
 
-* [🔧 GEO 工具箱總覽](posts/geo-toolbox.md)
-  * [📝 內容模板庫](posts/content-templates.md)
-  * [🏷️ Schema 產生器](posts/schema-generator.md)
-  * [📊 分析儀表板](posts/analytics-dashboard.md)
-
-* [📚 學習資源集合](posts/learning-resources.md)
-  * [📖 推薦閱讀清單](posts/reading-list.md)
-  * [🎓 線上課程導覽](posts/online-courses.md)
-  * [🏛️ 研究論文精選](posts/research-papers.md)
-
-* [💡 案例研究庫](posts/case-studies.md)
-  * [🏆 成功案例分析](posts/success-stories.md)
-  * [❌ 失敗教訓總結](posts/failure-lessons.md)
-  * [🔄 最佳實踐模式](posts/best-practices.md)
+* [⚓ 語義錨定技術](micro/semantic-anchoring.md)
+* [❓ FAQ模組設計](micro/faq-design.md)
+* [🏷️ Schema實作指南](micro/schema-implementation.md)
+* [📈 引用潛力提升](micro/citation-enhancement.md)
+* [🎨 多模態製作技巧](micro/multimodal-creation.md)
 
 ---
 
-## 🌟 特別專題
-> 深度探討特定領域的GEO應用
+## 🤝 專案資訊
 
-* [🏢 企業級 GEO 實施](posts/enterprise-geo.md)
-  * [📋 組織變革管理](posts/change-management.md)
-  * [👥 團隊培訓策略](posts/team-training.md)
-  * [⚖️ 法規遵循指南](posts/compliance-guide.md)
-
-* [🛒 電商 GEO 優化](posts/ecommerce-geo.md)
-  * [🛍️ 產品頁面優化](posts/product-page-optimization.md)
-  * [⭐ 評論內容策略](posts/review-strategy.md)
-  * [🔍 購物搜尋優化](posts/shopping-search.md)
-
-* [📱 B2B SaaS GEO 策略](posts/b2b-saas-geo.md)
-  * [📊 功能說明優化](posts/feature-documentation.md)
-  * [🎯 技術內容策略](posts/technical-content.md)
-  * [🤝 客戶成功案例](posts/customer-success.md)
-
----
-
-## 📞 支援與社群
-> 獲得幫助與參與貢獻
-
+* [👥 關於作者](about.md)
 * [🤝 貢獻指南](contributing.md)
-* [❓ 常見問題](posts/faq.md)
+* [💬 GitHub討論區](https://github.com/bless25min/AIOGEO-Knowledge/discussions)
 * [🐛 問題回報](https://github.com/bless25min/AIOGEO-Knowledge/issues)
-* [💬 討論區](https://github.com/bless25min/AIOGEO-Knowledge/discussions)
 
 ---
 
-<div style="background: #f1f5f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; border-left: 4px solid #6366f1;">
-  <p style="margin: 0; font-size: 0.9rem; color: #475569;">
-    <strong>💡 學習建議</strong><br>
-    新手建議按順序閱讀「基礎理論篇」<br>
-    有經驗者可直接跳轉「實戰策略篇」
-  </p>
+## 🎓 學習路徑指南
+
+<details>
+<summary>🌱 <strong>初學者路徑</strong> (1週完成)</summary>
+
+**建議學習順序：**
+1. [📖 GEO基礎原理](posts/geo-fundamentals.md) ⏱️ 15分鐘
+2. [🎯 Answer Layer語段設計](posts/answer-layer-design.md) ⏱️ 12分鐘  
+3. [⚖️ SEO×GEO雙軌整合](posts/seo-geo-integration.md) ⏱️ 18分鐘
+4. [📈 GEO成效評估指南](posts/geo-measurement.md) ⏱️ 10分鐘
+
+**學習目標：** 理解GEO基本概念，掌握內容優化基礎技巧
+
+**實戰練習：**
+- 使用[內容檢查清單](tools/checklists.md)優化一篇現有文章
+- 嘗試[基礎模板](tools/content-templates.md)創作新內容
+
+</details>
+
+<details>
+<summary>🚀 <strong>進階者路徑</strong> (2週完成)</summary>
+
+**深度學習順序：**
+1. [🕸️ Semantic Mesh內容網](posts/semantic-mesh.md) ⏱️ 20分鐘
+2. [🎨 多模態轉譯策略](posts/multimodal-optimization.md) ⏱️ 15分鐘
+3. [🧠 AI搜尋演算法解析](posts/ai-search-algorithm.md) ⏱️ 25分鐘
+4. [🔍 AI引用追蹤技術](posts/ai-citation-tracking.md) ⏱️ 12分鐘
+
+**學習目標：** 建立系統化內容架構，掌握多模態優化技能
+
+**進階實戰：**
+- 建立完整的[Semantic Mesh架構](posts/semantic-mesh.md)
+- 實作[Schema標記](micro/schema-implementation.md)
+- 部署[追蹤評估系統](tools/assessment-tools.md)
+
+</details>
+
+<details>
+<summary>🎯 <strong>專家路徑</strong> (持續精進)</summary>
+
+**專業深度順序：**
+1. 完成所有基礎與進階內容
+2. 研讀各[微型專業頁面](micro/)深化特定技能
+3. 參與[社群討論](https://github.com/bless25min/AIOGEO-Knowledge/discussions)分享經驗
+4. 貢獻[案例研究](contributing.md)回饋社群
+
+**專家目標：** 成為GEO領域的意見領袖，推動技術發展
+
+**進階貢獻：**
+- 提交[Pull Request](https://github.com/bless25min/AIOGEO-Knowledge/pulls)
+- 撰寫[案例分析](contributing.md)
+- 開發[新工具模板](tools/)
+
+</details>
+
+---
+
+## 🔥 熱門內容排行
+
+* 🏆 [GEO引用技術完全指南](posts/geo-fundamentals.md)
+* ⚡ [Semantic Mesh實作教學](posts/semantic-mesh.md)  
+* 🎯 [雙軌整合實戰指南](posts/seo-geo-integration.md)
+* 🎨 [多模態內容轉譯](posts/multimodal-optimization.md)
+* 📊 [AI引用成效追蹤](posts/geo-measurement.md)
+* 🔧 [實用工具檢查清單](tools/checklists.md)
+
+---
+
+## 🎯 快速導航
+
+### 📍 按需求查找
+<div style="background: #f8fafc; padding: 16px; border-radius: 8px; margin: 16px 0;">
+
+**🆘 緊急需求**：
+- [立即優化現有內容](tools/checklists.md) ⚡
+- [快速Schema部署](micro/schema-implementation.md) ⚡
+- [問題診斷與修復](tools/assessment-tools.md) ⚡
+
+**📈 系統性提升**：
+- [理論基礎建立](posts/geo-fundamentals.md) 📚
+- [架構設計規劃](posts/semantic-mesh.md) 🏗️
+- [長期策略制定](posts/seo-geo-integration.md) 🎯
+
+**🔧 工具與資源**：
+- [模板直接使用](tools/content-templates.md) 📝
+- [評估工具部署](tools/assessment-tools.md) 📊
+- [社群互動支援](https://github.com/bless25min/AIOGEO-Knowledge/discussions) 👥
+
 </div>
 
-<div style="background: #f0fdf4; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; border-left: 4px solid #10b981;">
-  <p style="margin: 0; font-size: 0.9rem; color: #059669;">
-    <strong>🚀 快速開始</strong><br>
-    立即閱讀 <a href="posts/geo-fundamentals.md" style="color: #059669; font-weight: bold;">GEO基礎原理</a><br>
-    預計閱讀時間：15分鐘
-  </p>
+### 📚 按角色導航
+<div style="background: #ecfdf5; padding: 16px; border-radius: 8px; margin: 16px 0;">
+
+**👨‍💼 內容創作者**：
+[基礎原理](posts/geo-fundamentals.md) → [模板應用](tools/content-templates.md) → [檢查清單](tools/checklists.md)
+
+**👨‍💻 技術實作者**：
+[Semantic Mesh](posts/semantic-mesh.md) → [Schema實作](micro/schema-implementation.md) → [追蹤系統](posts/ai-citation-tracking.md)
+
+**📊 策略規劃者**：
+[雙軌整合](posts/seo-geo-integration.md) → [成效評估](posts/geo-measurement.md) → [評估工具](tools/assessment-tools.md)
+
+**🎓 學習研究者**：
+[AI演算法](posts/ai-search-algorithm.md) → [微型頁面](micro/) → [社群討論](https://github.com/bless25min/AIOGEO-Knowledge/discussions)
+
 </div>
+
+---
+
+## 📞 聯絡支援
+
+* **專案作者**：廖天佑 Bless Liao
+* **GitHub**：[@bless25min](https://github.com/bless25min)
+* **專案首頁**：[AIOGEO Knowledge](https://github.com/bless25min/AIOGEO-Knowledge)
+* **技術討論**：[GitHub Discussions](https://github.com/bless25min/AIOGEO-Knowledge/discussions)
+* **問題回報**：[Issues](https://github.com/bless25min/AIOGEO-Knowledge/issues)
+
+---
+
+## 🚧 開發中功能
+
+<div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border: 1px solid #f59e0b; border-radius: 8px; padding: 16px; margin: 16px 0;">
+
+### 📅 近期更新 (本月)
+- ✅ **AI Snippet Adaptation Analysis** 完成
+- ✅ **微型頁面系列** 開發中
+- ✅ **Schema標記範本** 部署中
+- ✅ **評估工具整合** 測試中
+
+### 🔮 下階段規劃 (下月)
+- 🟡 **互動式學習路徑** 開發中
+- 🟡 **案例研究庫** 募集中  
+- 🟡 **視覺化工具** 設計中
+- 🟡 **API接口** 規劃中
+
+### 💡 社群建議徵集
+- 🔄 **多語言版本** (英文版優先)
+- 🔄 **影片教學系列** 
+- 🔄 **線上工作坊**
+- 🔄 **認證體系**
+
+**想要貢獻想法？** [立即參與討論](https://github.com/bless25min/AIOGEO-Knowledge/discussions) 或查看[貢獻指南](contributing.md)
+
+</div>
+
+---
+
+<small style="color: #6b7280; font-size: 0.8em;">
+📅 最後更新：2025-07-06 |
+🌟 持續更新中 |
+⭐ [給我們一個Star](https://github.com/bless25min/AIOGEO-Knowledge) |
+📈 當前版本：v2.0 優化版
+</small>
