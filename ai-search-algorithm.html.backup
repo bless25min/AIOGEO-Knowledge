@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ai-search-algorithm | AIOGEO 知識庫</title>
+  <meta name="description" content="AIOGEO 知識庫專業文章 - ai-search-algorithm">
+  <meta name="keywords" content="GEO, 生成式引擎優化, AI搜尋, ai-search-algorithm, 廖天佑, Bless Liao">
+  <meta name="author" content="廖天佑 Bless Liao">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="ai-search-algorithm | AIOGEO 知識庫">
+  <meta property="og:description" content="AIOGEO 知識庫專業文章 - ai-search-algorithm">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bless25min.github.io/AIOGEO-Knowledge/ai-search-algorithm.html">
+  <meta property="og:site_name" content="AIOGEO 知識庫">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ai-search-algorithm | AIOGEO 知識庫">
+  <meta name="twitter:description" content="AIOGEO 知識庫專業文章 - ai-search-algorithm">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://bless25min.github.io/AIOGEO-Knowledge/ai-search-algorithm.html">
+  
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "ai-search-algorithm",
+    "description": "AIOGEO 知識庫專業文章 - ai-search-algorithm",
+    "author": {
+      "@type": "Person",
+      "name": "廖天佑 Bless Liao",
+      "url": "https://github.com/bless25min"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIOGEO 知識庫",
+      "url": "https://bless25min.github.io/AIOGEO-Knowledge/"
+    },
+    "datePublished": "2025-07-08",
+    "dateModified": "2025-07-08",
+    "mainEntityOfPage": "https://bless25min.github.io/AIOGEO-Knowledge/ai-search-algorithm.html",
+    "keywords": ["GEO", "生成式引擎優化", "AI搜尋", "ai-search-algorithm"],
+    "articleSection": "專業文章",
+    "inLanguage": "zh-TW"
+  }
+  </script>
+  
+  <style>
+    /* 統一的文章頁面樣式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+      line-height: 1.8;
+      color: #1f2937;
+      background: #f9fafb;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      min-height: 100vh;
+      box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    }
+    
+    header {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      color: white;
+      padding: 40px;
+      text-align: center;
+    }
+    
+    .breadcrumb {
+      font-size: 0.9em;
+      opacity: 0.9;
+      margin-bottom: 15px;
+    }
+    
+    .breadcrumb a {
+      color: white;
+      text-decoration: none;
+    }
+    
+    h1 {
+      font-size: 2.5em;
+      font-weight: 800;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+    
+    .article-meta {
+      font-size: 1em;
+      opacity: 0.9;
+    }
+    
+    nav {
+      background: #1f2937;
+      padding: 15px 40px;
+    }
+    
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+    
+    .nav-link {
+      color: #d1d5db;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      background: #374151;
+      color: white;
+    }
+    
+    main {
+      padding: 50px 40px;
+    }
+    
+    .article-content h2 {
+      color: #1f2937;
+      font-size: 1.8em;
+      margin: 40px 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e5e7eb;
+    }
+    
+    .article-content h3 {
+      color: #374151;
+      font-size: 1.4em;
+      margin: 30px 0 15px;
+    }
+    
+    .article-content h4 {
+      color: #4b5563;
+      font-size: 1.2em;
+      margin: 25px 0 10px;
+    }
+    
+    .article-content p {
+      margin-bottom: 20px;
+      color: #374151;
+    }
+    
+    .article-content ul, .article-content ol {
+      margin: 20px 0;
+      padding-left: 30px;
+    }
+    
+    .article-content li {
+      margin-bottom: 8px;
+      color: #374151;
+    }
+    
+    .article-content code {
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      color: #dc2626;
+    }
+    
+    .article-content pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    
+    .article-content blockquote {
+      border-left: 4px solid #6366f1;
+      padding-left: 20px;
+      margin: 20px 0;
+      color: #4b5563;
+      font-style: italic;
+    }
+    
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #6366f1;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .back-to-top:hover {
+      background: #4f46e5;
+      transform: translateY(-2px);
+    }
+    
+    footer {
+      background: #1f2937;
+      color: #d1d5db;
+      padding: 40px;
+      text-align: center;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .footer-link {
+      color: #d1d5db;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-link:hover {
+      color: white;
+    }
+    
+    /* 響應式設計 */
+    @media (max-width: 768px) {
+      header, main, footer {
+        padding: 30px 20px;
+      }
+      
+      nav {
+        padding: 15px 20px;
+      }
+      
+      h1 {
+        font-size: 2em;
+      }
+      
+      .nav-links {
+        gap: 15px;
+      }
+      
+      .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="breadcrumb">
+        <a href="index.html">🏠 AIOGEO 知識庫</a> > 專業文章
+      </div>
+      <h1>ai-search-algorithm</h1>
+      <div class="article-meta">
+        📅 最後更新：2025年7月8日 | 👤 作者：廖天佑 Bless Liao
+      </div>
+    </header>
+    
+    <nav>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">🏠 首頁</a>
+        <a href="geo-fundamentals.html" class="nav-link">📚 GEO 基礎</a>
+        <a href="tools-checklists.html" class="nav-link">🛠️ 工具</a>
+        <a href="about.html" class="nav-link">👤 關於</a>
+        <a href="contributing.html" class="nav-link">🤝 貢獻</a>
+      </div>
+    </nav>
+    
+    <main>
+      <article class="article-content">
+        <h1>🤖 AI搜尋演算法解析：從檢索到生成的完整機制</h1>
+
+<section class="summary">
+<p>本文深入解析現代AI搜尋引擎的核心演算法機制，包含語義檢索、向量相似度計算、多模態內容理解、答案生成與引用邏輯。透過理解ChatGPT、Perplexity、Claude等平台的技術架構，掌握提升內容被AI發現與引用的關鍵策略。適合內容創作者、SEO專家和技術人員深度學習。</p>
+</section>
+
+<h2>🎯 AI搜尋演算法核心架構</h2>
+
+<h3>四層檢索召回機制</h3>
+
+<p>根據<cite>OpenAI GPT-4技術報告(2024年3月)</cite>和<cite>Anthropic Claude模型架構文件(2025年)</cite>，現代AI搜尋引擎採用四層級檢索系統：</p>
+
+<h4><strong>Step 1：權威來源層</strong> </h4>
+<li><strong>資料來源</strong>：學術論文、官方文檔、新聞媒體</li>
+<li><strong>召回優先級</strong>：最高（信心值 >0.85）</li>
+<li><strong>品質指標</strong>：發布機構權威性、同行評議狀態</li>
+<li><strong>引用特徵</strong>：通常會明確標註來源和發布日期</li>
+
+<h4><strong>Step 2：社群語料層</strong></h4>
+<li><strong>資料來源</strong>：Reddit、Dcard、專業論壇討論</li>
+<li><strong>召回優先級</strong>：中高（信心值 0.7-0.85）</li>
+<li><strong>篩選標準</strong>：高讚數、專家驗證、多人確認</li>
+<li><strong>引用特徵</strong>：較保守口吻，可能加註推測性表述</li>
+
+<h4><strong>Step 3：影音字幕層</strong></h4>
+<li><strong>資料來源</strong>：YouTube教學影片、訪談轉錄文字</li>
+<li><strong>召回優先級</strong>：中等（信心值 0.5-0.7）</li>
+<li><strong>處理方式</strong>：OCR文字識別、語音轉文字技術</li>
+<li><strong>引用特徵</strong>：口語化表達，內容較為模糊</li>
+
+<h4><strong>Step 4：模型推估層</strong></h4>
+<li><strong>啟動條件</strong>：前三層檢索結果不足時</li>
+<li><strong>信心值</strong>：低（<0.5）</li>
+<li><strong>處理策略</strong>：語意重寫查詢、範疇拓展搜尋</li>
+<li><strong>輸出特徵</strong>：可能拒答或要求重新表述問題</li>
+
+<h2>🔍 語義向量檢索技術</h2>
+
+<h3>Embedding模型原理</h3>
+
+<cite>OpenAI Text Embedding技術指南(2024年12月)</cite>指出，AI搜尋的核心是將查詢和內容轉換為高維向量：
+
+<code></code>`python
+<h1>語義相似度計算示例</h1>
+<p>def calculate_similarity(query_vector, content_vector):</p>
+<p>    """</p>
+<p>    計算查詢與內容的余弦相似度</p>
+<p>    返回值範圍：-1（完全不相關）到 1（完全匹配）</p>
+<p>    """</p>
+<p>    cosine_similarity = dot_product(query_vector, content_vector) / (</p>
+<p>        norm(query_vector) * norm(content_vector)</p>
+<p>    )</p>
+<p>    return cosine_similarity</p>
+
+<h1>GEO優化目標：達成 similarity > 0.75</h1>
+<code></code>`
+
+<h3>向量資料庫架構</h3>
+
+<li><strong>FAISS技術</strong>：支援十億級向量的高速檢索</li>
+<li><strong>實時索引</strong>：新內容24-48小時內被向量化</li>
+<li><strong>多語言支援</strong>：跨語言語義理解能力</li>
+<li><strong>主題聚類</strong>：相關內容自動分群組織</li>
+
+<h2>🎨 多模態內容理解</h2>
+
+<h3>跨媒體檢索整合</h3>
+
+<p>根據<cite>arXiv論文：多模態檢索增強生成系統綜述(2025年5月)</cite>，現代AI搜尋已整合：</p>
+
+<h4><strong>文字內容分析</strong></h4>
+<li><strong>結構化解析</strong>：識別標題、段落、清單結構</li>
+<li><strong>語義萃取</strong>：提取核心概念和關鍵實體</li>
+<li><strong>FAQ識別</strong>：自動檢測問答格式內容</li>
+<li><strong>Schema標記解讀</strong>：理解JSON-LD結構化資料</li>
+
+<h4><strong>圖像內容理解</strong></h4>
+<li><strong>OCR文字識別</strong>：提取圖片中的文字資訊</li>
+<li><strong>視覺物件檢測</strong>：識別圖表、流程圖、截圖</li>
+<li><strong>情境理解</strong>：分析圖像與文字的關聯性</li>
+<li><strong>Alt文字權重</strong>：替代文字影響檢索相關性</li>
+
+<h4><strong>影音內容處理</strong></h4>
+<li><strong>語音轉文字</strong>：提取影片字幕和旁白</li>
+<li><strong>關鍵幀分析</strong>：識別重要畫面和轉場</li>
+<li><strong>時間戳標記</strong>：精確定位相關片段</li>
+<li><strong>縮圖優化</strong>：提升影音內容可發現性</li>
+
+<h2>⚙️ 答案生成與引用機制</h2>
+
+<h3>內容片段選擇邏輯</h3>
+
+<p>AI引擎依據以下標準選擇引用內容：</p>
+
+<h4><strong>權威性評估指標</strong></h4>
+<code></code>`markdown
+<h2>引用優先級評分系統</h2>
+
+<h3>🏆 頂級來源（95-100分）</h3>
+<li>官方技術文檔</li>
+<li>同行評議學術論文</li>
+<li>政府機構報告</li>
+
+<h3>🥈 優質來源（80-94分）</h3>
+<li>知名媒體報導</li>
+<li>專業機構研究</li>
+<li>認證專家撰寫內容</li>
+
+<h3>🥉 一般來源（60-79分）</h3>
+<li>社群平台高品質討論</li>
+<li>個人部落格專業文章</li>
+<li>開源專案文檔</li>
+
+<h3>⚠️ 低信度來源（<60分）</h3>
+<li>未驗證的用戶生成內容</li>
+<li>匿名發布資訊</li>
+<li>過時或無來源支撐的內容</li>
+<code></code>`
+
+<h4><strong>內容新鮮度權重</strong></h4>
+<li><strong>時效性權重</strong>：2024-2025年內容獲得1.5x加權</li>
+<li><strong>更新頻率</strong>：定期更新的內容獲得優先考慮</li>
+<li><strong>事實驗證</strong>：交叉驗證多個來源的一致性</li>
+
+<h3>引用格式標準化</h3>
+
+<cite>Perplexity AI引用機制分析(2024年)</cite>顯示，AI引用遵循以下格式：
+
+<code></code>`html
+<!-- 標準引用格式範例 -->
+<cite>
+<p>  根據 <strong>OpenAI</strong> 於2024年3月發布的</p>
+<p>  <em>GPT-4技術報告</em>，模型在多模態理解方面</p>
+<p>  顯著提升了準確性...</p>
+<p>  </p>
+<p>  <a href="https://openai.com/research/gpt-4" </p>
+<p>     target="_blank" rel="noopener"></p>
+<p>    [來源連結]</p>
+<p>  </a></p>
+</cite>
+<code></code>`
+
+<h2>📊 GEO優化演算法適配策略</h2>
+
+<h3>針對檢索層的優化建議</h3>
+
+<h4><strong>Step 1權威層優化</strong></h4>
+<li>✅ 引用官方文檔和學術研究</li>
+<li>✅ 標註清楚的發布日期和來源</li>
+<li>✅ 使用專業術語和行業標準表達</li>
+<li>✅ 提供可驗證的統計數據</li>
+
+<h4><strong>Step 2社群層優化</strong></h4>
+<li>✅ 加入實戰經驗和案例分享</li>
+<li>✅ 回應常見問題和疑慮</li>
+<li>✅ 使用FAQ模組化結構</li>
+<li>✅ 鼓勵專業討論和互動</li>
+
+<h4><strong>Step 3影音層優化</strong></h4>
+<li>✅ 製作配套的教學影片或音頻</li>
+<li>✅ 提供完整的字幕文稿</li>
+<li>✅ 使用口語化但精準的表達</li>
+<li>✅ 加入視覺化圖表和示意圖</li>
+
+<h3>向量化優化技術要點</h3>
+
+<h4><strong>語義密度提升</strong></h4>
+<code></code>`markdown
+<p>❌ 低語義密度範例：</p>
+<p>「這個方法很好用，大家可以試試看。」</p>
+
+<p>✅ 高語義密度範例：</p>
+<p>「CAPI（Conversions API）能提升Facebook廣告</p>
+<p>轉換追蹤準確率30-50%，特別適合iOS 14.5+</p>
+<p>隱私限制環境下的電商網站。」</p>
+<code></code>`
+
+<h4><strong>關鍵詞策略佈局</strong></h4>
+<li><strong>主要關鍵詞</strong>：在標題和首段明確提及</li>
+<li><strong>語義變體</strong>：使用同義詞和相關詞彙</li>
+<li><strong>長尾詞組</strong>：涵蓋使用者可能的提問方式</li>
+<li><strong>專業術語</strong>：適當使用並提供定義</li>
+
+<h2>🔮 未來發展趨勢預測</h2>
+
+<h3>2025-2026年技術演進方向</h3>
+
+<p>根據<cite>AI搜尋技術發展趨勢報告(2025年)</cite>：</p>
+
+<h4><strong>檢索技術升級</strong></h4>
+<li><strong>即時學習</strong>：AI能從新內容中即時學習</li>
+<li><strong>個人化檢索</strong>：基於用戶歷史的客製化結果</li>
+<li><strong>跨語言檢索</strong>：無縫的多語言內容整合</li>
+<li><strong>情境感知</strong>：理解查詢的具體使用情境</li>
+
+<h4><strong>生成品質提升</strong></h4>
+<li><strong>事實驗證</strong>：自動檢查生成內容的準確性</li>
+<li><strong>來源透明</strong>：更詳細的引用溯源機制</li>
+<li><strong>偏見修正</strong>：減少模型輸出的潛在偏見</li>
+<li><strong>創新整合</strong>：結合多個來源產生新見解</li>
+
+<h2>❓ 常見問題解答</h2>
+
+<details>
+<summary><strong>Q1: AI如何判斷內容的權威性？</strong></summary>
+
+<strong>A:</strong> AI主要通過發布來源權威性、內容專業深度、引用其他權威文獻、用戶互動品質等指標評估。政府機構、學術期刊、知名企業官網通常獲得較高權威性評分。
+</details>
+
+<details>
+<summary><strong>Q2: 為什麼有些內容不被AI引用？</strong></summary>
+
+<strong>A:</strong> 常見原因包括：內容過於主觀、缺乏具體數據支撐、使用模糊語言、無清晰結構、發布來源信度不足，或與既有權威來源存在事實衝突。
+</details>
+
+<details>
+<summary><strong>Q3: 多久能看到GEO優化效果？</strong></summary>
+
+<strong>A:</strong> 通常需要2-4週。新內容的向量化處理需要24-48小時，但建立引用模式和提升檢索排名需要更長時間。建議持續監測並調整策略。
+</details>
+
+<h2>🔗 延伸學習資源</h2>
+
+<h3>📚 相關文章推薦</h3>
+<li>⬅️ 前置閱讀：[GEO基礎原理與概念](geo-fundamentals.html)</li>
+<li>➡️ 進階實作：[Answer Layer語段設計](answer-layer-design.html)</li>
+<li>🔄 平行學習：[多模態轉譯策略](multimodal-optimization.html)</li>
+<li>📊 後續應用：[GEO成效評估與追蹤](geo-measurement.html)</li>
+
+<h3>🛠️ 實用工具推薦</h3>
+<li><strong>OpenAI Embedding API</strong>：測試內容語義向量化效果</li>
+<li><strong>Google結構化資料測試工具</strong>：驗證Schema標記正確性</li>
+<li><strong>AI引用追蹤工具</strong>：監控內容在各平台的引用狀況</li>
+
+<p>---</p>
+
+<strong>📖 引用來源：</strong>
+<li>OpenAI. (2024年3月). GPT-4技術報告. https://openai.com/research/gpt-4</li>
+<li>Anthropic. (2025年). Claude模型架構文件. https://www.anthropic.com/claude-3-model-card  </li>
+<li>arXiv. (2025年5月). 多模態檢索增強生成系統綜述. https://arxiv.org/html/2303.10868</li>
+<li>Perplexity AI. (2024年). AI引用機制完整指南. https://www.arsturn.com/blog/comprehensive-guide-perplexity-ai-features</li>
+
+<em>最後更新：2025年7月6日</em>
+      </article>
+    </main>
+    
+    <footer>
+      <div class="footer-links">
+        <a href="about.html" class="footer-link">關於作者</a>
+        <a href="contributing.html" class="footer-link">參與貢獻</a>
+        <a href="https://github.com/bless25min/AIOGEO-Knowledge" class="footer-link" target="_blank">GitHub</a>
+      </div>
+      <p>&copy; 2025 AIOGEO 知識庫 | 讓 AI 看見你的內容</p>
+    </footer>
+  </div>
+  
+  <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="回到頂部">
+    ↑
+  </button>
+</body>
+</html>

@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>參與貢獻 | AIOGEO 知識庫</title>
+  <meta name="description" content="加入 AIOGEO 知識庫建設，共同推動 GEO 領域發展。提供貢獻指南與最佳實務分享">
+  <meta name="keywords" content="GEO, 生成式引擎優化, AI搜尋, 參與貢獻, 廖天佑, Bless Liao">
+  <meta name="author" content="廖天佑 Bless Liao">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="參與貢獻 | AIOGEO 知識庫">
+  <meta property="og:description" content="加入 AIOGEO 知識庫建設，共同推動 GEO 領域發展。提供貢獻指南與最佳實務分享">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bless25min.github.io/AIOGEO-Knowledge/contributing.html">
+  <meta property="og:site_name" content="AIOGEO 知識庫">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="參與貢獻 | AIOGEO 知識庫">
+  <meta name="twitter:description" content="加入 AIOGEO 知識庫建設，共同推動 GEO 領域發展。提供貢獻指南與最佳實務分享">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://bless25min.github.io/AIOGEO-Knowledge/contributing.html">
+  
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "參與貢獻",
+    "description": "加入 AIOGEO 知識庫建設，共同推動 GEO 領域發展。提供貢獻指南與最佳實務分享",
+    "author": {
+      "@type": "Person",
+      "name": "廖天佑 Bless Liao",
+      "url": "https://github.com/bless25min"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIOGEO 知識庫",
+      "url": "https://bless25min.github.io/AIOGEO-Knowledge/"
+    },
+    "datePublished": "2025-07-08",
+    "dateModified": "2025-07-08",
+    "mainEntityOfPage": "https://bless25min.github.io/AIOGEO-Knowledge/contributing.html",
+    "keywords": ["GEO", "生成式引擎優化", "AI搜尋", "參與貢獻"],
+    "articleSection": "關於專案",
+    "inLanguage": "zh-TW"
+  }
+  </script>
+  
+  <style>
+    /* 統一的文章頁面樣式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+      line-height: 1.8;
+      color: #1f2937;
+      background: #f9fafb;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      min-height: 100vh;
+      box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    }
+    
+    header {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      color: white;
+      padding: 40px;
+      text-align: center;
+    }
+    
+    .breadcrumb {
+      font-size: 0.9em;
+      opacity: 0.9;
+      margin-bottom: 15px;
+    }
+    
+    .breadcrumb a {
+      color: white;
+      text-decoration: none;
+    }
+    
+    h1 {
+      font-size: 2.5em;
+      font-weight: 800;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+    
+    .article-meta {
+      font-size: 1em;
+      opacity: 0.9;
+    }
+    
+    nav {
+      background: #1f2937;
+      padding: 15px 40px;
+    }
+    
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+    
+    .nav-link {
+      color: #d1d5db;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      background: #374151;
+      color: white;
+    }
+    
+    main {
+      padding: 50px 40px;
+    }
+    
+    .article-content h2 {
+      color: #1f2937;
+      font-size: 1.8em;
+      margin: 40px 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e5e7eb;
+    }
+    
+    .article-content h3 {
+      color: #374151;
+      font-size: 1.4em;
+      margin: 30px 0 15px;
+    }
+    
+    .article-content h4 {
+      color: #4b5563;
+      font-size: 1.2em;
+      margin: 25px 0 10px;
+    }
+    
+    .article-content p {
+      margin-bottom: 20px;
+      color: #374151;
+    }
+    
+    .article-content ul, .article-content ol {
+      margin: 20px 0;
+      padding-left: 30px;
+    }
+    
+    .article-content li {
+      margin-bottom: 8px;
+      color: #374151;
+    }
+    
+    .article-content code {
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      color: #dc2626;
+    }
+    
+    .article-content pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    
+    .article-content blockquote {
+      border-left: 4px solid #6366f1;
+      padding-left: 20px;
+      margin: 20px 0;
+      color: #4b5563;
+      font-style: italic;
+    }
+    
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #6366f1;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .back-to-top:hover {
+      background: #4f46e5;
+      transform: translateY(-2px);
+    }
+    
+    footer {
+      background: #1f2937;
+      color: #d1d5db;
+      padding: 40px;
+      text-align: center;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .footer-link {
+      color: #d1d5db;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-link:hover {
+      color: white;
+    }
+    
+    /* 響應式設計 */
+    @media (max-width: 768px) {
+      header, main, footer {
+        padding: 30px 20px;
+      }
+      
+      nav {
+        padding: 15px 20px;
+      }
+      
+      h1 {
+        font-size: 2em;
+      }
+      
+      .nav-links {
+        gap: 15px;
+      }
+      
+      .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="breadcrumb">
+        <a href="index.html">🏠 AIOGEO 知識庫</a> > 關於專案
+      </div>
+      <h1>參與貢獻</h1>
+      <div class="article-meta">
+        📅 最後更新：2025年7月8日 | 👤 作者：廖天佑 Bless Liao
+      </div>
+    </header>
+    
+    <nav>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">🏠 首頁</a>
+        <a href="geo-fundamentals.html" class="nav-link">📚 GEO 基礎</a>
+        <a href="tools-checklists.html" class="nav-link">🛠️ 工具</a>
+        <a href="about.html" class="nav-link">👤 關於</a>
+        <a href="contributing.html" class="nav-link">🤝 貢獻</a>
+      </div>
+    </nav>
+    
+    <main>
+      <article class="article-content">
+        <h1>🤝 AIOGEO知識庫貢獻指南</h1>
+
+<p>歡迎加入AIOGEO知識庫的建設！我們致力於打造<strong>最全面、最實用的生成式引擎優化資源中心</strong>，讓每位內容創作者都能在AI驅動的搜尋生態中取得成功。</p>
+
+<h2>🌟 為什麼要貢獻？</h2>
+
+<div class="why-contribute">
+
+<h3>💡 共建知識未來</h3>
+<p>參與建設AI時代最重要的內容優化知識庫，影響千萬創作者的成功</p>
+
+<h3>🚀 提升個人品牌</h3>
+<p>在快速發展的GEO領域建立專業聲譽，成為AI搜尋優化的權威專家</p>
+
+<h3>🤝 回饋社群</h3>
+<p>分享您的實戰經驗，幫助其他人避免彎路，創造共贏的學習環境</p>
+
+<h3>🎯 獲得認可</h3>
+<p>優質貢獻者將獲得專案署名、專家認證，以及演講分享的機會</p>
+
+</div>
+
+<h2>📋 貢獻方式</h2>
+
+<h3>📝 內容貢獻</h3>
+
+<h4>1. 撰寫新文章</h4>
+<strong>適合主題：</strong>
+<li>GEO實戰案例分析</li>
+<li>AI工具應用教學</li>
+<li>行業特定的優化策略</li>
+<li>新興技術趨勢探討</li>
+<li>常見問題解答</li>
+
+<strong>文章類型：</strong>
+<li><strong>教學指南</strong>（How-to Guide）：3000-5000字</li>
+<li><strong>案例研究</strong>（Case Study）：2000-4000字</li>
+<li><strong>工具評測</strong>（Tool Review）：1500-3000字</li>
+<li><strong>趨勢分析</strong>（Trend Analysis）：2000-3500字</li>
+<li><strong>快速技巧</strong>（Quick Tips）：800-1500字</li>
+
+<h4>2. 改善現有內容</h4>
+<li>更新過時的資訊和數據</li>
+<li>補充實戰案例和範例</li>
+<li>增加圖表和視覺化元素</li>
+<li>優化內容結構和可讀性</li>
+<li>新增相關的FAQ問答</li>
+
+<h4>3. 翻譯內容</h4>
+<li>將英文資源翻譯為中文</li>
+<li>協助製作多語言版本</li>
+<li>確保專業術語的一致性</li>
+
+<h3>🛠️ 技術貢獻</h3>
+
+<h4>1. 工具開發</h4>
+<li>AIOGEO分析工具改善</li>
+<li>新功能開發和測試</li>
+<li>使用者介面優化</li>
+<li>效能提升和錯誤修復</li>
+
+<h4>2. 網站優化</h4>
+<li>頁面載入速度優化</li>
+<li>響應式設計改善</li>
+<li>SEO技術優化</li>
+<li>無障礙性提升</li>
+
+<h4>3. 資料處理</h4>
+<li>內容分析腳本開發</li>
+<li>數據視覺化工具</li>
+<li>自動化流程建立</li>
+
+<h3>📊 數據貢獻</h3>
+
+<h4>1. 研究數據</h4>
+<li>AI引用率統計分析</li>
+<li>行業趨勢調查報告</li>
+<li>工具效果比較研究</li>
+<li>使用者行為分析</li>
+
+<h4>2. 案例收集</h4>
+<li>成功優化案例</li>
+<li>失敗經驗分享</li>
+<li>前後對比數據</li>
+<li>ROI效果評估</li>
+
+<h2>✍️ 內容標準與規範</h2>
+
+<h3>📐 文章格式要求</h3>
+
+<div class="content-standards">
+
+<h4>🏗️ 基本結構</h4>
+
+<code></code>`markdown
+<h1>文章標題：清楚描述主題，包含關鍵字</h1>
+
+<section class="summary">
+<p>摘要段落：150-300字精華總結，包含核心觀點和關鍵詞。</p>
+<p>此段將優先被AI模型抓取，請確保資訊完整且具有吸引力。</p>
+</section>
+
+<h2>🎯 引言</h2>
+<p>簡述文章背景、目的與讀者價值（1-2段）</p>
+
+<h2>📚 主要內容</h2>
+<h3>H2標題：主要段落標題</h3>
+<h4>H3標題：次要段落標題</h4>
+
+<h2>❓ 常見問題FAQ</h2>
+<strong>Q1: 具體問題？</strong>
+<p>A1: 簡潔明確的回答</p>
+
+<h2>🚀 總結與行動建議</h2>
+<p>重點摘要和實用的下一步指導</p>
+
+<h2>📚 延伸閱讀</h2>
+<p>相關文章和資源推薦</p>
+<code></code>`
+
+<h4>📝 寫作風格指南</h4>
+
+<strong>語調與風格：</strong>
+<li>使用<strong>專業但平易近人</strong>的語調</li>
+<li>避免過度技術性的專業術語</li>
+<li>多使用<strong>實際案例<em>*和*</em>具體數據</strong></li>
+<li>採用<strong>積極正面</strong>的表達方式</li>
+
+<strong>內容品質要求：</strong>
+<li><strong>準確性</strong>：所有資訊必須可驗證且來源可靠</li>
+<li><strong>實用性</strong>：提供可立即執行的策略和建議</li>
+<li><strong>時效性</strong>：確保內容反映最新的技術趨勢</li>
+<li><strong>原創性</strong>：避免抄襲，註明引用來源</li>
+
+<strong>格式化標準：</strong>
+<li>使用<strong>清晰的標題階層</strong>（H2、H3、H4）</li>
+<li>善用<strong>條列、表格、圖表</strong>提升可讀性</li>
+<li>加入<strong>emoji表情符號</strong>增加視覺吸引力</li>
+<li>提供<strong>可點擊的目錄<em>*和*</em>內部連結</strong></li>
+
+</div>
+
+<h3>🏷️ GEO優化要求</h3>
+
+<p>每篇文章都必須符合我們的GEO標準：</p>
+
+<div class="geo-requirements">
+
+<h4>✅ 必要元素檢查清單</h4>
+
+<strong>結構化內容：</strong>
+<li>[ ] 包含<code><section class="summary"></code>摘要段落</li>
+<li>[ ] 使用清晰的H2/H3標題階層</li>
+<li>[ ] 每段落聚焦單一主題（≤5句話）</li>
+<li>[ ] 包含至少3個FAQ問答</li>
+
+<strong>語意優化：</strong>
+<li>[ ] 標題直接回答可能的使用者提問</li>
+<li>[ ] 內容包含目標關鍵字的同義詞變體</li>
+<li>[ ] 提供具體的數據和案例支持</li>
+<li>[ ] 使用模組化的段落結構</li>
+
+<strong>引用友好性：</strong>
+<li>[ ] 開門見山回答核心問題</li>
+<li>[ ] 引用權威來源和最新數據</li>
+<li>[ ] 提供可獨立理解的內容片段</li>
+<li>[ ] 避免過度依賴前文的表達方式</li>
+
+</div>
+
+<h3>📊 品質評估標準</h3>
+
+<p>我們使用<strong>五星評分系統</strong>評估內容品質：</p>
+
+<p>| 評分 | 標準描述 | 具體要求 |</p>
+<p>|------|---------|----------|</p>
+<p>| ⭐⭐⭐⭐⭐ | 卓越品質 | 原創洞察、完整案例、權威引用、實用工具 |</p>
+<p>| ⭐⭐⭐⭐ | 優良品質 | 結構清晰、內容詳實、實用性強、格式標準 |</p>
+<p>| ⭐⭐⭐ | 合格品質 | 基本完整、格式正確、有一定實用價值 |</p>
+<p>| ⭐⭐ | 需要改進 | 內容不完整、格式問題、實用性有限 |</p>
+<p>| ⭐ | 不符合標準 | 品質過低、格式錯誤、內容不準確 |</p>
+
+<strong>發布標準：</strong> 只有達到⭐⭐⭐以上的內容才會被接受發布。
+
+<h2>🔄 貢獻流程</h2>
+
+<h3>📋 標準提交流程</h3>
+
+<div class="contribution-process">
+
+<h4>1️⃣ 準備階段</h4>
+<code></code>`bash
+<h1>1. Fork專案到個人帳號</h1>
+<h1>2. Clone到本地環境</h1>
+<p>git clone https://github.com/your-username/AIOGEO-Knowledge.git</p>
+<p>cd AIOGEO-Knowledge</p>
+
+<h1>3. 建立新的功能分支</h1>
+<p>git checkout -b feature/your-article-name</p>
+<code></code>`
+
+<h4>2️⃣ 創作階段</h4>
+<li>根據[內容模板](tools/content-templates.html)撰寫文章</li>
+<li>使用[GEO優化檢查清單](tools/checklists.html)自我檢查</li>
+<li>在本地預覽效果確認格式正確</li>
+
+<h4>3️⃣ 提交階段</h4>
+<code></code>`bash
+<h1>1. 新增文章檔案</h1>
+<p>git add posts/your-article.md</p>
+
+<h1>2. 更新側邊欄導航（如需要）</h1>
+<p>git add _sidebar.md</p>
+
+<h1>3. 提交變更</h1>
+<p>git commit -m "📝 新增：文章標題"</p>
+
+<h1>4. 推送到GitHub</h1>
+<p>git push origin feature/your-article-name</p>
+<code></code>`
+
+<h4>4️⃣ 審核階段</h4>
+<p>1. 在GitHub建立Pull Request</p>
+<p>2. 填寫PR模板，說明貢獻內容</p>
+<p>3. 等待維護團隊審核回饋</p>
+<p>4. 根據建議修改完善</p>
+<p>5. 審核通過後合併發布</p>
+
+</div>
+
+<h3>📝 Pull Request模板</h3>
+
+<p>提交PR時請使用以下模板：</p>
+
+<code></code>`markdown
+<h2>📋 貢獻類型</h2>
+<li>[ ] 新增文章</li>
+<li>[ ] 更新現有內容  </li>
+<li>[ ] 錯誤修正</li>
+<li>[ ] 技術改進</li>
+<li>[ ] 其他：_______</li>
+
+<h2>📖 內容摘要</h2>
+<p>簡述您的貢獻內容和主要價值點</p>
+
+<h2>✅ 自我檢查清單</h2>
+<li>[ ] 遵循內容格式規範</li>
+<li>[ ] 通過GEO優化標準</li>
+<li>[ ] 包含適當的FAQ問答</li>
+<li>[ ] 提供實用的案例或工具</li>
+<li>[ ] 檢查語法和排版錯誤</li>
+
+<h2>🎯 目標讀者</h2>
+<p>說明這篇內容適合哪些讀者群體</p>
+
+<h2>📊 預期影響</h2>
+<p>預估這個貢獻可能帶來的正面影響</p>
+
+<h2>💬 額外說明</h2>
+<p>其他需要說明的事項或特殊考量</p>
+<code></code>`
+
+<h3>⏰ 審核時程</h3>
+
+<p>| 貢獻類型 | 預計審核時間 | 審核重點 |</p>
+<p>|---------|------------|----------|</p>
+<p>| <strong>新文章</strong> | 5-7個工作日 | 內容品質、原創性、實用性 |</p>
+<p>| <strong>內容更新</strong> | 2-3個工作日 | 準確性、改善效果 |</p>
+<p>| <strong>錯誤修正</strong> | 1-2個工作日 | 問題確認、解決方案 |</p>
+<p>| <strong>技術改進</strong> | 3-5個工作日 | 功能測試、效能影響 |</p>
+
+<h2>🏆 貢獻者福利</h2>
+
+<h3>🌟 認可與獎勵</h3>
+
+<div class="contributor-benefits">
+
+<h4>🥇 專家認證</h4>
+<strong>條件</strong>：貢獻5篇以上高品質文章
+<strong>福利</strong>：
+<li>AIOGEO專家認證徽章</li>
+<li>個人專家頁面展示</li>
+<li>優先參與新功能測試</li>
+<li>專家諮詢服務推薦機會</li>
+
+<h4>🎤 演講機會</h4>
+<strong>條件</strong>：在特定領域有深度貢獻
+<strong>福利</strong>：
+<li>受邀參與線上研討會分享</li>
+<li>協助舉辦GEO主題工作坊</li>
+<li>建立個人專業品牌</li>
+<li>獲得演講費用補助</li>
+
+<h4>🤝 合作機會</h4>
+<strong>條件</strong>：持續活躍的社群參與
+<strong>福利</strong>：
+<li>優先獲得合作專案機會</li>
+<li>參與商業案例的實戰項目</li>
+<li>建立專業人脈網絡</li>
+<li>共同開發新產品或服務</li>
+
+<h4>🎁 實質獎勵</h4>
+<strong>月度最佳貢獻者</strong>：
+<li>價值$100的技術書籍或課程</li>
+<li>AIOGEO官方週邊商品</li>
+<li>社群媒體特別推薦</li>
+
+<strong>年度傑出貢獻者</strong>：
+<li>價值$500的專業發展基金</li>
+<li>免費參與國際研討會</li>
+<li>與作者廖天佑Bless的一對一諮詢</li>
+
+</div>
+
+<h3>📈 職涯發展支持</h3>
+
+<li><strong>推薦信撰寫</strong>：為優秀貢獻者提供專業推薦</li>
+<li><strong>履歷強化</strong>：協助在履歷中突出GEO專業能力</li>
+<li><strong>人才媒合</strong>：連結有GEO需求的企業和人才</li>
+<li><strong>技能認證</strong>：提供可驗證的專業技能證明</li>
+
+<h2>📞 支援與聯絡</h2>
+
+<h3>🤔 常見問題</h3>
+
+<details>
+<summary><strong>Q: 我是初學者，也可以貢獻嗎？</strong></summary>
+
+<p>A: 當然可以！我們歡迎各種程度的貢獻者。初學者可以：</p>
+<li>分享學習心得和實作經驗</li>
+<li>協助發現和回報內容錯誤</li>
+<li>提供使用者視角的改善建議</li>
+<li>參與社群討論和問答</li>
+
+</details>
+
+<details>
+<summary><strong>Q: 如何確保我的貢獻符合品質標準？</strong></summary>
+
+<p>A: 建議您：</p>
+<li>仔細閱讀本貢獻指南</li>
+<li>使用我們提供的內容模板</li>
+<li>參考現有的高品質文章</li>
+<li>在提交前使用檢查清單自我檢查</li>
+<li>主動請求預審核和建議</li>
+
+</details>
+
+<details>
+<summary><strong>Q: 貢獻內容的版權歸屬如何處理？</strong></summary>
+
+<p>A: 所有貢獻內容將採用CC BY-SA 4.0授權：</p>
+<li>您保留原創內容的著作權</li>
+<li>內容可被自由使用和分享</li>
+<li>使用時必須註明原作者</li>
+<li>衍生作品需採用相同授權</li>
+
+</details>
+
+<details>
+<summary><strong>Q: 如果我的PR被拒絕怎麼辦？</strong></summary>
+
+<p>A: 不用擔心！我們會提供詳細的修改建議：</p>
+<li>仔細閱讀審核回饋意見</li>
+<li>根據建議修改完善內容</li>
+<li>重新提交或請求進一步指導</li>
+<li>可通過Discord聯繫維護團隊</li>
+
+</details>
+
+<h3>📬 聯絡管道</h3>
+
+<div class="contact-channels">
+
+<h4>💬 即時討論</h4>
+<li><strong>Discord社群</strong>：[加入AIOGEO Discord](https://discord.gg/aiogeo)</li>
+<li><strong>GitHub Discussions</strong>：[專案討論區](https://github.com/bless25min/AIOGEO-Knowledge/discussions)</li>
+
+<h4>📧 正式聯絡</h4>
+<li><strong>專案維護者</strong>：廖天佑 Bless (bless.liao@aiogeo.com)</li>
+<li><strong>技術支援</strong>：tech-support@aiogeo.com</li>
+<li><strong>內容審核</strong>：content-review@aiogeo.com</li>
+
+<h4>🐛 問題回報</h4>
+<li><strong>GitHub Issues</strong>：[回報問題](https://github.com/bless25min/AIOGEO-Knowledge/issues)</li>
+<li><strong>功能建議</strong>：feature-request@aiogeo.com</li>
+
+</div>
+
+<h3>📅 定期活動</h3>
+
+<h4>🗓️ 每月社群會議</h4>
+<li><strong>時間</strong>：每月第一個星期六 20:00-21:30</li>
+<li><strong>方式</strong>：Discord語音頻道</li>
+<li><strong>內容</strong>：進度分享、問題討論、未來規劃</li>
+
+<h4>🏆 季度貢獻者聚會</h4>
+<li><strong>時間</strong>：每季末最後一個星期六</li>
+<li><strong>方式</strong>：線上＋線下（台北）</li>
+<li><strong>內容</strong>：成果展示、經驗交流、慶祝表彰</li>
+
+<h2>🎯 開始貢獻</h2>
+
+<p>準備好加入我們了嗎？選擇最適合您的貢獻方式：</p>
+
+<div class="getting-started">
+
+<h3>🚀 立即開始</h3>
+
+<strong>對內容創作有興趣？</strong>
+<p>1. 閱讀[內容撰寫指南](tools/content-templates.html)</p>
+<p>2. 選擇一個您擅長的主題</p>
+<p>3. 使用我們的[文章模板](tools/content-templates.html)開始創作</p>
+
+<strong>想要改善現有內容？</strong>
+<p>1. 瀏覽現有文章找出改善機會</p>
+<p>2. 在[Issues](https://github.com/bless25min/AIOGEO-Knowledge/issues)中建立改善提案</p>
+<p>3. 獲得確認後開始修改</p>
+
+<strong>技術開發愛好者？</strong>
+<p>1. 查看[技術任務清單](https://github.com/bless25min/AIOGEO-Knowledge/labels/tech)</p>
+<p>2. 選擇符合您技能的任務</p>
+<p>3. 在Discord技術頻道討論實作方案</p>
+
+<strong>想要分享經驗？</strong>
+<p>1. 加入[Discord社群](https://discord.gg/aiogeo)</p>
+<p>2. 在討論區分享您的實戰經驗</p>
+<p>3. 協助回答其他成員的問題</p>
+
+</div>
+
+<p>---</p>
+
+<div class="final-cta">
+
+<h2>🌟 讓我們一起建設AI時代的知識未來！</h2>
+
+<p>每一個貢獻都是珍貴的，無論大小。您的經驗、洞察和創意都將幫助千萬創作者在AI驅動的世界中取得成功。</p>
+
+<strong>立即行動</strong>：
+<li>🍴 [Fork此專案](https://github.com/bless25min/AIOGEO-Knowledge/fork)</li>
+<li>💬 [加入Discord社群](https://discord.gg/aiogeo)</li>
+<li>📧 [聯絡維護團隊](mailto:bless.liao@aiogeo.com)</li>
+
+<strong>一起創造改變世界的知識！</strong> 🚀
+
+</div>
+
+<style>
+<p>.why-contribute {</p>
+<p>  display: grid;</p>
+<p>  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));</p>
+<p>  gap: 20px;</p>
+<p>  margin: 24px 0;</p>
+<p>}</p>
+
+<p>.why-contribute > div {</p>
+<p>  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);</p>
+<p>  padding: 20px;</p>
+<p>  border-radius: 12px;</p>
+<p>  border: 1px solid #0ea5e9;</p>
+<p>}</p>
+
+<p>.content-standards {</p>
+<p>  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);</p>
+<p>  border: 1px solid #f59e0b;</p>
+<p>  border-radius: 12px;</p>
+<p>  padding: 24px;</p>
+<p>  margin: 24px 0;</p>
+<p>}</p>
+
+<p>.geo-requirements {</p>
+<p>  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);</p>
+<p>  border: 1px solid #22c55e;</p>
+<p>  border-radius: 12px;</p>
+<p>  padding: 24px;</p>
+<p>  margin: 24px 0;</p>
+<p>}</p>
+
+<p>.contribution-process {</p>
+<p>  background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);</p>
+<p>  border: 1px solid #a855f7;</p>
+<p>  border-radius: 12px;</p>
+<p>  padding: 24px;</p>
+<p>  margin: 24px 0;</p>
+<p>}</p>
+
+<p>.contributor-benefits {</p>
+<p>  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);</p>
+<p>  border: 1px solid #10b981;</p>
+<p>  border-radius: 12px;</p>
+<p>  padding: 24px;</p>
+<p>  margin: 24px 0;</p>
+<p>}</p>
+
+<p>.contact-channels {</p>
+<p>  display: grid;</p>
+<p>  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));</p>
+<p>  gap: 20px;</p>
+<p>  margin: 24px 0;</p>
+<p>}</p>
+
+<p>.contact-channels > div {</p>
+<p>  background: #f8fafc;</p>
+<p>  padding: 20px;</p>
+<p>  border-radius: 8px;</p>
+<p>  border: 1px solid #e2e8f0;</p>
+<p>}</p>
+
+<p>.getting-started {</p>
+<p>  background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);</p>
+<p>  border: 1px solid #fb923c;</p>
+<p>  border-radius: 12px;</p>
+<p>  padding: 24px;</p>
+<p>  margin: 24px 0;</p>
+<p>}</p>
+
+<p>.final-cta {</p>
+<p>  background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);</p>
+<p>  border: 1px solid #ef4444;</p>
+<p>  border-radius: 16px;</p>
+<p>  padding: 32px;</p>
+<p>  margin: 32px 0;</p>
+<p>  text-align: center;</p>
+<p>}</p>
+
+<p>details {</p>
+<p>  background: #f9fafb;</p>
+<p>  border: 1px solid #e5e7eb;</p>
+<p>  border-radius: 8px;</p>
+<p>  padding: 16px;</p>
+<p>  margin: 12px 0;</p>
+<p>}</p>
+
+<p>details summary {</p>
+<p>  cursor: pointer;</p>
+<p>  font-weight: bold;</p>
+<p>  margin-bottom: 8px;</p>
+<p>}</p>
+
+<p>details[open] summary {</p>
+<p>  margin-bottom: 16px;</p>
+<p>}</p>
+</style>
+      </article>
+    </main>
+    
+    <footer>
+      <div class="footer-links">
+        <a href="about.html" class="footer-link">關於作者</a>
+        <a href="contributing.html" class="footer-link">參與貢獻</a>
+        <a href="https://github.com/bless25min/AIOGEO-Knowledge" class="footer-link" target="_blank">GitHub</a>
+      </div>
+      <p>&copy; 2025 AIOGEO 知識庫 | 讓 AI 看見你的內容</p>
+    </footer>
+  </div>
+  
+  <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="回到頂部">
+    ↑
+  </button>
+</body>
+</html>

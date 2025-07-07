@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>citation-enhancement | AIOGEO 知識庫</title>
+  <meta name="description" content="AIOGEO 知識庫專業文章 - citation-enhancement">
+  <meta name="keywords" content="GEO, 生成式引擎優化, AI搜尋, citation-enhancement, 廖天佑, Bless Liao">
+  <meta name="author" content="廖天佑 Bless Liao">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="citation-enhancement | AIOGEO 知識庫">
+  <meta property="og:description" content="AIOGEO 知識庫專業文章 - citation-enhancement">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bless25min.github.io/AIOGEO-Knowledge/citation-enhancement.html">
+  <meta property="og:site_name" content="AIOGEO 知識庫">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="citation-enhancement | AIOGEO 知識庫">
+  <meta name="twitter:description" content="AIOGEO 知識庫專業文章 - citation-enhancement">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://bless25min.github.io/AIOGEO-Knowledge/citation-enhancement.html">
+  
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "citation-enhancement",
+    "description": "AIOGEO 知識庫專業文章 - citation-enhancement",
+    "author": {
+      "@type": "Person",
+      "name": "廖天佑 Bless Liao",
+      "url": "https://github.com/bless25min"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIOGEO 知識庫",
+      "url": "https://bless25min.github.io/AIOGEO-Knowledge/"
+    },
+    "datePublished": "2025-07-08",
+    "dateModified": "2025-07-08",
+    "mainEntityOfPage": "https://bless25min.github.io/AIOGEO-Knowledge/citation-enhancement.html",
+    "keywords": ["GEO", "生成式引擎優化", "AI搜尋", "citation-enhancement"],
+    "articleSection": "專業文章",
+    "inLanguage": "zh-TW"
+  }
+  </script>
+  
+  <style>
+    /* 統一的文章頁面樣式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+      line-height: 1.8;
+      color: #1f2937;
+      background: #f9fafb;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      min-height: 100vh;
+      box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    }
+    
+    header {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      color: white;
+      padding: 40px;
+      text-align: center;
+    }
+    
+    .breadcrumb {
+      font-size: 0.9em;
+      opacity: 0.9;
+      margin-bottom: 15px;
+    }
+    
+    .breadcrumb a {
+      color: white;
+      text-decoration: none;
+    }
+    
+    h1 {
+      font-size: 2.5em;
+      font-weight: 800;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+    
+    .article-meta {
+      font-size: 1em;
+      opacity: 0.9;
+    }
+    
+    nav {
+      background: #1f2937;
+      padding: 15px 40px;
+    }
+    
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+    
+    .nav-link {
+      color: #d1d5db;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      background: #374151;
+      color: white;
+    }
+    
+    main {
+      padding: 50px 40px;
+    }
+    
+    .article-content h2 {
+      color: #1f2937;
+      font-size: 1.8em;
+      margin: 40px 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e5e7eb;
+    }
+    
+    .article-content h3 {
+      color: #374151;
+      font-size: 1.4em;
+      margin: 30px 0 15px;
+    }
+    
+    .article-content h4 {
+      color: #4b5563;
+      font-size: 1.2em;
+      margin: 25px 0 10px;
+    }
+    
+    .article-content p {
+      margin-bottom: 20px;
+      color: #374151;
+    }
+    
+    .article-content ul, .article-content ol {
+      margin: 20px 0;
+      padding-left: 30px;
+    }
+    
+    .article-content li {
+      margin-bottom: 8px;
+      color: #374151;
+    }
+    
+    .article-content code {
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      color: #dc2626;
+    }
+    
+    .article-content pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    
+    .article-content blockquote {
+      border-left: 4px solid #6366f1;
+      padding-left: 20px;
+      margin: 20px 0;
+      color: #4b5563;
+      font-style: italic;
+    }
+    
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #6366f1;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .back-to-top:hover {
+      background: #4f46e5;
+      transform: translateY(-2px);
+    }
+    
+    footer {
+      background: #1f2937;
+      color: #d1d5db;
+      padding: 40px;
+      text-align: center;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .footer-link {
+      color: #d1d5db;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-link:hover {
+      color: white;
+    }
+    
+    /* 響應式設計 */
+    @media (max-width: 768px) {
+      header, main, footer {
+        padding: 30px 20px;
+      }
+      
+      nav {
+        padding: 15px 20px;
+      }
+      
+      h1 {
+        font-size: 2em;
+      }
+      
+      .nav-links {
+        gap: 15px;
+      }
+      
+      .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="breadcrumb">
+        <a href="index.html">🏠 AIOGEO 知識庫</a> > 專業文章
+      </div>
+      <h1>citation-enhancement</h1>
+      <div class="article-meta">
+        📅 最後更新：2025年7月8日 | 👤 作者：廖天佑 Bless Liao
+      </div>
+    </header>
+    
+    <nav>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">🏠 首頁</a>
+        <a href="geo-fundamentals.html" class="nav-link">📚 GEO 基礎</a>
+        <a href="tools-checklists.html" class="nav-link">🛠️ 工具</a>
+        <a href="about.html" class="nav-link">👤 關於</a>
+        <a href="contributing.html" class="nav-link">🤝 貢獻</a>
+      </div>
+    </nav>
+    
+    <main>
+      <article class="article-content">
+        <h1>什麼是引用增強技術？</h1>
+
+<section class="summary">
+<p>引用增強技術是提升內容被 AI 搜尋引擎引用機率的具體方法，包含語義錨定、上下文優化和結構化標記等技術手段。</p>
+</section>
+
+<h2>🎯 核心定義</h2>
+
+<strong>引用增強技術（Citation Enhancement）</strong> 是指透過特定的內容優化方法，提高內容在 AI 生成回答時被選中和引用的機率。這些技術基於 AI 模型的工作原理，針對性地改善內容的可發現性、可理解性和權威性。
+
+<h2>📖 主要技術手段</h2>
+
+<h3>1. 語義錨定優化</h3>
+<p>確保每段內容都有明確的主題焦點，避免語意發散：</p>
+<code></code>`markdown
+<p>✅ 優秀範例：</p>
+<p>"CAPI（Conversion API）是 Meta 廣告的伺服器端追蹤技術，</p>
+<p>能夠繞過瀏覽器限制直接傳送轉換數據。"</p>
+
+<p>❌ 需要改善：</p>
+<p>"廣告追蹤有很多方法，要看情況選擇。"</p>
+<code></code>`
+
+<h3>2. 上下文關鍵詞佈局</h3>
+<p>在內容中自然地嵌入相關的同義詞和變體：</p>
+<li>目標詞：Facebook CAPI</li>
+<li>相關詞：Conversion API、轉換 API、伺服器端追蹤</li>
+<li>長尾詞：Meta 廣告追蹤解決方案</li>
+
+<h3>3. 結構化標記增強</h3>
+<p>使用 Schema.org 標記提供額外的語義線索：</p>
+<code></code>`html
+<script type="application/ld+json">
+<p>{</p>
+<p>  "@context": "https://schema.org",</p>
+<p>  "@type": "DefinedTerm",</p>
+<p>  "name": "引用增強技術",</p>
+<p>  "description": "提升內容被 AI 引用機率的優化方法"</p>
+<p>}</p>
+</script>
+<code></code>`
+
+<h2>💡 實際應用</h2>
+
+<h3>內容創作階段</h3>
+<li>每段開頭直接點出核心概念</li>
+<li>使用問答式小標題</li>
+<li>提供具體的數據和例子</li>
+<li>確保每段可獨立理解</li>
+
+<h3>技術實作階段  </h3>
+<li>加入適當的 HTML 語義標籤</li>
+<li>實作 FAQPage 或 HowTo Schema</li>
+<li>優化內部連結錨文字</li>
+<li>建立清晰的內容層級結構</li>
+
+<h3>效果評估階段</h3>
+<li>定期檢查 AI 平台的引用情況</li>
+<li>監控關鍵問題的回答品質</li>
+<li>分析競爭對手的引用表現</li>
+<li>調整優化策略</li>
+
+<h2>🔗 相關資源</h2>
+
+<li>[回到：Semantic Mesh 內容網](../posts/semantic-mesh.html)</li>
+<li>[工具推薦：評估工具清單](../tools/assessment-tools.html)</li>
+
+<p>---</p>
+
+<strong>更新時間</strong>：2025-07-06  
+<strong>相關主題</strong>：[GEO 基礎原理](../posts/geo-fundamentals.html) | [Answer Layer 設計](../posts/answer-layer-design.html)
+      </article>
+    </main>
+    
+    <footer>
+      <div class="footer-links">
+        <a href="about.html" class="footer-link">關於作者</a>
+        <a href="contributing.html" class="footer-link">參與貢獻</a>
+        <a href="https://github.com/bless25min/AIOGEO-Knowledge" class="footer-link" target="_blank">GitHub</a>
+      </div>
+      <p>&copy; 2025 AIOGEO 知識庫 | 讓 AI 看見你的內容</p>
+    </footer>
+  </div>
+  
+  <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="回到頂部">
+    ↑
+  </button>
+</body>
+</html>

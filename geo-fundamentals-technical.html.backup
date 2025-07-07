@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>geo-fundamentals-technical | AIOGEO 知識庫</title>
+  <meta name="description" content="AIOGEO 知識庫專業文章 - geo-fundamentals-technical">
+  <meta name="keywords" content="GEO, 生成式引擎優化, AI搜尋, geo-fundamentals-technical, 廖天佑, Bless Liao">
+  <meta name="author" content="廖天佑 Bless Liao">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="geo-fundamentals-technical | AIOGEO 知識庫">
+  <meta property="og:description" content="AIOGEO 知識庫專業文章 - geo-fundamentals-technical">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bless25min.github.io/AIOGEO-Knowledge/geo-fundamentals-technical.html">
+  <meta property="og:site_name" content="AIOGEO 知識庫">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="geo-fundamentals-technical | AIOGEO 知識庫">
+  <meta name="twitter:description" content="AIOGEO 知識庫專業文章 - geo-fundamentals-technical">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://bless25min.github.io/AIOGEO-Knowledge/geo-fundamentals-technical.html">
+  
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "geo-fundamentals-technical",
+    "description": "AIOGEO 知識庫專業文章 - geo-fundamentals-technical",
+    "author": {
+      "@type": "Person",
+      "name": "廖天佑 Bless Liao",
+      "url": "https://github.com/bless25min"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIOGEO 知識庫",
+      "url": "https://bless25min.github.io/AIOGEO-Knowledge/"
+    },
+    "datePublished": "2025-07-08",
+    "dateModified": "2025-07-08",
+    "mainEntityOfPage": "https://bless25min.github.io/AIOGEO-Knowledge/geo-fundamentals-technical.html",
+    "keywords": ["GEO", "生成式引擎優化", "AI搜尋", "geo-fundamentals-technical"],
+    "articleSection": "專業文章",
+    "inLanguage": "zh-TW"
+  }
+  </script>
+  
+  <style>
+    /* 統一的文章頁面樣式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+      line-height: 1.8;
+      color: #1f2937;
+      background: #f9fafb;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      min-height: 100vh;
+      box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    }
+    
+    header {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      color: white;
+      padding: 40px;
+      text-align: center;
+    }
+    
+    .breadcrumb {
+      font-size: 0.9em;
+      opacity: 0.9;
+      margin-bottom: 15px;
+    }
+    
+    .breadcrumb a {
+      color: white;
+      text-decoration: none;
+    }
+    
+    h1 {
+      font-size: 2.5em;
+      font-weight: 800;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+    
+    .article-meta {
+      font-size: 1em;
+      opacity: 0.9;
+    }
+    
+    nav {
+      background: #1f2937;
+      padding: 15px 40px;
+    }
+    
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+    
+    .nav-link {
+      color: #d1d5db;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      background: #374151;
+      color: white;
+    }
+    
+    main {
+      padding: 50px 40px;
+    }
+    
+    .article-content h2 {
+      color: #1f2937;
+      font-size: 1.8em;
+      margin: 40px 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e5e7eb;
+    }
+    
+    .article-content h3 {
+      color: #374151;
+      font-size: 1.4em;
+      margin: 30px 0 15px;
+    }
+    
+    .article-content h4 {
+      color: #4b5563;
+      font-size: 1.2em;
+      margin: 25px 0 10px;
+    }
+    
+    .article-content p {
+      margin-bottom: 20px;
+      color: #374151;
+    }
+    
+    .article-content ul, .article-content ol {
+      margin: 20px 0;
+      padding-left: 30px;
+    }
+    
+    .article-content li {
+      margin-bottom: 8px;
+      color: #374151;
+    }
+    
+    .article-content code {
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      color: #dc2626;
+    }
+    
+    .article-content pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    
+    .article-content blockquote {
+      border-left: 4px solid #6366f1;
+      padding-left: 20px;
+      margin: 20px 0;
+      color: #4b5563;
+      font-style: italic;
+    }
+    
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #6366f1;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .back-to-top:hover {
+      background: #4f46e5;
+      transform: translateY(-2px);
+    }
+    
+    footer {
+      background: #1f2937;
+      color: #d1d5db;
+      padding: 40px;
+      text-align: center;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .footer-link {
+      color: #d1d5db;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-link:hover {
+      color: white;
+    }
+    
+    /* 響應式設計 */
+    @media (max-width: 768px) {
+      header, main, footer {
+        padding: 30px 20px;
+      }
+      
+      nav {
+        padding: 15px 20px;
+      }
+      
+      h1 {
+        font-size: 2em;
+      }
+      
+      .nav-links {
+        gap: 15px;
+      }
+      
+      .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="breadcrumb">
+        <a href="index.html">🏠 AIOGEO 知識庫</a> > 專業文章
+      </div>
+      <h1>geo-fundamentals-technical</h1>
+      <div class="article-meta">
+        📅 最後更新：2025年7月8日 | 👤 作者：廖天佑 Bless Liao
+      </div>
+    </header>
+    
+    <nav>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">🏠 首頁</a>
+        <a href="geo-fundamentals.html" class="nav-link">📚 GEO 基礎</a>
+        <a href="tools-checklists.html" class="nav-link">🛠️ 工具</a>
+        <a href="about.html" class="nav-link">👤 關於</a>
+        <a href="contributing.html" class="nav-link">🤝 貢獻</a>
+      </div>
+    </nav>
+    
+    <main>
+      <article class="article-content">
+        <h1>技術實作與Schema標記：提升內容的AI可讀性</h1>
+
+<section class="summary">
+<p>本文詳細介紹GEO技術實作的關鍵要素，包含Schema.org結構化資料標準、HTML語意標記、JSON-LD實作指南和權威信號建立方法。透過實際代碼範例和檢查清單，幫助技術人員和SEO專員掌握GEO的技術優化技能。適合網頁開發者和SEO技術人員，預計10分鐘完成。</p>
+</section>
+
+<h2>🧭 學習導覽</h2>
+<p>> 📖 <strong>本文屬於</strong>：[GEO基礎原理完整指南](geo-fundamentals-index.html) 系列  </p>
+<p>> 📍 <strong>當前進度</strong>：第3步 / 共4步  </p>
+<p>> ⏱️ <strong>建議閱讀時間</strong>：10分鐘  </p>
+<p>> 🎯 <strong>前置閱讀</strong>：建議先閱讀 [內容結構化設計](geo-fundamentals-content-design.html)</p>
+
+<h2>🎯 為什麼技術實作對GEO至關重要？</h2>
+
+<p>AI搜尋工具在解析網頁內容時，依賴結構化資料和語意標記來<strong>快速理解內容含義</strong>。良好的技術實作能夠：</p>
+
+<li><strong>提升AI解析效率</strong>：減少50-70%的內容理解時間</li>
+<li><strong>增強引用準確性</strong>：降低30-40%的資訊誤解風險  </li>
+<li><strong>強化權威信號</strong>：提升20-35%的可信度評估</li>
+<li><strong>支援模組化引用</strong>：增加40-60%的片段引用機會</li>
+
+<h2>🏗️ Schema.org結構化資料標準</h2>
+
+<h3>基礎概念理解</h3>
+
+<strong>Schema.org</strong>是由Google、Microsoft、Yahoo和Yandex共同開發的結構化資料標準，用於幫助搜尋引擎理解網頁內容的語意含義。
+
+<h3>核心Schema類型選擇</h3>
+
+<h4>📄 Article Schema - 文章內容標記</h4>
+
+<p>適用於：部落格文章、新聞報導、技術指南</p>
+
+<code></code>`html
+<script type="application/ld+json">
+<p>{</p>
+<p>  "@context": "https://schema.org",</p>
+<p>  "@type": "Article",</p>
+<p>  "headline": "Facebook CAPI設定完整指南：提升轉換追蹤準確率",</p>
+<p>  "description": "詳細說明如何設定Facebook Conversion API，解決iOS 14.5追蹤限制問題",</p>
+<p>  "author": {</p>
+<p>    "@type": "Person",</p>
+<p>    "name": "廖天佑 Bless Liao",</p>
+<p>    "url": "https://github.com/bless25min",</p>
+<p>    "jobTitle": "數位行銷專家",</p>
+<p>    "affiliation": "AIOGEO研究團隊"</p>
+<p>  },</p>
+<p>  "publisher": {</p>
+<p>    "@type": "Organization",</p>
+<p>    "name": "AIOGEO知識庫",</p>
+<p>    "logo": {</p>
+<p>      "@type": "ImageObject",</p>
+<p>      "url": "https://yourdomain.com/logo.png"</p>
+<p>    }</p>
+<p>  },</p>
+<p>  "datePublished": "2025-07-05",</p>
+<p>  "dateModified": "2025-07-05",</p>
+<p>  "wordCount": 2500,</p>
+<p>  "timeRequired": "PT10M",</p>
+<p>  "keywords": ["Facebook CAPI", "轉換API", "iOS追蹤", "廣告優化"],</p>
+<p>  "articleSection": "技術教學",</p>
+<p>  "educationalLevel": "Intermediate"</p>
+<p>}</p>
+</script>
+<code></code>`
+
+<h4>❓ FAQPage Schema - 問答內容標記</h4>
+
+<p>適用於：FAQ頁面、問答集、技術支援文件</p>
+
+<code></code>`html
+<script type="application/ld+json">
+<p>{</p>
+<p>  "@context": "https://schema.org",</p>
+<p>  "@type": "FAQPage",</p>
+<p>  "mainEntity": [</p>
+<p>    {</p>
+<p>      "@type": "Question",</p>
+<p>      "name": "什麼是Facebook CAPI？",</p>
+<p>      "acceptedAnswer": {</p>
+<p>        "@type": "Answer",</p>
+<p>        "text": "Facebook CAPI（Conversion API）是伺服器端追蹤技術，允許廣告主直接將轉換數據傳送至Facebook伺服器，繞過瀏覽器端限制，提升追蹤準確率30-50%。"</p>
+<p>      }</p>
+<p>    },</p>
+<p>    {</p>
+<p>      "@type": "Question",</p>
+<p>      "name": "CAPI設定需要多長時間？",</p>
+<p>      "acceptedAnswer": {</p>
+<p>        "@type": "Answer",</p>
+<p>        "text": "基礎CAPI設定通常需要2-4個工作日，包含API配置、伺服器端程式開發和測試驗證。使用第三方工具可縮短至1-2天。"</p>
+<p>      }</p>
+<p>    }</p>
+<p>  ]</p>
+<p>}</p>
+</script>
+<code></code>`
+
+<h4>🛠️ HowTo Schema - 教學步驟標記</h4>
+
+<p>適用於：操作指南、安裝教學、設定流程</p>
+
+<code></code>`html
+<script type="application/ld+json">
+<p>{</p>
+<p>  "@context": "https://schema.org",</p>
+<p>  "@type": "HowTo",</p>
+<p>  "name": "Facebook CAPI設定教學",</p>
+<p>  "description": "5個步驟完成Facebook Conversion API設定",</p>
+<p>  "totalTime": "PT2H",</p>
+<p>  "estimatedCost": {</p>
+<p>    "@type": "MonetaryAmount",</p>
+<p>    "currency": "USD",</p>
+<p>    "value": "0"</p>
+<p>  },</p>
+<p>  "step": [</p>
+<p>    {</p>
+<p>      "@type": "HowToStep",</p>
+<p>      "name": "建立Access Token",</p>
+<p>      "text": "在Facebook Business Manager中進入事件管理工具，選擇資料來源，點擊「設定」→「轉換API」→「產生存取權杖」",</p>
+<p>      "image": "https://yourdomain.com/step1-image.jpg"</p>
+<p>    },</p>
+<p>    {</p>
+<p>      "@type": "HowToStep", </p>
+<p>      "name": "設定伺服器端點",</p>
+<p>      "text": "在您的伺服器上建立API端點，配置接收Facebook轉換事件的POST請求處理器",</p>
+<p>      "image": "https://yourdomain.com/step2-image.jpg"</p>
+<p>    }</p>
+<p>  ]</p>
+<p>}</p>
+</script>
+<code></code>`
+
+<h3>📋 Schema實作檢查清單</h3>
+
+<p>實作Schema標記時，請確認：</p>
+
+<li>[ ] <strong>選擇正確類型</strong>：根據內容性質選用Article、FAQ或HowTo</li>
+<li>[ ] <strong>完整必填屬性</strong>：包含所有required欄位</li>
+<li>[ ] <strong>準確資訊對應</strong>：Schema內容與頁面實際內容一致</li>
+<li>[ ] <strong>有效性驗證</strong>：使用Google結構化資料測試工具檢驗</li>
+<li>[ ] <strong>格式正確性</strong>：JSON-LD語法無誤，符合Schema.org規範</li>
+
+<h2>🔧 HTML語意標記最佳實務</h2>
+
+<h3>語意化HTML5標籤</h3>
+
+<p>使用語意化標籤幫助AI理解內容結構：</p>
+
+<code></code>`html
+<article itemscope itemtype="https://schema.org/TechArticle">
+<p>  <header></p>
+<p>    <h1 itemprop="headline">Facebook CAPI技術實作指南</h1>
+<p>    <time itemprop="datePublished" datetime="2025-07-05">2025年7月5日</time></p>
+<p>    <address itemprop="author" itemscope itemtype="https://schema.org/Person"></p>
+<p>      由 <span itemprop="name">廖天佑 Bless</span> 撰寫</p>
+<p>    </address></p>
+<p>  </header></p>
+<p>  </p>
+<p>  <section itemprop="articleBody"></p>
+<p>    <div class="summary" itemprop="abstract"></p>
+<p>      <p>本文將詳細說明Facebook CAPI的技術實作方法...</p></p>
+<p>    </div></p>
+<p>    </p>
+<p>    <section></p>
+<p>      <h2>技術背景</h1>
+<p>      <p>Facebook Conversion API是為了解決...</p></p>
+<p>    </section></p>
+<p>    </p>
+<p>    <section></p>
+<p>      <h2>實作步驟</h1>
+<p>      <ol></p>
+<p>        <li>建立Facebook App和Access Token</li></p>
+<p>        <li>設定伺服器端API端點</li></p>
+<p>        <li>實作轉換事件追蹤</li></p>
+<p>      </ol></p>
+<p>    </section></p>
+<p>  </section></p>
+<p>  </p>
+<p>  <aside></p>
+<p>    <h3>相關資源</h1>
+<p>    <ul></p>
+<p>      <li><a href="/facebook-pixel-guide" rel="related">Facebook像素設定指南</a></li></p>
+<p>      <li><a href="/google-analytics-setup" rel="related">Google Analytics 4設定</a></li></p>
+<p>    </ul></p>
+<p>  </aside></p>
+</article>
+<code></code>`
+
+<h3>語意化標籤使用原則</h3>
+
+<strong>結構性標籤</strong>：
+<li><code><article></code>：主要內容區塊</li>
+<li><code><section></code>：內容分段</li>
+<li><code><header></code>：標題區域</li>
+<li><code><aside></code>：相關資訊</li>
+
+<strong>內容語意標籤</strong>：
+<li><code><time></code>：時間資訊</li>
+<li><code><address></code>：作者資訊</li>
+<li><code><figure></code>：圖片和圖表</li>
+<li><code><cite></code>：引用來源</li>
+
+<h3>連結關係標記</h3>
+
+<p>使用<code>rel</code>屬性定義連結關係：</p>
+
+<code></code>`html
+<!-- 內部相關內容 -->
+<a href="/related-article" rel="related">相關文章</a>
+
+<!-- 外部權威來源 -->
+<a href="https://developers.facebook.com/docs/marketing-api" rel="external">Facebook官方文件</a>
+
+<!-- 作者資訊 -->
+<a href="/author/bless-liao" rel="author">關於作者</a>
+
+<!-- 標籤分類 -->
+<a href="/tag/facebook-advertising" rel="tag">Facebook廣告</a>
+<code></code>`
+
+<h2>🔗 JSON-LD實作指南</h2>
+
+<h3>基本實作結構</h3>
+
+<p>JSON-LD是Google推薦的結構化資料格式，放置在HTML <code><head></code> 區域：</p>
+
+<code></code>`html
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<p>  <meta charset="UTF-8"></p>
+<p>  <title>Facebook CAPI設定指南</title></p>
+<p>  </p>
+<p>  <!-- 基礎SEO標籤 --></p>
+<p>  <meta name="description" content="完整的Facebook CAPI設定教學，提升轉換追蹤準確率"></p>
+<p>  </p>
+<p>  <!-- JSON-LD結構化資料 --></p>
+<p>  <script type="application/ld+json"></p>
+<p>  {</p>
+<p>    "@context": "https://schema.org",</p>
+<p>    "@type": "Article",</p>
+<p>    "headline": "Facebook CAPI設定完整指南",</p>
+<p>    "author": {</p>
+<p>      "@type": "Person",</p>
+<p>      "name": "廖天佑 Bless Liao"</p>
+<p>    },</p>
+<p>    "datePublished": "2025-07-05"</p>
+<p>  }</p>
+<p>  </script></p>
+</head>
+<body>
+<p>  <!-- 頁面內容 --></p>
+</body>
+</html>
+<code></code>`
+
+<h3>多重Schema組合</h3>
+
+<p>複雜內容可組合多種Schema類型：</p>
+
+<code></code>`html
+<script type="application/ld+json">
+<p>{</p>
+<p>  "@context": "https://schema.org",</p>
+<p>  "@graph": [</p>
+<p>    {</p>
+<p>      "@type": "Article",</p>
+<p>      "@id": "https://yourdomain.com/facebook-capi-guide",</p>
+<p>      "headline": "Facebook CAPI設定指南",</p>
+<p>      "author": {</p>
+<p>        "@id": "https://yourdomain.com/author/bless-liao"</p>
+<p>      },</p>
+<p>      "publisher": {</p>
+<p>        "@id": "https://yourdomain.com/organization"</p>
+<p>      }</p>
+<p>    },</p>
+<p>    {</p>
+<p>      "@type": "Person",</p>
+<p>      "@id": "https://yourdomain.com/author/bless-liao",</p>
+<p>      "name": "廖天佑 Bless Liao",</p>
+<p>      "jobTitle": "數位行銷專家",</p>
+<p>      "worksFor": {</p>
+<p>        "@id": "https://yourdomain.com/organization"</p>
+<p>      }</p>
+<p>    },</p>
+<p>    {</p>
+<p>      "@type": "Organization",</p>
+<p>      "@id": "https://yourdomain.com/organization",</p>
+<p>      "name": "AIOGEO知識庫",</p>
+<p>      "url": "https://yourdomain.com"</p>
+<p>    }</p>
+<p>  ]</p>
+<p>}</p>
+</script>
+<code></code>`
+
+<h3>⚠️ JSON-LD常見錯誤</h3>
+
+<p>避免以下常見實作問題：</p>
+
+<code></code>`html
+<p>❌ 錯誤範例：</p>
+<p>{</p>
+<p>  "@context": "https://schema.org",</p>
+<p>  "@type": "Article",</p>
+<p>  "headline": "很棒的文章標題"  // 缺少逗號</p>
+<p>  "author": "作者名稱"           // 應使用Person物件</p>
+<p>}</p>
+
+<p>✅ 正確範例：</p>
+<p>{</p>
+<p>  "@context": "https://schema.org",</p>
+<p>  "@type": "Article",</p>
+<p>  "headline": "很棒的文章標題",</p>
+<p>  "author": {</p>
+<p>    "@type": "Person",</p>
+<p>    "name": "作者名稱"</p>
+<p>  }</p>
+<p>}</p>
+<code></code>`
+
+<h2>🏆 權威信號建立方法</h2>
+
+<h3>作者權威性標記</h3>
+
+<p>建立專業可信度的完整標記：</p>
+
+<code></code>`html
+<script type="application/ld+json">
+<p>{</p>
+<p>  "@context": "https://schema.org",</p>
+<p>  "@type": "Person",</p>
+<p>  "name": "廖天佑 Bless Liao",</p>
+<p>  "jobTitle": "資深數位行銷專家",</p>
+<p>  "affiliation": {</p>
+<p>    "@type": "Organization",</p>
+<p>    "name": "AIOGEO研究團隊"</p>
+<p>  },</p>
+<p>  "hasCredential": [</p>
+<p>    {</p>
+<p>      "@type": "EducationalOccupationalCredential",</p>
+<p>      "credentialCategory": "Google Ads認證",</p>
+<p>      "educationalLevel": "Professional"</p>
+<p>    },</p>
+<p>    {</p>
+<p>      "@type": "EducationalOccupationalCredential", </p>
+<p>      "credentialCategory": "Facebook Blueprint認證",</p>
+<p>      "educationalLevel": "Expert"</p>
+<p>    }</p>
+<p>  ],</p>
+<p>  "knowsAbout": [</p>
+<p>    "AI搜尋優化",</p>
+<p>    "Facebook廣告投放", </p>
+<p>    "數位行銷策略",</p>
+<p>    "Meta廣告技術"</p>
+<p>  ],</p>
+<p>  "sameAs": [</p>
+<p>    "https://github.com/bless25min",</p>
+<p>    "https://linkedin.com/in/bless-liao",</p>
+<p>    "https://bless25min.github.io/MetaAd/"</p>
+<p>  ],</p>
+<p>  "url": "https://yourdomain.com/author/bless-liao"</p>
+<p>}</p>
+</script>
+<code></code>`
+
+<h3>引用來源標記</h3>
+
+<p>為重要引用添加結構化標記：</p>
+
+<code></code>`html
+<!-- 文章中的引用 -->
+<blockquote cite="https://developers.facebook.com/docs/marketing-api">
+<p>  <p>Facebook Conversion API allows advertisers to send web events </p>
+<p>     from their servers directly to Facebook.</p></p>
+<p>  <footer></p>
+<p>    <cite itemscope itemtype="https://schema.org/WebPage"></p>
+<p>      <span itemprop="name">Facebook for Developers</span>,</p>
+<p>      <time itemprop="datePublished" datetime="2024-03-15">2024年3月</time></p>
+<p>    </cite></p>
+<p>  </footer></p>
+</blockquote>
+
+<!-- 對應的JSON-LD -->
+<script type="application/ld+json">
+<p>{</p>
+<p>  "@context": "https://schema.org",</p>
+<p>  "@type": "Quotation",</p>
+<p>  "text": "Facebook Conversion API allows advertisers to send web events from their servers directly to Facebook.",</p>
+<p>  "spokenByCharacter": {</p>
+<p>    "@type": "Organization",</p>
+<p>    "name": "Facebook for Developers"</p>
+<p>  },</p>
+<p>  "url": "https://developers.facebook.com/docs/marketing-api"</p>
+<p>}</p>
+</script>
+<code></code>`
+
+<h3>可信度指標</h3>
+
+<p>加強內容可信度的結構化標記：</p>
+
+<code></code>`html
+<script type="application/ld+json">
+<p>{</p>
+<p>  "@context": "https://schema.org",</p>
+<p>  "@type": "Article",</p>
+<p>  "headline": "Facebook CAPI設定指南",</p>
+<p>  "reviewedBy": {</p>
+<p>    "@type": "Person",</p>
+<p>    "name": "技術審核專家"</p>
+<p>  },</p>
+<p>  "factCheckingPolicy": "https://yourdomain.com/fact-checking-policy",</p>
+<p>  "correction": [],</p>
+<p>  "isBasedOn": [</p>
+<p>    {</p>
+<p>      "@type": "WebPage",</p>
+<p>      "name": "Facebook官方CAPI文件",</p>
+<p>      "url": "https://developers.facebook.com/docs/marketing-api/conversions-api"</p>
+<p>    }</p>
+<p>  ]</p>
+<p>}</p>
+</script>
+<code></code>`
+
+<h2>🔍 技術驗證工具</h2>
+
+<h3>Google結構化資料測試工具</h3>
+
+<p>使用Google官方工具驗證Schema實作：</p>
+
+<strong>測試步驟</strong>：
+<p>1. 前往 [Google結構化資料測試工具](https://search.google.com/test/rich-results)</p>
+<p>2. 輸入頁面URL或直接貼上HTML代碼</p>
+<p>3. 點擊「測試URL」或「測試代碼」</p>
+<p>4. 檢查錯誤和警告訊息</p>
+<p>5. 確認所有必填欄位都已正確填寫</p>
+
+<h3>Schema.org驗證器</h3>
+
+<p>使用官方驗證器檢查Schema語法：</p>
+
+<strong>驗證流程</strong>：
+<code></code>`bash
+<h1>1. 前往Schema.org Validator</h1>
+<h1>2. 貼上JSON-LD代碼</h1>
+<h1>3. 檢查語法錯誤</h1>
+<h1>4. 確認屬性值的正確性</h1>
+<h1>5. 驗證Schema類型的適用性</h1>
+<code></code>`
+
+<h3>常見驗證錯誤解決</h3>
+
+<strong>Missing required field錯誤</strong>：
+<code></code>`json
+<p>❌ 缺少必填欄位：</p>
+<p>{</p>
+<p>  "@type": "Article",</p>
+<p>  "headline": "標題"</p>
+<p>  // 缺少author和datePublished</p>
+<p>}</p>
+
+<p>✅ 補充必填欄位：</p>
+<p>{</p>
+<p>  "@type": "Article", </p>
+<p>  "headline": "標題",</p>
+<p>  "author": {</p>
+<p>    "@type": "Person",</p>
+<p>    "name": "作者"</p>
+<p>  },</p>
+<p>  "datePublished": "2025-07-05"</p>
+<p>}</p>
+<code></code>`
+
+<h2>📋 技術實作檢查清單</h2>
+
+<p>完成技術實作後，請逐項檢查：</p>
+
+<h3>🏗️ Schema標記檢查</h3>
+<li>[ ] <strong>適當Schema類型</strong>：選用最符合內容的Schema類型</li>
+<li>[ ] <strong>完整必填欄位</strong>：包含所有required屬性</li>
+<li>[ ] <strong>正確JSON-LD語法</strong>：通過Schema.org驗證器檢查</li>
+<li>[ ] <strong>內容一致性</strong>：Schema資訊與頁面內容相符</li>
+<li>[ ] <strong>Google測試通過</strong>：通過Google結構化資料測試</li>
+
+<h3>🔧 HTML語意化檢查  </h3>
+<li>[ ] <strong>語意化標籤</strong>：使用article、section、header等</li>
+<li>[ ] <strong>微資料標記</strong>：添加itemprop、itemtype屬性</li>
+<li>[ ] <strong>連結關係</strong>：正確使用rel屬性</li>
+<li>[ ] <strong>可訪問性</strong>：符合WCAG無障礙標準</li>
+<li>[ ] <strong>有效HTML</strong>：通過W3C HTML驗證器檢查</li>
+
+<h3>🏆 權威性信號檢查</h3>
+<li>[ ] <strong>作者資訊完整</strong>：包含專業背景和認證</li>
+<li>[ ] <strong>引用來源標記</strong>：重要引用有結構化標記</li>
+<li>[ ] <strong>外部連結</strong>：連結到權威來源網站</li>
+<li>[ ] <strong>內部權威頁面</strong>：連結到相關權威內容</li>
+<li>[ ] <strong>社群媒體整合</strong>：包含sameAs屬性連結</li>
+
+<h3>⚡ 技術性能檢查</h3>
+<li>[ ] <strong>載入速度</strong>：結構化資料不影響頁面載入</li>
+<li>[ ] <strong>移動友好</strong>：在移動裝置上正常顯示</li>
+<li>[ ] <strong>快取設定</strong>：適當的HTTP快取標頭</li>
+<li>[ ] <strong>錯誤處理</strong>：JSON-LD語法錯誤不影響頁面功能</li>
+<li>[ ] <strong>更新機制</strong>：內容更新時同步更新Schema</li>
+
+<h2>🎓 學習成果檢驗</h2>
+
+<p>完成本文學習後，您應該能夠：</p>
+
+<p>✅ <strong>Schema實作能力</strong>：</p>
+<li>[ ] 選擇適合的Schema.org類型</li>
+<li>[ ] 正確撰寫JSON-LD代碼</li>
+<li>[ ] 組合多種Schema類型</li>
+
+<p>✅ <strong>HTML語意化能力</strong>：</p>
+<li>[ ] 使用語意化HTML5標籤</li>
+<li>[ ] 添加微資料標記</li>
+<li>[ ] 設定適當的連結關係</li>
+
+<p>✅ <strong>權威性建立能力</strong>：</p>
+<li>[ ] 建立完整的作者權威標記</li>
+<li>[ ] 為引用來源添加結構化標記</li>
+<li>[ ] 設定可信度指標</li>
+
+<p>✅ <strong>技術驗證能力</strong>：</p>
+<li>[ ] 使用Google測試工具驗證</li>
+<li>[ ] 解決常見的Schema錯誤</li>
+<li>[ ] 確保技術實作品質</li>
+
+<h2>🔗 下一步學習</h2>
+
+<p>恭喜您掌握了GEO技術實作的核心技能！建議您：</p>
+
+<h3>➡️ 完成系列學習</h3>
+<strong>下一篇</strong>：[📊 成效評估與優化策略](geo-fundamentals-measurement.html)  
+<em>學習如何評估和優化GEO實作效果</em>
+
+<h3>🔄 其他選擇</h3>
+<li><strong>返回目錄</strong>：[📚 完整學習指南](geo-fundamentals-index.html)</li>
+<li><strong>回顧內容設計</strong>：[✍️ 內容結構化設計](geo-fundamentals-content-design.html)</li>
+<li><strong>複習概念</strong>：[📖 GEO概念與原理](geo-fundamentals-overview.html)</li>
+
+<h3>🚀 實戰練習建議</h3>
+
+<p>1. <strong>技術實作練習</strong>：為一篇現有文章添加完整的Schema標記</p>
+<p>2. <strong>驗證工具使用</strong>：使用Google測試工具檢查實作結果</p>
+<p>3. <strong>權威性建立</strong>：完善作者資訊和引用來源標記</p>
+<p>4. <strong>效果對比測試</strong>：比較實作前後在AI工具中的表現差異</p>
+
+<p>---</p>
+
+<em>📚 本文為「GEO基礎原理完整指南」系列第3篇，下一篇將介紹如何評估和優化GEO實作的效果。</em>
+
+<strong>🏷️ 標籤</strong>：<code>技術實作</code> <code>Schema.org</code> <code>JSON-LD</code> <code>HTML語意化</code> <code>權威信號</code>
+      </article>
+    </main>
+    
+    <footer>
+      <div class="footer-links">
+        <a href="about.html" class="footer-link">關於作者</a>
+        <a href="contributing.html" class="footer-link">參與貢獻</a>
+        <a href="https://github.com/bless25min/AIOGEO-Knowledge" class="footer-link" target="_blank">GitHub</a>
+      </div>
+      <p>&copy; 2025 AIOGEO 知識庫 | 讓 AI 看見你的內容</p>
+    </footer>
+  </div>
+  
+  <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="回到頂部">
+    ↑
+  </button>
+</body>
+</html>
