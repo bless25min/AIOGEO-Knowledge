@@ -1,24 +1,22 @@
 # GitHub Pages 配置
 title: "AIOGEO 知識庫"
-description: "專業的 GEO (Generative Engine Optimization) 知識庫，提供AI搜尋時代的內容優化策略與實戰指南"
+description: "專業的 GEO (Generative Engine Optimization) 知識庫"
 url: "https://bless25min.github.io"
 baseurl: "/AIOGEO-Knowledge"
 
-# SEO 優化
+# 作者資訊
 author:
   name: "廖天佑 Bless Liao"
-  email: "bless.liao@example.com"
   github: "bless25min"
 
-# 網站資訊
+# 網站基本設定
 lang: zh-TW
 timezone: Asia/Taipei
 
-# 插件配置
+# 插件配置（簡化版，避免部署錯誤）
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-feed
 
 # 排除檔案
 exclude:
@@ -26,60 +24,29 @@ exclude:
   - .git/
   - .gitignore
   - .github/
-  - "*.gem"
-  - "*.gemspec"
+  - vendor/
   - Gemfile
   - Gemfile.lock
-  - vendor/
 
-# 包含檔案
-include:
-  - _pages
-  - _posts
-  - assets
-
-# Markdown 設定
+# Markdown 處理器
 markdown: kramdown
 highlighter: rouge
+
+# 基本設定
 kramdown:
-  syntax_highlighter: rouge
   input: GFM
   hard_wrap: false
 
-# 集合設定
-collections:
-  posts:
-    output: true
-    permalink: /posts/:name/
-  tools:
-    output: true
-    permalink: /tools/:name/
-
-# Jekyll SEO Tag 設定
-twitter:
-  username: bless25min
-  card: summary_large_image
-
+# SEO 設定
 social:
   name: 廖天佑 Bless Liao
   links:
     - https://github.com/bless25min
     - https://bless25min.github.io/AIOGEO-Knowledge/
 
-# 頁面設定
+# 預設值
 defaults:
   - scope:
       path: ""
-      type: "pages"
     values:
-      layout: "default"
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
       author: "廖天佑 Bless Liao"
-
-# 壓縮設定
-sass:
-  style: compressed
