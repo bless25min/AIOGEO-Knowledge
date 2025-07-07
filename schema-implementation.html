@@ -3,114 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🏗️ Schema.org結構化資料實作指南：AI時代的語意標記策略 | AIOGEO 知識庫</title>
-  <meta name="description" content="</section>">
-  <meta name="keywords" content="GEO, AI搜尋優化, 廖天佑, Bless Liao, AI引用, 內容優化">
+  <title>Schema 實作指南 | AIOGEO 知識庫</title>
+  <meta name="description" content="完整的結構化資料實作教學，包含 JSON-LD 語法、常用 Schema 類型和最佳實務">
+  <meta name="keywords" content="GEO, 生成式引擎優化, AI搜尋, Schema 實作指南, 廖天佑, Bless Liao">
   <meta name="author" content="廖天佑 Bless Liao">
   
   <!-- Open Graph -->
-  <meta property="og:title" content="🏗️ Schema.org結構化資料實作指南：AI時代的語意標記策略 | AIOGEO 知識庫">
-  <meta property="og:description" content="</section>">
+  <meta property="og:title" content="Schema 實作指南 | AIOGEO 知識庫">
+  <meta property="og:description" content="完整的結構化資料實作教學，包含 JSON-LD 語法、常用 Schema 類型和最佳實務">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://bless25min.github.io/AIOGEO-Knowledge/schema-implementation.html">
   <meta property="og:site_name" content="AIOGEO 知識庫">
-  <meta property="og:locale" content="zh_TW">
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="🏗️ Schema.org結構化資料實作指南：AI時代的語意標記策略 | AIOGEO 知識庫">
-  <meta name="twitter:description" content="</section>">
+  <meta name="twitter:title" content="Schema 實作指南 | AIOGEO 知識庫">
+  <meta name="twitter:description" content="完整的結構化資料實作教學，包含 JSON-LD 語法、常用 Schema 類型和最佳實務">
   
-  <!-- 重定向和規範 URL -->
-  <meta http-equiv="refresh" content="0; url=https://bless25min.github.io/AIOGEO-Knowledge/#/posts/schema-implementation">
+  <!-- Canonical URL -->
   <link rel="canonical" href="https://bless25min.github.io/AIOGEO-Knowledge/schema-implementation.html">
   
-  <!-- 樣式 -->
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-    }
-    .container {
-      background: white;
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .logo {
-      font-size: 3em;
-      margin-bottom: 20px;
-    }
-    h1 {
-      color: #6366f1;
-      margin-bottom: 10px;
-    }
-    .subtitle {
-      color: #6b7280;
-      margin-bottom: 30px;
-      font-size: 1.2em;
-    }
-    .redirect-message {
-      background: #f0f9ff;
-      border: 2px solid #0ea5e9;
-      border-radius: 10px;
-      padding: 20px;
-      margin: 20px 0;
-    }
-    .link {
-      color: #6366f1;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .link:hover {
-      text-decoration: underline;
-    }
-    .loading {
-      margin: 20px 0;
-    }
-    .spinner {
-      border: 4px solid #f3f4f6;
-      border-top: 4px solid #6366f1;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-      margin: 0 auto;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-  </style>
-  
-  <!-- JavaScript 重定向 -->
-  <script>
-    // 立即重定向
-    window.location.href = 'https://bless25min.github.io/AIOGEO-Knowledge/#/posts/schema-implementation';
-    
-    // 備用重定向
-    setTimeout(function() {
-      if (window.location.href !== 'https://bless25min.github.io/AIOGEO-Knowledge/#/posts/schema-implementation') {
-        window.location.href = 'https://bless25min.github.io/AIOGEO-Knowledge/#/posts/schema-implementation';
-      }
-    }, 100);
-  </script>
-  
-  <!-- Schema.org 結構化資料 -->
+  <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "🏗️ Schema.org結構化資料實作指南：AI時代的語意標記策略",
-    "description": "</section>",
-    "url": "https://bless25min.github.io/AIOGEO-Knowledge/schema-implementation.html",
+    "@type": "Article",
+    "headline": "Schema 實作指南",
+    "description": "完整的結構化資料實作教學，包含 JSON-LD 語法、常用 Schema 類型和最佳實務",
     "author": {
       "@type": "Person",
       "name": "廖天佑 Bless Liao",
@@ -121,40 +40,843 @@
       "name": "AIOGEO 知識庫",
       "url": "https://bless25min.github.io/AIOGEO-Knowledge/"
     },
-    "mainEntity": {
-      "@type": "Article",
-      "headline": "🏗️ Schema.org結構化資料實作指南：AI時代的語意標記策略",
-      "description": "</section>",
-      "author": {
-        "@type": "Person",
-        "name": "廖天佑 Bless Liao"
-      }
-    }
+    "datePublished": "2025-07-08",
+    "dateModified": "2025-07-08",
+    "mainEntityOfPage": "https://bless25min.github.io/AIOGEO-Knowledge/schema-implementation.html",
+    "keywords": ["GEO", "生成式引擎優化", "AI搜尋", "Schema 實作指南"],
+    "articleSection": "技術實作",
+    "inLanguage": "zh-TW"
   }
   </script>
+  
+  <style>
+    /* 統一的文章頁面樣式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+      line-height: 1.8;
+      color: #1f2937;
+      background: #f9fafb;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      min-height: 100vh;
+      box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    }
+    
+    header {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      color: white;
+      padding: 40px;
+      text-align: center;
+    }
+    
+    .breadcrumb {
+      font-size: 0.9em;
+      opacity: 0.9;
+      margin-bottom: 15px;
+    }
+    
+    .breadcrumb a {
+      color: white;
+      text-decoration: none;
+    }
+    
+    h1 {
+      font-size: 2.5em;
+      font-weight: 800;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+    
+    .article-meta {
+      font-size: 1em;
+      opacity: 0.9;
+    }
+    
+    nav {
+      background: #1f2937;
+      padding: 15px 40px;
+    }
+    
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+    
+    .nav-link {
+      color: #d1d5db;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      background: #374151;
+      color: white;
+    }
+    
+    main {
+      padding: 50px 40px;
+    }
+    
+    .article-content h2 {
+      color: #1f2937;
+      font-size: 1.8em;
+      margin: 40px 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e5e7eb;
+    }
+    
+    .article-content h3 {
+      color: #374151;
+      font-size: 1.4em;
+      margin: 30px 0 15px;
+    }
+    
+    .article-content h4 {
+      color: #4b5563;
+      font-size: 1.2em;
+      margin: 25px 0 10px;
+    }
+    
+    .article-content p {
+      margin-bottom: 20px;
+      color: #374151;
+    }
+    
+    .article-content ul, .article-content ol {
+      margin: 20px 0;
+      padding-left: 30px;
+    }
+    
+    .article-content li {
+      margin-bottom: 8px;
+      color: #374151;
+    }
+    
+    .article-content code {
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      color: #dc2626;
+    }
+    
+    .article-content pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    
+    .article-content blockquote {
+      border-left: 4px solid #6366f1;
+      padding-left: 20px;
+      margin: 20px 0;
+      color: #4b5563;
+      font-style: italic;
+    }
+    
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #6366f1;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .back-to-top:hover {
+      background: #4f46e5;
+      transform: translateY(-2px);
+    }
+    
+    footer {
+      background: #1f2937;
+      color: #d1d5db;
+      padding: 40px;
+      text-align: center;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .footer-link {
+      color: #d1d5db;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-link:hover {
+      color: white;
+    }
+    
+    /* 響應式設計 */
+    @media (max-width: 768px) {
+      header, main, footer {
+        padding: 30px 20px;
+      }
+      
+      nav {
+        padding: 15px 20px;
+      }
+      
+      h1 {
+        font-size: 2em;
+      }
+      
+      .nav-links {
+        gap: 15px;
+      }
+      
+      .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <div class="logo">🤖</div>
-    <h1>🏗️ Schema.org結構化資料實作指南：AI時代的語意標記策略</h1>
-    <p class="subtitle">AIOGEO 知識庫 - AI 搜尋優化專業指南</p>
-    
-    <div class="redirect-message">
-      <p><strong>正在重定向到完整頁面...</strong></p>
-      <div class="loading">
-        <div class="spinner"></div>
+    <header>
+      <div class="breadcrumb">
+        <a href="index.html">🏠 AIOGEO 知識庫</a> > 技術實作
       </div>
-      <p>如果頁面沒有自動跳轉，請 <a href="https://bless25min.github.io/AIOGEO-Knowledge/#/posts/schema-implementation" class="link">點擊這裡</a></p>
-    </div>
+      <h1>Schema 實作指南</h1>
+      <div class="article-meta">
+        📅 最後更新：2025年7月8日 | 👤 作者：廖天佑 Bless Liao
+      </div>
+    </header>
     
-    <p>閱讀完整文章內容，了解 🏗️ Schema.org結構化資料實作指南：AI時代的語意標記策略 的詳細解析和實用指南。</p>
+    <nav>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">🏠 首頁</a>
+        <a href="geo-fundamentals.html" class="nav-link">📚 GEO 基礎</a>
+        <a href="tools-checklists.html" class="nav-link">🛠️ 工具</a>
+        <a href="about.html" class="nav-link">👤 關於</a>
+        <a href="contributing.html" class="nav-link">🤝 貢獻</a>
+      </div>
+    </nav>
     
-    <hr style="margin: 30px 0;">
-    <p><small>
-      📚 <a href="https://bless25min.github.io/AIOGEO-Knowledge/" class="link">回到首頁</a> | 
-      📧 <a href="https://github.com/bless25min" class="link">聯繫作者</a> | 
-      ⭐ <a href="https://github.com/bless25min/AIOGEO-Knowledge" class="link">GitHub</a>
-    </small></p>
+    <main>
+      <article class="article-content">
+        <h1>🏗️ Schema.org結構化資料實作指南：AI時代的語意標記策略</h1>
+
+<section class="summary">
+<p>Schema.org結構化資料是提升AI搜尋引擎理解度的關鍵技術，能讓ChatGPT、Perplexity等AI平台更精準地識別、解析和引用您的內容。本指南涵蓋從基礎概念到進階實作的完整技術路徑，包含JSON-LD格式撰寫、不同內容類型的Schema選擇、驗證測試方法，以及針對GEO優化的特殊策略。適合網站開發者、SEO技術人員和內容管理者深度學習應用。</p>
+</section>
+
+<h2>🎯 Schema.org在AI搜尋中的核心價值</h2>
+
+<h3>為什麼AI引擎偏好結構化資料</h3>
+
+<p>根據<cite>Google官方結構化資料指南(2025年1月更新)</cite>和<cite>Schema.org技術規範文件</cite>，結構化資料對AI搜尋具有決定性影響：</p>
+
+<h4><strong>🤖 AI理解度提升機制</strong></h4>
+<li><strong>語意消歧</strong>：明確標識內容類型，避免AI誤判</li>
+<li><strong>關係建立</strong>：清晰定義實體間的關聯性</li>
+<li><strong>屬性標準化</strong>：使用統一vocabulary描述內容特性</li>
+<li><strong>機器可讀性</strong>：提供AI友好的結構化格式</li>
+
+<h4><strong>📊 實際效果數據</strong></h4>
+<cite>Search Engine Journal結構化資料影響研究(2024年10月)</cite>顯示：
+<li>正確實施Schema的頁面AI引用率提升<strong>78%</strong></li>
+<li>Rich Snippets出現機率增加<strong>85%</strong></li>
+<li>語義匹配準確度提升<strong>45%</strong></li>
+<li>跨平台一致性引用提升<strong>62%</strong></li>
+
+<h2>📋 Schema.org基礎架構理解</h2>
+
+<h3>核心概念體系</h3>
+
+<h4><strong>Thing → Type → Property層級結構</strong></h4>
+<code></code>`json
+<p>{</p>
+<p>  "@context": "https://schema.org",</p>
+<p>  "@type": "Article",          // Thing的具體類型</p>
+<p>  "headline": "文章標題",       // Article類型的特定屬性</p>
+<p>  "author": {                 // 嵌套的子Type</p>
+<p>    "@type": "Person",</p>
+<p>    "name": "作者姓名"</p>
+<p>  }</p>
+<p>}</p>
+<code></code>`
+
+<h4><strong>常用內容類型對應表</strong></h4>
+<p>| 內容性質 | 推薦Schema類型 | 核心屬性 | GEO優化重點 |</p>
+<p>|---------|---------------|----------|-------------|</p>
+<p>| <strong>技術教學文章</strong> | <code>Article</code> + <code>HowTo</code> | headline, description, step | 步驟清晰化 |</p>
+<p>| <strong>產品評測</strong> | <code>Article</code> + <code>Review</code> | reviewRating, reviewBody | 評分數據化 |</p>
+<p>| <strong>常見問題</strong> | <code>FAQPage</code> | mainEntity(Question) | 問答結構化 |</p>
+<p>| <strong>作者介紹</strong> | <code>Person</code> + <code>ProfilePage</code> | name, jobTitle, sameAs | 權威性展現 |</p>
+<p>| <strong>企業資訊</strong> | <code>Organization</code> | name, description, contactPoint | 信任度建立 |</p>
+
+<h2>🔧 JSON-LD格式實作詳解</h2>
+
+<h3>基礎Article Schema範本</h3>
+
+<code></code>`html
+<script type="application/ld+json">
+<p>{</p>
+<p>  "@context": "https://schema.org",</p>
+<p>  "@type": "Article",</p>
+<p>  "headline": "{{文章完整標題}}",</p>
+<p>  "description": "{{文章摘要描述，150-160字}}",</p>
+<p>  "image": {</p>
+<p>    "@type": "ImageObject",</p>
+<p>    "url": "{{主要圖片URL}}",</p>
+<p>    "width": 1200,</p>
+<p>    "height": 630,</p>
+<p>    "caption": "{{圖片描述}}"</p>
+<p>  },</p>
+<p>  "author": {</p>
+<p>    "@type": "Person",</p>
+<p>    "name": "廖天佑 Bless",</p>
+<p>    "url": "https://bless25min.github.io/AIOGEO-Knowledge/about",</p>
+<p>    "sameAs": [</p>
+<p>      "https://linkedin.com/in/bless-liao",</p>
+<p>      "https://github.com/bless25min"</p>
+<p>    ],</p>
+<p>    "jobTitle": "AI優化策略專家",</p>
+<p>    "worksFor": {</p>
+<p>      "@type": "Organization",</p>
+<p>      "name": "AIOGEO知識庫"</p>
+<p>    }</p>
+<p>  },</p>
+<p>  "publisher": {</p>
+<p>    "@type": "Organization",</p>
+<p>    "name": "AIOGEO知識庫",</p>
+<p>    "logo": {</p>
+<p>      "@type": "ImageObject",</p>
+<p>      "url": "https://bless25min.github.io/AIOGEO-Knowledge/assets/logo.png",</p>
+<p>      "width": 512,</p>
+<p>      "height": 512</p>
+<p>    }</p>
+<p>  },</p>
+<p>  "datePublished": "2025-07-06",</p>
+<p>  "dateModified": "2025-07-06",</p>
+<p>  "mainEntityOfPage": {</p>
+<p>    "@type": "WebPage",</p>
+<p>    "@id": "{{完整頁面URL}}"</p>
+<p>  },</p>
+<p>  "articleSection": "AI搜尋優化",</p>
+<p>  "keywords": ["GEO", "AI搜尋", "結構化資料", "Schema.org"],</p>
+<p>  "wordCount": 3500,</p>
+<p>  "inLanguage": "zh-TW",</p>
+<p>  "isAccessibleForFree": true</p>
+<p>}</p>
+</script>
+<code></code>`
+
+<h3>FAQ專用Schema進階實作</h3>
+
+<code></code>`html
+<script type="application/ld+json">
+<p>{</p>
+<p>  "@context": "https://schema.org",</p>
+<p>  "@type": "FAQPage",</p>
+<p>  "mainEntity": [</p>
+<p>    {</p>
+<p>      "@type": "Question",</p>
+<p>      "name": "什麼是Schema.org結構化資料？",</p>
+<p>      "acceptedAnswer": {</p>
+<p>        "@type": "Answer",</p>
+<p>        "text": "Schema.org是由Google、Microsoft、Yahoo、Yandex聯合支持的結構化資料標準，幫助搜尋引擎和AI系統更好地理解網頁內容。透過在HTML中加入JSON-LD格式的標記，可以明確標識內容類型、作者資訊、發布日期等重要metadata。",</p>
+<p>        "dateCreated": "2025-07-06",</p>
+<p>        "upvoteCount": 15,</p>
+<p>        "author": {</p>
+<p>          "@type": "Person", </p>
+<p>          "name": "廖天佑 Bless"</p>
+<p>        }</p>
+<p>      }</p>
+<p>    },</p>
+<p>    {</p>
+<p>      "@type": "Question",</p>
+<p>      "name": "如何驗證Schema標記是否正確？",</p>
+<p>      "acceptedAnswer": {</p>
+<p>        "@type": "Answer",</p>
+<p>        "text": "可使用Google Rich Results測試工具(https://search.google.com/test/rich-results)進行驗證。輸入頁面URL或直接貼上程式碼，工具會檢查語法正確性並預覽可能的Rich Snippets顯示效果。建議每次更新Schema後都進行驗證確認。",</p>
+<p>        "dateCreated": "2025-07-06",</p>
+<p>        "upvoteCount": 12,</p>
+<p>        "author": {</p>
+<p>          "@type": "Person",</p>
+<p>          "name": "廖天佑 Bless"</p>
+<p>        }</p>
+<p>      }</p>
+<p>    }</p>
+<p>  ]</p>
+<p>}</p>
+</script>
+<code></code>`
+
+<h3>HowTo教學類型Schema</h3>
+
+<code></code>`html
+<script type="application/ld+json">
+<p>{</p>
+<p>  "@context": "https://schema.org",</p>
+<p>  "@type": "HowTo",</p>
+<p>  "name": "CAPI設定完整教學步驟",</p>
+<p>  "description": "詳細說明Facebook CAPI設定的完整流程，包含權限申請、程式配置、測試驗證等關鍵步驟。",</p>
+<p>  "image": {</p>
+<p>    "@type": "ImageObject",</p>
+<p>    "url": "https://example.com/capi-setup-guide.jpg"</p>
+<p>  },</p>
+<p>  "totalTime": "PT2H",</p>
+<p>  "estimatedCost": {</p>
+<p>    "@type": "MonetaryAmount",</p>
+<p>    "currency": "USD",</p>
+<p>    "value": "0"</p>
+<p>  },</p>
+<p>  "tool": [</p>
+<p>    {</p>
+<p>      "@type": "HowToTool",</p>
+<p>      "name": "Facebook Business Manager帳號"</p>
+<p>    },</p>
+<p>    {</p>
+<p>      "@type": "HowToTool", </p>
+<p>      "name": "伺服器端開發環境"</p>
+<p>    }</p>
+<p>  ],</p>
+<p>  "step": [</p>
+<p>    {</p>
+<p>      "@type": "HowToStep",</p>
+<p>      "position": 1,</p>
+<p>      "name": "申請CAPI Access Token",</p>
+<p>      "text": "登入Facebook Business Manager，前往「事件管理工具」→「資料來源」→「網站」，找到您的Pixel ID，點擊「產生Access Token」。",</p>
+<p>      "image": "https://example.com/step1-screenshot.jpg",</p>
+<p>      "url": "https://business.facebook.com/events_manager"</p>
+<p>    },</p>
+<p>    {</p>
+<p>      "@type": "HowToStep",</p>
+<p>      "position": 2,</p>
+<p>      "name": "配置伺服器端點",</p>
+<p>      "text": "在您的伺服器上設定API呼叫端點，配置事件參數（event_name、event_time、user_data等）。建議使用官方SDK簡化開發流程。",</p>
+<p>      "image": "https://example.com/step2-code.jpg"</p>
+<p>    },</p>
+<p>    {</p>
+<p>      "@type": "HowToStep",</p>
+<p>      "position": 3,</p>
+<p>      "name": "測試事件傳送",</p>
+<p>      "text": "使用Test Event功能驗證設定是否正確。在事件管理工具中可即時查看測試事件的接收狀況和資料品質評分。",</p>
+<p>      "image": "https://example.com/step3-testing.jpg"</p>
+<p>    }</p>
+<p>  ]</p>
+<p>}</p>
+</script>
+<code></code>`
+
+<h2>🎨 不同內容類型的Schema策略</h2>
+
+<h3>技術文章最佳化配置</h3>
+
+<h4><strong>Article + TechArticle組合</strong></h4>
+<code></code>`json
+<p>{</p>
+<p>  "@context": "https://schema.org",</p>
+<p>  "@type": ["Article", "TechArticle"],</p>
+<p>  "headline": "AI搜尋演算法深度解析",</p>
+<p>  "proficiencyLevel": "Advanced",</p>
+<p>  "dependencies": ["基礎機器學習知識", "API開發經驗"],</p>
+<p>  "applicationCategory": "AI/ML",</p>
+<p>  "operatingSystem": ["Windows", "macOS", "Linux"],</p>
+<p>  "programmingLanguage": ["Python", "JavaScript"]</p>
+<p>}</p>
+<code></code>`
+
+<h4><strong>教學內容結構強化</strong></h4>
+<li><strong>學習路徑標記</strong>：使用<code>Course</code>和<code>LearningResource</code></li>
+<li><strong>難度等級標示</strong>：透過<code>proficiencyLevel</code>屬性</li>
+<li><strong>前置需求說明</strong>：利用<code>dependencies</code>陣列</li>
+<li><strong>實作工具列表</strong>：採用<code>tool</code>屬性集合</li>
+
+<h3>評測比較類內容</h3>
+
+<h4><strong>Review Schema完整實作</strong></h4>
+<code></code>`json
+<p>{</p>
+<p>  "@context": "https://schema.org", </p>
+<p>  "@type": "Review",</p>
+<p>  "itemReviewed": {</p>
+<p>    "@type": "SoftwareApplication",</p>
+<p>    "name": "ChatGPT Plus",</p>
+<p>    "applicationCategory": "AI助手工具",</p>
+<p>    "operatingSystem": "Web-based"</p>
+<p>  },</p>
+<p>  "reviewRating": {</p>
+<p>    "@type": "Rating",</p>
+<p>    "ratingValue": 4.5,</p>
+<p>    "bestRating": 5,</p>
+<p>    "worstRating": 1</p>
+<p>  },</p>
+<p>  "author": {</p>
+<p>    "@type": "Person",</p>
+<p>    "name": "廖天佑 Bless"</p>
+<p>  },</p>
+<p>  "reviewBody": "ChatGPT Plus在AI搜尋和內容生成方面表現優異，特別是對複雜技術問題的理解能力...",</p>
+<p>  "pros": ["回答準確度高", "多語言支援完整", "API整合容易"],</p>
+<p>  "cons": ["費用較高", "回應速度偶爾較慢", "創意內容限制"],</p>
+<p>  "datePublished": "2025-07-06"</p>
+<p>}</p>
+<code></code>`
+
+<h3>人物權威性建立</h3>
+
+<h4><strong>Person + ProfilePage組合</strong></h4>
+<code></code>`json
+<p>{</p>
+<p>  "@context": "https://schema.org",</p>
+<p>  "@type": ["Person", "ProfilePage"],</p>
+<p>  "name": "廖天佑 Bless",</p>
+<p>  "jobTitle": "AI搜尋優化策略專家",</p>
+<p>  "description": "專精於GEO優化、多模態內容策略、AI搜尋引擎演算法研究",</p>
+<p>  "url": "https://bless25min.github.io/AIOGEO-Knowledge/about",</p>
+<p>  "sameAs": [</p>
+<p>    "https://linkedin.com/in/bless-liao",</p>
+<p>    "https://github.com/bless25min",</p>
+<p>    "https://medium.com/@bless.liao"</p>
+<p>  ],</p>
+<p>  "worksFor": {</p>
+<p>    "@type": "Organization",</p>
+<p>    "name": "AIOGEO知識庫"</p>
+<p>  },</p>
+<p>  "knowsAbout": [</p>
+<p>    "生成式引擎優化",</p>
+<p>    "AI搜尋策略", </p>
+<p>    "多模態內容轉譯",</p>
+<p>    "結構化資料實作"</p>
+<p>  ],</p>
+<p>  "hasCredential": [</p>
+<p>    {</p>
+<p>      "@type": "EducationalOccupationalCredential",</p>
+<p>      "credentialCategory": "專業認證",</p>
+<p>      "educationalLevel": "專家級",</p>
+<p>      "name": "Google Analytics認證"</p>
+<p>    }</p>
+<p>  ],</p>
+<p>  "mainEntityOfPage": {</p>
+<p>    "@type": "WebPage",</p>
+<p>    "@id": "https://bless25min.github.io/AIOGEO-Knowledge/about"</p>
+<p>  }</p>
+<p>}</p>
+<code></code>`
+
+<h2>🔍 Schema驗證與測試策略</h2>
+
+<h3>Google官方驗證工具使用</h3>
+
+<h4><strong>Rich Results測試完整流程</strong></h4>
+<p>1. <strong>前往測試工具</strong>：https://search.google.com/test/rich-results</p>
+<p>2. <strong>輸入檢測內容</strong>：</p>
+<p>   - 直接輸入頁面URL（推薦）</p>
+<p>   - 貼上HTML程式碼片段</p>
+<p>   - 上傳HTML檔案</p>
+<p>3. <strong>查看檢測結果</strong>：</p>
+<p>   - ✅ <strong>Valid</strong>：Schema語法正確，可能顯示Rich Snippets</p>
+<p>   - ⚠️ <strong>Valid with warnings</strong>：有小問題但可正常運作</p>
+<p>   - ❌ <strong>Invalid</strong>：語法錯誤，需要修正</p>
+
+<h4><strong>常見錯誤類型解決</strong></h4>
+<code></code>`markdown
+<h2>Schema驗證常見問題</h2>
+
+<h3>❌ Missing required property 'image'</h3>
+<strong>解決方案</strong>：為Article類型添加image屬性
+<code></code>`json
+<p>"image": {</p>
+<p>  "@type": "ImageObject",</p>
+<p>  "url": "https://example.com/article-image.jpg",</p>
+<p>  "width": 1200,</p>
+<p>  "height": 630</p>
+<p>}</p>
+<code></code>`
+
+<h3>❌ Invalid date format</h3>
+<strong>解決方案</strong>：使用ISO 8601標準日期格式
+<code></code>`json
+<p>"datePublished": "2025-07-06T10:30:00+08:00"  // 正確</p>
+<p>"datePublished": "2025/07/06"                 // 錯誤</p>
+<code></code>`
+
+<h3>❌ Author missing required properties</h3>
+<strong>解決方案</strong>：Person類型必須包含name屬性
+<code></code>`json
+<p>"author": {</p>
+<p>  "@type": "Person",</p>
+<p>  "@id": "https://example.com/about",</p>
+<p>  "name": "廖天佑 Bless"              // 必要屬性</p>
+<p>}</p>
+<code></code>`
+<code></code>`
+
+<h3>Schema Markup Validator進階使用</h3>
+
+<h4><strong>結構化資料報告解讀</strong></h4>
+<li><strong>Coverage報告</strong>：顯示網站整體Schema實作狀況</li>
+<li><strong>Enhancement報告</strong>：列出可改善的結構化資料項目</li>
+<li><strong>Error/Warning清單</strong>：詳細說明需要修正的問題</li>
+
+<h4><strong>效果監控指標</strong></h4>
+<code></code>`markdown
+<h2>Schema實作效果評估</h2>
+
+<h3>技術指標</h3>
+<li>[ ] 所有頁面通過Rich Results測試</li>
+<li>[ ] Search Console無結構化資料錯誤</li>
+<li>[ ] 頁面載入速度不受Schema影響(<0.1秒)</li>
+
+<h3>業務指標  </h3>
+<li>[ ] Rich Snippets出現率提升</li>
+<li>[ ] AI平台引用頻率增加</li>
+<li>[ ] 搜尋結果點擊率(CTR)改善</li>
+<li>[ ] 語義搜尋匹配度提升</li>
+<code></code>`
+
+<h2>🚀 GEO專用Schema進階策略</h2>
+
+<h3>AI友好的屬性優化</h3>
+
+<h4><strong>語義線索增強</strong></h4>
+<code></code>`json
+<p>{</p>
+<p>  "@context": "https://schema.org",</p>
+<p>  "@type": "Article",</p>
+<p>  "about": [</p>
+<p>    {</p>
+<p>      "@type": "Thing",</p>
+<p>      "@id": "https://en.wikipedia.org/wiki/Search_engine_optimization",</p>
+<p>      "name": "搜尋引擎優化"</p>
+<p>    },</p>
+<p>    {</p>
+<p>      "@type": "Thing", </p>
+<p>      "@id": "https://en.wikipedia.org/wiki/Artificial_intelligence",</p>
+<p>      "name": "人工智慧"</p>
+<p>    }</p>
+<p>  ],</p>
+<p>  "mentions": [</p>
+<p>    {</p>
+<p>      "@type": "SoftwareApplication",</p>
+<p>      "name": "ChatGPT",</p>
+<p>      "applicationCategory": "AI語言模型"</p>
+<p>    },</p>
+<p>    {</p>
+<p>      "@type": "SoftwareApplication",</p>
+<p>      "name": "Perplexity",</p>
+<p>      "applicationCategory": "AI搜尋引擎"</p>
+<p>    }</p>
+<p>  ],</p>
+<p>  "teaches": [</p>
+<p>    "GEO優化技術",</p>
+<p>    "AI搜尋策略",</p>
+<p>    "多模態內容轉譯"</p>
+<p>  ]</p>
+<p>}</p>
+<code></code>`
+
+<h4><strong>引用潛力提升技巧</strong></h4>
+<li><strong>實體關聯</strong>：使用<code>about</code>和<code>mentions</code>建立主題關聯</li>
+<li><strong>知識圖譜連結</strong>：透過<code>@id</code>連結維基百科等權威資源</li>
+<li><strong>教學目標標記</strong>：利用<code>teaches</code>屬性明確學習成果</li>
+<li><strong>專業領域標示</strong>：採用<code>expertise</code>屬性展現權威性</li>
+
+<h3>多頁面Schema網絡建構</h3>
+
+<h4><strong>BreadcrumbList導航優化</strong></h4>
+<code></code>`json
+<p>{</p>
+<p>  "@context": "https://schema.org",</p>
+<p>  "@type": "BreadcrumbList",</p>
+<p>  "itemListElement": [</p>
+<p>    {</p>
+<p>      "@type": "ListItem",</p>
+<p>      "position": 1,</p>
+<p>      "name": "AIOGEO知識庫",</p>
+<p>      "item": "https://bless25min.github.io/AIOGEO-Knowledge/"</p>
+<p>    },</p>
+<p>    {</p>
+<p>      "@type": "ListItem", </p>
+<p>      "position": 2,</p>
+<p>      "name": "進階技術",</p>
+<p>      "item": "https://bless25min.github.io/AIOGEO-Knowledge/advanced/"</p>
+<p>    },</p>
+<p>    {</p>
+<p>      "@type": "ListItem",</p>
+<p>      "position": 3,</p>
+<p>      "name": "Schema實作指南",</p>
+<p>      "item": "https://bless25min.github.io/AIOGEO-Knowledge/posts/schema-implementation"</p>
+<p>    }</p>
+<p>  ]</p>
+<p>}</p>
+<code></code>`
+
+<h4><strong>網站層級Organisation Schema</strong></h4>
+<code></code>`json
+<p>{</p>
+<p>  "@context": "https://schema.org",</p>
+<p>  "@type": "Organization",</p>
+<p>  "name": "AIOGEO知識庫",</p>
+<p>  "description": "專注於生成式引擎優化(GEO)的專業知識平台",</p>
+<p>  "url": "https://bless25min.github.io/AIOGEO-Knowledge/",</p>
+<p>  "logo": "https://bless25min.github.io/AIOGEO-Knowledge/assets/logo.png",</p>
+<p>  "foundingDate": "2025",</p>
+<p>  "founder": {</p>
+<p>    "@type": "Person",</p>
+<p>    "name": "廖天佑 Bless"</p>
+<p>  },</p>
+<p>  "knowsAbout": [</p>
+<p>    "AI搜尋優化",</p>
+<p>    "生成式引擎優化", </p>
+<p>    "多模態內容策略",</p>
+<p>    "結構化資料實作"</p>
+<p>  ],</p>
+<p>  "sameAs": [</p>
+<p>    "https://github.com/bless25min/AIOGEO-Knowledge",</p>
+<p>    "https://linkedin.com/company/aiogeo"</p>
+<p>  ]</p>
+<p>}</p>
+<code></code>`
+
+<h2>🛠️ Schema實作工具與自動化</h2>
+
+<h3>程式碼產生工具推薦</h3>
+
+<h4><strong>線上Schema產生器</strong></h4>
+<li><strong>Google官方工具</strong>：結構化資料標記助手</li>
+<li><strong>Schema.org Generator</strong>：完整的Schema類型支援</li>
+<li><strong>JSON-LD Playground</strong>：即時預覽和驗證功能</li>
+<li><strong>Merkle Schema Markup Generator</strong>：企業級批量生成</li>
+
+<h4><strong>WordPress外掛推薦</strong></h4>
+<li><strong>Yoast SEO</strong>：內建基礎Schema支援</li>
+<li><strong>RankMath</strong>：進階Schema自訂選項</li>
+<li><strong>Schema Pro</strong>：專業Schema管理工具</li>
+<li><strong>WP SEO Structured Data Schema</strong>：輕量級Schema解決方案</li>
+
+<h3>自動化實作策略</h3>
+
+<h4><strong>CMS整合方案</strong></h4>
+<code></code>`javascript
+<p>// Next.js專案的Schema自動生成範例</p>
+<p>export function generateArticleSchema(article) {</p>
+<p>  return {</p>
+<p>    "@context": "https://schema.org",</p>
+<p>    "@type": "Article",</p>
+<p>    "headline": article.title,</p>
+<p>    "description": article.excerpt,</p>
+<p>    "datePublished": article.publishedAt,</p>
+<p>    "dateModified": article.updatedAt,</p>
+<p>    "author": {</p>
+<p>      "@type": "Person",</p>
+<p>      "name": article.author.name,</p>
+<p>      "url": article.author.profileUrl</p>
+<p>    },</p>
+<p>    "publisher": {</p>
+<p>      "@type": "Organization",</p>
+<p>      "name": "AIOGEO知識庫",</p>
+<p>      "logo": {</p>
+<p>        "@type": "ImageObject",</p>
+<p>        "url": "/assets/logo.png"</p>
+<p>      }</p>
+<p>    }</p>
+<p>  };</p>
+<p>}</p>
+<code></code>`
+
+<h4><strong>動態Schema更新</strong></h4>
+<li><strong>內容更新檢測</strong>：自動更新<code>dateModified</code></li>
+<li><strong>作者資訊同步</strong>：從用戶資料庫拉取最新資訊</li>
+<li><strong>圖片資源檢查</strong>：確保image URL有效性</li>
+<li><strong>多語言支援</strong>：根據頁面語言調整<code>inLanguage</code>屬性</li>
+
+<h2>❓ 常見問題解答</h2>
+
+<details>
+<summary><strong>Q1: Schema標記會影響網站載入速度嗎？</strong></summary>
+
+<strong>A:</strong> 正確實作的JSON-LD格式Schema對載入速度影響極小(<0.1秒)。建議將Schema放在HTML的<code><head></code>區段內，並壓縮JSON內容去除不必要空格。避免過度複雜的嵌套結構。
+</details>
+
+<details>
+<summary><strong>Q2: 一個頁面可以使用多種Schema類型嗎？</strong></summary>
+
+<strong>A:</strong> 可以，使用陣列語法<code>"@type": ["Article", "TechArticle"]</code>組合多種類型。但要確保屬性相容性，建議以主要類型為準，附加類型提供額外的語義資訊。
+</details>
+
+<details>
+<summary><strong>Q3: Schema標記錯誤會被Google懲罰嗎？</strong></summary>
+
+<strong>A:</strong> 不會。Schema錯誤只會導致Rich Snippets無法正常顯示，不會影響基本排名。但建議及時修正錯誤，以充分發揮結構化資料的優勢。
+</details>
+
+<h2>🔗 進階學習資源</h2>
+
+<h3>📚 官方技術文檔</h3>
+<li><strong>Schema.org完整規範</strong>：https://schema.org/docs/schemas.html</li>
+<li><strong>Google結構化資料指南</strong>：https://developers.google.com/search/docs/appearance/structured-data</li>
+<li><strong>JSON-LD語法規範</strong>：https://json-ld.org/spec/latest/json-ld/</li>
+
+<h3>🛠️ 實作工具集</h3>
+<li><strong>Rich Results測試工具</strong>：https://search.google.com/test/rich-results</li>
+<li><strong>結構化資料標記助手</strong>：https://www.google.com/webmasters/markup-helper/</li>
+<li><strong>Schema驗證工具</strong>：https://validator.schema.org/</li>
+
+<h3>📖 相關文章連結</h3>
+<li>⬅️ 基礎準備：[GEO基礎原理](geo-fundamentals.html)</li>
+<li>➡️ 實戰應用：[FAQ模組設計指南](../micro/faq-design.html)</li>
+<li>🔄 平行學習：[AI搜尋演算法解析](ai-search-algorithm.html)</li>
+<li>📊 效果評估：[GEO成效追蹤與評估](geo-measurement.html)</li>
+
+<p>---</p>
+
+<strong>📖 引用來源：</strong>
+<li>Google Developers. (2025年1月). 結構化資料完整指南</li>
+<li>Schema.org. (2024年). 官方技術規範與最佳實務</li>
+<li>Search Engine Journal. (2024年10月). 結構化資料對AI搜尋影響研究</li>
+<li>W3C. (2024年). JSON-LD 1.1標準規範文件</li>
+
+<em>最後更新：2025年7月6日</em>
+      </article>
+    </main>
+    
+    <footer>
+      <div class="footer-links">
+        <a href="about.html" class="footer-link">關於作者</a>
+        <a href="contributing.html" class="footer-link">參與貢獻</a>
+        <a href="https://github.com/bless25min/AIOGEO-Knowledge" class="footer-link" target="_blank">GitHub</a>
+      </div>
+      <p>&copy; 2025 AIOGEO 知識庫 | 讓 AI 看見你的內容</p>
+    </footer>
   </div>
+  
+  <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="回到頂部">
+    ↑
+  </button>
 </body>
 </html>

@@ -1,5 +1,4 @@
-# AIOGEO 知識庫 Robots.txt
-# 專為 AI 搜尋引擎和爬蟲優化
+# AIOGEO 知識庫 - 專為 AI 搜尋引擎優化
 
 User-agent: *
 Allow: /
@@ -20,6 +19,9 @@ Allow: /
 User-agent: YouBot
 Allow: /
 
+User-agent: AI2Bot
+Allow: /
+
 # 主要搜尋引擎
 User-agent: Googlebot
 Allow: /
@@ -33,5 +35,5 @@ Allow: /
 # Sitemap 位置
 Sitemap: https://bless25min.github.io/AIOGEO-Knowledge/sitemap.xml
 
-# 爬取延遲（對 AI 爬蟲更友善）
+# 爬取延遲（對 AI 爬蟲友善）
 Crawl-delay: 1
