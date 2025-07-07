@@ -1,9 +1,14 @@
+# AIOGEO 知識庫 Robots.txt
+# 專為 AI 搜尋引擎和爬蟲優化
+
 User-agent: *
 Allow: /
 
-Sitemap: https://bless25min.github.io/AIOGEO-Knowledge/sitemap.xml
-
+# 特別歡迎 AI 搜尋引擎
 User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
 Allow: /
 
 User-agent: Claude-Web
@@ -11,3 +16,22 @@ Allow: /
 
 User-agent: PerplexityBot
 Allow: /
+
+User-agent: YouBot
+Allow: /
+
+# 主要搜尋引擎
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Sitemap 位置
+Sitemap: https://bless25min.github.io/AIOGEO-Knowledge/sitemap.xml
+
+# 爬取延遲（對 AI 爬蟲更友善）
+Crawl-delay: 1
