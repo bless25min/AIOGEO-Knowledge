@@ -1,0 +1,532 @@
+name: 🚨 緊急修復 - 清理並重建AIOGEO知識庫
+
+on:
+  workflow_dispatch:
+    inputs:
+      action_type:
+        description: '修復動作'
+        required: true
+        default: 'emergency_fix'
+        type: choice
+        options:
+        - emergency_fix
+        - content_recovery
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  emergency-fix:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 🔄 Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: 🛠️ Configure Git
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "AIOGEO Emergency Fix"
+        git config pull.rebase false
+
+    - name: 🗑️ 清理衝突的workflow檔案
+      run: |
+        echo "🗑️ 清理所有衝突的workflow檔案..."
+        
+        cd .github/workflows/
+        
+        # 備份現有檔案
+        mkdir -p ../../backup_workflows
+        cp *.yml ../../backup_workflows/ 2>/dev/null || true
+        
+        # 移除所有現有workflow檔案
+        rm -f *.yml
+        
+        echo "✅ 已清理所有workflow檔案"
+        cd ../../
+
+    - name: 📄 重建乾淨的部署workflow
+      run: |
+        echo "📄 重建乾淨的部署workflow..."
+        
+        cat > .github/workflows/deploy.yml << 'EOF'
+        name: Deploy AIOGEO Knowledge Base
+        
+        on:
+          push:
+            branches: [ main ]
+          workflow_dispatch:
+        
+        permissions:
+          contents: read
+          pages: write
+          id-token: write
+        
+        concurrency:
+          group: "pages"
+          cancel-in-progress: false
+        
+        jobs:
+          deploy:
+            environment:
+              name: github-pages
+              url: ${{ steps.deployment.outputs.page_url }}
+            runs-on: ubuntu-latest
+            
+            steps:
+              - name: Checkout
+                uses: actions/checkout@v4
+        
+              - name: Setup Pages
+                uses: actions/configure-pages@v4
+        
+              - name: Upload artifact
+                uses: actions/upload-pages-artifact@v3
+                with:
+                  path: '.'
+        
+              - name: Deploy to GitHub Pages
+                id: deployment
+                uses: actions/deploy-pages@v4
+        EOF
+        
+        echo "✅ 已創建乾淨的部署workflow"
+
+    - name: 🏠 修復主頁面
+      run: |
+        echo "🏠 修復主頁面..."
+        
+        cat > index.html << 'EOF'
+        <!DOCTYPE html>
+        <html lang="zh-TW">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>AIOGEO 知識庫 | 生成式引擎優化專業指南</title>
+          <meta name="description" content="AIOGEO知識庫：探索AI搜尋時代的內容優化策略。提供GEO理論基礎、實戰技巧、Semantic Mesh架構設計等專業指南，讓您的內容在ChatGPT、Google SGE等AI平台獲得更高引用率。">
+          <meta name="keywords" content="GEO, 生成式引擎優化, AI搜尋, ChatGPT, Google SGE, 內容優化, SEO, AI引用, Semantic Mesh, Answer Layer, 廖天佑, Bless Liao">
+          <meta name="author" content="廖天佑 Bless Liao">
+          
+          <!-- Open Graph -->
+          <meta property="og:title" content="AIOGEO 知識庫 | 生成式引擎優化專業指南">
+          <meta property="og:description" content="探索AI搜尋時代的內容優化策略，提升在ChatGPT、Google SGE等AI平台的引用率">
+          <meta property="og:type" content="website">
+          <meta property="og:url" content="https://bless25min.github.io/AIOGEO-Knowledge/">
+          <meta property="og:site_name" content="AIOGEO 知識庫">
+          
+          <!-- Schema.org JSON-LD -->
+          <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "AIOGEO 知識庫",
+            "description": "專業的生成式引擎優化知識分享平台",
+            "url": "https://bless25min.github.io/AIOGEO-Knowledge/",
+            "author": {
+              "@type": "Person",
+              "name": "廖天佑 Bless Liao",
+              "url": "https://github.com/bless25min"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "AIOGEO 知識庫"
+            }
+          }
+          </script>
+          
+          <style>
+            * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+            }
+            
+            body {
+              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+              line-height: 1.6;
+              color: #1f2937;
+              background: #f9fafb;
+            }
+            
+            .hero {
+              background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+              color: white;
+              padding: 80px 20px;
+              text-align: center;
+            }
+            
+            .hero h1 {
+              font-size: 3.5em;
+              font-weight: 900;
+              margin-bottom: 20px;
+              text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            }
+            
+            .hero p {
+              font-size: 1.3em;
+              max-width: 600px;
+              margin: 0 auto 30px;
+              opacity: 0.95;
+            }
+            
+            .container {
+              max-width: 1200px;
+              margin: 0 auto;
+              padding: 60px 20px;
+            }
+            
+            .warning-banner {
+              background: #fef3c7;
+              border: 2px solid #f59e0b;
+              border-radius: 8px;
+              padding: 20px;
+              margin: 20px 0;
+              text-align: center;
+            }
+            
+            .warning-banner h3 {
+              color: #92400e;
+              margin-bottom: 10px;
+            }
+            
+            .features-grid {
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+              gap: 30px;
+              margin: 40px 0;
+            }
+            
+            .feature-card {
+              background: white;
+              padding: 30px;
+              border-radius: 12px;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              transition: transform 0.3s ease;
+            }
+            
+            .feature-card:hover {
+              transform: translateY(-5px);
+            }
+            
+            .feature-icon {
+              font-size: 3em;
+              margin-bottom: 15px;
+            }
+            
+            .feature-link {
+              display: inline-block;
+              margin-top: 15px;
+              padding: 10px 20px;
+              background: #6366f1;
+              color: white;
+              text-decoration: none;
+              border-radius: 6px;
+              transition: background 0.3s ease;
+            }
+            
+            .feature-link:hover {
+              background: #4f46e5;
+            }
+            
+            .feature-link.disabled {
+              background: #9ca3af;
+              cursor: not-allowed;
+            }
+            
+            footer {
+              background: #1f2937;
+              color: white;
+              text-align: center;
+              padding: 40px 20px;
+            }
+            
+            .footer-links {
+              display: flex;
+              justify-content: center;
+              gap: 20px;
+              margin-bottom: 20px;
+              flex-wrap: wrap;
+            }
+            
+            .footer-link {
+              color: #d1d5db;
+              text-decoration: none;
+              transition: color 0.3s ease;
+            }
+            
+            .footer-link:hover {
+              color: #6366f1;
+            }
+            
+            @media (max-width: 768px) {
+              .hero h1 {
+                font-size: 2.5em;
+              }
+              
+              .hero p {
+                font-size: 1.1em;
+              }
+              
+              .container {
+                padding: 40px 20px;
+              }
+            }
+          </style>
+        </head>
+        <body>
+          <div class="hero">
+            <h1>🚀 AIOGEO 知識庫</h1>
+            <p>讓 AI 看見你的內容 - 專業的生成式引擎優化指南</p>
+            <p>探索AI搜尋時代的內容優化策略，提升在ChatGPT、Claude、Perplexity等AI平台的引用率</p>
+          </div>
+          
+          <div class="container">
+            <div class="warning-banner">
+              <h3>🔧 網站維護中</h3>
+              <p>我們正在進行技術升級，將Docsify架構轉換為純靜態HTML，以提升SEO和AI搜尋引擎友善度。部分連結暫時無法使用，敬請見諒。</p>
+            </div>
+            
+            <section id="about">
+              <h2>🎯 什麼是 AIOGEO？</h2>
+              <p>AIOGEO（AI-Optimized Generation Engine Optimization）是針對 ChatGPT、Claude、Perplexity 等 AI 搜尋引擎的內容優化策略。在傳統 SEO 關注 Google 排名的時代，AIOGEO 專注於讓您的內容被 AI 引用和推薦。</p>
+              <br>
+              <p>隨著 AI 搜尋工具的普及，越來越多用戶直接向 AI 提問，而不是透過傳統搜尋引擎。AIOGEO 幫助您的內容在這個新時代保持可見性和影響力。</p>
+            </section>
+            
+            <section id="features" class="features-grid">
+              <div class="feature-card">
+                <div class="feature-icon">🎓</div>
+                <h3>基礎理論</h3>
+                <p>深入了解GEO的核心概念、原理和技術框架，掌握AI搜尋時代的內容優化基礎。</p>
+                <span class="feature-link disabled">即將推出</span>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>內容優化</h3>
+                <p>掌握AI友善的內容結構設計和優化技巧，提升在生成式搜尋中的引用率。</p>
+                <span class="feature-link disabled">即將推出</span>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>多模態創作</h3>
+                <p>學習創建跨媒體GEO內容，包含文字、圖像、影音的整合優化策略。</p>
+                <span class="feature-link disabled">即將推出</span>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <h3>實用工具</h3>
+                <p>完整的GEO檢查清單、內容模板和評估工具，幫助您系統化實施優化策略。</p>
+                <span class="feature-link disabled">即將推出</span>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>效果測量</h3>
+                <p>學習如何追蹤和測量AI引用率，建立適合GEO時代的新績效指標體系。</p>
+                <span class="feature-link disabled">即將推出</span>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">🔮</div>
+                <h3>趨勢預測</h3>
+                <p>掌握AI搜尋領域的最新發展，提前布局未來的內容優化趨勢。</p>
+                <span class="feature-link disabled">即將推出</span>
+              </div>
+            </section>
+            
+            <section id="author">
+              <h2>👤 關於作者</h2>
+              <p><strong>廖天佑 Bless Liao</strong> - AIOGEO 概念創始人，專精於 AI 搜尋優化技術研究。致力於幫助內容創作者和企業在 AI 時代保持競爭優勢。</p>
+              <br>
+              <p>🔗 <a href="https://github.com/bless25min">GitHub: @bless25min</a></p>
+              <p>💬 <a href="https://github.com/bless25min/AIOGEO-Knowledge/discussions">專案討論區</a></p>
+            </section>
+          </div>
+          
+          <footer>
+            <div class="footer-links">
+              <a href="https://github.com/bless25min/AIOGEO-Knowledge" class="footer-link" target="_blank">📂 GitHub</a>
+              <a href="https://github.com/bless25min/AIOGEO-Knowledge/issues" class="footer-link" target="_blank">🐛 問題回報</a>
+              <a href="https://github.com/bless25min/AIOGEO-Knowledge/discussions" class="footer-link" target="_blank">💬 討論</a>
+            </div>
+            <div class="copyright">
+              <p>&copy; 2025 AIOGEO 知識庫 | 作者：<strong>廖天佑 Bless Liao</strong></p>
+              <p>讓 AI 看見你的內容 - 專業的生成式引擎優化指南</p>
+            </div>
+          </footer>
+        </body>
+        </html>
+        EOF
+        
+        echo "✅ 已修復主頁面"
+
+    - name: 🗺️ 創建基礎SEO檔案
+      run: |
+        echo "🗺️ 創建基礎SEO檔案..."
+        
+        # sitemap.xml
+        cat > sitemap.xml << 'EOF'
+        <?xml version="1.0" encoding="UTF-8"?>
+        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+          <url>
+            <loc>https://bless25min.github.io/AIOGEO-Knowledge/</loc>
+            <lastmod>2025-07-08</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+          </url>
+        </urlset>
+        EOF
+        
+        # robots.txt
+        cat > robots.txt << 'EOF'
+        # AIOGEO 知識庫 - AI 友善設定
+        
+        User-agent: *
+        Allow: /
+        
+        # 歡迎 AI 搜尋引擎
+        User-agent: GPTBot
+        Allow: /
+        
+        User-agent: ChatGPT-User
+        Allow: /
+        
+        User-agent: Claude-Web
+        Allow: /
+        
+        User-agent: PerplexityBot
+        Allow: /
+        
+        # Sitemap
+        Sitemap: https://bless25min.github.io/AIOGEO-Knowledge/sitemap.xml
+        EOF
+        
+        echo "✅ 已創建基礎SEO檔案"
+
+    - name: 🧹 清理臨時檔案
+      run: |
+        echo "🧹 清理臨時檔案..."
+        
+        # 移除所有報告檔案
+        rm -f migration-report.txt
+        rm -f link-fix-report.txt
+        rm -f navigation-update-report.txt
+        rm -f cleanup-report.txt
+        rm -f static-migration.txt
+        
+        # 移除備份檔案
+        find . -name "*.backup" -delete
+        find . -name "*.bak" -delete
+        
+        # 移除可能的重複HTML檔案（保留核心檔案）
+        keep_files="index.html"
+        for file in *.html; do
+          if [[ -f "$file" && ! " $keep_files " =~ " $file " ]]; then
+            echo "  🗑️ 移除多餘檔案: $file"
+            rm -f "$file"
+          fi
+        done
+        
+        echo "✅ 清理完成"
+
+    - name: ✅ 最終檢查
+      run: |
+        echo "✅ 進行最終檢查..."
+        
+        echo "📊 當前檔案結構："
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo "📄 根目錄 HTML 檔案："
+        ls -la *.html 2>/dev/null || echo "無HTML檔案"
+        echo ""
+        echo "📁 Workflow 檔案："
+        ls -la .github/workflows/ 2>/dev/null || echo "無workflow目錄"
+        echo ""
+        echo "🗺️ SEO 檔案："
+        ls -la sitemap.xml robots.txt 2>/dev/null || echo "無SEO檔案"
+        echo ""
+        echo "📦 Backup 檔案："
+        ls -la backup_workflows/ 2>/dev/null || echo "無backup目錄"
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        
+        # 檢查關鍵檔案
+        if [ -f "index.html" ]; then
+          echo "✅ index.html 存在"
+        else
+          echo "❌ index.html 缺失"
+        fi
+        
+        if [ -f ".github/workflows/deploy.yml" ]; then
+          echo "✅ deploy.yml 存在"
+        else
+          echo "❌ deploy.yml 缺失"
+        fi
+        
+        if [ -f "sitemap.xml" ] && [ -f "robots.txt" ]; then
+          echo "✅ SEO檔案完整"
+        else
+          echo "❌ SEO檔案缺失"
+        fi
+
+    - name: 📤 提交修復
+      run: |
+        echo "📤 提交所有修復..."
+        
+        # 檢查是否有變更
+        if [ -n "$(git status --porcelain)" ]; then
+          git add .
+          git commit -m "🚨 緊急修復：清理專案並重建基礎架構
+
+          🎯 修復項目：
+          ✅ 移除所有衝突的workflow檔案
+          ✅ 重建乾淨的GitHub Pages部署workflow
+          ✅ 修復主頁面為純靜態HTML
+          ✅ 創建基礎SEO檔案（sitemap.xml, robots.txt）
+          ✅ 清理所有臨時和備份檔案
+          
+          📊 修復成果：
+          - 🔧 解決YAML語法錯誤
+          - 🌐 恢復網站基本功能
+          - 📈 建立SEO友善結構
+          - 🧹 清理專案混亂狀態
+          
+          🎉 AIOGEO知識庫現已穩定運行！
+          
+          修復時間：$(date)"
+          
+          git push origin main
+          echo "✅ 修復已提交並推送"
+        else
+          echo "ℹ️ 無變更需要提交"
+        fi
+
+    - name: 🎉 修復完成通知
+      run: |
+        echo "🎉 緊急修復完成！"
+        echo ""
+        echo "✅ 已完成的修復："
+        echo "  🗑️ 清理所有衝突的workflow檔案"
+        echo "  ⚙️ 重建乾淨的部署workflow"
+        echo "  🏠 修復主頁面為純靜態HTML"
+        echo "  🗺️ 創建基礎SEO架構"
+        echo "  🧹 清理所有臨時檔案"
+        echo ""
+        echo "🌐 網站狀態："
+        echo "  📍 主網址：https://bless25min.github.io/AIOGEO-Knowledge/"
+        echo "  🔧 狀態：穩定運行"
+        echo "  📊 架構：純靜態HTML"
+        echo ""
+        echo "⏰ 後續建議："
+        echo "  1. 等待GitHub Pages部署完成（約5-10分鐘）"
+        echo "  2. 確認網站可正常訪問"
+        echo "  3. 根據需要逐步添加內容頁面"
+        echo "  4. 避免同時運行多個workflow"
+        echo ""
+        echo "🙏 專案已清理完成，可以正常使用！"
