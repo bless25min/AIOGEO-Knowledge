@@ -146,11 +146,17 @@
       font-weight: 500;
       transition: all 0.3s ease;
       border-bottom: 3px solid transparent;
+      cursor: pointer;
     }
     
     .nav-link:hover {
       color: #6366f1;
       background: #f1f5f9;
+      border-bottom-color: #6366f1;
+    }
+    
+    .nav-link.active {
+      color: #6366f1;
       border-bottom-color: #6366f1;
     }
     
@@ -320,6 +326,14 @@
       text-decoration: underline;
     }
     
+    .section {
+      display: none;
+    }
+    
+    .section.active {
+      display: block;
+    }
+    
     footer {
       background: #1f2937;
       color: white;
@@ -417,7 +431,7 @@
         <h1>🤖 AIOGEO 知識庫</h1>
         <p class="subtitle">讓 AI 看見你的內容 | 生成式引擎優化專業指南</p>
         <div class="header-badges">
-          <a href="#articles" class="badge">📚 開始學習</a>
+          <span class="badge nav-link" data-section="articles">📚 開始學習</span>
           <a href="about.html" class="badge">👤 關於作者</a>
           <a href="https://github.com/bless25min/AIOGEO-Knowledge" class="badge" target="_blank">⭐ GitHub</a>
         </div>
@@ -427,9 +441,9 @@
     <nav>
       <div class="nav-container">
         <div class="nav-links">
-          <a href="#home" class="nav-link">🏠 首頁</a>
-          <a href="#articles" class="nav-link">📚 文章</a>
-          <a href="#tools" class="nav-link">🛠️ 工具</a>
+          <span class="nav-link active" data-section="home">🏠 首頁</span>
+          <span class="nav-link" data-section="articles">📚 文章</span>
+          <span class="nav-link" data-section="tools">🛠️ 工具</span>
           <a href="about.html" class="nav-link">👤 關於</a>
           <a href="contributing.html" class="nav-link">🤝 貢獻</a>
         </div>
@@ -437,46 +451,48 @@
     </nav>
     
     <main>
-      <section id="home" class="hero-section">
-        <h2>AI 搜尋時代的內容優化策略</h2>
-        <p>
-          在 ChatGPT、Google SGE、Claude 等 AI 平台主導的搜尋新時代，傳統 SEO 已經不夠。
-          AIOGEO 知識庫提供最前沿的生成式引擎優化（GEO）策略，讓您的內容在 AI 平台獲得更高引用率和可見度。
-        </p>
-      </section>
-      
-      <div class="status-alert">
-        <h3>✅ 網站已完成靜態化轉換</h3>
-        <p>
-          我們已成功將整個網站轉換為純靜態 HTML 架構，徹底解決了 Google 收錄和 AI 引用問題。
-          現在所有頁面都使用統一的靜態連結格式，大幅提升 SEO 效果和使用者體驗。
-        </p>
-      </div>
-      
-      <section class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">🎯</div>
-          <h3>GEO 理論基礎</h3>
-          <p>深入理解 AI 搜尋引擎的運作機制，掌握語意錨定、語境觸發、語用重組三層架構。</p>
-          <a href="geo-fundamentals.html" class="feature-link">深入了解</a>
+      <section id="home" class="section active">
+        <div class="hero-section">
+          <h2>AI 搜尋時代的內容優化策略</h2>
+          <p>
+            在 ChatGPT、Google SGE、Claude 等 AI 平台主導的搜尋新時代，傳統 SEO 已經不夠。
+            AIOGEO 知識庫提供最前沿的生成式引擎優化（GEO）策略，讓您的內容在 AI 平台獲得更高引用率和可見度。
+          </p>
         </div>
         
-        <div class="feature-card">
-          <div class="feature-icon">🛠️</div>
-          <h3>實戰工具指南</h3>
-          <p>Schema 生成器、GEO 檢查清單、內容模板等實用工具，讓優化工作事半功倍。</p>
-          <a href="tools-checklists.html" class="feature-link">查看工具</a>
+        <div class="status-alert">
+          <h3>✅ 網站已完成靜態化轉換</h3>
+          <p>
+            我們已成功將整個網站轉換為純靜態 HTML 架構，徹底解決了 Google 收錄和 AI 引用問題。
+            現在所有頁面都使用統一的靜態連結格式，大幅提升 SEO 效果和使用者體驗。
+          </p>
         </div>
         
-        <div class="feature-card">
-          <div class="feature-icon">📊</div>
-          <h3>效果測量方法</h3>
-          <p>AI 引用率追蹤、語意相關性評估、向量索引可見度等關鍵指標監控方法。</p>
-          <a href="geo-measurement.html" class="feature-link">學習測量</a>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>GEO 理論基礎</h3>
+            <p>深入理解 AI 搜尋引擎的運作機制，掌握語意錨定、語境觸發、語用重組三層架構。</p>
+            <a href="geo-fundamentals.html" class="feature-link">深入了解</a>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">🛠️</div>
+            <h3>實戰工具指南</h3>
+            <p>Schema 生成器、GEO 檢查清單、內容模板等實用工具，讓優化工作事半功倍。</p>
+            <a href="tools-checklists.html" class="feature-link">查看工具</a>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>效果測量方法</h3>
+            <p>AI 引用率追蹤、語意相關性評估、向量索引可見度等關鍵指標監控方法。</p>
+            <a href="geo-measurement.html" class="feature-link">學習測量</a>
+          </div>
         </div>
       </section>
       
-      <section id="articles" class="articles-section">
+      <section id="articles" class="section articles-section">
         <h2 class="section-title">📚 核心文章</h2>
         <div class="articles-grid">
           <article class="article-card">
@@ -559,26 +575,29 @@
         </div>
       </section>
       
-      <section id="tools" class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">📋</div>
-          <h3>GEO 檢查清單</h3>
-          <p>完整的內容優化檢查清單，確保每篇內容都符合 GEO 標準。</p>
-          <a href="tools-checklists.html" class="feature-link">使用清單</a>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">🎨</div>
-          <h3>內容模板</h3>
-          <p>經過驗證的內容結構模板，快速創建 AI 友善的高品質內容。</p>
-          <a href="tools-content-templates.html" class="feature-link">獲取模板</a>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">⚙️</div>
-          <h3>Schema 生成器</h3>
-          <p>自動化工具幫您生成正確的結構化資料標記，提升內容技術標準。</p>
-          <a href="tools-schema-generator.html" class="feature-link">立即使用</a>
+      <section id="tools" class="section">
+        <h2 class="section-title">🛠️ 實用工具</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">📋</div>
+            <h3>GEO 檢查清單</h3>
+            <p>完整的內容優化檢查清單，確保每篇內容都符合 GEO 標準。</p>
+            <a href="tools-checklists.html" class="feature-link">使用清單</a>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <h3>內容模板</h3>
+            <p>經過驗證的內容結構模板，快速創建 AI 友善的高品質內容。</p>
+            <a href="tools-content-templates.html" class="feature-link">獲取模板</a>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">⚙️</div>
+            <h3>Schema 生成器</h3>
+            <p>自動化工具幫您生成正確的結構化資料標記，提升內容技術標準。</p>
+            <a href="tools-schema-generator.html" class="feature-link">立即使用</a>
+          </div>
         </div>
       </section>
     </main>
@@ -599,5 +618,65 @@
       </div>
     </footer>
   </div>
+  
+  <script>
+    // 純靜態導航功能
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('.nav-link[data-section]');
+      const sections = document.querySelectorAll('.section');
+      
+      // 處理導航點擊
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetSection = this.getAttribute('data-section');
+          
+          // 移除所有 active 類別
+          navLinks.forEach(nav => nav.classList.remove('active'));
+          sections.forEach(section => section.classList.remove('active'));
+          
+          // 添加 active 到當前項目
+          this.classList.add('active');
+          const target = document.getElementById(targetSection);
+          if (target) {
+            target.classList.add('active');
+          }
+          
+          // 更新 URL（無需重新載入頁面）
+          if (targetSection !== 'home') {
+            window.history.pushState({}, '', '#' + targetSection);
+          } else {
+            window.history.pushState({}, '', window.location.pathname);
+          }
+        });
+      });
+      
+      // 處理初始 hash
+      function handleInitialHash() {
+        const hash = window.location.hash.substring(1);
+        if (hash && ['articles', 'tools'].includes(hash)) {
+          // 移除所有 active
+          navLinks.forEach(nav => nav.classList.remove('active'));
+          sections.forEach(section => section.classList.remove('active'));
+          
+          // 啟用對應的導航和區塊
+          const navLink = document.querySelector(`[data-section="${hash}"]`);
+          const section = document.getElementById(hash);
+          
+          if (navLink && section) {
+            navLink.classList.add('active');
+            section.classList.add('active');
+          }
+        }
+      }
+      
+      // 初始化
+      handleInitialHash();
+      
+      // 監聽瀏覽器前進後退
+      window.addEventListener('popstate', handleInitialHash);
+    });
+  </script>
 </body>
 </html>
