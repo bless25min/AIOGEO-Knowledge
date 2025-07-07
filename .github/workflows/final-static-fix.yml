@@ -498,13 +498,7 @@ jobs:
                   </p>
                 </div>
                 
-                <div class="status-alert">
-                  <h3>✅ 網站已完成靜態化轉換</h3>
-                  <p>
-                    我們已成功將整個網站轉換為純靜態 HTML 架構，徹底解決了 Google 收錄和 AI 引用問題。
-                    現在所有頁面都使用統一的靜態連結格式，大幅提升 SEO 效果和使用者體驗。
-                  </p>
-                </div>
+
                 
                 <div class="features-grid">
                   <div class="feature-card">
