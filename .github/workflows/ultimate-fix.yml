@@ -1,0 +1,485 @@
+name: 🛡️ Ultimate Static Pages Deployment - Conflict Resolution
+
+on:
+  workflow_dispatch:
+    inputs:
+      force_rebuild:
+        description: '強制重建所有頁面'
+        required: false
+        default: 'false'
+        type: boolean
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# 確保同時只有一個部署在進行
+concurrency:
+  group: "static-deployment"
+  cancel-in-progress: false
+
+jobs:
+  deploy-all-static-pages:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 🔄 Checkout with full history
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: 🛠️ Configure Git safely
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "AIOGEO Auto Deploy"
+        git config pull.rebase false
+        git config --local core.autocrlf false
+
+    - name: 🔄 Force sync with remote
+      run: |
+        echo "🔄 強制同步遠端變更..."
+        git fetch origin main
+        git reset --hard origin/main
+        git clean -fd
+
+    - name: 📋 Read existing content
+      run: |
+        echo "📋 讀取專案內容..."
+        
+        # 列出所有 Markdown 檔案
+        echo "=== Posts 目錄內容 ==="
+        find posts -name "*.md" -type f | sort
+        echo ""
+        
+        echo "=== Tools 目錄內容 ==="
+        find tools -name "*.md" -type f | sort
+        echo ""
+        
+        echo "=== 根目錄 Markdown 檔案 ==="
+        find . -maxdepth 1 -name "*.md" -type f | sort
+
+    - name: 🚀 Generate all static HTML pages
+      run: |
+        echo "🚀 開始生成所有靜態頁面..."
+        
+        # 函數：生成標準 HTML 頁面
+        generate_html_page() {
+          local title="$1"
+          local description="$2"
+          local canonical_url="$3"
+          local redirect_url="$4"
+          local content="$5"
+          local output_file="$6"
+          
+          cat > "$output_file" << EOF
+        <!DOCTYPE html>
+        <html lang="zh-TW">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>$title | AIOGEO 知識庫</title>
+          <meta name="description" content="$description">
+          <meta name="keywords" content="GEO, AI搜尋優化, 廖天佑, Bless Liao, AI引用, 內容優化">
+          <meta name="author" content="廖天佑 Bless Liao">
+          
+          <!-- Open Graph -->
+          <meta property="og:title" content="$title | AIOGEO 知識庫">
+          <meta property="og:description" content="$description">
+          <meta property="og:type" content="article">
+          <meta property="og:url" content="$canonical_url">
+          <meta property="og:site_name" content="AIOGEO 知識庫">
+          <meta property="og:locale" content="zh_TW">
+          
+          <!-- Twitter Card -->
+          <meta name="twitter:card" content="summary_large_image">
+          <meta name="twitter:title" content="$title | AIOGEO 知識庫">
+          <meta name="twitter:description" content="$description">
+          
+          <!-- 重定向和規範 URL -->
+          <meta http-equiv="refresh" content="0; url=$redirect_url">
+          <link rel="canonical" href="$canonical_url">
+          
+          <!-- 樣式 -->
+          <style>
+            body {
+              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+              line-height: 1.6;
+              color: #333;
+              max-width: 800px;
+              margin: 0 auto;
+              padding: 20px;
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              min-height: 100vh;
+            }
+            .container {
+              background: white;
+              padding: 40px;
+              border-radius: 15px;
+              box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+              text-align: center;
+            }
+            .logo {
+              font-size: 3em;
+              margin-bottom: 20px;
+            }
+            h1 {
+              color: #6366f1;
+              margin-bottom: 10px;
+            }
+            .subtitle {
+              color: #6b7280;
+              margin-bottom: 30px;
+              font-size: 1.2em;
+            }
+            .redirect-message {
+              background: #f0f9ff;
+              border: 2px solid #0ea5e9;
+              border-radius: 10px;
+              padding: 20px;
+              margin: 20px 0;
+            }
+            .link {
+              color: #6366f1;
+              text-decoration: none;
+              font-weight: bold;
+            }
+            .link:hover {
+              text-decoration: underline;
+            }
+            .loading {
+              margin: 20px 0;
+            }
+            .spinner {
+              border: 4px solid #f3f4f6;
+              border-top: 4px solid #6366f1;
+              border-radius: 50%;
+              width: 40px;
+              height: 40px;
+              animation: spin 1s linear infinite;
+              margin: 0 auto;
+            }
+            @keyframes spin {
+              0% { transform: rotate(0deg); }
+              100% { transform: rotate(360deg); }
+            }
+          </style>
+          
+          <!-- JavaScript 重定向 -->
+          <script>
+            // 立即重定向
+            window.location.href = '$redirect_url';
+            
+            // 備用重定向
+            setTimeout(function() {
+              if (window.location.href !== '$redirect_url') {
+                window.location.href = '$redirect_url';
+              }
+            }, 100);
+          </script>
+          
+          <!-- Schema.org 結構化資料 -->
+          <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "$title",
+            "description": "$description",
+            "url": "$canonical_url",
+            "author": {
+              "@type": "Person",
+              "name": "廖天佑 Bless Liao",
+              "url": "https://github.com/bless25min"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "AIOGEO 知識庫",
+              "url": "https://bless25min.github.io/AIOGEO-Knowledge/"
+            },
+            "mainEntity": {
+              "@type": "Article",
+              "headline": "$title",
+              "description": "$description",
+              "author": {
+                "@type": "Person",
+                "name": "廖天佑 Bless Liao"
+              }
+            }
+          }
+          </script>
+        </head>
+        <body>
+          <div class="container">
+            <div class="logo">🤖</div>
+            <h1>$title</h1>
+            <p class="subtitle">AIOGEO 知識庫 - AI 搜尋優化專業指南</p>
+            
+            <div class="redirect-message">
+              <p><strong>正在重定向到完整頁面...</strong></p>
+              <div class="loading">
+                <div class="spinner"></div>
+              </div>
+              <p>如果頁面沒有自動跳轉，請 <a href="$redirect_url" class="link">點擊這裡</a></p>
+            </div>
+            
+            $content
+            
+            <hr style="margin: 30px 0;">
+            <p><small>
+              📚 <a href="https://bless25min.github.io/AIOGEO-Knowledge/" class="link">回到首頁</a> | 
+              📧 <a href="https://github.com/bless25min" class="link">聯繫作者</a> | 
+              ⭐ <a href="https://github.com/bless25min/AIOGEO-Knowledge" class="link">GitHub</a>
+            </small></p>
+          </div>
+        </body>
+        </html>
+        EOF
+        }
+        
+        # 生成主要頁面
+        echo "📄 生成 about.html..."
+        generate_html_page \
+          "關於作者" \
+          "廖天佑 Bless Liao - GEO (生成式引擎優化) 專家，專精AI搜尋優化策略與內容架構設計" \
+          "https://bless25min.github.io/AIOGEO-Knowledge/about.html" \
+          "https://bless25min.github.io/AIOGEO-Knowledge/#/about" \
+          "<p>了解 AIOGEO 知識庫創建者廖天佑 (Bless Liao) 的專業背景、技能專長和豐富經驗。</p>" \
+          "about.html"
+        
+        echo "📄 生成 contributing.html..."
+        generate_html_page \
+          "參與貢獻" \
+          "加入 AIOGEO 知識庫建設，共同推動 GEO 領域發展。提供貢獻指南與最佳實務分享" \
+          "https://bless25min.github.io/AIOGEO-Knowledge/contributing.html" \
+          "https://bless25min.github.io/AIOGEO-Knowledge/#/contributing" \
+          "<p>歡迎參與 AIOGEO 知識庫的內容建設，了解如何貢獻高品質的 GEO 相關文章和資源。</p>" \
+          "contributing.html"
+        
+        # 自動生成所有 posts 目錄下的文章頁面
+        echo "📚 生成文章靜態頁面..."
+        if [ -d "posts" ]; then
+          for file in posts/*.md; do
+            if [ -f "$file" ]; then
+              filename=$(basename "$file" .md)
+              echo "  📝 生成 ${filename}.html..."
+              
+              # 提取文章標題（假設第一行是 # 標題）
+              title=$(head -n 20 "$file" | grep -m 1 "^# " | sed 's/^# //' | sed 's/\*//g' || echo "$filename")
+              [ -z "$title" ] && title="$filename"
+              
+              # 提取描述（尋找摘要或第一段文字）
+              description=$(head -n 50 "$file" | grep -A 5 -E "(摘要|summary|描述)" | head -n 3 | tail -n 1 | sed 's/[#*`]//g' | cut -c1-150 || echo "AIOGEO 知識庫專業文章 - $title")
+              [ -z "$description" ] && description="AIOGEO 知識庫專業文章 - $title，提供 AI 搜尋優化的深度解析與實戰指南"
+              
+              generate_html_page \
+                "$title" \
+                "$description" \
+                "https://bless25min.github.io/AIOGEO-Knowledge/${filename}.html" \
+                "https://bless25min.github.io/AIOGEO-Knowledge/#/posts/${filename}" \
+                "<p>閱讀完整文章內容，了解 $title 的詳細解析和實用指南。</p>" \
+                "${filename}.html"
+            fi
+          done
+        fi
+        
+        # 自動生成所有 tools 目錄下的工具頁面
+        echo "🛠️ 生成工具頁面..."
+        if [ -d "tools" ]; then
+          for file in tools/*.md; do
+            if [ -f "$file" ]; then
+              filename=$(basename "$file" .md)
+              echo "  🔧 生成 tools-${filename}.html..."
+              
+              title=$(head -n 20 "$file" | grep -m 1 "^# " | sed 's/^# //' | sed 's/\*//g' || echo "工具 - $filename")
+              [ -z "$title" ] && title="工具 - $filename"
+              
+              description="AIOGEO 實用工具 - $title，提供專業的 GEO 優化工具和資源"
+              
+              generate_html_page \
+                "$title" \
+                "$description" \
+                "https://bless25min.github.io/AIOGEO-Knowledge/tools-${filename}.html" \
+                "https://bless25min.github.io/AIOGEO-Knowledge/#/tools/${filename}" \
+                "<p>使用專業工具提升您的 GEO 優化效果，$title 提供實用的功能和指南。</p>" \
+                "tools-${filename}.html"
+            fi
+          done
+        fi
+
+    - name: 🗺️ Generate comprehensive sitemap.xml
+      run: |
+        echo "🗺️ 生成完整的 sitemap.xml..."
+        
+        cat > sitemap.xml << 'SITEMAP_EOF'
+        <?xml version="1.0" encoding="UTF-8"?>
+        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            <!-- 主頁面 -->
+            <url>
+                <loc>https://bless25min.github.io/AIOGEO-Knowledge/</loc>
+                <lastmod>2025-07-08</lastmod>
+                <changefreq>weekly</changefreq>
+                <priority>1.0</priority>
+            </url>
+            
+            <!-- 核心頁面 -->
+            <url>
+                <loc>https://bless25min.github.io/AIOGEO-Knowledge/about.html</loc>
+                <lastmod>2025-07-08</lastmod>
+                <changefreq>monthly</changefreq>
+                <priority>0.8</priority>
+            </url>
+            <url>
+                <loc>https://bless25min.github.io/AIOGEO-Knowledge/contributing.html</loc>
+                <lastmod>2025-07-08</lastmod>
+                <changefreq>monthly</changefreq>
+                <priority>0.6</priority>
+            </url>
+        SITEMAP_EOF
+        
+        # 動態添加所有生成的 HTML 頁面到 sitemap
+        for html_file in *.html; do
+          if [[ "$html_file" != "index.html" && "$html_file" != "about.html" && "$html_file" != "contributing.html" ]]; then
+            filename=$(basename "$html_file" .html)
+            cat >> sitemap.xml << EOF
+            <url>
+                <loc>https://bless25min.github.io/AIOGEO-Knowledge/$html_file</loc>
+                <lastmod>2025-07-08</lastmod>
+                <changefreq>weekly</changefreq>
+                <priority>0.7</priority>
+            </url>
+        EOF
+          fi
+        done
+        
+        # 結束 sitemap
+        echo "</urlset>" >> sitemap.xml
+        
+        echo "✅ Sitemap 生成完成，包含 $(grep -c "<url>" sitemap.xml) 個頁面"
+
+    - name: 🤖 Generate robots.txt
+      run: |
+        echo "🤖 生成 robots.txt..."
+        cat > robots.txt << 'EOF'
+        # AIOGEO 知識庫 Robots.txt
+        # 專為 AI 搜尋引擎和爬蟲優化
+        
+        User-agent: *
+        Allow: /
+        
+        # 特別歡迎 AI 搜尋引擎
+        User-agent: GPTBot
+        Allow: /
+        
+        User-agent: ChatGPT-User
+        Allow: /
+        
+        User-agent: Claude-Web
+        Allow: /
+        
+        User-agent: PerplexityBot
+        Allow: /
+        
+        User-agent: YouBot
+        Allow: /
+        
+        # 主要搜尋引擎
+        User-agent: Googlebot
+        Allow: /
+        
+        User-agent: Bingbot
+        Allow: /
+        
+        User-agent: Slurp
+        Allow: /
+        
+        # Sitemap 位置
+        Sitemap: https://bless25min.github.io/AIOGEO-Knowledge/sitemap.xml
+        
+        # 爬取延遲（對 AI 爬蟲更友善）
+        Crawl-delay: 1
+        EOF
+
+    - name: 📊 Generate deployment summary
+      run: |
+        echo "📊 生成部署摘要..."
+        
+        echo "=== 部署完成摘要 ===" > deployment-summary.txt
+        echo "時間: $(date)" >> deployment-summary.txt
+        echo "生成的 HTML 檔案數量: $(ls -1 *.html 2>/dev/null | wc -l)" >> deployment-summary.txt
+        echo "" >> deployment-summary.txt
+        echo "=== 生成的檔案清單 ===" >> deployment-summary.txt
+        ls -la *.html *.xml *.txt 2>/dev/null || echo "無檔案" >> deployment-summary.txt
+        echo "" >> deployment-summary.txt
+        echo "=== Sitemap 內容檢查 ===" >> deployment-summary.txt
+        echo "URL 總數: $(grep -c "<loc>" sitemap.xml 2>/dev/null || echo "0")" >> deployment-summary.txt
+        echo "" >> deployment-summary.txt
+        
+        cat deployment-summary.txt
+
+    - name: 🚀 Safe commit and push
+      run: |
+        echo "🚀 安全提交所有變更..."
+        
+        # 檢查是否有變更
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "📝 發現檔案變更，準備提交..."
+          
+          # 添加所有變更的檔案
+          git add *.html *.xml *.txt 2>/dev/null || true
+          
+          # 確保有檔案可以提交
+          if [ -n "$(git diff --cached --name-only)" ]; then
+            echo "📦 提交變更..."
+            git commit -m "🚀 自動生成所有靜態頁面 - $(date +%Y-%m-%d-%H%M%S)
+
+            ✅ 生成檔案清單:
+            $(git diff --cached --name-only | sed 's/^/- /')
+            
+            📊 統計:
+            - HTML 頁面: $(ls -1 *.html 2>/dev/null | wc -l) 個
+            - Sitemap URLs: $(grep -c "<loc>" sitemap.xml 2>/dev/null || echo "0") 個
+            - 部署時間: $(date)
+            
+            🎯 優化效果:
+            - 解決所有 404 錯誤
+            - 完整 SEO 優化
+            - AI 爬蟲友善設定
+            - 自動重定向功能"
+            
+            # 強制推送（解決分支衝突）
+            echo "🔄 推送變更到遠端..."
+            git push origin main --force-with-lease
+            
+            echo "✅ 所有變更已成功推送！"
+          else
+            echo "ℹ️ 沒有檔案需要提交"
+          fi
+        else
+          echo "ℹ️ 沒有檔案變更"
+        fi
+
+    - name: 🎉 Deployment completion
+      run: |
+        echo "🎉 部署完成！"
+        echo ""
+        echo "✅ 成功生成的檔案:"
+        ls -la *.html *.xml *.txt 2>/dev/null | awk '{print "  " $0}'
+        echo ""
+        echo "🌐 測試 URL:"
+        echo "  📄 關於頁面: https://bless25min.github.io/AIOGEO-Knowledge/about.html"
+        echo "  📝 貢獻指南: https://bless25min.github.io/AIOGEO-Knowledge/contributing.html"
+        echo "  🗺️ Sitemap: https://bless25min.github.io/AIOGEO-Knowledge/sitemap.xml"
+        echo "  🤖 Robots: https://bless25min.github.io/AIOGEO-Knowledge/robots.txt"
+        echo ""
+        echo "📊 下一步:"
+        echo "  1. 等待 GitHub Pages 部署完成（2-3分鐘）"
+        echo "  2. 測試所有頁面是否正常"
+        echo "  3. 提交 sitemap 到 Google Search Console"
+        echo "  4. 監控 SEO 效果"
+        echo ""
+        echo "🎯 預期效果:"
+        echo "  ✅ 解決所有 404 錯誤"
+        echo "  ✅ 提升 SEO 排名"
+        echo "  ✅ 增加 AI 引用機率"
+        echo "  ✅ 改善用戶體驗"
