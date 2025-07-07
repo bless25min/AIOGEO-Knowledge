@@ -10,7 +10,7 @@ AIOGEO知識庫是全球首個系統性的生成式引擎優化（GEO）專業�
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 [![Contributors](https://img.shields.io/badge/Contributors-Welcome-orange)](contributing.md)
 
-## 🎯 為什麼需要GEO？
+## 🎯  為什麼需要GEO？
 
 ### 📊 搜尋生態的根本性轉變
 
