@@ -715,10 +715,34 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
+        
+        # 先拉取遠端變更
+        git fetch origin main
+        git pull origin main --no-edit || echo "Pull completed with merge"
+        
+        # 添加所有變更
         git add .
+        
+        # 檢查是否有變更需要提交
         if git diff --staged --quiet; then
           echo "No changes to commit"
         else
           git commit -m "🌐 完整網站靜態化部署 - 生成所有24個頁面 $(date +%Y-%m-%d)"
-          git push
+          
+          # 推送變更，如果失敗則重試
+          for i in {1..3}; do
+            if git push origin main; then
+              echo "Push successful"
+              break
+            else
+              echo "Push failed, attempt $i/3"
+              git fetch origin main
+              git pull origin main --no-edit || echo "Pull completed"
+              if [ $i -eq 3 ]; then
+                echo "Push failed after 3 attempts"
+                exit 1
+              fi
+              sleep 2
+            fi
+          done
         fi
