@@ -108,8 +108,9 @@ jobs:
       run: |
         echo "🎨 開始專業Markdown轉HTML轉換..."
         
-        # 轉換函數
-        convert_with_pandoc() {
+        # 創建HTML模板檔案
+        # 強化版轉換函數
+        convert_markdown() {
           local input_file="$1"
           local output_file="$2"
           local title="$3"
@@ -121,25 +122,22 @@ jobs:
           
           echo "🔄 轉換: $input_file -> $output_file"
           
-          # 使用Pandoc進行高品質轉換，保持所有格式
-          pandoc "$input_file" \
-            --from markdown \
-            --to html \
-            --standalone \
-            --metadata title="$title | AIOGEO 知識庫" \
-            --css "/assets/style.css" \
-            --template <(cat << 'TEMPLATE_END'
+          # 先用pandoc轉換基本HTML，然後包裝
+          pandoc "$input_file" --from markdown --to html --output "temp_content.html"
+          
+          # 創建完整HTML頁面
+          cat > "$output_file" << HTML_END
         <!DOCTYPE html>
         <html lang="zh-TW">
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>$title$</title>
-          <meta name="description" content="$title$ - AIOGEO知識庫專業內容">
+          <title>$title | AIOGEO 知識庫</title>
+          <meta name="description" content="$title - AIOGEO知識庫專業內容">
           <meta name="author" content="廖天佑 Bless Liao">
-          <meta property="og:title" content="$title$">
+          <meta property="og:title" content="$title | AIOGEO 知識庫">
           <meta property="og:type" content="article">
-          <meta property="og:url" content="https://bless25min.github.io/AIOGEO-Knowledge/$output_file$">
+          <meta property="og:url" content="https://bless25min.github.io/AIOGEO-Knowledge/$output_file">
           
           <style>
             * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -156,36 +154,29 @@ jobs:
             .nav-link:hover { background: #374151; color: white; }
             main { padding: 50px 40px; }
             
-            /* 保護重要格式 */
             h2 { color: #1f2937; font-size: 1.8em; margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 3px solid #6366f1; }
             h3 { color: #374151; font-size: 1.4em; margin: 30px 0 15px; }
+            h4 { color: #374151; font-size: 1.2em; margin: 25px 0 10px; }
             p { margin: 15px 0; line-height: 1.7; }
             
-            /* 代碼塊格式保護 */
             pre { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 20px 0; overflow-x: auto; }
             code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-family: 'Monaco', 'Consolas', monospace; font-size: 0.9em; }
             pre code { background: none; padding: 0; }
             
-            /* 列表格式保護 */
             ul, ol { margin: 15px 0 15px 30px; }
             li { margin: 8px 0; line-height: 1.6; }
             
-            /* 表格格式保護 */
             table { width: 100%; border-collapse: collapse; margin: 20px 0; }
             th, td { border: 1px solid #e5e7eb; padding: 12px; text-align: left; }
             th { background: #f9fafb; font-weight: 600; }
             
-            /* 引用格式保護 */
             blockquote { border-left: 4px solid #6366f1; background: #f8fafc; padding: 15px 20px; margin: 20px 0; font-style: italic; }
             
-            /* 鏈接格式 */
             a { color: #6366f1; text-decoration: none; }
             a:hover { text-decoration: underline; }
             
-            /* 特殊GEO格式保護 */
             .summary { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border: 2px solid #0ea5e9; border-radius: 12px; padding: 24px; margin: 20px 0 30px 0; font-size: 1.1em; line-height: 1.7; }
             
-            /* 響應式設計 */
             @media (max-width: 768px) {
               .container { margin: 0; box-shadow: none; }
               header { padding: 30px 20px; }
@@ -203,9 +194,9 @@ jobs:
           <div class="container">
             <header>
               <div class="breadcrumb">
-                <a href="index.html" style="color: white; text-decoration: none;">AIOGEO 知識庫</a> / $title$
+                <a href="index.html" style="color: white; text-decoration: none;">AIOGEO 知識庫</a> / $title
               </div>
-              <h1>$title$</h1>
+              <h1>$title</h1>
               <div class="article-meta">
                 作者：廖天佑 Bless Liao | 更新時間：$(date +%Y-%m-%d)
               </div>
@@ -221,7 +212,12 @@ jobs:
             </nav>
             
             <main>
-        $body$
+        HTML_END
+          
+          # 插入pandoc轉換的內容
+          cat temp_content.html >> "$output_file"
+          
+          cat >> "$output_file" << 'HTML_END'
             </main>
             
             <footer>
@@ -235,21 +231,22 @@ jobs:
           </div>
         </body>
         </html>
-        TEMPLATE_END
-        ) \
-            --output "$output_file"
+        HTML_END
+          
+          # 清理臨時檔案
+          rm -f temp_content.html
           
           echo "✅ 完成: $output_file"
         }
         
-        # 轉換所有重要檔案（使用專業工具保護格式）
-        [ -f "posts/geo-fundamentals.md" ] && convert_with_pandoc "posts/geo-fundamentals.md" "geo-fundamentals.html" "GEO基礎原理"
-        [ -f "posts/geo-fundamentals-content-design.md" ] && convert_with_pandoc "posts/geo-fundamentals-content-design.md" "geo-fundamentals-content-design.html" "內容結構設計實戰"
-        [ -f "posts/multimodal-creation.md" ] && convert_with_pandoc "posts/multimodal-creation.md" "multimodal-creation.html" "多模態內容創作指南"
-        [ -f "tools/checklists.md" ] && convert_with_pandoc "tools/checklists.md" "tools-checklists.html" "GEO檢查清單"
-        [ -f "tools/content-templates.md" ] && convert_with_pandoc "tools/content-templates.md" "tools-content-templates.html" "內容模板庫"
-        [ -f "about.md" ] && convert_with_pandoc "about.md" "about.html" "關於廖天佑 Bless"
-        [ -f "contributing.md" ] && convert_with_pandoc "contributing.md" "contributing.html" "參與貢獻"
+        # 轉換所有重要檔案
+        [ -f "posts/geo-fundamentals.md" ] && convert_markdown "posts/geo-fundamentals.md" "geo-fundamentals.html" "GEO基礎原理"
+        [ -f "posts/geo-fundamentals-content-design.md" ] && convert_markdown "posts/geo-fundamentals-content-design.md" "geo-fundamentals-content-design.html" "內容結構設計實戰"
+        [ -f "posts/multimodal-creation.md" ] && convert_markdown "posts/multimodal-creation.md" "multimodal-creation.html" "多模態內容創作指南"
+        [ -f "tools/checklists.md" ] && convert_markdown "tools/checklists.md" "tools-checklists.html" "GEO檢查清單"
+        [ -f "tools/content-templates.md" ] && convert_markdown "tools/content-templates.md" "tools-content-templates.html" "內容模板庫"
+        [ -f "about.md" ] && convert_markdown "about.md" "about.html" "關於廖天佑 Bless"
+        [ -f "contributing.md" ] && convert_markdown "contributing.md" "contributing.html" "參與貢獻"
         
         # 轉換其他發現的Markdown檔案
         for md_file in posts/*.md tools/*.md *.md; do
@@ -272,7 +269,7 @@ jobs:
             title=$(head -1 "$md_file" | sed 's/^# *//' | sed 's/[#*]//g')
             [ -z "$title" ] && title="$base_name"
             
-            convert_with_pandoc "$md_file" "$output_file" "$title"
+            convert_markdown "$md_file" "$output_file" "$title"
           fi
         done
 
