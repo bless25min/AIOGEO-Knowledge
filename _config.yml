@@ -22,7 +22,6 @@ plugins:
 
 # 排除檔案
 exclude:
-  - README.md
   - node_modules/
   - .git/
   - .gitignore
@@ -47,7 +46,7 @@ kramdown:
   input: GFM
   hard_wrap: false
 
-# 集合設定（用於組織內容）
+# 集合設定
 collections:
   posts:
     output: true
@@ -55,33 +54,17 @@ collections:
   tools:
     output: true
     permalink: /tools/:name/
-  micro:
-    output: true
-    permalink: /micro/:name/
 
 # Jekyll SEO Tag 設定
 twitter:
   username: bless25min
   card: summary_large_image
 
-facebook:
-  app_id: 
-  publisher: 
-
 social:
   name: 廖天佑 Bless Liao
   links:
     - https://github.com/bless25min
     - https://bless25min.github.io/AIOGEO-Knowledge/
-
-# Google Analytics (如需要)
-google_analytics: 
-
-# Webmaster 驗證 (如需要)
-webmaster_verifications:
-  google: 
-  bing: 
-  baidu: 
 
 # 頁面設定
 defaults:
@@ -97,14 +80,6 @@ defaults:
       layout: "post"
       author: "廖天佑 Bless Liao"
 
-# Feed 設定
-feed:
-  posts_limit: 20
-  excerpt_only: true
-
 # 壓縮設定
 sass:
   style: compressed
-
-# 啟用 GitHub Pages 相容模式
-github: [metadata]
