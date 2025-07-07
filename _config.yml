@@ -1,0 +1,110 @@
+# GitHub Pages 配置
+title: "AIOGEO 知識庫"
+description: "專業的 GEO (Generative Engine Optimization) 知識庫，提供AI搜尋時代的內容優化策略與實戰指南"
+url: "https://bless25min.github.io"
+baseurl: "/AIOGEO-Knowledge"
+
+# SEO 優化
+author:
+  name: "廖天佑 Bless Liao"
+  email: "bless.liao@example.com"
+  github: "bless25min"
+
+# 網站資訊
+lang: zh-TW
+timezone: Asia/Taipei
+
+# 插件配置
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
+# 排除檔案
+exclude:
+  - README.md
+  - node_modules/
+  - .git/
+  - .gitignore
+  - .github/
+  - "*.gem"
+  - "*.gemspec"
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+
+# 包含檔案
+include:
+  - _pages
+  - _posts
+  - assets
+
+# Markdown 設定
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  syntax_highlighter: rouge
+  input: GFM
+  hard_wrap: false
+
+# 集合設定（用於組織內容）
+collections:
+  posts:
+    output: true
+    permalink: /posts/:name/
+  tools:
+    output: true
+    permalink: /tools/:name/
+  micro:
+    output: true
+    permalink: /micro/:name/
+
+# Jekyll SEO Tag 設定
+twitter:
+  username: bless25min
+  card: summary_large_image
+
+facebook:
+  app_id: 
+  publisher: 
+
+social:
+  name: 廖天佑 Bless Liao
+  links:
+    - https://github.com/bless25min
+    - https://bless25min.github.io/AIOGEO-Knowledge/
+
+# Google Analytics (如需要)
+google_analytics: 
+
+# Webmaster 驗證 (如需要)
+webmaster_verifications:
+  google: 
+  bing: 
+  baidu: 
+
+# 頁面設定
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "廖天佑 Bless Liao"
+
+# Feed 設定
+feed:
+  posts_limit: 20
+  excerpt_only: true
+
+# 壓縮設定
+sass:
+  style: compressed
+
+# 啟用 GitHub Pages 相容模式
+github: [metadata]
