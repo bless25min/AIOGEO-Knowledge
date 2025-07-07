@@ -33,7 +33,6 @@
   <!-- Docsify Theme -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   
-  <!-- Custom Styles for AIOGEO Brand -->
   <style>
     :root {
       --theme-color: #6366f1;
@@ -41,145 +40,71 @@
       --text-color-base: #1f2937;
       --sidebar-bg: #f8fafc;
       --bless-purple: #8b5cf6;
-      --summary-bg: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-      --code-bg: #f8fafc;
     }
     
-    /* Brand Loading Animation */
+    /* Loading Animation */
     .app-loading {
-      background: linear-gradient(135deg, var(--theme-color) 0%, var(--bless-purple) 100%);
-      color: white;
-      text-align: center;
-      padding: 40px;
-      font-family: 'Arial', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+      background: #f8fafc;
     }
     
     .loading-text {
       font-size: 1.2em;
+      color: var(--text-color-base);
       margin-top: 20px;
-      animation: pulse 1.5s ease-in-out infinite;
+      font-weight: 500;
     }
     
-    @keyframes pulse {
-      0%, 100% { opacity: 0.8; }
-      50% { opacity: 1; }
-    }
-    
-    /* Summary Section Styling */
+    /* Enhanced Summary Styling */
     .summary {
-      background: var(--summary-bg);
-      border: 1px solid #f59e0b;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      border: 2px solid #0ea5e9;
       border-radius: 12px;
       padding: 24px;
-      margin: 24px 0;
-      position: relative;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin: 20px 0 30px 0;
+      box-shadow: 0 4px 12px rgba(14, 165, 233, 0.1);
+      font-size: 1.05em;
+      line-height: 1.7;
+      color: #0c4a6e;
     }
     
     .summary::before {
-      content: "💡 核心摘要";
-      position: absolute;
-      top: -12px;
-      left: 16px;
-      background: #fbbf24;
-      color: #92400e;
-      padding: 4px 12px;
-      border-radius: 6px;
-      font-size: 0.8em;
+      content: "📖 內容摘要";
+      display: block;
       font-weight: bold;
-    }
-    
-    .summary p {
-      color: #92400e;
-      line-height: 1.7;
-      margin: 0;
-    }
-    
-    /* Learning Path Styling */
-    .learning-path {
-      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-      border: 1px solid #10b981;
-      border-radius: 12px;
-      padding: 20px;
-      margin: 20px 0;
-    }
-    
-    .learning-path h4 {
-      color: #065f46;
-      margin-top: 0;
-    }
-    
-    /* Enhanced Code Blocks */
-    .markdown-section pre {
-      background: var(--code-bg) !important;
-      border: 1px solid #e5e7eb;
-      border-radius: 8px;
-      padding: 16px;
-    }
-    
-    .markdown-section code {
-      color: #374151;
-      font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    }
-    
-    /* FAQ Styling */
-    .markdown-section details {
-      background: #f1f5f9;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      padding: 16px;
-      margin: 12px 0;
-    }
-    
-    .markdown-section details summary {
-      font-weight: bold;
-      color: var(--theme-color);
-      cursor: pointer;
-      padding: 8px 0;
-    }
-    
-    .markdown-section details[open] summary {
-      border-bottom: 1px solid #cbd5e1;
+      font-size: 0.9em;
+      color: #0369a1;
       margin-bottom: 12px;
-    }
-    
-    /* Navigation Enhancement */
-    .sidebar-nav > ul > li > a {
-      font-weight: 600;
-    }
-    
-    .sidebar-nav .section-divider {
-      border-top: 1px solid #e5e7eb;
-      margin: 16px 0;
-      padding-top: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
     
     /* Article Navigation */
     .article-nav {
-      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
       border-radius: 12px;
       padding: 24px;
-      margin: 32px 0;
-      border-left: 4px solid var(--theme-color);
-    }
-    
-    .article-nav h3 {
-      margin-top: 0;
-      color: var(--theme-color);
+      margin: 40px 0;
     }
     
     .nav-links {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
       margin-top: 16px;
     }
     
     .nav-link {
+      display: block;
+      padding: 16px;
       background: white;
       border: 1px solid #e5e7eb;
       border-radius: 8px;
-      padding: 12px 16px;
       text-decoration: none;
       color: var(--text-color-base);
       transition: all 0.2s ease;
@@ -188,11 +113,44 @@
     .nav-link:hover {
       border-color: var(--theme-color);
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
     }
     
-    .nav-link strong {
+    /* Learning Path Styling */
+    .learning-path {
+      background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
+      border: 2px solid #f59e0b;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+    }
+    
+    /* FAQ Styling */
+    .faq summary {
+      font-weight: 600;
       color: var(--theme-color);
+      cursor: pointer;
+      padding: 12px;
+      background: #f8fafc;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+    
+    .faq[open] summary {
+      margin-bottom: 16px;
+    }
+    
+    .faq details > *:not(summary) {
+      padding-left: 12px;
+    }
+    
+    /* Code Block Enhancements */
+    .markdown-section pre {
+      background: #1e293b !important;
+      border-radius: 12px;
+      padding: 20px;
+      position: relative;
+      margin: 20px 0;
     }
     
     /* Table Styling */
@@ -274,10 +232,13 @@
       auto2top: true,
       maxLevel: 4,
       
-      // 🔧 修正：確保所有目錄都使用根目錄的 _sidebar.md
+      // 🔧 關鍵修改：啟用 History API 模式
+      routerMode: 'history',
+      basePath: '/AIOGEO-Knowledge/',
+      
+      // 確保所有目錄都使用根目錄的 _sidebar.md
       alias: {
         '/.*/_sidebar.md': '/_sidebar.md',
-        // 新增：為不同路徑提供更明確的對應
         '/posts/_sidebar.md': '/_sidebar.md',
         '/micro/_sidebar.md': '/_sidebar.md',
         '/tools/_sidebar.md': '/_sidebar.md'
@@ -342,28 +303,47 @@
           });
         },
         
-        // Add article navigation - 修正內部連結
+        // Update canonical URL for History API
+        function(hook, vm) {
+          hook.beforeEach(function(html) {
+            // 更新 canonical URL
+            const currentPath = vm.router.getCurrentPath();
+            const canonicalUrl = `https://bless25min.github.io/AIOGEO-Knowledge${currentPath}`;
+            
+            let canonicalTag = document.querySelector('link[rel="canonical"]');
+            if (canonicalTag) {
+              canonicalTag.href = canonicalUrl;
+            }
+            
+            // 更新頁面標題
+            const route = vm.route;
+            if (route.file && route.file !== 'README.md') {
+              const title = route.file.replace('.md', '').replace(/\//g, ' | ');
+              document.title = `${title} | AIOGEO 知識庫`;
+            }
+            
+            return html;
+          });
+        },
+        
+        // Add article navigation
         function(hook, vm) {
           hook.afterEach(function(html, next) {
             const footer = `
               <div class="article-nav">
                 <h3>📍 導航與學習資源</h3>
                 <div class="nav-links">
-                  <a href="#/" class="nav-link">
+                  <a href="/" class="nav-link">
                     <strong>🏠 返回首頁</strong><br>
                     <small>AIOGEO 知識庫總覽</small>
                   </a>
-                  <a href="#/about" class="nav-link">
+                  <a href="/about" class="nav-link">
                     <strong>👤 關於作者</strong><br>
                     <small>廖天佑 Bless 專業背景</small>
                   </a>
-                  <a href="#/contributing" class="nav-link">
+                  <a href="/contributing" class="nav-link">
                     <strong>🤝 參與貢獻</strong><br>
                     <small>協助改善知識庫</small>
-                  </a>
-                  <a href="#/privacy" class="nav-link">
-                    <strong>🔒 隱私政策</strong><br>
-                    <small>資料保護說明</small>
                   </a>
                   <a href="https://github.com/bless25min/AIOGEO-Knowledge/discussions" target="_blank" class="nav-link">
                     <strong>💬 社群討論</strong><br>
@@ -389,7 +369,7 @@
       
       // Custom 404 - 修正為首頁重導向
       notFoundPage: {
-        '/': 'README.md'  // 如果 _404.md 不存在，重導向到首頁
+        '/': 'README.md'
       },
       
       // 新增：錯誤處理
@@ -404,61 +384,9 @@
   <script src="//cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-css.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
-  
-  <!-- Mermaid for Diagrams -->
-  <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-  <script>
-    mermaid.initialize({ startOnLoad: true });
-  </script>
-  
-  <!-- Schema.org JSON-LD for Website -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "AIOGEO 知識庫",
-    "description": "探索AI搜尋時代的內容優化策略，提供GEO理論基礎、實戰技巧、Semantic Mesh架構設計等專業指南",
-    "url": "https://bless25min.github.io/AIOGEO-Knowledge/",
-    "author": {
-      "@type": "Person",
-      "name": "廖天佑 Bless Liao",
-      "url": "https://bless25min.github.io/AIOGEO-Knowledge/about",
-      "sameAs": [
-        "https://github.com/bless25min",
-        "https://linkedin.com/in/bless-liao"
-      ]
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "AIOGEO 知識庫",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://bless25min.github.io/AIOGEO-Knowledge/assets/images/logo.png"
-      }
-    },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://bless25min.github.io/AIOGEO-Knowledge/?s={search_term_string}"
-      },
-      "query-input": "required name=search_term_string"
-    },
-    "mainEntity": {
-      "@type": "CreativeWork",
-      "name": "生成式引擎優化 (GEO) 專業指南",
-      "description": "涵蓋GEO基礎理論、Semantic Mesh架構、多模態轉譯策略、SEO×GEO整合等主題的綜合性知識庫",
-      "keywords": ["GEO", "生成式引擎優化", "AI搜尋", "ChatGPT", "Google SGE", "內容優化"],
-      "educationalLevel": "專業級",
-      "audience": {
-        "@type": "Audience",
-        "audienceType": ["SEO專家", "內容創作者", "數位行銷人員", "AI技術研究人員"]
-      }
-    }
-  }
-  </script>
 </body>
 </html>
