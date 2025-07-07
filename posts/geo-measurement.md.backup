@@ -888,10 +888,10 @@ graph TD
 
 ### 持續學習資源：
 
-- 📚 [GEO基礎原理完整指南](geo-fundamentals.html)：深入理解理論基礎
-- 🛠️ [Semantic Mesh架構實作](semantic-mesh.html)：建立系統化內容網絡  
-- ⚖️ [SEO×GEO雙軌整合](seo-geo-integration.html)：平衡傳統與AI優化
-- 🎨 [多模態轉譯策略](multimodal-optimization.html)：擴展內容影響力
+- 📚 [GEO基礎原理完整指南](geo-fundamentals.md)：深入理解理論基礎
+- 🛠️ [Semantic Mesh架構實作](semantic-mesh.md)：建立系統化內容網絡  
+- ⚖️ [SEO×GEO雙軌整合](seo-geo-integration.md)：平衡傳統與AI優化
+- 🎨 [多模態轉譯策略](multimodal-optimization.md)：擴展內容影響力
 
 **記住：GEO成效評估是一個持續的數據驅動過程。每一次測量和分析都是向AI友好內容邁進的重要步驟，讓您的專業知識在AI搜尋時代持續發光發熱！**
 
@@ -902,24 +902,24 @@ graph TD
 ## 🔗 導航與學習資源
 
 ### 🏠 返回總覽
-[🏠 AIOGEO知識庫首頁](../index.html) | [📚 完整學習指南](geo-complete-guide.html)
+[🏠 AIOGEO知識庫首頁](../index.md) | [📚 完整學習指南](geo-complete-guide.md)
 
 ### ⬅️➡️ 系列導航
-**上一篇**：[多模態轉譯策略實戰](multimodal-optimization.html)  
-**下一篇**：[GEO實戰案例研究](geo-case-studies.html)
+**上一篇**：[多模態轉譯策略實戰](multimodal-optimization.md)  
+**下一篇**：[GEO實戰案例研究](geo-case-studies.md)
 
 ### 🎯 相關推薦
-- [GEO基礎原理完整指南](geo-fundamentals.html) - 理解理論基礎和核心概念
-- [SEO×GEO雙軌整合實戰](seo-geo-integration.html) - 學習策略平衡和實施方法
-- [Semantic Mesh內容網佈局](semantic-mesh.html) - 掌握內容架構優化技巧
+- [GEO基礎原理完整指南](geo-fundamentals.md) - 理解理論基礎和核心概念
+- [SEO×GEO雙軌整合實戰](seo-geo-integration.md) - 學習策略平衡和實施方法
+- [Semantic Mesh內容網佈局](semantic-mesh.md) - 掌握內容架構優化技巧
 
 ### 📥 實用資源
-- [📋 GEO成效追蹤檢查清單](geo-tracking-checklist.html)
-- [🛠️ ROI計算模板表格](roi-calculation-template.html)
-- [📊 競爭對手分析工作表](competitor-analysis-worksheet.html)
+- [📋 GEO成效追蹤檢查清單](geo-tracking-checklist.md)
+- [🛠️ ROI計算模板表格](roi-calculation-template.md)
+- [📊 競爭對手分析工作表](competitor-analysis-worksheet.md)
 
 ### 👤 關於作者
-了解更多關於 [廖天佑 Bless](../about.html) 的專業背景與其他專案。
+了解更多關於 [廖天佑 Bless](../about.md) 的專業背景與其他專案。
 
 ---
 

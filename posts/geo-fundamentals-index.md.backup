@@ -16,7 +16,7 @@
 
 ### 🎓 第一階段：理論基礎（10分鐘）
 
-#### [📖 GEO概念與原理](geo-fundamentals-overview.html)
+#### [📖 GEO概念與原理](geo-fundamentals-overview.md)
 **學習目標**：建立GEO基礎認知  
 **核心內容**：
 - 什麼是生成式引擎優化？
@@ -31,7 +31,7 @@
 
 ### 🛠️ 第二階段：內容設計（15分鐘）
 
-#### [✍️ 內容結構化設計實戰](geo-fundamentals-content-design.html)
+#### [✍️ 內容結構化設計實戰](geo-fundamentals-content-design.md)
 **學習目標**：掌握AI友善的內容撰寫技巧  
 **核心內容**：
 - Answer Layer語段設計原理
@@ -47,7 +47,7 @@
 
 ### ⚙️ 第三階段：技術實作（12分鐘）
 
-#### [🔧 技術實作與Schema標記](geo-fundamentals-technical.html)
+#### [🔧 技術實作與Schema標記](geo-fundamentals-technical.md)
 **學習目標**：學會技術層面的GEO優化  
 **核心內容**：
 - Schema.org結構化資料標準
@@ -63,7 +63,7 @@
 
 ### 📊 第四階段：成效評估（13分鐘）
 
-#### [📈 成效評估與優化策略](geo-fundamentals-measurement.html)
+#### [📈 成效評估與優化策略](geo-fundamentals-measurement.md)
 **學習目標**：建立量化評估和持續優化能力  
 **核心內容**：
 - GEO五大關鍵指標
@@ -92,19 +92,19 @@
 ## 🔗 延伸學習資源
 
 ### 🚀 進階主題
-- [🕸️ Semantic Mesh內容網架構](semantic-mesh.html)
-- [🎨 多模態轉譯策略](multimodal-optimization.html)  
-- [⚖️ SEO×GEO雙軌整合](seo-geo-integration.html)
+- [🕸️ Semantic Mesh內容網架構](semantic-mesh.md)
+- [🎨 多模態轉譯策略](multimodal-optimization.md)  
+- [⚖️ SEO×GEO雙軌整合](seo-geo-integration.md)
 
 ### 📊 實用工具
-- [📋 GEO優化檢查清單](tools/geo-checklist.html)
-- [📝 內容模板庫](tools/content-templates.html)
-- [🔧 技術實作工具](tools/technical-tools.html)
+- [📋 GEO優化檢查清單](tools/geo-checklist.md)
+- [📝 內容模板庫](tools/content-templates.md)
+- [🔧 技術實作工具](tools/technical-tools.md)
 
 ### 🤝 社群支援
 - [💬 GitHub討論區](https://github.com/bless25min/AIOGEO-Knowledge/discussions)
 - [🐛 問題回報](https://github.com/bless25min/AIOGEO-Knowledge/issues)
-- [👥 關於作者](../about.html)
+- [👥 關於作者](../about.md)
 
 ## ✅ 學習檢查清單
 

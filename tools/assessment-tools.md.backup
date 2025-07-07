@@ -268,10 +268,10 @@ gtag('event', 'ai_referral', {
 
 ## 🔗 相關資源
 
-- 📖 [AI 引用追蹤完全指南](../posts/ai-citation-tracking.html)
-- 📋 [GEO 優化檢查清單](checklists.html)
-- 🛠️ [Schema 產生器工具](schema-generator.html)
-- 📝 [內容模板庫](content-templates.html)
+- 📖 [AI 引用追蹤完全指南](../posts/ai-citation-tracking.md)
+- 📋 [GEO 優化檢查清單](checklists.md)
+- 🛠️ [Schema 產生器工具](schema-generator.md)
+- 📝 [內容模板庫](content-templates.md)
 
 ---
 

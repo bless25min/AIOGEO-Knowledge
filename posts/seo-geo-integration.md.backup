@@ -284,19 +284,19 @@ GEO（Generative Engine Optimization）是針對ChatGPT、Claude、Perplexity等
 ## 主題集群連結架構
 
 ### 🏛️ 支柱頁面（Pillar Pages）
-- [GEO完整指南總覽](geo-complete-guide.html) - 主要樞紐頁
-- [SEO基礎優化指南](seo-basics-guide.html) - 相關支柱頁
+- [GEO完整指南總覽](geo-complete-guide.md) - 主要樞紐頁
+- [SEO基礎優化指南](seo-basics-guide.md) - 相關支柱頁
 
 ### 🔗 集群頁面（Cluster Pages）  
 **GEO相關集群**：
-- [Answer Layer設計技巧](answer-layer-design.html)
-- [Semantic Mesh架構實作](semantic-mesh.html)
-- [AI引用追蹤方法](ai-citation-tracking.html)
+- [Answer Layer設計技巧](answer-layer-design.md)
+- [Semantic Mesh架構實作](semantic-mesh.md)
+- [AI引用追蹤方法](ai-citation-tracking.md)
 
 **SEO相關集群**：
-- [關鍵字研究策略](keyword-research.html)
-- [技術SEO優化](technical-seo.html)
-- [內容SEO最佳實務](content-seo.html)
+- [關鍵字研究策略](keyword-research.md)
+- [技術SEO優化](technical-seo.md)
+- [內容SEO最佳實務](content-seo.md)
 
 ### 🌐 橫向連結
 每篇文章末尾包含**「相關閱讀」**區塊：
@@ -406,15 +406,15 @@ A3: 提供troubleshooting建議，包含常見原因分析
 - [ ] 中長期規劃的第三個目標項目
 
 ### 延伸閱讀
-- [相關主題的深入文章](related-article-1.html)
-- [進階技巧的專門教學](related-article-2.html)  
-- [工具與資源推薦清單](related-article-3.html)
+- [相關主題的深入文章](related-article-1.md)
+- [進階技巧的專門教學](related-article-2.md)  
+- [工具與資源推薦清單](related-article-3.md)
 
 ---
 
-**本文屬於**：[主要指南系列名稱](main-guide.html)  
-**上一篇**：[前一篇文章標題](previous-article.html)  
-**下一篇**：[下一篇文章標題](next-article.html)
+**本文屬於**：[主要指南系列名稱](main-guide.md)  
+**上一篇**：[前一篇文章標題](previous-article.md)  
+**下一篇**：[下一篇文章標題](next-article.md)
 ```
 
 </div>
@@ -701,9 +701,9 @@ graph TD
 
 ### 持續學習路徑：
 
-- 📚 [GEO成效評估與追蹤](geo-measurement.html)：學會量化雙軌優化效果
-- 🎨 [多模態轉譯實作](multimodal-optimization.html)：擴展內容影響力
-- 🕸️ [Semantic Mesh進階架構](semantic-mesh.html)：建立權威內容網絡
+- 📚 [GEO成效評估與追蹤](geo-measurement.md)：學會量化雙軌優化效果
+- 🎨 [多模態轉譯實作](multimodal-optimization.md)：擴展內容影響力
+- 🕸️ [Semantic Mesh進階架構](semantic-mesh.md)：建立權威內容網絡
 
 </div>
 
@@ -712,24 +712,24 @@ graph TD
 ## 🔗 導航與學習資源
 
 ### 🏠 返回總覽
-[🏠 AIOGEO知識庫首頁](../index.html) | [📚 完整學習指南](geo-complete-guide.html)
+[🏠 AIOGEO知識庫首頁](../index.md) | [📚 完整學習指南](geo-complete-guide.md)
 
 ### ⬅️➡️ 系列導航
-**上一篇**：[Semantic Mesh內容網佈局實作](semantic-mesh.html)  
-**下一篇**：[多模態轉譯策略實戰](multimodal-optimization.html)
+**上一篇**：[Semantic Mesh內容網佈局實作](semantic-mesh.md)  
+**下一篇**：[多模態轉譯策略實戰](multimodal-optimization.md)
 
 ### 🎯 相關推薦
-- [GEO基礎原理完整指南](geo-fundamentals.html) - 建立理論基礎
-- [Answer Layer語段設計](answer-layer-design.html) - 深入了解模組化內容設計
-- [AI引用追蹤與評估](geo-measurement.html) - 掌握成效監控方法
+- [GEO基礎原理完整指南](geo-fundamentals.md) - 建立理論基礎
+- [Answer Layer語段設計](answer-layer-design.md) - 深入了解模組化內容設計
+- [AI引用追蹤與評估](geo-measurement.md) - 掌握成效監控方法
 
 ### 📥 實用資源
-- [📋 雙軌優化檢查清單](dual-track-checklist.html)
-- [🛠️ Schema標記生成器](schema-generator.html)
-- [📊 A/B測試規劃模板](ab-testing-template.html)
+- [📋 雙軌優化檢查清單](dual-track-checklist.md)
+- [🛠️ Schema標記生成器](schema-generator.md)
+- [📊 A/B測試規劃模板](ab-testing-template.md)
 
 ### 👤 關於作者
-了解更多關於 [廖天佑 Bless](../about.html) 的專業背景與其他專案。
+了解更多關於 [廖天佑 Bless](../about.md) 的專業背景與其他專案。
 
 ---
 

@@ -185,15 +185,15 @@
               <div class="article-nav">
                 <h3>📍 導航與學習資源</h3>
                 <div class="nav-links">
-                  <a href="/" class="nav-link">
+                  <a href="#/" class="nav-link">
                     <strong>🏠 返回首頁</strong><br>
                     <small>AIOGEO 知識庫總覽</small>
                   </a>
-                  <a href="about.html" class="nav-link">
+                  <a href="#/about" class="nav-link">
                     <strong>👤 關於作者</strong><br>
                     <small>廖天佑 Bless 專業背景</small>
                   </a>
-                  <a href="contributing.html" class="nav-link">
+                  <a href="#/contributing" class="nav-link">
                     <strong>🤝 參與貢獻</strong><br>
                     <small>協助改善知識庫</small>
                   </a>

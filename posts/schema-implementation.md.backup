@@ -559,10 +559,10 @@ export function generateArticleSchema(article) {
 - **Schema驗證工具**：https://validator.schema.org/
 
 ### 📖 相關文章連結
-- ⬅️ 基礎準備：[GEO基礎原理](geo-fundamentals.html)
-- ➡️ 實戰應用：[FAQ模組設計指南](../micro/faq-design.html)
-- 🔄 平行學習：[AI搜尋演算法解析](ai-search-algorithm.html)
-- 📊 效果評估：[GEO成效追蹤與評估](geo-measurement.html)
+- ⬅️ 基礎準備：[GEO基礎原理](geo-fundamentals.md)
+- ➡️ 實戰應用：[FAQ模組設計指南](../micro/faq-design.md)
+- 🔄 平行學習：[AI搜尋演算法解析](ai-search-algorithm.md)
+- 📊 效果評估：[GEO成效追蹤與評估](geo-measurement.md)
 
 ---
 

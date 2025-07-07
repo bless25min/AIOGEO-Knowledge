@@ -240,19 +240,19 @@ AI引用潛力分數 = (語義錨定分數 × 0.3) + (語境觸發分數 × 0.25
 ## 🔗 相關資源與工具
 
 ### 📚 深度學習指南
-- [📖 GEO基礎原理完整指南](../posts/geo-fundamentals.html) - 理論基礎
-- [🎯 Answer Layer語段設計](../posts/answer-layer-design.html) - 實作技巧
-- [🕸️ Semantic Mesh架構設計](../posts/semantic-mesh.html) - 系統化優化
+- [📖 GEO基礎原理完整指南](../posts/geo-fundamentals.md) - 理論基礎
+- [🎯 Answer Layer語段設計](../posts/answer-layer-design.md) - 實作技巧
+- [🕸️ Semantic Mesh架構設計](../posts/semantic-mesh.md) - 系統化優化
 
 ### 🛠️ 配套工具
-- [📝 GEO內容模板庫](content-templates.html) - 標準化文章架構
-- [🔧 Schema標記生成器](schema-generator.html) - 自動化技術實作
-- [📊 成效評估工具](assessment-tools.html) - 量化追蹤分析
+- [📝 GEO內容模板庫](content-templates.md) - 標準化文章架構
+- [🔧 Schema標記生成器](schema-generator.md) - 自動化技術實作
+- [📊 成效評估工具](assessment-tools.md) - 量化追蹤分析
 
 ### 🎯 微型專業指南
-- [⚓ 語義錨定技術詳解](../micro/semantic-anchoring.html) - 第一層優化
-- [❓ FAQ模組設計最佳實務](../micro/faq-design.html) - 問答優化
-- [🏷️ Schema實作完整教學](../micro/schema-implementation.html) - 技術部署
+- [⚓ 語義錨定技術詳解](../micro/semantic-anchoring.md) - 第一層優化
+- [❓ FAQ模組設計最佳實務](../micro/faq-design.md) - 問答優化
+- [🏷️ Schema實作完整教學](../micro/schema-implementation.md) - 技術部署
 
 ---
 

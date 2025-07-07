@@ -164,13 +164,13 @@
 ## 🔗 相關技術深入
 
 ### 📚 延伸學習
-- [🕸️ Semantic Mesh完整架構](../posts/semantic-mesh.html) - 系統性內容網絡
-- [🎯 Answer Layer語段設計](../posts/answer-layer-design.html) - 內容模組化技巧
+- [🕸️ Semantic Mesh完整架構](../posts/semantic-mesh.md) - 系統性內容網絡
+- [🎯 Answer Layer語段設計](../posts/answer-layer-design.md) - 內容模組化技巧
 
 ### 🛠️ 實用工具
-- [📋 語義錨定檢查清單](../tools/checklists.html) - 詳細對照項目
-- [🎯 主題明確性評估工具](../tools/assessment-tools.html) - 自動化分析
-- [📝 標題優化模板](../tools/content-templates.html) - 標準化格式
+- [📋 語義錨定檢查清單](../tools/checklists.md) - 詳細對照項目
+- [🎯 主題明確性評估工具](../tools/assessment-tools.md) - 自動化分析
+- [📝 標題優化模板](../tools/content-templates.md) - 標準化格式
 
 ## ❓ 常見問題
 
@@ -203,15 +203,15 @@
 ## 📍 學習路徑導航
 
 ### ⬅️ 基礎準備
-- [📖 GEO基礎原理](../posts/geo-fundamentals.html) - 理解整體架構
+- [📖 GEO基礎原理](../posts/geo-fundamentals.md) - 理解整體架構
 
 ### ➡️ 下一步技術
-- [🕸️ Semantic Mesh架構](../posts/semantic-mesh.html) - 完整內容網絡設計
-- [🎯 Answer Layer設計](../posts/answer-layer-design.html) - 語段優化技術
+- [🕸️ Semantic Mesh架構](../posts/semantic-mesh.md) - 完整內容網絡設計
+- [🎯 Answer Layer設計](../posts/answer-layer-design.md) - 語段優化技術
 
 ### 🚀 實戰應用
-- [📋 立即使用檢查清單](../tools/checklists.html) - 開始優化現有內容
-- [📝 套用內容模板](../tools/content-templates.html) - 創作新內容
+- [📋 立即使用檢查清單](../tools/checklists.md) - 開始優化現有內容
+- [📝 套用內容模板](../tools/content-templates.md) - 創作新內容
 
 ---
 

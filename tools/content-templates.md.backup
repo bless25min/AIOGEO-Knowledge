@@ -22,7 +22,7 @@
 1. **選擇模板**：根據內容類型選擇合適模板
 2. **替換內容**：將模板中的範例內容替換為實際內容
 3. **調整Schema**：更新JSON-LD中的具體信息
-4. **驗證優化**：使用[檢查清單](checklists.html)驗證GEO標準
+4. **驗證優化**：使用[檢查清單](checklists.md)驗證GEO標準
 5. **部署追蹤**：發布後追蹤AI引用效果
 
 ---
@@ -708,7 +708,7 @@ graph TD
 
 ### 📊 品質驗證步驟
 
-1. **內容檢查**：使用[GEO檢查清單](checklists.html)驗證
+1. **內容檢查**：使用[GEO檢查清單](checklists.md)驗證
 2. **Schema驗證**：使用Google富摘要測試工具
 3. **可讀性測試**：確保內容邏輯清晰
 4. **SEO基礎**：檢查標題、描述、關鍵詞
@@ -721,7 +721,7 @@ graph TD
 ### 📞 獲得幫助
 - **模板問題**：[GitHub Issues](https://github.com/bless25min/AIOGEO-Knowledge/issues)
 - **使用諮詢**：[GitHub Discussions](https://github.com/bless25min/AIOGEO-Knowledge/discussions)
-- **客製化需求**：[聯繫作者](../about.html)
+- **客製化需求**：[聯繫作者](../about.md)
 
 ### 🔄 版本更新
 本模板庫會定期更新以反映：

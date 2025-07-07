@@ -5,10 +5,10 @@
 </summary>
 
 ## 🧭 學習導覽
-> 📖 **本文屬於**：[GEO基礎原理完整指南](geo-fundamentals-index.html) 系列  
+> 📖 **本文屬於**：[GEO基礎原理完整指南](geo-fundamentals-index.md) 系列  
 > 📍 **當前進度**：第4步 / 共4步（完成！）  
 > ⏱️ **建議閱讀時間**：10分鐘  
-> 🎯 **前置閱讀**：建議先閱讀 [技術實作與Schema標記](geo-fundamentals-technical.html)
+> 🎯 **前置閱讀**：建議先閱讀 [技術實作與Schema標記](geo-fundamentals-technical.md)
 
 ## 🎯 為什麼GEO成效評估如此重要？
 
@@ -376,9 +376,9 @@
 
 #### 深化學習（本月完成）
 1. **探索進階主題**：
-   - [🕸️ Semantic Mesh內容網架構](semantic-mesh.html)
-   - [🎨 多模態轉譯策略](multimodal-optimization.html)
-   - [⚖️ SEO×GEO雙軌整合](seo-geo-integration.html)
+   - [🕸️ Semantic Mesh內容網架構](semantic-mesh.md)
+   - [🎨 多模態轉譯策略](multimodal-optimization.md)
+   - [⚖️ SEO×GEO雙軌整合](seo-geo-integration.md)
 
 2. **建立優化流程**：制定團隊的GEO優化標準作業程序
 
@@ -390,14 +390,14 @@
 ## 🔗 繼續學習資源
 
 ### 📚 AIOGEO知識庫其他主題
-- [🧠 AI搜尋演算法深度解析](ai-search-algorithm.html)
-- [🎯 Answer Layer進階設計](answer-layer-design.html)
-- [📊 企業級GEO實施策略](enterprise-geo-strategy.html)
+- [🧠 AI搜尋演算法深度解析](ai-search-algorithm.md)
+- [🎯 Answer Layer進階設計](answer-layer-design.md)
+- [📊 企業級GEO實施策略](enterprise-geo-strategy.md)
 
 ### 🛠️ 實用工具和模板
-- [📋 GEO優化檢查清單](tools/geo-checklist.html)
-- [📝 內容模板庫](tools/content-templates.html)
-- [🔧 Schema標記生成器](tools/schema-generator.html)
+- [📋 GEO優化檢查清單](tools/geo-checklist.md)
+- [📝 內容模板庫](tools/content-templates.md)
+- [🔧 Schema標記生成器](tools/schema-generator.md)
 
 ### 🤝 社群參與
 - [💬 GitHub討論區](https://github.com/bless25min/AIOGEO-Knowledge/discussions)

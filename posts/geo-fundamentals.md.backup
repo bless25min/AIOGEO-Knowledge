@@ -221,9 +221,9 @@ GEO並非替代SEO，而是在AI搜尋時代的**戰略性補強**。最佳實�
 ## 🚀 立即行動計畫
 
 ### 📅 第一週：評估與準備
-1. **內容審核**：使用[GEO檢查清單](../tools/checklists.html)評估現有內容
+1. **內容審核**：使用[GEO檢查清單](../tools/checklists.md)評估現有內容
 2. **工具準備**：安裝Schema標記生成器、追蹤工具
-3. **學習深化**：閱讀[Answer Layer設計](answer-layer-design.html)
+3. **學習深化**：閱讀[Answer Layer設計](answer-layer-design.md)
 
 ### 📅 第二週：實作優化
 1. **選擇試點**：選擇3-5篇重要內容進行GEO改造
@@ -243,14 +243,14 @@ GEO並非替代SEO，而是在AI搜尋時代的**戰略性補強**。最佳實�
 ## 🔗 延伸學習資源
 
 ### 📚 深度學習路徑
-- [🎯 Answer Layer語段設計技巧](answer-layer-design.html) - 學習精準語段優化
-- [🕸️ Semantic Mesh內容網架構](semantic-mesh.html) - 建立系統化內容網絡
-- [⚖️ SEO×GEO雙軌整合策略](seo-geo-integration.html) - 整合優化實戰指南
+- [🎯 Answer Layer語段設計技巧](answer-layer-design.md) - 學習精準語段優化
+- [🕸️ Semantic Mesh內容網架構](semantic-mesh.md) - 建立系統化內容網絡
+- [⚖️ SEO×GEO雙軌整合策略](seo-geo-integration.md) - 整合優化實戰指南
 
 ### 🛠️ 實用工具資源
-- [📋 GEO優化檢查清單](../tools/checklists.html) - 逐項對照優化要點
-- [📝 內容模板庫](../tools/content-templates.html) - 標準化文章架構
-- [📊 成效評估工具](../tools/assessment-tools.html) - 量化追蹤分析
+- [📋 GEO優化檢查清單](../tools/checklists.md) - 逐項對照優化要點
+- [📝 內容模板庫](../tools/content-templates.md) - 標準化文章架構
+- [📊 成效評估工具](../tools/assessment-tools.md) - 量化追蹤分析
 
 ### 🤝 社群交流參與
 - [💬 GitHub討論區](https://github.com/bless25min/AIOGEO-Knowledge/discussions) - 專業技術交流
@@ -281,7 +281,7 @@ GEO效果評估需要建立新的指標體系：
 3. **內容召回準確性**：測試AI系統對您內容的理解程度
 4. **專業影響力**：業界引用、專家認可、媒體報導
 
-詳細評估方法請參考[成效評估指南](geo-measurement.html)。
+詳細評估方法請參考[成效評估指南](geo-measurement.md)。
 
 </details>
 
@@ -303,16 +303,16 @@ GEO效果展現比傳統SEO更快，通常2-4週就能觀察到初步改善：
 ## 📍 學習路徑導航
 
 ### ⬅️ 相關主題
-- [🏠 AIOGEO知識庫首頁](../README.html) - 完整學習指南總覽
+- [🏠 AIOGEO知識庫首頁](../README.md) - 完整學習指南總覽
 - [📚 學習路徑規劃](../README.md#學習路徑) - 系統性學習建議
 
 ### ➡️ 下一步學習
-- [🎯 Answer Layer語段設計](answer-layer-design.html) - 深入學習內容模組化
-- [🛠️ 實用工具檢查清單](../tools/checklists.html) - 立即開始實作
+- [🎯 Answer Layer語段設計](answer-layer-design.md) - 深入學習內容模組化
+- [🛠️ 實用工具檢查清單](../tools/checklists.md) - 立即開始實作
 
 ### 🎯 進階主題
-- [🕸️ Semantic Mesh架構設計](semantic-mesh.html) - 建立內容網絡
-- [📊 GEO成效評估與追蹤](geo-measurement.html) - 量化優化效果
+- [🕸️ Semantic Mesh架構設計](semantic-mesh.md) - 建立內容網絡
+- [📊 GEO成效評估與追蹤](geo-measurement.md) - 量化優化效果
 
 ---
 

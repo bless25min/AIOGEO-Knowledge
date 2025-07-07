@@ -5,7 +5,7 @@
 </section>
 
 ## 🧭 學習導覽
-> 📖 **本文屬於**：[GEO基礎原理完整指南](geo-fundamentals-index.html) 系列  
+> 📖 **本文屬於**：[GEO基礎原理完整指南](geo-fundamentals-index.md) 系列  
 > 📍 **當前進度**：第1步 / 共4步  
 > ⏱️ **建議閱讀時間**：8分鐘
 
@@ -200,13 +200,13 @@ GEO的核心理論基礎是「三層語意可見性」，決定內容在AI搜尋
 恭喜您完成GEO基礎概念學習！建議您繼續：
 
 ### ➡️ 立即開始
-**下一篇**：[✍️ 內容結構化設計實戰](geo-fundamentals-content-design.html)  
+**下一篇**：[✍️ 內容結構化設計實戰](geo-fundamentals-content-design.md)  
 *學習如何撰寫AI友善的內容結構*
 
 ### 🔄 其他選擇
-- **跳到實作**：[🔧 技術實作指南](geo-fundamentals-technical.html)
-- **了解評估**：[📊 成效評估策略](geo-fundamentals-measurement.html)
-- **返回目錄**：[📚 完整學習指南](geo-fundamentals-index.html)
+- **跳到實作**：[🔧 技術實作指南](geo-fundamentals-technical.md)
+- **了解評估**：[📊 成效評估策略](geo-fundamentals-measurement.md)
+- **返回目錄**：[📚 完整學習指南](geo-fundamentals-index.md)
 
 ### 🚀 實戰建議
 1. **即刻應用**：檢視你目前的1-2篇內容，看看是否符合三層語意可見性

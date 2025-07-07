@@ -4,7 +4,7 @@
 Answer Layer（回答層）是AI搜尋系統實際引用的內容片段集合。本指南深入解析如何設計具有高引用潛力的語段，包含段落獨立性設計、FAQ模組最佳實踐、語義清晰度優化等核心技巧。掌握Answer Layer設計原理，能讓您的內容在ChatGPT、Claude、Perplexity等AI平台中獲得更高的引用率和準確的呈現效果，成為AI優先選擇的權威來源。
 </section>
 
-> 📖 **本文屬於**：[《GEO（生成式引擎優化）完整指南》](../README.html) > 基礎理論系列
+> 📖 **本文屬於**：[《GEO（生成式引擎優化）完整指南》](../README.md) > 基礎理論系列
 > 
 > 🎯 **學習目標**：掌握AI友好的內容結構設計，提升內容被準確引用的機率
 
@@ -317,19 +317,19 @@ A: **建議採用三層優化策略：1) 建立Semantic Mesh內容架構，
 
 ### 📚 系列文章導覽
 
-**⬅️ 上一篇**：[GEO基礎概念與原理](geo-fundamentals.html)  
+**⬅️ 上一篇**：[GEO基礎概念與原理](geo-fundamentals.md)  
 理解GEO與SEO的本質差異，建立AI搜尋優化的基礎認知
 
-**➡️ 下一篇**：[Semantic Mesh語意矩陣內容網](semantic-mesh.html)  
+**➡️ 下一篇**：[Semantic Mesh語意矩陣內容網](semantic-mesh.md)  
 學習如何建立主幹頁→子頁→微型頁的三層架構
 
-**🏠 回到主指南**：[GEO（生成式引擎優化）完整指南](../README.html)
+**🏠 回到主指南**：[GEO（生成式引擎優化）完整指南](../README.md)
 
 ### 🎯 相關深度主題
 
-- **進階優化**：[SEO×GEO雙軌整合策略](seo-geo-integration.html)
-- **效果評估**：[AI引用追蹤與成效評估](geo-measurement.html)  
-- **多模態擴展**：[多模態轉譯與跨平台引用](multimodal-optimization.html)
+- **進階優化**：[SEO×GEO雙軌整合策略](seo-geo-integration.md)
+- **效果評估**：[AI引用追蹤與成效評估](geo-measurement.md)  
+- **多模態擴展**：[多模態轉譯與跨平台引用](multimodal-optimization.md)
 
 ### 🛠️ 實用工具資源
 
@@ -374,7 +374,7 @@ A: **建議採用三層優化策略：1) 建立Semantic Mesh內容架構，
 
 <footer style="text-align: center; margin-top: 40px; padding: 20px; background-color: #f8fafc; border-radius: 8px;">
 
-**🤖 AIOGEO 知識庫** | 由 [廖天佑 Bless](../about.html) 用心打造 ❤️
+**🤖 AIOGEO 知識庫** | 由 [廖天佑 Bless](../about.md) 用心打造 ❤️
 
 ⭐ [給我們一個Star](https://github.com/bless25min/AIOGEO-Knowledge) | 💬 [參與討論](https://github.com/bless25min/AIOGEO-Knowledge/discussions) | 🐛 [回報問題](https://github.com/bless25min/AIOGEO-Knowledge/issues)
 

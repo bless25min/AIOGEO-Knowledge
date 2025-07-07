@@ -467,10 +467,10 @@ A4：FAQPage、HowTo 和 Article 是最有效的，它們直接對應 AI 常見�
 
 ### 🔗 相關資源
 
-- 📋 [GEO 優化檢查清單](checklists.html) - 確保 Schema 實作品質
-- 📊 [評估工具清單](assessment-tools.html) - 監控 Schema 效果
-- 📖 [AI 引用追蹤指南](../posts/ai-citation-tracking.html) - 分析結構化資料影響
-- 🕸️ [Semantic Mesh 架構](../posts/semantic-mesh.html) - 了解整體內容策略
+- 📋 [GEO 優化檢查清單](checklists.md) - 確保 Schema 實作品質
+- 📊 [評估工具清單](assessment-tools.md) - 監控 Schema 效果
+- 📖 [AI 引用追蹤指南](../posts/ai-citation-tracking.md) - 分析結構化資料影響
+- 🕸️ [Semantic Mesh 架構](../posts/semantic-mesh.md) - 了解整體內容策略
 
 ---
 
