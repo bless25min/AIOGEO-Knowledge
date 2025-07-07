@@ -1,0 +1,669 @@
+name: 🔄 Fix All Links - Convert to Static HTML
+
+on:
+  workflow_dispatch:
+    inputs:
+      force_update:
+        description: '強制更新所有頁面'
+        required: false
+        default: 'true'
+        type: boolean
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  fix-all-links:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 🔄 Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: 🛠️ Configure Git
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "AIOGEO Link Fixer"
+        git config pull.rebase false
+
+    - name: 🔍 Scan and fix all HTML files
+      run: |
+        echo "🔍 掃描並修正所有 HTML 檔案中的連結..."
+        
+        # 函數：修正單個檔案中的連結
+        fix_links_in_file() {
+          local file="$1"
+          echo "  📝 修正 $file..."
+          
+          # 備份原檔案
+          cp "$file" "$file.backup"
+          
+          # 修正各種 hash 連結為靜態 HTML 連結
+          sed -i 's|href="#/"|href="/"|g' "$file"
+          sed -i 's|href="#/about"|href="about.html"|g' "$file"
+          sed -i 's|href="#/contributing"|href="contributing.html"|g' "$file"
+          sed -i 's|href="#/privacy"|href="privacy.html"|g' "$file"
+          
+          # 修正文章連結
+          sed -i 's|href="#/posts/geo-fundamentals"|href="geo-fundamentals.html"|g' "$file"
+          sed -i 's|href="#/posts/seo-geo-integration"|href="seo-geo-integration.html"|g' "$file"
+          sed -i 's|href="#/posts/semantic-mesh"|href="semantic-mesh.html"|g' "$file"
+          sed -i 's|href="#/posts/ai-citation-tracking"|href="ai-citation-tracking.html"|g' "$file"
+          sed -i 's|href="#/posts/multimodal-optimization"|href="multimodal-optimization.html"|g' "$file"
+          sed -i 's|href="#/posts/schema-implementation"|href="schema-implementation.html"|g' "$file"
+          sed -i 's|href="#/posts/answer-layer-design"|href="answer-layer-design.html"|g' "$file"
+          sed -i 's|href="#/posts/semantic-anchoring"|href="semantic-anchoring.html"|g' "$file"
+          sed -i 's|href="#/posts/citation-enhancement"|href="citation-enhancement.html"|g' "$file"
+          sed -i 's|href="#/posts/faq-design"|href="faq-design.html"|g' "$file"
+          sed -i 's|href="#/posts/geo-measurement"|href="geo-measurement.html"|g' "$file"
+          sed -i 's|href="#/posts/multimodal-creation"|href="multimodal-creation.html"|g' "$file"
+          sed -i 's|href="#/posts/ai-search-algorithm"|href="ai-search-algorithm.html"|g' "$file"
+          sed -i 's|href="#/posts/geo-fundamentals-index"|href="geo-fundamentals-index.html"|g' "$file"
+          sed -i 's|href="#/posts/geo-fundamentals-overview"|href="geo-fundamentals-overview.html"|g' "$file"
+          sed -i 's|href="#/posts/geo-fundamentals-content-design"|href="geo-fundamentals-content-design.html"|g' "$file"
+          sed -i 's|href="#/posts/geo-fundamentals-technical"|href="geo-fundamentals-technical.html"|g' "$file"
+          sed -i 's|href="#/posts/geo-fundamentals-measurement"|href="geo-fundamentals-measurement.html"|g' "$file"
+          
+          # 修正工具連結
+          sed -i 's|href="#/tools/checklists"|href="tools-checklists.html"|g' "$file"
+          sed -i 's|href="#/tools/content-templates"|href="tools-content-templates.html"|g' "$file"
+          sed -i 's|href="#/tools/schema-generator"|href="tools-schema-generator.html"|g' "$file"
+          sed -i 's|href="#/tools/assessment-tools"|href="tools-assessment-tools.html"|g' "$file"
+          sed -i 's|href="#/tools/README"|href="tools-README.html"|g' "$file"
+          
+          # 通用模式修正
+          sed -i 's|href="#/posts/\([^"]*\)"|href="\1.html"|g' "$file"
+          sed -i 's|href="#/tools/\([^"]*\)"|href="tools-\1.html"|g' "$file"
+          
+          echo "  ✅ $file 修正完成"
+        }
+        
+        # 修正所有 HTML 檔案
+        for file in *.html; do
+          if [ -f "$file" ]; then
+            fix_links_in_file "$file"
+          fi
+        done
+        
+        # 特別處理可能存在的其他 HTML 檔案
+        find . -name "*.html" -not -path "./.git/*" -not -name "*.backup" | while read file; do
+          if [ "$file" != "./index.html" ]; then
+            fix_links_in_file "$file"
+          fi
+        done
+
+    - name: 📝 Fix markdown files links  
+      run: |
+        echo "📝 修正 Markdown 檔案中的連結..."
+        
+        # 函數：修正 Markdown 檔案中的連結
+        fix_md_links() {
+          local file="$1"
+          echo "  📄 修正 $file..."
+          
+          # 備份原檔案
+          cp "$file" "$file.backup"
+          
+          # 修正 Markdown 連結語法
+          sed -i 's|\[返回首頁\](#/)|\[返回首頁\](/)|g' "$file"
+          sed -i 's|\[關於作者\](#/about)|\[關於作者\](about.html)|g' "$file"
+          sed -i 's|\[參與貢獻\](#/contributing)|\[參與貢獻\](contributing.html)|g' "$file"
+          sed -i 's|\[隱私政策\](#/privacy)|\[隱私政策\](privacy.html)|g' "$file"
+          
+          # 修正文章間的相互連結
+          sed -i 's|(\#/posts/\([^)]*\))|(../\1.html)|g' "$file"
+          sed -i 's|(\#/tools/\([^)]*\))|(../tools-\1.html)|g' "$file"
+          
+          # 修正根目錄的連結
+          sed -i 's|(\#/posts/\([^)]*\))|(\1.html)|g' "$file"
+          sed -i 's|(\#/tools/\([^)]*\))|(tools-\1.html)|g' "$file"
+          
+          echo "  ✅ $file 修正完成"
+        }
+        
+        # 修正根目錄的 Markdown 檔案
+        for file in *.md; do
+          if [ -f "$file" ]; then
+            fix_md_links "$file"
+          fi
+        done
+        
+        # 修正 posts 目錄下的檔案
+        if [ -d "posts" ]; then
+          for file in posts/*.md; do
+            if [ -f "$file" ]; then
+              fix_md_links "$file"
+            fi
+          done
+        fi
+        
+        # 修正 tools 目錄下的檔案
+        if [ -d "tools" ]; then
+          for file in tools/*.md; do
+            if [ -f "$file" ]; then
+              fix_md_links "$file"
+            fi
+          done
+        fi
+
+    - name: 🗺️ Update navigation sidebar
+      run: |
+        echo "🗺️ 更新導航側邊欄..."
+        
+        cat > _sidebar.md << 'EOF'
+        <!-- AIOGEO 知識庫導航結構 -->
+        
+        ## 🏠 [首頁](/)
+        
+        ## 👤 關於專案
+        - [關於作者](about.html)
+        - [參與貢獻](contributing.html)
+        - [隱私政策](privacy.html)
+        
+        ## 📚 理論基礎
+        - [GEO 基礎原理](geo-fundamentals.html)
+        - [GEO 基礎索引](geo-fundamentals-index.html)
+        - [GEO 總覽](geo-fundamentals-overview.html)
+        - [GEO 內容設計](geo-fundamentals-content-design.html)
+        - [GEO 技術實作](geo-fundamentals-technical.html)
+        - [GEO 測量](geo-fundamentals-measurement.html)
+        
+        ## 🎯 優化策略
+        - [SEO × GEO 整合](seo-geo-integration.html)
+        - [答案層設計](answer-layer-design.html)
+        - [語意錨定技術](semantic-anchoring.html)
+        - [語意網格架構](semantic-mesh.html)
+        - [引用增強策略](citation-enhancement.html)
+        - [FAQ 設計原則](faq-design.html)
+        
+        ## 🔬 前沿技術
+        - [AI 搜尋演算法](ai-search-algorithm.html)
+        - [AI 引用追蹤](ai-citation-tracking.html)
+        - [多模態內容優化](multimodal-optimization.html)
+        - [多模態創作指南](multimodal-creation.html)
+        - [Schema 實作指南](schema-implementation.html)
+        - [GEO 測量方法](geo-measurement.html)
+        
+        ## 🛠️ 實用工具
+        - [工具總覽](tools-README.html)
+        - [評估工具](tools-assessment-tools.html)
+        - [檢查清單](tools-checklists.html)
+        - [內容模板](tools-content-templates.html)
+        - [Schema 生成器](tools-schema-generator.html)
+        
+        ---
+        
+        ### 🔗 外部連結
+        - [GitHub Repository](https://github.com/bless25min/AIOGEO-Knowledge)
+        - [問題回報](https://github.com/bless25min/AIOGEO-Knowledge/issues)
+        - [討論區](https://github.com/bless25min/AIOGEO-Knowledge/discussions)
+        
+        ---
+        
+        <div style="text-align: center; margin-top: 20px; padding: 15px; background: #f8fafc; border-radius: 8px;">
+          <small style="color: #6b7280;">
+            📚 <strong>AIOGEO 知識庫</strong><br>
+            讓 AI 看見你的內容<br>
+            作者：<a href="about.html">廖天佑 Bless</a>
+          </small>
+        </div>
+        EOF
+
+    - name: 🔄 Create missing static pages
+      run: |
+        echo "🔄 建立缺少的靜態頁面..."
+        
+        # 函數：建立靜態頁面
+        create_static_page() {
+          local filename="$1"
+          local title="$2"
+          local description="$3"
+          local category="$4"
+          
+          cat > "$filename" << EOF
+        <!DOCTYPE html>
+        <html lang="zh-TW">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>$title | AIOGEO 知識庫</title>
+          <meta name="description" content="$description">
+          <meta name="keywords" content="GEO, 生成式引擎優化, AI搜尋, $title, 廖天佑, Bless Liao">
+          <meta name="author" content="廖天佑 Bless Liao">
+          
+          <!-- Open Graph -->
+          <meta property="og:title" content="$title | AIOGEO 知識庫">
+          <meta property="og:description" content="$description">
+          <meta property="og:type" content="article">
+          <meta property="og:url" content="https://bless25min.github.io/AIOGEO-Knowledge/$filename">
+          <meta property="og:site_name" content="AIOGEO 知識庫">
+          
+          <!-- Schema.org JSON-LD -->
+          <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "$title",
+            "description": "$description",
+            "author": {
+              "@type": "Person",
+              "name": "廖天佑 Bless Liao",
+              "url": "https://github.com/bless25min"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "AIOGEO 知識庫",
+              "url": "https://bless25min.github.io/AIOGEO-Knowledge/"
+            },
+            "datePublished": "2025-07-08",
+            "dateModified": "2025-07-08",
+            "mainEntityOfPage": "https://bless25min.github.io/AIOGEO-Knowledge/$filename",
+            "keywords": ["GEO", "生成式引擎優化", "AI搜尋", "$title"],
+            "articleSection": "$category",
+            "inLanguage": "zh-TW"
+          }
+          </script>
+          
+          <style>
+            * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+            }
+            
+            body {
+              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+              line-height: 1.8;
+              color: #1f2937;
+              background: #f9fafb;
+            }
+            
+            .container {
+              max-width: 900px;
+              margin: 0 auto;
+              background: white;
+              min-height: 100vh;
+              box-shadow: 0 0 30px rgba(0,0,0,0.1);
+            }
+            
+            header {
+              background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+              color: white;
+              padding: 40px;
+              text-align: center;
+            }
+            
+            .breadcrumb {
+              font-size: 0.9em;
+              opacity: 0.9;
+              margin-bottom: 15px;
+            }
+            
+            .breadcrumb a {
+              color: white;
+              text-decoration: none;
+            }
+            
+            h1 {
+              font-size: 2.5em;
+              font-weight: 800;
+              margin-bottom: 15px;
+              text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            }
+            
+            .article-meta {
+              font-size: 1em;
+              opacity: 0.9;
+            }
+            
+            nav {
+              background: #1f2937;
+              padding: 15px 40px;
+            }
+            
+            .nav-links {
+              display: flex;
+              justify-content: center;
+              gap: 25px;
+              flex-wrap: wrap;
+            }
+            
+            .nav-link {
+              color: #d1d5db;
+              text-decoration: none;
+              padding: 8px 16px;
+              border-radius: 6px;
+              transition: all 0.3s ease;
+            }
+            
+            .nav-link:hover {
+              background: #374151;
+              color: white;
+            }
+            
+            main {
+              padding: 50px 40px;
+              text-align: center;
+            }
+            
+            .coming-soon {
+              background: #f0f9ff;
+              border: 2px solid #0ea5e9;
+              border-radius: 15px;
+              padding: 60px 40px;
+              margin: 40px 0;
+            }
+            
+            .coming-soon h2 {
+              color: #0c4a6e;
+              font-size: 2em;
+              margin-bottom: 20px;
+            }
+            
+            .coming-soon p {
+              color: #075985;
+              font-size: 1.2em;
+              margin-bottom: 30px;
+            }
+            
+            .back-link {
+              display: inline-block;
+              background: #6366f1;
+              color: white;
+              padding: 12px 24px;
+              border-radius: 8px;
+              text-decoration: none;
+              font-weight: 500;
+              transition: all 0.3s ease;
+            }
+            
+            .back-link:hover {
+              background: #4f46e5;
+              transform: translateY(-2px);
+            }
+            
+            footer {
+              background: #1f2937;
+              color: #d1d5db;
+              padding: 40px;
+              text-align: center;
+            }
+            
+            @media (max-width: 768px) {
+              header, main, footer {
+                padding: 30px 20px;
+              }
+              
+              nav {
+                padding: 15px 20px;
+              }
+              
+              h1 {
+                font-size: 2em;
+              }
+              
+              .coming-soon {
+                padding: 40px 20px;
+              }
+            }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <header>
+              <div class="breadcrumb">
+                <a href="index.html">🏠 AIOGEO 知識庫</a> > $category
+              </div>
+              <h1>$title</h1>
+              <div class="article-meta">
+                📅 最後更新：2025年7月8日 | 👤 作者：廖天佑 Bless Liao
+              </div>
+            </header>
+            
+            <nav>
+              <div class="nav-links">
+                <a href="index.html" class="nav-link">🏠 首頁</a>
+                <a href="geo-fundamentals.html" class="nav-link">📚 GEO 基礎</a>
+                <a href="tools-checklists.html" class="nav-link">🛠️ 工具</a>
+                <a href="about.html" class="nav-link">👤 關於</a>
+                <a href="contributing.html" class="nav-link">🤝 貢獻</a>
+              </div>
+            </nav>
+            
+            <main>
+              <div class="coming-soon">
+                <h2>🚧 內容建設中</h2>
+                <p>
+                  《$title》正在精心撰寫中，我們致力於提供最高品質的 GEO 專業內容。
+                  敬請期待這篇深度解析文章的發布！
+                </p>
+                <a href="index.html" class="back-link">🏠 返回首頁</a>
+              </div>
+            </main>
+            
+            <footer>
+              <p>&copy; 2025 AIOGEO 知識庫 | 讓 AI 看見你的內容</p>
+            </footer>
+          </div>
+        </body>
+        </html>
+        EOF
+        }
+        
+        # 建立所有缺少的頁面
+        echo "📄 建立文章頁面..."
+        create_static_page "seo-geo-integration.html" "SEO × GEO 雙軌整合" "學習如何在保持傳統 SEO 效果的同時，導入 GEO 策略，實現雙軌優化的最大化效益" "整合策略"
+        create_static_page "semantic-mesh.html" "語意網格架構設計" "深度解析 Semantic Mesh 內容網格系統，建立主幹頁、子主題頁、微型頁的三層內容架構" "架構設計"
+        create_static_page "ai-citation-tracking.html" "AI 引用追蹤方法" "建立完整的 AI 引用監控體系，追蹤內容在各大 AI 平台的表現和引用情況" "效果監控"
+        create_static_page "multimodal-optimization.html" "多模態內容優化" "掌握圖文、影音、互動內容的 GEO 優化技巧，提升多媒體內容的 AI 理解度" "多媒體策略"
+        create_static_page "schema-implementation.html" "Schema 實作指南" "完整的結構化資料實作教學，包含 JSON-LD 語法、常用 Schema 類型和最佳實務" "技術實作"
+        create_static_page "answer-layer-design.html" "答案層設計指南" "學習如何設計有效的 Answer Layer，讓 AI 更容易理解和引用您的核心內容" "內容設計"
+        create_static_page "semantic-anchoring.html" "語意錨定技術" "掌握語意錨定的核心技巧，確保內容主題明確、結構清晰，便於 AI 準確分類" "技術原理"
+        create_static_page "citation-enhancement.html" "引用增強策略" "提升內容被 AI 引用機率的進階策略，包含權威性建立和可信度優化" "優化策略"
+        create_static_page "faq-design.html" "FAQ 設計原則" "設計 AI 友善的常見問題解答模組，提供結構化的問答內容供 AI 直接引用" "內容設計"
+        create_static_page "geo-measurement.html" "GEO 測量方法" "建立完整的 GEO 效果評估體系，追蹤 AI 引用率和內容表現指標" "效果評估"
+        create_static_page "multimodal-creation.html" "多模態創作指南" "學習創作跨媒體 GEO 內容，包含圖文、影音、互動元素的整合優化" "創作指南"
+        create_static_page "ai-search-algorithm.html" "AI 搜尋演算法解析" "深入解析主流 AI 搜尋引擎的運作機制，理解內容召回和排序邏輯" "技術原理"
+        
+        # GEO 基礎系列
+        create_static_page "geo-fundamentals-index.html" "GEO 基礎索引" "GEO 基礎理論體系的完整索引，系統性學習生成式引擎優化的核心概念" "基礎理論"
+        create_static_page "geo-fundamentals-overview.html" "GEO 基礎總覽" "GEO 理論基礎的總體概覽，了解生成式引擎優化的全貌和發展趨勢" "基礎理論"
+        create_static_page "geo-fundamentals-content-design.html" "GEO 內容設計原理" "基於 GEO 理論的內容設計原則，創作 AI 友善的高品質內容" "內容設計"
+        create_static_page "geo-fundamentals-technical.html" "GEO 技術實作基礎" "GEO 的技術實作基礎，包含結構化資料、語意標記等技術要點" "技術基礎"
+        create_static_page "geo-fundamentals-measurement.html" "GEO 測量基礎" "GEO 效果測量的基礎方法，建立科學的評估和優化體系" "測量評估"
+        
+        echo "🛠️ 建立工具頁面..."
+        create_static_page "tools-README.html" "工具總覽" "AIOGEO 知識庫提供的所有實用工具和資源總覽，提升 GEO 優化效率" "實用工具"
+        create_static_page "tools-checklists.html" "GEO 檢查清單" "完整的內容優化檢查清單，確保每篇內容都符合 GEO 標準" "實用工具"
+        create_static_page "tools-content-templates.html" "內容模板" "經過驗證的內容結構模板，快速創建 AI 友善的高品質內容" "實用工具"
+        create_static_page "tools-schema-generator.html" "Schema 生成器" "自動化工具幫您生成正確的結構化資料標記，提升內容技術標準" "實用工具"
+        create_static_page "tools-assessment-tools.html" "評估工具" "GEO 效果評估工具集，監控和分析內容的 AI 引用表現" "實用工具"
+
+    - name: 🗺️ Generate complete sitemap
+      run: |
+        echo "🗺️ 生成完整的 sitemap.xml..."
+        
+        cat > sitemap.xml << 'EOF'
+        <?xml version="1.0" encoding="UTF-8"?>
+        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            <!-- 主頁面 -->
+            <url>
+                <loc>https://bless25min.github.io/AIOGEO-Knowledge/</loc>
+                <lastmod>2025-07-08</lastmod>
+                <changefreq>weekly</changefreq>
+                <priority>1.0</priority>
+            </url>
+            
+            <!-- 核心頁面 -->
+            <url>
+                <loc>https://bless25min.github.io/AIOGEO-Knowledge/about.html</loc>
+                <lastmod>2025-07-08</lastmod>
+                <changefreq>monthly</changefreq>
+                <priority>0.8</priority>
+            </url>
+            <url>
+                <loc>https://bless25min.github.io/AIOGEO-Knowledge/contributing.html</loc>
+                <lastmod>2025-07-08</lastmod>
+                <changefreq>monthly</changefreq>
+                <priority>0.6</priority>
+            </url>
+        EOF
+        
+        # 動態添加所有 HTML 頁面到 sitemap
+        for html_file in *.html; do
+          if [[ "$html_file" != "index.html" && "$html_file" != "about.html" && "$html_file" != "contributing.html" && "$html_file" != "privacy.html" ]]; then
+            if [[ "$html_file" == tools-* ]]; then
+              priority="0.6"
+            elif [[ "$html_file" == geo-fundamentals* ]]; then
+              priority="0.9"
+            else
+              priority="0.8"
+            fi
+            
+            cat >> sitemap.xml << EOF
+            <url>
+                <loc>https://bless25min.github.io/AIOGEO-Knowledge/$html_file</loc>
+                <lastmod>2025-07-08</lastmod>
+                <changefreq>weekly</changefreq>
+                <priority>$priority</priority>
+            </url>
+        EOF
+          fi
+        done
+        
+        echo "</urlset>" >> sitemap.xml
+        
+        echo "✅ 生成了包含 $(grep -c "<url>" sitemap.xml) 個頁面的完整 sitemap"
+
+    - name: 📊 Generate fix report
+      run: |
+        echo "📊 生成修正報告..."
+        
+        cat > link-fix-report.txt << 'EOF'
+        🔄 AIOGEO 知識庫連結修正報告
+        ===================================
+        
+        📅 修正時間：2025-07-08
+        🎯 目標：統一所有連結為靜態 HTML 格式
+        
+        🔧 修正範圍：
+        ✅ 所有 HTML 檔案中的 hash 連結
+        ✅ 所有 Markdown 檔案中的連結
+        ✅ 導航側邊欄 (_sidebar.md)
+        ✅ 建立缺少的靜態頁面
+        
+        📄 建立的靜態頁面：
+        EOF
+        
+        echo "文章頁面：" >> link-fix-report.txt
+        for html_file in *.html; do
+          if [[ "$html_file" != "index.html" && "$html_file" != "about.html" && "$html_file" != "contributing.html" && "$html_file" != "privacy.html" && "$html_file" != tools-* ]]; then
+            echo "- $html_file" >> link-fix-report.txt
+          fi
+        done
+        
+        echo "" >> link-fix-report.txt
+        echo "工具頁面：" >> link-fix-report.txt
+        for html_file in tools-*.html; do
+          if [ -f "$html_file" ]; then
+            echo "- $html_file" >> link-fix-report.txt
+          fi
+        done
+        
+        cat >> link-fix-report.txt << 'EOF'
+        
+        🔗 連結格式統一：
+        ❌ 舊格式：#/about, #/posts/article, #/tools/tool
+        ✅ 新格式：about.html, article.html, tools-tool.html
+        
+        📊 修正統計：
+        ✅ HTML 檔案：所有檔案已修正
+        ✅ Markdown 檔案：posts/*, tools/*, *.md 已修正
+        ✅ 導航結構：_sidebar.md 已更新
+        ✅ Sitemap：包含所有靜態頁面
+        
+        🎯 效果預期：
+        📈 解決所有 404 錯誤
+        📈 統一連結格式
+        📈 提升 SEO 友善度
+        📈 改善 AI 引用率
+        
+        🌐 所有頁面現在都使用統一的靜態 HTML 連結格式！
+        EOF
+        
+        cat link-fix-report.txt
+
+    - name: 🚀 Commit all fixes
+      run: |
+        echo "🚀 提交所有修正..."
+        
+        # 檢查變更
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "📝 提交所有變更..."
+          
+          git add .
+          
+          git commit -m "🔄 完整連結修正：統一為靜態HTML格式
+
+          🎯 重大修正:
+          ✅ 修正所有 HTML 檔案中的 hash 連結
+          ✅ 修正所有 Markdown 檔案中的連結  
+          ✅ 更新導航側邊欄 (_sidebar.md)
+          ✅ 建立所有缺少的靜態頁面
+          ✅ 生成完整的 sitemap.xml
+          
+          📊 修正統計:
+          - HTML 檔案: $(ls -1 *.html 2>/dev/null | wc -l) 個已修正
+          - 文章頁面: $(ls -1 *.html 2>/dev/null | grep -v -E "(index|about|contributing|privacy|tools-)" | wc -l) 個已建立
+          - 工具頁面: $(ls -1 tools-*.html 2>/dev/null | wc -l) 個已建立
+          - Markdown 檔案: 全部已修正連結格式
+          
+          🔗 連結格式統一:
+          ❌ 舊: #/about, #/posts/*, #/tools/*
+          ✅ 新: about.html, *.html, tools-*.html
+          
+          📈 預期效果:
+          - 🔧 解決所有 404 錯誤
+          - 🔍 提升 Google 收錄率
+          - 🤖 改善 AI 引用表現
+          - 🚀 統一使用者體驗
+          
+          修正時間: $(date)"
+          
+          echo "📤 推送變更..."
+          git push origin main
+          
+          echo "✅ 所有連結修正已完成並推送！"
+        else
+          echo "ℹ️ 沒有檔案需要修正"
+        fi
+
+    - name: 🎉 Fix completion notification
+      run: |
+        echo "🎉 連結修正完成！"
+        echo ""
+        echo "✅ 已完成的修正："
+        echo "  🔗 所有 HTML 檔案連結已統一"
+        echo "  📝 所有 Markdown 檔案連結已修正"
+        echo "  🗺️ 導航側邊欄已更新"
+        echo "  📄 缺少的靜態頁面已建立"
+        echo "  🗺️ 完整 sitemap 已生成"
+        echo ""
+        echo "🎯 修正效果："
+        echo "  ❌ 消除所有 hash 路由衝突"
+        echo "  ✅ 統一靜態 HTML 連結格式"
+        echo "  📊 建立完整的頁面架構"
+        echo "  🔍 優化 SEO 收錄表現"
+        echo ""
+        echo "🌐 測試建議："
+        echo "  1. 等待 GitHub Pages 部署 (5-10 分鐘)"
+        echo "  2. 測試所有導航連結是否正常"
+        echo "  3. 確認靜態頁面載入正確"
+        echo "  4. 提交新 sitemap 到 Google Search Console"
+        echo ""
+        echo "🎊 恭喜！AIOGEO 知識庫現在完全使用統一的靜態連結架構！"
