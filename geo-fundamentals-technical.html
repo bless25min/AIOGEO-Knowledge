@@ -3,222 +3,602 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GEO 技術實作基礎 | AIOGEO 知識庫</title>
-  <meta name="description" content="GEO 的技術實作基礎，包含結構化資料、語意標記等技術要點">
-  <meta name="keywords" content="GEO, 生成式引擎優化, AI搜尋, GEO 技術實作基礎, 廖天佑, Bless Liao">
+  <title>技術實作與Schema標記：提升內容的AI可讀性 | AIOGEO 知識庫</title>
+  <meta name="description" content="技術實作與Schema標記：提升內容的AI可讀性 - AIOGEO知識庫專業內容">
   <meta name="author" content="廖天佑 Bless Liao">
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="GEO 技術實作基礎 | AIOGEO 知識庫">
-  <meta property="og:description" content="GEO 的技術實作基礎，包含結構化資料、語意標記等技術要點">
+  <meta property="og:title" content="技術實作與Schema標記：提升內容的AI可讀性 | AIOGEO 知識庫">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://bless25min.github.io/AIOGEO-Knowledge/geo-fundamentals-technical.html">
-  <meta property="og:site_name" content="AIOGEO 知識庫">
-  
-  <!-- Schema.org JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "GEO 技術實作基礎",
-    "description": "GEO 的技術實作基礎，包含結構化資料、語意標記等技術要點",
-    "author": {
-      "@type": "Person",
-      "name": "廖天佑 Bless Liao",
-      "url": "https://github.com/bless25min"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "AIOGEO 知識庫",
-      "url": "https://bless25min.github.io/AIOGEO-Knowledge/"
-    },
-    "datePublished": "2025-07-08",
-    "dateModified": "2025-07-08",
-    "mainEntityOfPage": "https://bless25min.github.io/AIOGEO-Knowledge/geo-fundamentals-technical.html",
-    "keywords": ["GEO", "生成式引擎優化", "AI搜尋", "GEO 技術實作基礎"],
-    "articleSection": "技術基礎",
-    "inLanguage": "zh-TW"
-  }
-  </script>
   
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif; 
+      line-height: 1.8; color: #1f2937; background: #f9fafb; 
     }
+    .container { max-width: 900px; margin: 0 auto; background: white; min-height: 100vh; box-shadow: 0 0 30px rgba(0,0,0,0.1); }
+    header { background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; padding: 40px; text-align: center; }
+    h1 { font-size: 2.5em; font-weight: 800; margin-bottom: 15px; }
+    nav { background: #1f2937; padding: 15px 40px; }
+    .nav-links { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
+    .nav-link { color: #d1d5db; text-decoration: none; padding: 8px 16px; border-radius: 6px; transition: all 0.3s ease; }
+    .nav-link:hover { background: #374151; color: white; }
+    main { padding: 50px 40px; }
     
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
-      line-height: 1.8;
-      color: #1f2937;
-      background: #f9fafb;
-    }
+    h2 { color: #1f2937; font-size: 1.8em; margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 3px solid #6366f1; }
+    h3 { color: #374151; font-size: 1.4em; margin: 30px 0 15px; }
+    h4 { color: #374151; font-size: 1.2em; margin: 25px 0 10px; }
+    p { margin: 15px 0; line-height: 1.7; }
     
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: white;
-      min-height: 100vh;
-      box-shadow: 0 0 30px rgba(0,0,0,0.1);
-    }
+    pre { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 20px 0; overflow-x: auto; }
+    code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-family: 'Monaco', 'Consolas', monospace; font-size: 0.9em; }
+    pre code { background: none; padding: 0; }
     
-    header {
-      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-      color: white;
-      padding: 40px;
-      text-align: center;
-    }
+    ul, ol { margin: 15px 0 15px 30px; }
+    li { margin: 8px 0; line-height: 1.6; }
     
-    .breadcrumb {
-      font-size: 0.9em;
-      opacity: 0.9;
-      margin-bottom: 15px;
-    }
+    table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    th, td { border: 1px solid #e5e7eb; padding: 12px; text-align: left; }
+    th { background: #f9fafb; font-weight: 600; }
     
-    .breadcrumb a {
-      color: white;
-      text-decoration: none;
-    }
+    blockquote { border-left: 4px solid #6366f1; background: #f8fafc; padding: 15px 20px; margin: 20px 0; font-style: italic; }
     
-    h1 {
-      font-size: 2.5em;
-      font-weight: 800;
-      margin-bottom: 15px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-    }
+    a { color: #6366f1; text-decoration: none; }
+    a:hover { text-decoration: underline; }
     
-    .article-meta {
-      font-size: 1em;
-      opacity: 0.9;
-    }
-    
-    nav {
-      background: #1f2937;
-      padding: 15px 40px;
-    }
-    
-    .nav-links {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      flex-wrap: wrap;
-    }
-    
-    .nav-link {
-      color: #d1d5db;
-      text-decoration: none;
-      padding: 8px 16px;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-    }
-    
-    .nav-link:hover {
-      background: #374151;
-      color: white;
-    }
-    
-    main {
-      padding: 50px 40px;
-      text-align: center;
-    }
-    
-    .coming-soon {
-      background: #f0f9ff;
-      border: 2px solid #0ea5e9;
-      border-radius: 15px;
-      padding: 60px 40px;
-      margin: 40px 0;
-    }
-    
-    .coming-soon h2 {
-      color: #0c4a6e;
-      font-size: 2em;
-      margin-bottom: 20px;
-    }
-    
-    .coming-soon p {
-      color: #075985;
-      font-size: 1.2em;
-      margin-bottom: 30px;
-    }
-    
-    .back-link {
-      display: inline-block;
-      background: #6366f1;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-    
-    .back-link:hover {
-      background: #4f46e5;
-      transform: translateY(-2px);
-    }
-    
-    footer {
-      background: #1f2937;
-      color: #d1d5db;
-      padding: 40px;
-      text-align: center;
-    }
+    .summary { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border: 2px solid #0ea5e9; border-radius: 12px; padding: 24px; margin: 20px 0 30px 0; font-size: 1.1em; line-height: 1.7; }
     
     @media (max-width: 768px) {
-      header, main, footer {
-        padding: 30px 20px;
-      }
-      
-      nav {
-        padding: 15px 20px;
-      }
-      
-      h1 {
-        font-size: 2em;
-      }
-      
-      .coming-soon {
-        padding: 40px 20px;
-      }
+      .container { margin: 0; box-shadow: none; }
+      header { padding: 30px 20px; }
+      h1 { font-size: 2em; }
+      main { padding: 30px 20px; }
     }
+    
+    footer { background: #1f2937; color: white; text-align: center; padding: 30px; }
+    .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 15px; flex-wrap: wrap; }
+    .footer-link { color: #d1d5db; text-decoration: none; transition: color 0.3s ease; }
+    .footer-link:hover { color: #6366f1; }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
       <div class="breadcrumb">
-        <a href="index.html">🏠 AIOGEO 知識庫</a> > 技術基礎
+        <a href="index.html" style="color: white; text-decoration: none;">AIOGEO 知識庫</a> / 技術實作與Schema標記：提升內容的AI可讀性
       </div>
-      <h1>GEO 技術實作基礎</h1>
+      <h1>技術實作與Schema標記：提升內容的AI可讀性</h1>
       <div class="article-meta">
-        📅 最後更新：2025年7月8日 | 👤 作者：廖天佑 Bless Liao
+        作者：廖天佑 Bless Liao | 更新時間：2025-07-07
       </div>
     </header>
     
     <nav>
       <div class="nav-links">
         <a href="index.html" class="nav-link">🏠 首頁</a>
-        <a href="geo-fundamentals.html" class="nav-link">📚 GEO 基礎</a>
-        <a href="tools-checklists.html" class="nav-link">🛠️ 工具</a>
         <a href="about.html" class="nav-link">👤 關於</a>
         <a href="contributing.html" class="nav-link">🤝 貢獻</a>
+        <a href="https://github.com/bless25min/AIOGEO-Knowledge" class="nav-link" target="_blank">📂 GitHub</a>
       </div>
     </nav>
     
     <main>
-      <div class="coming-soon">
-        <h2>🚧 內容建設中</h2>
-        <p>
-          《GEO 技術實作基礎》正在精心撰寫中，我們致力於提供最高品質的 GEO 專業內容。
-          敬請期待這篇深度解析文章的發布！
-        </p>
-        <a href="index.html" class="back-link">🏠 返回首頁</a>
-      </div>
+<h1
+id="技術實作與schema標記提升內容的ai可讀性">技術實作與Schema標記：提升內容的AI可讀性</h1>
+<section class="summary">
+本文詳細介紹GEO技術實作的關鍵要素，包含Schema.org結構化資料標準、HTML語意標記、JSON-LD實作指南和權威信號建立方法。透過實際代碼範例和檢查清單，幫助技術人員和SEO專員掌握GEO的技術優化技能。適合網頁開發者和SEO技術人員，預計10分鐘完成。
+</section>
+<h2 id="學習導覽">🧭 學習導覽</h2>
+<blockquote>
+<p>📖 <strong>本文屬於</strong>：<a
+href="geo-fundamentals-index.html">GEO基礎原理完整指南</a> 系列<br />
+📍 <strong>當前進度</strong>：第3步 / 共4步<br />
+⏱️ <strong>建議閱讀時間</strong>：10分鐘<br />
+🎯 <strong>前置閱讀</strong>：建議先閱讀 <a
+href="geo-fundamentals-content-design.html">內容結構化設計</a></p>
+</blockquote>
+<h2 id="為什麼技術實作對geo至關重要">🎯
+為什麼技術實作對GEO至關重要？</h2>
+<p>AI搜尋工具在解析網頁內容時，依賴結構化資料和語意標記來<strong>快速理解內容含義</strong>。良好的技術實作能夠：</p>
+<ul>
+<li><strong>提升AI解析效率</strong>：減少50-70%的內容理解時間</li>
+<li><strong>增強引用準確性</strong>：降低30-40%的資訊誤解風險<br />
+</li>
+<li><strong>強化權威信號</strong>：提升20-35%的可信度評估</li>
+<li><strong>支援模組化引用</strong>：增加40-60%的片段引用機會</li>
+</ul>
+<h2 id="schema.org結構化資料標準">🏗️ Schema.org結構化資料標準</h2>
+<h3 id="基礎概念理解">基礎概念理解</h3>
+<p><strong>Schema.org</strong>是由Google、Microsoft、Yahoo和Yandex共同開發的結構化資料標準，用於幫助搜尋引擎理解網頁內容的語意含義。</p>
+<h3 id="核心schema類型選擇">核心Schema類型選擇</h3>
+<h4 id="article-schema---文章內容標記">📄 Article Schema -
+文章內容標記</h4>
+<p>適用於：部落格文章、新聞報導、技術指南</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> type=</span><span class="st">&quot;application/ld+json&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;@context&quot;</span><span class="op">:</span> <span class="st">&quot;https://schema.org&quot;</span><span class="op">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;Article&quot;</span><span class="op">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;headline&quot;</span><span class="op">:</span> <span class="st">&quot;Facebook CAPI設定完整指南：提升轉換追蹤準確率&quot;</span><span class="op">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;description&quot;</span><span class="op">:</span> <span class="st">&quot;詳細說明如何設定Facebook Conversion API，解決iOS 14.5追蹤限制問題&quot;</span><span class="op">,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;author&quot;</span><span class="op">:</span> {</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;Person&quot;</span><span class="op">,</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;廖天佑 Bless Liao&quot;</span><span class="op">,</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;url&quot;</span><span class="op">:</span> <span class="st">&quot;https://github.com/bless25min&quot;</span><span class="op">,</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;jobTitle&quot;</span><span class="op">:</span> <span class="st">&quot;數位行銷專家&quot;</span><span class="op">,</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;affiliation&quot;</span><span class="op">:</span> <span class="st">&quot;AIOGEO研究團隊&quot;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;publisher&quot;</span><span class="op">:</span> {</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;Organization&quot;</span><span class="op">,</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;AIOGEO知識庫&quot;</span><span class="op">,</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;logo&quot;</span><span class="op">:</span> {</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;ImageObject&quot;</span><span class="op">,</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;url&quot;</span><span class="op">:</span> <span class="st">&quot;https://yourdomain.com/logo.png&quot;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;datePublished&quot;</span><span class="op">:</span> <span class="st">&quot;2025-07-05&quot;</span><span class="op">,</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;dateModified&quot;</span><span class="op">:</span> <span class="st">&quot;2025-07-05&quot;</span><span class="op">,</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;wordCount&quot;</span><span class="op">:</span> <span class="dv">2500</span><span class="op">,</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;timeRequired&quot;</span><span class="op">:</span> <span class="st">&quot;PT10M&quot;</span><span class="op">,</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;keywords&quot;</span><span class="op">:</span> [<span class="st">&quot;Facebook CAPI&quot;</span><span class="op">,</span> <span class="st">&quot;轉換API&quot;</span><span class="op">,</span> <span class="st">&quot;iOS追蹤&quot;</span><span class="op">,</span> <span class="st">&quot;廣告優化&quot;</span>]<span class="op">,</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;articleSection&quot;</span><span class="op">:</span> <span class="st">&quot;技術教學&quot;</span><span class="op">,</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;educationalLevel&quot;</span><span class="op">:</span> <span class="st">&quot;Intermediate&quot;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div>
+<h4 id="faqpage-schema---問答內容標記">❓ FAQPage Schema -
+問答內容標記</h4>
+<p>適用於：FAQ頁面、問答集、技術支援文件</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> type=</span><span class="st">&quot;application/ld+json&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;@context&quot;</span><span class="op">:</span> <span class="st">&quot;https://schema.org&quot;</span><span class="op">,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;FAQPage&quot;</span><span class="op">,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;mainEntity&quot;</span><span class="op">:</span> [</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;Question&quot;</span><span class="op">,</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;什麼是Facebook CAPI？&quot;</span><span class="op">,</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;acceptedAnswer&quot;</span><span class="op">:</span> {</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;Answer&quot;</span><span class="op">,</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;text&quot;</span><span class="op">:</span> <span class="st">&quot;Facebook CAPI（Conversion API）是伺服器端追蹤技術，允許廣告主直接將轉換數據傳送至Facebook伺服器，繞過瀏覽器端限制，提升追蹤準確率30-50%。&quot;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;Question&quot;</span><span class="op">,</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;CAPI設定需要多長時間？&quot;</span><span class="op">,</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;acceptedAnswer&quot;</span><span class="op">:</span> {</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;Answer&quot;</span><span class="op">,</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;text&quot;</span><span class="op">:</span> <span class="st">&quot;基礎CAPI設定通常需要2-4個工作日，包含API配置、伺服器端程式開發和測試驗證。使用第三方工具可縮短至1-2天。&quot;</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div>
+<h4 id="howto-schema---教學步驟標記">🛠️ HowTo Schema - 教學步驟標記</h4>
+<p>適用於：操作指南、安裝教學、設定流程</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> type=</span><span class="st">&quot;application/ld+json&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;@context&quot;</span><span class="op">:</span> <span class="st">&quot;https://schema.org&quot;</span><span class="op">,</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;HowTo&quot;</span><span class="op">,</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;Facebook CAPI設定教學&quot;</span><span class="op">,</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;description&quot;</span><span class="op">:</span> <span class="st">&quot;5個步驟完成Facebook Conversion API設定&quot;</span><span class="op">,</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;totalTime&quot;</span><span class="op">:</span> <span class="st">&quot;PT2H&quot;</span><span class="op">,</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;estimatedCost&quot;</span><span class="op">:</span> {</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;MonetaryAmount&quot;</span><span class="op">,</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;currency&quot;</span><span class="op">:</span> <span class="st">&quot;USD&quot;</span><span class="op">,</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;value&quot;</span><span class="op">:</span> <span class="st">&quot;0&quot;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;step&quot;</span><span class="op">:</span> [</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;HowToStep&quot;</span><span class="op">,</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;建立Access Token&quot;</span><span class="op">,</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;text&quot;</span><span class="op">:</span> <span class="st">&quot;在Facebook Business Manager中進入事件管理工具，選擇資料來源，點擊「設定」→「轉換API」→「產生存取權杖」&quot;</span><span class="op">,</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;image&quot;</span><span class="op">:</span> <span class="st">&quot;https://yourdomain.com/step1-image.jpg&quot;</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;HowToStep&quot;</span><span class="op">,</span> </span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;設定伺服器端點&quot;</span><span class="op">,</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;text&quot;</span><span class="op">:</span> <span class="st">&quot;在您的伺服器上建立API端點，配置接收Facebook轉換事件的POST請求處理器&quot;</span><span class="op">,</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;image&quot;</span><span class="op">:</span> <span class="st">&quot;https://yourdomain.com/step2-image.jpg&quot;</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div>
+<h3 id="schema實作檢查清單">📋 Schema實作檢查清單</h3>
+<p>實作Schema標記時，請確認：</p>
+<ul class="task-list">
+<li><label><input
+type="checkbox" /><strong>選擇正確類型</strong>：根據內容性質選用Article、FAQ或HowTo</label></li>
+<li><label><input
+type="checkbox" /><strong>完整必填屬性</strong>：包含所有required欄位</label></li>
+<li><label><input
+type="checkbox" /><strong>準確資訊對應</strong>：Schema內容與頁面實際內容一致</label></li>
+<li><label><input
+type="checkbox" /><strong>有效性驗證</strong>：使用Google結構化資料測試工具檢驗</label></li>
+<li><label><input
+type="checkbox" /><strong>格式正確性</strong>：JSON-LD語法無誤，符合Schema.org規範</label></li>
+</ul>
+<h2 id="html語意標記最佳實務">🔧 HTML語意標記最佳實務</h2>
+<h3 id="語意化html5標籤">語意化HTML5標籤</h3>
+<p>使用語意化標籤幫助AI理解內容結構：</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">article</span> <span class="er">itemscope</span> <span class="er">itemtype</span><span class="ot">=</span><span class="st">&quot;https://schema.org/TechArticle&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">header</span><span class="dt">&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h1</span> <span class="er">itemprop</span><span class="ot">=</span><span class="st">&quot;headline&quot;</span><span class="dt">&gt;</span>Facebook CAPI技術實作指南<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">time</span> <span class="er">itemprop</span><span class="ot">=</span><span class="st">&quot;datePublished&quot;</span> <span class="er">datetime</span><span class="ot">=</span><span class="st">&quot;2025-07-05&quot;</span><span class="dt">&gt;</span>2025年7月5日<span class="dt">&lt;/</span><span class="kw">time</span><span class="dt">&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">address</span> <span class="er">itemprop</span><span class="ot">=</span><span class="st">&quot;author&quot;</span> <span class="er">itemscope</span> <span class="er">itemtype</span><span class="ot">=</span><span class="st">&quot;https://schema.org/Person&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>      由 <span class="dt">&lt;</span><span class="kw">span</span> <span class="er">itemprop</span><span class="ot">=</span><span class="st">&quot;name&quot;</span><span class="dt">&gt;</span>廖天佑 Bless<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> 撰寫</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">address</span><span class="dt">&gt;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">header</span><span class="dt">&gt;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">section</span> <span class="er">itemprop</span><span class="ot">=</span><span class="st">&quot;articleBody&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">div</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;summary&quot;</span> <span class="er">itemprop</span><span class="ot">=</span><span class="st">&quot;abstract&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>本文將詳細說明Facebook CAPI的技術實作方法...<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">section</span><span class="dt">&gt;</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>技術背景<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Facebook Conversion API是為了解決...<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">section</span><span class="dt">&gt;</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">section</span><span class="dt">&gt;</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>實作步驟<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">ol</span><span class="dt">&gt;</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>建立Facebook App和Access Token<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>設定伺服器端API端點<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>實作轉換事件追蹤<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;/</span><span class="kw">ol</span><span class="dt">&gt;</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">section</span><span class="dt">&gt;</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">section</span><span class="dt">&gt;</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">aside</span><span class="dt">&gt;</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h3</span><span class="dt">&gt;</span>相關資源<span class="dt">&lt;/</span><span class="kw">h3</span><span class="dt">&gt;</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">ul</span><span class="dt">&gt;</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;&lt;</span><span class="kw">a</span> <span class="er">href</span><span class="ot">=</span><span class="st">&quot;/facebook-pixel-guide&quot;</span> <span class="er">rel</span><span class="ot">=</span><span class="st">&quot;related&quot;</span><span class="dt">&gt;</span>Facebook像素設定指南<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;&lt;</span><span class="kw">a</span> <span class="er">href</span><span class="ot">=</span><span class="st">&quot;/google-analytics-setup&quot;</span> <span class="er">rel</span><span class="ot">=</span><span class="st">&quot;related&quot;</span><span class="dt">&gt;</span>Google Analytics 4設定<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">ul</span><span class="dt">&gt;</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">aside</span><span class="dt">&gt;</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">article</span><span class="dt">&gt;</span></span></code></pre></div>
+<h3 id="語意化標籤使用原則">語意化標籤使用原則</h3>
+<p><strong>結構性標籤</strong>： -
+<code>&lt;article&gt;</code>：主要內容區塊 -
+<code>&lt;section&gt;</code>：內容分段 -
+<code>&lt;header&gt;</code>：標題區域 -
+<code>&lt;aside&gt;</code>：相關資訊</p>
+<p><strong>內容語意標籤</strong>： - <code>&lt;time&gt;</code>：時間資訊
+- <code>&lt;address&gt;</code>：作者資訊 -
+<code>&lt;figure&gt;</code>：圖片和圖表 -
+<code>&lt;cite&gt;</code>：引用來源</p>
+<h3 id="連結關係標記">連結關係標記</h3>
+<p>使用<code>rel</code>屬性定義連結關係：</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- 內部相關內容 --&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">a</span> <span class="er">href</span><span class="ot">=</span><span class="st">&quot;/related-article&quot;</span> <span class="er">rel</span><span class="ot">=</span><span class="st">&quot;related&quot;</span><span class="dt">&gt;</span>相關文章<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- 外部權威來源 --&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">a</span> <span class="er">href</span><span class="ot">=</span><span class="st">&quot;https://developers.facebook.com/docs/marketing-api&quot;</span> <span class="er">rel</span><span class="ot">=</span><span class="st">&quot;external&quot;</span><span class="dt">&gt;</span>Facebook官方文件<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- 作者資訊 --&gt;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">a</span> <span class="er">href</span><span class="ot">=</span><span class="st">&quot;/author/bless-liao&quot;</span> <span class="er">rel</span><span class="ot">=</span><span class="st">&quot;author&quot;</span><span class="dt">&gt;</span>關於作者<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- 標籤分類 --&gt;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">a</span> <span class="er">href</span><span class="ot">=</span><span class="st">&quot;/tag/facebook-advertising&quot;</span> <span class="er">rel</span><span class="ot">=</span><span class="st">&quot;tag&quot;</span><span class="dt">&gt;</span>Facebook廣告<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span></code></pre></div>
+<h2 id="json-ld實作指南">🔗 JSON-LD實作指南</h2>
+<h3 id="基本實作結構">基本實作結構</h3>
+<p>JSON-LD是Google推薦的結構化資料格式，放置在HTML
+<code>&lt;head&gt;</code> 區域：</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span> <span class="er">lang</span><span class="ot">=</span><span class="st">&quot;zh-TW&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span> <span class="er">charset</span><span class="ot">=</span><span class="st">&quot;UTF-8&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Facebook CAPI設定指南<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- 基礎SEO標籤 --&gt;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span> <span class="er">name</span><span class="ot">=</span><span class="st">&quot;description&quot;</span> <span class="er">content</span><span class="ot">=</span><span class="st">&quot;完整的Facebook CAPI設定教學，提升轉換追蹤準確率&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- JSON-LD結構化資料 --&gt;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> type=</span><span class="st">&quot;application/ld+json&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;@context&quot;</span><span class="op">:</span> <span class="st">&quot;https://schema.org&quot;</span><span class="op">,</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;Article&quot;</span><span class="op">,</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;headline&quot;</span><span class="op">:</span> <span class="st">&quot;Facebook CAPI設定完整指南&quot;</span><span class="op">,</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;author&quot;</span><span class="op">:</span> {</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;Person&quot;</span><span class="op">,</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;廖天佑 Bless Liao&quot;</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;datePublished&quot;</span><span class="op">:</span> <span class="st">&quot;2025-07-05&quot;</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- 頁面內容 --&gt;</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div>
+<h3 id="多重schema組合">多重Schema組合</h3>
+<p>複雜內容可組合多種Schema類型：</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> type=</span><span class="st">&quot;application/ld+json&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;@context&quot;</span><span class="op">:</span> <span class="st">&quot;https://schema.org&quot;</span><span class="op">,</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;@graph&quot;</span><span class="op">:</span> [</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;Article&quot;</span><span class="op">,</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;@id&quot;</span><span class="op">:</span> <span class="st">&quot;https://yourdomain.com/facebook-capi-guide&quot;</span><span class="op">,</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;headline&quot;</span><span class="op">:</span> <span class="st">&quot;Facebook CAPI設定指南&quot;</span><span class="op">,</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;author&quot;</span><span class="op">:</span> {</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;@id&quot;</span><span class="op">:</span> <span class="st">&quot;https://yourdomain.com/author/bless-liao&quot;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>      }<span class="op">,</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;publisher&quot;</span><span class="op">:</span> {</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;@id&quot;</span><span class="op">:</span> <span class="st">&quot;https://yourdomain.com/organization&quot;</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;Person&quot;</span><span class="op">,</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;@id&quot;</span><span class="op">:</span> <span class="st">&quot;https://yourdomain.com/author/bless-liao&quot;</span><span class="op">,</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;廖天佑 Bless Liao&quot;</span><span class="op">,</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;jobTitle&quot;</span><span class="op">:</span> <span class="st">&quot;數位行銷專家&quot;</span><span class="op">,</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;worksFor&quot;</span><span class="op">:</span> {</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;@id&quot;</span><span class="op">:</span> <span class="st">&quot;https://yourdomain.com/organization&quot;</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;Organization&quot;</span><span class="op">,</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;@id&quot;</span><span class="op">:</span> <span class="st">&quot;https://yourdomain.com/organization&quot;</span><span class="op">,</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;AIOGEO知識庫&quot;</span><span class="op">,</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;url&quot;</span><span class="op">:</span> <span class="st">&quot;https://yourdomain.com&quot;</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div>
+<h3 id="json-ld常見錯誤">⚠️ JSON-LD常見錯誤</h3>
+<p>避免以下常見實作問題：</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>❌ 錯誤範例：</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  &quot;@context&quot;: &quot;https://schema.org&quot;,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  &quot;@type&quot;: &quot;Article&quot;,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  &quot;headline&quot;: &quot;很棒的文章標題&quot;  // 缺少逗號</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  &quot;author&quot;: &quot;作者名稱&quot;           // 應使用Person物件</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>✅ 正確範例：</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  &quot;@context&quot;: &quot;https://schema.org&quot;,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  &quot;@type&quot;: &quot;Article&quot;,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  &quot;headline&quot;: &quot;很棒的文章標題&quot;,</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  &quot;author&quot;: {</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    &quot;@type&quot;: &quot;Person&quot;,</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    &quot;name&quot;: &quot;作者名稱&quot;</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h2 id="權威信號建立方法">🏆 權威信號建立方法</h2>
+<h3 id="作者權威性標記">作者權威性標記</h3>
+<p>建立專業可信度的完整標記：</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> type=</span><span class="st">&quot;application/ld+json&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;@context&quot;</span><span class="op">:</span> <span class="st">&quot;https://schema.org&quot;</span><span class="op">,</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;Person&quot;</span><span class="op">,</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;廖天佑 Bless Liao&quot;</span><span class="op">,</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;jobTitle&quot;</span><span class="op">:</span> <span class="st">&quot;資深數位行銷專家&quot;</span><span class="op">,</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;affiliation&quot;</span><span class="op">:</span> {</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;Organization&quot;</span><span class="op">,</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;AIOGEO研究團隊&quot;</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;hasCredential&quot;</span><span class="op">:</span> [</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;EducationalOccupationalCredential&quot;</span><span class="op">,</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;credentialCategory&quot;</span><span class="op">:</span> <span class="st">&quot;Google Ads認證&quot;</span><span class="op">,</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;educationalLevel&quot;</span><span class="op">:</span> <span class="st">&quot;Professional&quot;</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;EducationalOccupationalCredential&quot;</span><span class="op">,</span> </span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;credentialCategory&quot;</span><span class="op">:</span> <span class="st">&quot;Facebook Blueprint認證&quot;</span><span class="op">,</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;educationalLevel&quot;</span><span class="op">:</span> <span class="st">&quot;Expert&quot;</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">,</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;knowsAbout&quot;</span><span class="op">:</span> [</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;AI搜尋優化&quot;</span><span class="op">,</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Facebook廣告投放&quot;</span><span class="op">,</span> </span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;數位行銷策略&quot;</span><span class="op">,</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Meta廣告技術&quot;</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">,</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;sameAs&quot;</span><span class="op">:</span> [</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;https://github.com/bless25min&quot;</span><span class="op">,</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;https://linkedin.com/in/bless-liao&quot;</span><span class="op">,</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;https://bless25min.github.io/MetaAd/&quot;</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">,</span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;url&quot;</span><span class="op">:</span> <span class="st">&quot;https://yourdomain.com/author/bless-liao&quot;</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div>
+<h3 id="引用來源標記">引用來源標記</h3>
+<p>為重要引用添加結構化標記：</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- 文章中的引用 --&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">blockquote</span> <span class="er">cite</span><span class="ot">=</span><span class="st">&quot;https://developers.facebook.com/docs/marketing-api&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Facebook Conversion API allows advertisers to send web events </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>     from their servers directly to Facebook.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">footer</span><span class="dt">&gt;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">cite</span> <span class="er">itemscope</span> <span class="er">itemtype</span><span class="ot">=</span><span class="st">&quot;https://schema.org/WebPage&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">span</span> <span class="er">itemprop</span><span class="ot">=</span><span class="st">&quot;name&quot;</span><span class="dt">&gt;</span>Facebook for Developers<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">time</span> <span class="er">itemprop</span><span class="ot">=</span><span class="st">&quot;datePublished&quot;</span> <span class="er">datetime</span><span class="ot">=</span><span class="st">&quot;2024-03-15&quot;</span><span class="dt">&gt;</span>2024年3月<span class="dt">&lt;/</span><span class="kw">time</span><span class="dt">&gt;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">cite</span><span class="dt">&gt;</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">footer</span><span class="dt">&gt;</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">blockquote</span><span class="dt">&gt;</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- 對應的JSON-LD --&gt;</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> type=</span><span class="st">&quot;application/ld+json&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;@context&quot;</span><span class="op">:</span> <span class="st">&quot;https://schema.org&quot;</span><span class="op">,</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;Quotation&quot;</span><span class="op">,</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;text&quot;</span><span class="op">:</span> <span class="st">&quot;Facebook Conversion API allows advertisers to send web events from their servers directly to Facebook.&quot;</span><span class="op">,</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;spokenByCharacter&quot;</span><span class="op">:</span> {</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;Organization&quot;</span><span class="op">,</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;Facebook for Developers&quot;</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;url&quot;</span><span class="op">:</span> <span class="st">&quot;https://developers.facebook.com/docs/marketing-api&quot;</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div>
+<h3 id="可信度指標">可信度指標</h3>
+<p>加強內容可信度的結構化標記：</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> type=</span><span class="st">&quot;application/ld+json&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;@context&quot;</span><span class="op">:</span> <span class="st">&quot;https://schema.org&quot;</span><span class="op">,</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;Article&quot;</span><span class="op">,</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;headline&quot;</span><span class="op">:</span> <span class="st">&quot;Facebook CAPI設定指南&quot;</span><span class="op">,</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;reviewedBy&quot;</span><span class="op">:</span> {</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;Person&quot;</span><span class="op">,</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;技術審核專家&quot;</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;factCheckingPolicy&quot;</span><span class="op">:</span> <span class="st">&quot;https://yourdomain.com/fact-checking-policy&quot;</span><span class="op">,</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;correction&quot;</span><span class="op">:</span> []<span class="op">,</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;isBasedOn&quot;</span><span class="op">:</span> [</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;WebPage&quot;</span><span class="op">,</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;Facebook官方CAPI文件&quot;</span><span class="op">,</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;url&quot;</span><span class="op">:</span> <span class="st">&quot;https://developers.facebook.com/docs/marketing-api/conversions-api&quot;</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div>
+<h2 id="技術驗證工具">🔍 技術驗證工具</h2>
+<h3 id="google結構化資料測試工具">Google結構化資料測試工具</h3>
+<p>使用Google官方工具驗證Schema實作：</p>
+<p><strong>測試步驟</strong>： 1. 前往 <a
+href="https://search.google.com/test/rich-results">Google結構化資料測試工具</a>
+2. 輸入頁面URL或直接貼上HTML代碼 3. 點擊「測試URL」或「測試代碼」 4.
+檢查錯誤和警告訊息 5. 確認所有必填欄位都已正確填寫</p>
+<h3 id="schema.org驗證器">Schema.org驗證器</h3>
+<p>使用官方驗證器檢查Schema語法：</p>
+<p><strong>驗證流程</strong>：</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. 前往Schema.org Validator</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. 貼上JSON-LD代碼</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. 檢查語法錯誤</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. 確認屬性值的正確性</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. 驗證Schema類型的適用性</span></span></code></pre></div>
+<h3 id="常見驗證錯誤解決">常見驗證錯誤解決</h3>
+<p><strong>Missing required field錯誤</strong>：</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="er">❌</span> <span class="er">缺少必填欄位：</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;Article&quot;</span><span class="fu">,</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;headline&quot;</span><span class="fu">:</span> <span class="st">&quot;標題&quot;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="er">//</span> <span class="er">缺少author和datePublished</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="er">✅</span> <span class="er">補充必填欄位：</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;Article&quot;</span><span class="fu">,</span> </span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;headline&quot;</span><span class="fu">:</span> <span class="st">&quot;標題&quot;</span><span class="fu">,</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;author&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;Person&quot;</span><span class="fu">,</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;作者&quot;</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;datePublished&quot;</span><span class="fu">:</span> <span class="st">&quot;2025-07-05&quot;</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h2 id="技術實作檢查清單">📋 技術實作檢查清單</h2>
+<p>完成技術實作後，請逐項檢查：</p>
+<h3 id="schema標記檢查">🏗️ Schema標記檢查</h3>
+<ul class="task-list">
+<li><label><input
+type="checkbox" /><strong>適當Schema類型</strong>：選用最符合內容的Schema類型</label></li>
+<li><label><input
+type="checkbox" /><strong>完整必填欄位</strong>：包含所有required屬性</label></li>
+<li><label><input
+type="checkbox" /><strong>正確JSON-LD語法</strong>：通過Schema.org驗證器檢查</label></li>
+<li><label><input
+type="checkbox" /><strong>內容一致性</strong>：Schema資訊與頁面內容相符</label></li>
+<li><label><input
+type="checkbox" /><strong>Google測試通過</strong>：通過Google結構化資料測試</label></li>
+</ul>
+<h3 id="html語意化檢查">🔧 HTML語意化檢查</h3>
+<ul class="task-list">
+<li><label><input
+type="checkbox" /><strong>語意化標籤</strong>：使用article、section、header等</label></li>
+<li><label><input
+type="checkbox" /><strong>微資料標記</strong>：添加itemprop、itemtype屬性</label></li>
+<li><label><input
+type="checkbox" /><strong>連結關係</strong>：正確使用rel屬性</label></li>
+<li><label><input
+type="checkbox" /><strong>可訪問性</strong>：符合WCAG無障礙標準</label></li>
+<li><label><input type="checkbox" /><strong>有效HTML</strong>：通過W3C
+HTML驗證器檢查</label></li>
+</ul>
+<h3 id="權威性信號檢查">🏆 權威性信號檢查</h3>
+<ul class="task-list">
+<li><label><input
+type="checkbox" /><strong>作者資訊完整</strong>：包含專業背景和認證</label></li>
+<li><label><input
+type="checkbox" /><strong>引用來源標記</strong>：重要引用有結構化標記</label></li>
+<li><label><input
+type="checkbox" /><strong>外部連結</strong>：連結到權威來源網站</label></li>
+<li><label><input
+type="checkbox" /><strong>內部權威頁面</strong>：連結到相關權威內容</label></li>
+<li><label><input
+type="checkbox" /><strong>社群媒體整合</strong>：包含sameAs屬性連結</label></li>
+</ul>
+<h3 id="技術性能檢查">⚡ 技術性能檢查</h3>
+<ul class="task-list">
+<li><label><input
+type="checkbox" /><strong>載入速度</strong>：結構化資料不影響頁面載入</label></li>
+<li><label><input
+type="checkbox" /><strong>移動友好</strong>：在移動裝置上正常顯示</label></li>
+<li><label><input
+type="checkbox" /><strong>快取設定</strong>：適當的HTTP快取標頭</label></li>
+<li><label><input
+type="checkbox" /><strong>錯誤處理</strong>：JSON-LD語法錯誤不影響頁面功能</label></li>
+<li><label><input
+type="checkbox" /><strong>更新機制</strong>：內容更新時同步更新Schema</label></li>
+</ul>
+<h2 id="學習成果檢驗">🎓 學習成果檢驗</h2>
+<p>完成本文學習後，您應該能夠：</p>
+<p>✅ <strong>Schema實作能力</strong>： - [ ] 選擇適合的Schema.org類型 -
+[ ] 正確撰寫JSON-LD代碼 - [ ] 組合多種Schema類型</p>
+<p>✅ <strong>HTML語意化能力</strong>： - [ ] 使用語意化HTML5標籤 - [ ]
+添加微資料標記 - [ ] 設定適當的連結關係</p>
+<p>✅ <strong>權威性建立能力</strong>： - [ ] 建立完整的作者權威標記 - [
+] 為引用來源添加結構化標記 - [ ] 設定可信度指標</p>
+<p>✅ <strong>技術驗證能力</strong>： - [ ] 使用Google測試工具驗證 - [ ]
+解決常見的Schema錯誤 - [ ] 確保技術實作品質</p>
+<h2 id="下一步學習">🔗 下一步學習</h2>
+<p>恭喜您掌握了GEO技術實作的核心技能！建議您：</p>
+<h3 id="完成系列學習">➡️ 完成系列學習</h3>
+<p><strong>下一篇</strong>：<a
+href="geo-fundamentals-measurement.html">📊 成效評估與優化策略</a><br />
+<em>學習如何評估和優化GEO實作效果</em></p>
+<h3 id="其他選擇">🔄 其他選擇</h3>
+<ul>
+<li><strong>返回目錄</strong>：<a href="geo-fundamentals-index.html">📚
+完整學習指南</a></li>
+<li><strong>回顧內容設計</strong>：<a
+href="geo-fundamentals-content-design.html">✍️ 內容結構化設計</a></li>
+<li><strong>複習概念</strong>：<a
+href="geo-fundamentals-overview.html">📖 GEO概念與原理</a></li>
+</ul>
+<h3 id="實戰練習建議">🚀 實戰練習建議</h3>
+<ol type="1">
+<li><strong>技術實作練習</strong>：為一篇現有文章添加完整的Schema標記</li>
+<li><strong>驗證工具使用</strong>：使用Google測試工具檢查實作結果</li>
+<li><strong>權威性建立</strong>：完善作者資訊和引用來源標記</li>
+<li><strong>效果對比測試</strong>：比較實作前後在AI工具中的表現差異</li>
+</ol>
+<hr />
+<p><em>📚
+本文為「GEO基礎原理完整指南」系列第3篇，下一篇將介紹如何評估和優化GEO實作的效果。</em></p>
+<p><strong>🏷️ 標籤</strong>：<code>技術實作</code>
+<code>Schema.org</code> <code>JSON-LD</code> <code>HTML語意化</code>
+<code>權威信號</code></p>
     </main>
     
     <footer>
+      <div class="footer-links">
+        <a href="about.html" class="footer-link">關於作者</a>
+        <a href="contributing.html" class="footer-link">參與貢獻</a>
+        <a href="https://github.com/bless25min/AIOGEO-Knowledge" class="footer-link" target="_blank">GitHub</a>
+      </div>
       <p>&copy; 2025 AIOGEO 知識庫 | 讓 AI 看見你的內容</p>
     </footer>
   </div>

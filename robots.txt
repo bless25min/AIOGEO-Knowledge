@@ -1,7 +1,9 @@
+# AIOGEO 知識庫 - AI 友善設定
+
 User-agent: *
 Allow: /
 
-# 特別歡迎 AI 搜尋引擎
+# 歡迎所有主要 AI 搜尋引擎
 User-agent: GPTBot
 Allow: /
 
@@ -11,4 +13,21 @@ Allow: /
 User-agent: Claude-Web
 Allow: /
 
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# 主要搜尋引擎
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap 位置
 Sitemap: https://bless25min.github.io/AIOGEO-Knowledge/sitemap.xml
+
+# 爬取延遲設定
+Crawl-delay: 1

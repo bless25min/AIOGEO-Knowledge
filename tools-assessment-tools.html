@@ -3,222 +3,481 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>評估工具 | AIOGEO 知識庫</title>
-  <meta name="description" content="GEO 效果評估工具集，監控和分析內容的 AI 引用表現">
-  <meta name="keywords" content="GEO, 生成式引擎優化, AI搜尋, 評估工具, 廖天佑, Bless Liao">
+  <title>🛠️ GEO 評估工具清單 | AIOGEO 知識庫</title>
+  <meta name="description" content="🛠️ GEO 評估工具清單 - AIOGEO知識庫專業內容">
   <meta name="author" content="廖天佑 Bless Liao">
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="評估工具 | AIOGEO 知識庫">
-  <meta property="og:description" content="GEO 效果評估工具集，監控和分析內容的 AI 引用表現">
+  <meta property="og:title" content="🛠️ GEO 評估工具清單 | AIOGEO 知識庫">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://bless25min.github.io/AIOGEO-Knowledge/tools-assessment-tools.html">
-  <meta property="og:site_name" content="AIOGEO 知識庫">
-  
-  <!-- Schema.org JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "評估工具",
-    "description": "GEO 效果評估工具集，監控和分析內容的 AI 引用表現",
-    "author": {
-      "@type": "Person",
-      "name": "廖天佑 Bless Liao",
-      "url": "https://github.com/bless25min"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "AIOGEO 知識庫",
-      "url": "https://bless25min.github.io/AIOGEO-Knowledge/"
-    },
-    "datePublished": "2025-07-08",
-    "dateModified": "2025-07-08",
-    "mainEntityOfPage": "https://bless25min.github.io/AIOGEO-Knowledge/tools-assessment-tools.html",
-    "keywords": ["GEO", "生成式引擎優化", "AI搜尋", "評估工具"],
-    "articleSection": "實用工具",
-    "inLanguage": "zh-TW"
-  }
-  </script>
   
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif; 
+      line-height: 1.8; color: #1f2937; background: #f9fafb; 
     }
+    .container { max-width: 900px; margin: 0 auto; background: white; min-height: 100vh; box-shadow: 0 0 30px rgba(0,0,0,0.1); }
+    header { background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; padding: 40px; text-align: center; }
+    h1 { font-size: 2.5em; font-weight: 800; margin-bottom: 15px; }
+    nav { background: #1f2937; padding: 15px 40px; }
+    .nav-links { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
+    .nav-link { color: #d1d5db; text-decoration: none; padding: 8px 16px; border-radius: 6px; transition: all 0.3s ease; }
+    .nav-link:hover { background: #374151; color: white; }
+    main { padding: 50px 40px; }
     
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
-      line-height: 1.8;
-      color: #1f2937;
-      background: #f9fafb;
-    }
+    h2 { color: #1f2937; font-size: 1.8em; margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 3px solid #6366f1; }
+    h3 { color: #374151; font-size: 1.4em; margin: 30px 0 15px; }
+    h4 { color: #374151; font-size: 1.2em; margin: 25px 0 10px; }
+    p { margin: 15px 0; line-height: 1.7; }
     
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: white;
-      min-height: 100vh;
-      box-shadow: 0 0 30px rgba(0,0,0,0.1);
-    }
+    pre { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 20px 0; overflow-x: auto; }
+    code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-family: 'Monaco', 'Consolas', monospace; font-size: 0.9em; }
+    pre code { background: none; padding: 0; }
     
-    header {
-      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-      color: white;
-      padding: 40px;
-      text-align: center;
-    }
+    ul, ol { margin: 15px 0 15px 30px; }
+    li { margin: 8px 0; line-height: 1.6; }
     
-    .breadcrumb {
-      font-size: 0.9em;
-      opacity: 0.9;
-      margin-bottom: 15px;
-    }
+    table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    th, td { border: 1px solid #e5e7eb; padding: 12px; text-align: left; }
+    th { background: #f9fafb; font-weight: 600; }
     
-    .breadcrumb a {
-      color: white;
-      text-decoration: none;
-    }
+    blockquote { border-left: 4px solid #6366f1; background: #f8fafc; padding: 15px 20px; margin: 20px 0; font-style: italic; }
     
-    h1 {
-      font-size: 2.5em;
-      font-weight: 800;
-      margin-bottom: 15px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-    }
+    a { color: #6366f1; text-decoration: none; }
+    a:hover { text-decoration: underline; }
     
-    .article-meta {
-      font-size: 1em;
-      opacity: 0.9;
-    }
-    
-    nav {
-      background: #1f2937;
-      padding: 15px 40px;
-    }
-    
-    .nav-links {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      flex-wrap: wrap;
-    }
-    
-    .nav-link {
-      color: #d1d5db;
-      text-decoration: none;
-      padding: 8px 16px;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-    }
-    
-    .nav-link:hover {
-      background: #374151;
-      color: white;
-    }
-    
-    main {
-      padding: 50px 40px;
-      text-align: center;
-    }
-    
-    .coming-soon {
-      background: #f0f9ff;
-      border: 2px solid #0ea5e9;
-      border-radius: 15px;
-      padding: 60px 40px;
-      margin: 40px 0;
-    }
-    
-    .coming-soon h2 {
-      color: #0c4a6e;
-      font-size: 2em;
-      margin-bottom: 20px;
-    }
-    
-    .coming-soon p {
-      color: #075985;
-      font-size: 1.2em;
-      margin-bottom: 30px;
-    }
-    
-    .back-link {
-      display: inline-block;
-      background: #6366f1;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-    
-    .back-link:hover {
-      background: #4f46e5;
-      transform: translateY(-2px);
-    }
-    
-    footer {
-      background: #1f2937;
-      color: #d1d5db;
-      padding: 40px;
-      text-align: center;
-    }
+    .summary { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border: 2px solid #0ea5e9; border-radius: 12px; padding: 24px; margin: 20px 0 30px 0; font-size: 1.1em; line-height: 1.7; }
     
     @media (max-width: 768px) {
-      header, main, footer {
-        padding: 30px 20px;
-      }
-      
-      nav {
-        padding: 15px 20px;
-      }
-      
-      h1 {
-        font-size: 2em;
-      }
-      
-      .coming-soon {
-        padding: 40px 20px;
-      }
+      .container { margin: 0; box-shadow: none; }
+      header { padding: 30px 20px; }
+      h1 { font-size: 2em; }
+      main { padding: 30px 20px; }
     }
+    
+    footer { background: #1f2937; color: white; text-align: center; padding: 30px; }
+    .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 15px; flex-wrap: wrap; }
+    .footer-link { color: #d1d5db; text-decoration: none; transition: color 0.3s ease; }
+    .footer-link:hover { color: #6366f1; }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
       <div class="breadcrumb">
-        <a href="index.html">🏠 AIOGEO 知識庫</a> > 實用工具
+        <a href="index.html" style="color: white; text-decoration: none;">AIOGEO 知識庫</a> / 🛠️ GEO 評估工具清單
       </div>
-      <h1>評估工具</h1>
+      <h1>🛠️ GEO 評估工具清單</h1>
       <div class="article-meta">
-        📅 最後更新：2025年7月8日 | 👤 作者：廖天佑 Bless Liao
+        作者：廖天佑 Bless Liao | 更新時間：2025-07-07
       </div>
     </header>
     
     <nav>
       <div class="nav-links">
         <a href="index.html" class="nav-link">🏠 首頁</a>
-        <a href="geo-fundamentals.html" class="nav-link">📚 GEO 基礎</a>
-        <a href="tools-checklists.html" class="nav-link">🛠️ 工具</a>
         <a href="about.html" class="nav-link">👤 關於</a>
         <a href="contributing.html" class="nav-link">🤝 貢獻</a>
+        <a href="https://github.com/bless25min/AIOGEO-Knowledge" class="nav-link" target="_blank">📂 GitHub</a>
       </div>
     </nav>
     
     <main>
-      <div class="coming-soon">
-        <h2>🚧 內容建設中</h2>
-        <p>
-          《評估工具》正在精心撰寫中，我們致力於提供最高品質的 GEO 專業內容。
-          敬請期待這篇深度解析文章的發布！
-        </p>
-        <a href="index.html" class="back-link">🏠 返回首頁</a>
-      </div>
+<h1 id="geo-評估工具清單">🛠️ GEO 評估工具清單</h1>
+<p>這裡整理了各種用於評估和提升
+GEO（生成式引擎優化）效果的實用工具，幫助您系統性地分析和改善內容的 AI
+引用潛力。</p>
+<h2 id="ai-引用監控工具">🎯 AI 引用監控工具</h2>
+<h3 id="ai-平台直接測試">🤖 AI 平台直接測試</h3>
+<h4 id="主要-ai-搜尋平台">主要 AI 搜尋平台</h4>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>平台</th>
+<th>用途</th>
+<th>特點</th>
+<th>建議頻率</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://chat.openai.com">ChatGPT</a></td>
+<td>基礎引用測試</td>
+<td>使用量最大、引用權威性高</td>
+<td>每週</td>
+</tr>
+<tr class="even">
+<td><a href="https://claude.ai">Claude</a></td>
+<td>內容品質驗證</td>
+<td>注重邏輯性和平衡觀點</td>
+<td>每週</td>
+</tr>
+<tr class="odd">
+<td><a href="https://www.perplexity.ai">Perplexity</a></td>
+<td>來源追蹤分析</td>
+<td>引用來源標註完整</td>
+<td>每週</td>
+</tr>
+<tr class="even">
+<td><a href="https://bard.google.com">Google Bard</a></td>
+<td>搜尋整合表現</td>
+<td>與 Google 搜尋深度整合</td>
+<td>每月</td>
+</tr>
+<tr class="odd">
+<td><a href="https://www.bing.com/chat">Bing Chat</a></td>
+<td>微軟生態測試</td>
+<td>整合 Bing 搜尋結果</td>
+<td>每月</td>
+</tr>
+</tbody>
+</table>
+<h4 id="測試流程模板">📋 測試流程模板</h4>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## AI 引用測試記錄表</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>**測試日期**：2025-07-06</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>**內容主題**：Facebook CAPI 設定教學</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>**測試問題**：</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>&quot;什麼是 Facebook CAPI？&quot;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>&quot;如何設定 Conversion API？&quot;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>&quot;CAPI 和傳統像素的差別？&quot;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">### 測試結果</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>| 平台 | Q1 引用 | Q2 引用 | Q3 引用 | 準確性 | 備註 |</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>|------|---------|---------|---------|--------|------|</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>| ChatGPT | ✅ | ✅ | ❌ | 95% | 第一來源 |</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>| Claude | ❌ | ✅ | ✅ | 90% | 第三來源 |</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>| Perplexity | ✅ | ✅ | ✅ | 85% | 完整引用 |</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">### 發現與改善</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**強項**：技術定義類內容引用率高</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**弱項**：比較分析類內容需要強化</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**行動**：增加對比數據和表格說明</span></code></pre></div>
+<h2 id="內容分析工具">📊 內容分析工具</h2>
+<h3 id="語義分析工具">🔍 語義分析工具</h3>
+<h4 id="免費語義分析工具">免費語義分析工具</h4>
+<ul>
+<li><strong><a href="https://cloud.google.com/natural-language">Google
+Natural Language API</a></strong>
+<ul>
+<li>功能：情感分析、實體識別、語法分析</li>
+<li>優點：Google 官方工具、準確性高</li>
+<li>限制：需要技術整合、有使用量限制</li>
+</ul></li>
+<li><strong><a
+href="https://www.ibm.com/cloud/watson-natural-language-understanding">IBM
+Watson Natural Language Understanding</a></strong>
+<ul>
+<li>功能：概念提取、關鍵詞分析、語義角色</li>
+<li>優點：企業級精準度、多語言支援</li>
+<li>限制：學習曲線較陡、付費服務</li>
+</ul></li>
+</ul>
+<h4 id="內容可讀性檢測">內容可讀性檢測</h4>
+<ul>
+<li><strong><a href="https://hemingwayapp.com/">Hemingway
+Editor</a></strong>
+<ul>
+<li>功能：句子複雜度、可讀性等級評估</li>
+<li>用途：確保內容 AI 友善，避免過於複雜的表達</li>
+</ul></li>
+<li><strong><a href="https://www.grammarly.com/">Grammarly</a></strong>
+<ul>
+<li>功能：語法檢查、語調優化、清晰度提升</li>
+<li>用途：提高內容品質，增加 AI 理解準確性</li>
+</ul></li>
+</ul>
+<h3 id="seo-整合分析工具">📈 SEO 整合分析工具</h3>
+<h4 id="關鍵詞與內容分析">關鍵詞與內容分析</h4>
+<ul>
+<li><strong><a href="https://ahrefs.com/">Ahrefs</a></strong>
+<ul>
+<li>GEO 用途：分析競爭對手被 AI 引用的內容特徵</li>
+<li>特色功能：內容差距分析、關鍵詞研究</li>
+</ul></li>
+<li><strong><a href="https://www.semrush.com/">SEMrush</a></strong>
+<ul>
+<li>GEO 用途：監控內容在傳統搜尋和 AI 搜尋的雙重表現</li>
+<li>特色功能：內容模板、競爭分析</li>
+</ul></li>
+<li><strong><a href="https://surferseo.com/">Surfer SEO</a></strong>
+<ul>
+<li>GEO 用途：優化內容結構，提升 AI 可理解性</li>
+<li>特色功能：內容編輯器、SERP 分析</li>
+</ul></li>
+</ul>
+<h2 id="結構化資料工具">🏗️ 結構化資料工具</h2>
+<h3 id="schema-標記生成器">Schema 標記生成器</h3>
+<h4 id="google-官方工具">Google 官方工具</h4>
+<ul>
+<li><strong><a
+href="https://www.google.com/webmasters/markup-helper/">Google
+結構化資料標記輔助工具</a></strong>
+<ul>
+<li>功能：視覺化方式生成 Schema 標記</li>
+<li>優點：官方工具、操作簡單</li>
+<li>支援：Article、FAQ、HowTo 等多種類型</li>
+</ul></li>
+<li><strong><a href="https://search.google.com/test/rich-results">Google
+Rich Results 測試工具</a></strong>
+<ul>
+<li>功能：驗證結構化資料正確性</li>
+<li>用途：確保 Schema 標記被正確識別</li>
+</ul></li>
+</ul>
+<h4 id="第三方-schema-工具">第三方 Schema 工具</h4>
+<ul>
+<li><strong><a href="https://validator.schema.org/">Schema.org
+Validator</a></strong>
+<ul>
+<li>功能：驗證 Schema 標記語法和邏輯</li>
+<li>優點：官方驗證工具、權威性高</li>
+</ul></li>
+<li><strong><a
+href="https://hallanalysis.com/json-ld-generator/">JSON-LD
+Generator</a></strong>
+<ul>
+<li>功能：快速生成常用的 JSON-LD 標記</li>
+<li>優點：模板豐富、程式碼即用</li>
+</ul></li>
+</ul>
+<h3 id="schema-標記檢查清單">📋 Schema 標記檢查清單</h3>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## 基本 Schema 標記檢查</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Article Schema ✅</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> headline（標題）</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> description（描述）  </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> author（作者資訊）</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> datePublished（發布日期）</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> dateModified（修改日期）</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> publisher（發布者）</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">### FAQ Schema ✅  </span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Question name（問題）</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> acceptedAnswer（答案）</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 至少 3 個 FAQ 項目</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 問題與內容匹配</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="fu">### HowTo Schema ✅</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> name（教學標題）</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> step（步驟詳情）</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 每步驟有清晰說明</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> totalTime（預估時間）</span></code></pre></div>
+<h2 id="專業評估工具">🔬 專業評估工具</h2>
+<h3 id="ai-引用潛力評估器">AI 引用潛力評估器</h3>
+<h4 id="自建評估系統">自建評估系統</h4>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># GEO 內容評估器範例</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> GEOAssessment:</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, content):</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.content <span class="op">=</span> content</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.scores <span class="op">=</span> {}</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> assess_semantic_anchoring(<span class="va">self</span>):</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;語義錨定度評估&quot;&quot;&quot;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 檢查主題明確性</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        topic_clarity <span class="op">=</span> <span class="va">self</span>.analyze_topic_focus()</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 檢查段落結構</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        structure_score <span class="op">=</span> <span class="va">self</span>.analyze_structure()</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (topic_clarity <span class="op">+</span> structure_score) <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> assess_citation_potential(<span class="va">self</span>):</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;引用潛力評估&quot;&quot;&quot;</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        authority_score <span class="op">=</span> <span class="va">self</span>.check_authority_indicators()</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        freshness_score <span class="op">=</span> <span class="va">self</span>.check_content_freshness()</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        usefulness_score <span class="op">=</span> <span class="va">self</span>.check_practical_value()</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (authority_score <span class="op">*</span> <span class="fl">0.4</span> <span class="op">+</span> </span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>                freshness_score <span class="op">*</span> <span class="fl">0.3</span> <span class="op">+</span> </span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>                usefulness_score <span class="op">*</span> <span class="fl">0.3</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> generate_report(<span class="va">self</span>):</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;生成評估報告&quot;&quot;&quot;</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>            <span class="st">&#39;semantic_anchoring&#39;</span>: <span class="va">self</span>.assess_semantic_anchoring(),</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>            <span class="st">&#39;citation_potential&#39;</span>: <span class="va">self</span>.assess_citation_potential(),</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>            <span class="st">&#39;optimization_suggestions&#39;</span>: <span class="va">self</span>.get_suggestions()</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>        }</span></code></pre></div>
+<h3 id="表現追蹤儀表板">📊 表現追蹤儀表板</h3>
+<h4 id="推薦追蹤指標">推薦追蹤指標</h4>
+<table>
+<thead>
+<tr class="header">
+<th>指標類別</th>
+<th>具體指標</th>
+<th>目標值</th>
+<th>監控頻率</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>引用頻率</strong></td>
+<td>AI 平台引用次數</td>
+<td>&gt;70%</td>
+<td>每週</td>
+</tr>
+<tr class="even">
+<td><strong>引用準確性</strong></td>
+<td>資訊準確傳達率</td>
+<td>&gt;90%</td>
+<td>每週</td>
+</tr>
+<tr class="odd">
+<td><strong>內容可見性</strong></td>
+<td>被發現的問題類型數</td>
+<td>&gt;15 個</td>
+<td>每月</td>
+</tr>
+<tr class="even">
+<td><strong>權威性指標</strong></td>
+<td>被標註為主要來源</td>
+<td>&gt;50%</td>
+<td>每月</td>
+</tr>
+<tr class="odd">
+<td><strong>用戶互動</strong></td>
+<td>點擊深入閱讀率</td>
+<td>&gt;25%</td>
+<td>每月</td>
+</tr>
+</tbody>
+</table>
+<h4 id="google-analytics-整合追蹤">Google Analytics 整合追蹤</h4>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 追蹤 AI 引用帶來的流量</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gtag</span>(<span class="st">&#39;config&#39;</span><span class="op">,</span> <span class="st">&#39;GA_MEASUREMENT_ID&#39;</span><span class="op">,</span> {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">custom_map</span><span class="op">:</span> {</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;custom_parameter_1&#39;</span><span class="op">:</span> <span class="st">&#39;ai_source&#39;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">// 標記來自 AI 平台的訪問</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">gtag</span>(<span class="st">&#39;event&#39;</span><span class="op">,</span> <span class="st">&#39;ai_referral&#39;</span><span class="op">,</span> {</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;ai_source&#39;</span><span class="op">:</span> <span class="st">&#39;chatgpt&#39;</span><span class="op">,</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;content_type&#39;</span><span class="op">:</span> <span class="st">&#39;geo_optimized&#39;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<h2 id="內容優化工具">🎯 內容優化工具</h2>
+<h3 id="ai-友善寫作工具">✍️ AI 友善寫作工具</h3>
+<h4 id="內容結構優化">內容結構優化</h4>
+<ul>
+<li><strong><a
+href="https://answerthepublic.com/">AnswerThePublic</a></strong>
+<ul>
+<li>功能：發現用戶常問的問題</li>
+<li>GEO 用途：建立 FAQ 內容、優化問答結構</li>
+</ul></li>
+<li><strong><a href="https://alsoasked.com/">AlsoAsked</a></strong>
+<ul>
+<li>功能：分析相關問題脈絡</li>
+<li>GEO 用途：擴充內容涵蓋面、提升觸發機會</li>
+</ul></li>
+</ul>
+<h4 id="多模態內容製作">多模態內容製作</h4>
+<ul>
+<li><strong><a href="https://www.canva.com/">Canva</a></strong>
+<ul>
+<li>GEO 用途：製作資訊圖表，提升內容視覺化程度</li>
+<li>特色：模板豐富、操作簡單</li>
+</ul></li>
+<li><strong><a href="https://www.loom.com/">Loom</a></strong>
+<ul>
+<li>GEO 用途：錄製教學影片，豐富內容形式</li>
+<li>優點：自動生成字幕、便於分享</li>
+</ul></li>
+</ul>
+<h3 id="內鏈優化工具">🔗 內鏈優化工具</h3>
+<h4 id="wordpress-外掛">WordPress 外掛</h4>
+<ul>
+<li><strong>Link Whisper</strong>
+<ul>
+<li>功能：AI 驅動的內鏈建議</li>
+<li>GEO 價值：建立 Semantic Mesh 架構</li>
+</ul></li>
+<li><strong>Internal Link Juicer</strong>
+<ul>
+<li>功能：自動化內鏈管理</li>
+<li>特點：關鍵詞對應、批量處理</li>
+</ul></li>
+</ul>
+<h4 id="通用網站工具">通用網站工具</h4>
+<ul>
+<li><strong><a href="https://www.screamingfrog.co.uk/">Screaming
+Frog</a></strong>
+<ul>
+<li>功能：站內連結結構分析</li>
+<li>GEO 用途：檢查內容網絡完整性</li>
+</ul></li>
+</ul>
+<h2 id="使用建議">💡 使用建議</h2>
+<h3 id="初學者工具組合">🎯 初學者工具組合</h3>
+<ol type="1">
+<li><strong>基礎監控</strong>：ChatGPT + Claude 手動測試</li>
+<li><strong>內容優化</strong>：Hemingway Editor + Grammarly</li>
+<li><strong>結構檢查</strong>：Google 結構化資料工具</li>
+<li><strong>效果追蹤</strong>：Google Analytics 基礎追蹤</li>
+</ol>
+<h3 id="進階者工具組合">🚀 進階者工具組合</h3>
+<ol type="1">
+<li><strong>全面監控</strong>：5 大 AI 平台 + 自動化腳本</li>
+<li><strong>深度分析</strong>：Ahrefs + SEMrush + 語義分析 API</li>
+<li><strong>專業優化</strong>：自建評估系統 + Schema 生成器</li>
+<li><strong>企業追蹤</strong>：客製化儀表板 + 多維度指標</li>
+</ol>
+<h3 id="工具使用時程表">📅 工具使用時程表</h3>
+<h4 id="每日檢查5分鐘">每日檢查（5分鐘）</h4>
+<ul class="task-list">
+<li><label><input type="checkbox" />查看 Google Analytics
+流量來源</label></li>
+<li><label><input type="checkbox" />檢查是否有新的 AI
+引用通知</label></li>
+</ul>
+<h4 id="每週分析30分鐘">每週分析（30分鐘）</h4>
+<ul class="task-list">
+<li><label><input type="checkbox" />在 3-5 個 AI
+平台測試核心問題</label></li>
+<li><label><input type="checkbox" />記錄引用情況和準確性</label></li>
+<li><label><input type="checkbox" />更新追蹤表格</label></li>
+</ul>
+<h4 id="每月深度檢討2小時">每月深度檢討（2小時）</h4>
+<ul class="task-list">
+<li><label><input type="checkbox" />分析引用趨勢和模式</label></li>
+<li><label><input
+type="checkbox" />識別表現最佳和最差的內容</label></li>
+<li><label><input type="checkbox" />制定下月優化計畫</label></li>
+<li><label><input type="checkbox" />更新工具設定和監控清單</label></li>
+</ul>
+<h2 id="相關資源">🔗 相關資源</h2>
+<ul>
+<li>📖 <a href="../posts/ai-citation-tracking.html">AI
+引用追蹤完全指南</a></li>
+<li>📋 <a href="checklists.html">GEO 優化檢查清單</a></li>
+<li>🛠️ <a href="schema-generator.html">Schema 產生器工具</a></li>
+<li>📝 <a href="content-templates.html">內容模板庫</a></li>
+</ul>
+<hr />
+<p><strong>選擇合適的工具組合，建立系統性的 GEO 評估流程，是提升 AI
+引用率的關鍵第一步！</strong></p>
+<p><strong>最後更新</strong>：2025-07-06 | <a
+href="https://github.com/bless25min/AIOGEO-Knowledge/issues">問題回報</a>
+| <a
+href="https://github.com/bless25min/AIOGEO-Knowledge/discussions">建議改善</a></p>
     </main>
     
     <footer>
+      <div class="footer-links">
+        <a href="about.html" class="footer-link">關於作者</a>
+        <a href="contributing.html" class="footer-link">參與貢獻</a>
+        <a href="https://github.com/bless25min/AIOGEO-Knowledge" class="footer-link" target="_blank">GitHub</a>
+      </div>
       <p>&copy; 2025 AIOGEO 知識庫 | 讓 AI 看見你的內容</p>
     </footer>
   </div>

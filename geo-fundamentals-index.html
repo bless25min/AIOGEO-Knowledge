@@ -3,222 +3,225 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GEO 基礎索引 | AIOGEO 知識庫</title>
-  <meta name="description" content="GEO 基礎理論體系的完整索引，系統性學習生成式引擎優化的核心概念">
-  <meta name="keywords" content="GEO, 生成式引擎優化, AI搜尋, GEO 基礎索引, 廖天佑, Bless Liao">
+  <title>GEO基礎原理完整指南 | AIOGEO 知識庫</title>
+  <meta name="description" content="GEO基礎原理完整指南 - AIOGEO知識庫專業內容">
   <meta name="author" content="廖天佑 Bless Liao">
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="GEO 基礎索引 | AIOGEO 知識庫">
-  <meta property="og:description" content="GEO 基礎理論體系的完整索引，系統性學習生成式引擎優化的核心概念">
+  <meta property="og:title" content="GEO基礎原理完整指南 | AIOGEO 知識庫">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://bless25min.github.io/AIOGEO-Knowledge/geo-fundamentals-index.html">
-  <meta property="og:site_name" content="AIOGEO 知識庫">
-  
-  <!-- Schema.org JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "GEO 基礎索引",
-    "description": "GEO 基礎理論體系的完整索引，系統性學習生成式引擎優化的核心概念",
-    "author": {
-      "@type": "Person",
-      "name": "廖天佑 Bless Liao",
-      "url": "https://github.com/bless25min"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "AIOGEO 知識庫",
-      "url": "https://bless25min.github.io/AIOGEO-Knowledge/"
-    },
-    "datePublished": "2025-07-08",
-    "dateModified": "2025-07-08",
-    "mainEntityOfPage": "https://bless25min.github.io/AIOGEO-Knowledge/geo-fundamentals-index.html",
-    "keywords": ["GEO", "生成式引擎優化", "AI搜尋", "GEO 基礎索引"],
-    "articleSection": "基礎理論",
-    "inLanguage": "zh-TW"
-  }
-  </script>
   
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif; 
+      line-height: 1.8; color: #1f2937; background: #f9fafb; 
     }
+    .container { max-width: 900px; margin: 0 auto; background: white; min-height: 100vh; box-shadow: 0 0 30px rgba(0,0,0,0.1); }
+    header { background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; padding: 40px; text-align: center; }
+    h1 { font-size: 2.5em; font-weight: 800; margin-bottom: 15px; }
+    nav { background: #1f2937; padding: 15px 40px; }
+    .nav-links { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
+    .nav-link { color: #d1d5db; text-decoration: none; padding: 8px 16px; border-radius: 6px; transition: all 0.3s ease; }
+    .nav-link:hover { background: #374151; color: white; }
+    main { padding: 50px 40px; }
     
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
-      line-height: 1.8;
-      color: #1f2937;
-      background: #f9fafb;
-    }
+    h2 { color: #1f2937; font-size: 1.8em; margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 3px solid #6366f1; }
+    h3 { color: #374151; font-size: 1.4em; margin: 30px 0 15px; }
+    h4 { color: #374151; font-size: 1.2em; margin: 25px 0 10px; }
+    p { margin: 15px 0; line-height: 1.7; }
     
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: white;
-      min-height: 100vh;
-      box-shadow: 0 0 30px rgba(0,0,0,0.1);
-    }
+    pre { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 20px 0; overflow-x: auto; }
+    code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-family: 'Monaco', 'Consolas', monospace; font-size: 0.9em; }
+    pre code { background: none; padding: 0; }
     
-    header {
-      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-      color: white;
-      padding: 40px;
-      text-align: center;
-    }
+    ul, ol { margin: 15px 0 15px 30px; }
+    li { margin: 8px 0; line-height: 1.6; }
     
-    .breadcrumb {
-      font-size: 0.9em;
-      opacity: 0.9;
-      margin-bottom: 15px;
-    }
+    table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    th, td { border: 1px solid #e5e7eb; padding: 12px; text-align: left; }
+    th { background: #f9fafb; font-weight: 600; }
     
-    .breadcrumb a {
-      color: white;
-      text-decoration: none;
-    }
+    blockquote { border-left: 4px solid #6366f1; background: #f8fafc; padding: 15px 20px; margin: 20px 0; font-style: italic; }
     
-    h1 {
-      font-size: 2.5em;
-      font-weight: 800;
-      margin-bottom: 15px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-    }
+    a { color: #6366f1; text-decoration: none; }
+    a:hover { text-decoration: underline; }
     
-    .article-meta {
-      font-size: 1em;
-      opacity: 0.9;
-    }
-    
-    nav {
-      background: #1f2937;
-      padding: 15px 40px;
-    }
-    
-    .nav-links {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      flex-wrap: wrap;
-    }
-    
-    .nav-link {
-      color: #d1d5db;
-      text-decoration: none;
-      padding: 8px 16px;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-    }
-    
-    .nav-link:hover {
-      background: #374151;
-      color: white;
-    }
-    
-    main {
-      padding: 50px 40px;
-      text-align: center;
-    }
-    
-    .coming-soon {
-      background: #f0f9ff;
-      border: 2px solid #0ea5e9;
-      border-radius: 15px;
-      padding: 60px 40px;
-      margin: 40px 0;
-    }
-    
-    .coming-soon h2 {
-      color: #0c4a6e;
-      font-size: 2em;
-      margin-bottom: 20px;
-    }
-    
-    .coming-soon p {
-      color: #075985;
-      font-size: 1.2em;
-      margin-bottom: 30px;
-    }
-    
-    .back-link {
-      display: inline-block;
-      background: #6366f1;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-    
-    .back-link:hover {
-      background: #4f46e5;
-      transform: translateY(-2px);
-    }
-    
-    footer {
-      background: #1f2937;
-      color: #d1d5db;
-      padding: 40px;
-      text-align: center;
-    }
+    .summary { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border: 2px solid #0ea5e9; border-radius: 12px; padding: 24px; margin: 20px 0 30px 0; font-size: 1.1em; line-height: 1.7; }
     
     @media (max-width: 768px) {
-      header, main, footer {
-        padding: 30px 20px;
-      }
-      
-      nav {
-        padding: 15px 20px;
-      }
-      
-      h1 {
-        font-size: 2em;
-      }
-      
-      .coming-soon {
-        padding: 40px 20px;
-      }
+      .container { margin: 0; box-shadow: none; }
+      header { padding: 30px 20px; }
+      h1 { font-size: 2em; }
+      main { padding: 30px 20px; }
     }
+    
+    footer { background: #1f2937; color: white; text-align: center; padding: 30px; }
+    .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 15px; flex-wrap: wrap; }
+    .footer-link { color: #d1d5db; text-decoration: none; transition: color 0.3s ease; }
+    .footer-link:hover { color: #6366f1; }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
       <div class="breadcrumb">
-        <a href="index.html">🏠 AIOGEO 知識庫</a> > 基礎理論
+        <a href="index.html" style="color: white; text-decoration: none;">AIOGEO 知識庫</a> / GEO基礎原理完整指南
       </div>
-      <h1>GEO 基礎索引</h1>
+      <h1>GEO基礎原理完整指南</h1>
       <div class="article-meta">
-        📅 最後更新：2025年7月8日 | 👤 作者：廖天佑 Bless Liao
+        作者：廖天佑 Bless Liao | 更新時間：2025-07-07
       </div>
     </header>
     
     <nav>
       <div class="nav-links">
         <a href="index.html" class="nav-link">🏠 首頁</a>
-        <a href="geo-fundamentals.html" class="nav-link">📚 GEO 基礎</a>
-        <a href="tools-checklists.html" class="nav-link">🛠️ 工具</a>
         <a href="about.html" class="nav-link">👤 關於</a>
         <a href="contributing.html" class="nav-link">🤝 貢獻</a>
+        <a href="https://github.com/bless25min/AIOGEO-Knowledge" class="nav-link" target="_blank">📂 GitHub</a>
       </div>
     </nav>
     
     <main>
-      <div class="coming-soon">
-        <h2>🚧 內容建設中</h2>
-        <p>
-          《GEO 基礎索引》正在精心撰寫中，我們致力於提供最高品質的 GEO 專業內容。
-          敬請期待這篇深度解析文章的發布！
-        </p>
-        <a href="index.html" class="back-link">🏠 返回首頁</a>
-      </div>
+<h1 id="geo基礎原理完整指南">GEO基礎原理完整指南</h1>
+<blockquote>
+<p><strong>系統性掌握生成式引擎優化</strong>：從理論基礎到實戰應用的完整學習路徑</p>
+</blockquote>
+<section class="summary">
+本指南將系統性地介紹GEO（生成式引擎優化）的完整知識體系，包含基礎概念、內容設計、技術實作和成效評估四大核心主題。適合內容創作者、數位行銷人員和技術開發者學習，預計總學習時間40分鐘。完成後您將能夠設計出更容易被AI搜尋工具引用的高品質內容。
+</section>
+<h2 id="為什麼需要學習geo">🎯 為什麼需要學習GEO？</h2>
+<p>在AI搜尋時代，用戶越來越依賴ChatGPT、Claude、Perplexity等工具的整合答案，而非點擊多個連結比較資訊。<strong>能否被AI「看見、理解並引用」，將決定內容的長期價值和品牌曝光度。</strong></p>
+<p>傳統SEO專注於搜尋引擎排名，而GEO則專注於讓內容更容易被AI理解和引用。這是兩種互補而非競爭的策略。</p>
+<h2 id="完整學習路徑">📚 完整學習路徑</h2>
+<h3 id="第一階段理論基礎10分鐘">🎓 第一階段：理論基礎（10分鐘）</h3>
+<h4 id="geo概念與原理"><a href="geo-fundamentals-overview.html">📖
+GEO概念與原理</a></h4>
+<p><strong>學習目標</strong>：建立GEO基礎認知<br />
+<strong>核心內容</strong>： - 什麼是生成式引擎優化？ -
+GEO與SEO的根本差異 - AI搜尋時代的內容策略轉變 - 三層語意可見性架構</p>
+<p><strong>適合對象</strong>：完全新手、決策主管<br />
+<strong>建議閱讀時間</strong>：⏱️ 8分鐘</p>
+<hr />
+<h3 id="第二階段內容設計15分鐘">🛠️ 第二階段：內容設計（15分鐘）</h3>
+<h4 id="內容結構化設計實戰"><a
+href="geo-fundamentals-content-design.html">✍️
+內容結構化設計實戰</a></h4>
+<p><strong>學習目標</strong>：掌握AI友善的內容撰寫技巧<br />
+<strong>核心內容</strong>： - Answer Layer語段設計原理 -
+段落結構最佳化方法 - 標題層級規劃策略 - FAQ模組標準格式 -
+語意錨定實作技巧</p>
+<p><strong>適合對象</strong>：內容創作者、編輯、文案撰寫者<br />
+<strong>建議閱讀時間</strong>：⏱️ 12分鐘</p>
+<hr />
+<h3 id="第三階段技術實作12分鐘">⚙️ 第三階段：技術實作（12分鐘）</h3>
+<h4 id="技術實作與schema標記"><a
+href="geo-fundamentals-technical.html">🔧 技術實作與Schema標記</a></h4>
+<p><strong>學習目標</strong>：學會技術層面的GEO優化<br />
+<strong>核心內容</strong>： - Schema.org結構化資料標準 -
+HTML語意標記最佳實務 - JSON-LD實作指南 - 權威信號建立方法 -
+技術實作檢查清單</p>
+<p><strong>適合對象</strong>：網頁開發者、SEO技術人員<br />
+<strong>建議閱讀時間</strong>：⏱️ 10分鐘</p>
+<hr />
+<h3 id="第四階段成效評估13分鐘">📊 第四階段：成效評估（13分鐘）</h3>
+<h4 id="成效評估與優化策略"><a
+href="geo-fundamentals-measurement.html">📈 成效評估與優化策略</a></h4>
+<p><strong>學習目標</strong>：建立量化評估和持續優化能力<br />
+<strong>核心內容</strong>： - GEO五大關鍵指標 - AI引用率測試方法 -
+常見優化錯誤分析 - 持續改進策略框架 - 推薦工具和資源</p>
+<p><strong>適合對象</strong>：數位行銷分析師、專案管理者<br />
+<strong>建議閱讀時間</strong>：⏱️ 10分鐘</p>
+<h2 id="快速開始指南">🎯 快速開始指南</h2>
+<h3 id="新手建議路徑">🌱 新手建議路徑</h3>
+<p>如果您是GEO新手，建議依序閱讀： 1. <strong>概念理解</strong> → 2.
+<strong>內容設計</strong> → 3. <strong>基礎技術</strong> → 4.
+<strong>成效評估</strong></p>
+<h3 id="快速應用路徑">⚡ 快速應用路徑</h3>
+<p>如果您想立即開始優化現有內容： 1. <strong>內容設計</strong> → 2.
+<strong>技術實作</strong> → 3. <strong>成效評估</strong> → 4.
+<strong>概念深化</strong></p>
+<h3 id="專業進階路徑">🎓 專業進階路徑</h3>
+<p>如果您需要建立團隊能力： 1. <strong>概念理解</strong> → 2.
+<strong>成效評估</strong> → 3. <strong>內容設計</strong> → 4.
+<strong>技術實作</strong></p>
+<h2 id="延伸學習資源">🔗 延伸學習資源</h2>
+<h3 id="進階主題">🚀 進階主題</h3>
+<ul>
+<li><a href="semantic-mesh.html">🕸️ Semantic Mesh內容網架構</a></li>
+<li><a href="multimodal-optimization.html">🎨 多模態轉譯策略</a><br />
+</li>
+<li><a href="seo-geo-integration.html">⚖️ SEO×GEO雙軌整合</a></li>
+</ul>
+<h3 id="實用工具">📊 實用工具</h3>
+<ul>
+<li><a href="tools/geo-checklist.html">📋 GEO優化檢查清單</a></li>
+<li><a href="tools/content-templates.html">📝 內容模板庫</a></li>
+<li><a href="tools/technical-tools.html">🔧 技術實作工具</a></li>
+</ul>
+<h3 id="社群支援">🤝 社群支援</h3>
+<ul>
+<li><a
+href="https://github.com/bless25min/AIOGEO-Knowledge/discussions">💬
+GitHub討論區</a></li>
+<li><a href="https://github.com/bless25min/AIOGEO-Knowledge/issues">🐛
+問題回報</a></li>
+<li><a href="../about.html">👥 關於作者</a></li>
+</ul>
+<h2 id="學習檢查清單">✅ 學習檢查清單</h2>
+<p>完成每個階段後，請確認以下學習成果：</p>
+<h3 id="第一階段完成標誌">📖 第一階段完成標誌</h3>
+<ul class="task-list">
+<li><label><input
+type="checkbox" />能清楚解釋GEO與SEO的差異</label></li>
+<li><label><input
+type="checkbox" />理解AI搜尋時代的內容挑戰</label></li>
+<li><label><input type="checkbox" />掌握三層語意可見性概念</label></li>
+</ul>
+<h3 id="第二階段完成標誌">✍️ 第二階段完成標誌</h3>
+<ul class="task-list">
+<li><label><input
+type="checkbox" />能撰寫150-500字的語意獨立段落</label></li>
+<li><label><input type="checkbox" />會設計有效的Answer
+Layer語段</label></li>
+<li><label><input type="checkbox" />掌握FAQ模組的標準格式</label></li>
+</ul>
+<h3 id="第三階段完成標誌">🔧 第三階段完成標誌</h3>
+<ul class="task-list">
+<li><label><input
+type="checkbox" />能正確實作Schema.org標記</label></li>
+<li><label><input
+type="checkbox" />理解HTML語意標記的重要性</label></li>
+<li><label><input type="checkbox" />會建立權威信號和可信度</label></li>
+</ul>
+<h3 id="第四階段完成標誌">📊 第四階段完成標誌</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />能量化評估GEO優化效果</label></li>
+<li><label><input
+type="checkbox" />會在AI工具中測試內容引用情況</label></li>
+<li><label><input type="checkbox" />建立持續優化的工作流程</label></li>
+</ul>
+<h2 id="完成後的下一步">🎉 完成後的下一步</h2>
+<p>恭喜您完成GEO基礎原理學習！建議您：</p>
+<ol type="1">
+<li><strong>實戰應用</strong>：選擇1-2篇現有內容進行GEO優化</li>
+<li><strong>效果驗證</strong>：2週後測試AI引用情況</li>
+<li><strong>深度學習</strong>：探索進階主題如Semantic Mesh</li>
+<li><strong>知識分享</strong>：與團隊分享學習心得和實戰經驗</li>
+</ol>
+<hr />
+<p><em>本指南為AIOGEO知識庫核心內容，持續更新中。歡迎提供回饋和建議！</em></p>
+<p><strong>🏷️ 標籤</strong>：<code>GEO基礎</code>
+<code>AI搜尋優化</code> <code>內容策略</code> <code>技術實作</code>
+<code>成效評估</code></p>
     </main>
     
     <footer>
+      <div class="footer-links">
+        <a href="about.html" class="footer-link">關於作者</a>
+        <a href="contributing.html" class="footer-link">參與貢獻</a>
+        <a href="https://github.com/bless25min/AIOGEO-Knowledge" class="footer-link" target="_blank">GitHub</a>
+      </div>
       <p>&copy; 2025 AIOGEO 知識庫 | 讓 AI 看見你的內容</p>
     </footer>
   </div>

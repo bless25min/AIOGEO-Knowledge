@@ -3,408 +3,189 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>隱私政策 | AIOGEO 知識庫</title>
-  <meta name="description" content="AIOGEO 知識庫的隱私保護政策和數據使用說明">
-  <meta name="keywords" content="GEO, 生成式引擎優化, AI搜尋, 隱私政策, 廖天佑, Bless Liao">
+  <title>🔒 AIOGEO GPTs 隱私權政策 | AIOGEO 知識庫</title>
+  <meta name="description" content="🔒 AIOGEO GPTs 隱私權政策 - AIOGEO知識庫專業內容">
   <meta name="author" content="廖天佑 Bless Liao">
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="隱私政策 | AIOGEO 知識庫">
-  <meta property="og:description" content="AIOGEO 知識庫的隱私保護政策和數據使用說明">
+  <meta property="og:title" content="🔒 AIOGEO GPTs 隱私權政策 | AIOGEO 知識庫">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://bless25min.github.io/AIOGEO-Knowledge/privacy.html">
-  <meta property="og:site_name" content="AIOGEO 知識庫">
-  
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="隱私政策 | AIOGEO 知識庫">
-  <meta name="twitter:description" content="AIOGEO 知識庫的隱私保護政策和數據使用說明">
-  
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://bless25min.github.io/AIOGEO-Knowledge/privacy.html">
-  
-  <!-- Schema.org JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "隱私政策",
-    "description": "AIOGEO 知識庫的隱私保護政策和數據使用說明",
-    "author": {
-      "@type": "Person",
-      "name": "廖天佑 Bless Liao",
-      "url": "https://github.com/bless25min"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "AIOGEO 知識庫",
-      "url": "https://bless25min.github.io/AIOGEO-Knowledge/"
-    },
-    "datePublished": "2025-07-08",
-    "dateModified": "2025-07-08",
-    "mainEntityOfPage": "https://bless25min.github.io/AIOGEO-Knowledge/privacy.html",
-    "keywords": ["GEO", "生成式引擎優化", "AI搜尋", "隱私政策"],
-    "articleSection": "關於專案",
-    "inLanguage": "zh-TW"
-  }
-  </script>
   
   <style>
-    /* 統一的文章頁面樣式 */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif; 
+      line-height: 1.8; color: #1f2937; background: #f9fafb; 
     }
+    .container { max-width: 900px; margin: 0 auto; background: white; min-height: 100vh; box-shadow: 0 0 30px rgba(0,0,0,0.1); }
+    header { background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; padding: 40px; text-align: center; }
+    h1 { font-size: 2.5em; font-weight: 800; margin-bottom: 15px; }
+    nav { background: #1f2937; padding: 15px 40px; }
+    .nav-links { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
+    .nav-link { color: #d1d5db; text-decoration: none; padding: 8px 16px; border-radius: 6px; transition: all 0.3s ease; }
+    .nav-link:hover { background: #374151; color: white; }
+    main { padding: 50px 40px; }
     
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
-      line-height: 1.8;
-      color: #1f2937;
-      background: #f9fafb;
-    }
+    h2 { color: #1f2937; font-size: 1.8em; margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 3px solid #6366f1; }
+    h3 { color: #374151; font-size: 1.4em; margin: 30px 0 15px; }
+    h4 { color: #374151; font-size: 1.2em; margin: 25px 0 10px; }
+    p { margin: 15px 0; line-height: 1.7; }
     
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: white;
-      min-height: 100vh;
-      box-shadow: 0 0 30px rgba(0,0,0,0.1);
-    }
+    pre { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 20px 0; overflow-x: auto; }
+    code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-family: 'Monaco', 'Consolas', monospace; font-size: 0.9em; }
+    pre code { background: none; padding: 0; }
     
-    header {
-      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-      color: white;
-      padding: 40px;
-      text-align: center;
-    }
+    ul, ol { margin: 15px 0 15px 30px; }
+    li { margin: 8px 0; line-height: 1.6; }
     
-    .breadcrumb {
-      font-size: 0.9em;
-      opacity: 0.9;
-      margin-bottom: 15px;
-    }
+    table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    th, td { border: 1px solid #e5e7eb; padding: 12px; text-align: left; }
+    th { background: #f9fafb; font-weight: 600; }
     
-    .breadcrumb a {
-      color: white;
-      text-decoration: none;
-    }
+    blockquote { border-left: 4px solid #6366f1; background: #f8fafc; padding: 15px 20px; margin: 20px 0; font-style: italic; }
     
-    h1 {
-      font-size: 2.5em;
-      font-weight: 800;
-      margin-bottom: 15px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-    }
+    a { color: #6366f1; text-decoration: none; }
+    a:hover { text-decoration: underline; }
     
-    .article-meta {
-      font-size: 1em;
-      opacity: 0.9;
-    }
+    .summary { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border: 2px solid #0ea5e9; border-radius: 12px; padding: 24px; margin: 20px 0 30px 0; font-size: 1.1em; line-height: 1.7; }
     
-    nav {
-      background: #1f2937;
-      padding: 15px 40px;
-    }
-    
-    .nav-links {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      flex-wrap: wrap;
-    }
-    
-    .nav-link {
-      color: #d1d5db;
-      text-decoration: none;
-      padding: 8px 16px;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-    }
-    
-    .nav-link:hover {
-      background: #374151;
-      color: white;
-    }
-    
-    main {
-      padding: 50px 40px;
-    }
-    
-    .article-content h2 {
-      color: #1f2937;
-      font-size: 1.8em;
-      margin: 40px 0 20px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #e5e7eb;
-    }
-    
-    .article-content h3 {
-      color: #374151;
-      font-size: 1.4em;
-      margin: 30px 0 15px;
-    }
-    
-    .article-content h4 {
-      color: #4b5563;
-      font-size: 1.2em;
-      margin: 25px 0 10px;
-    }
-    
-    .article-content p {
-      margin-bottom: 20px;
-      color: #374151;
-    }
-    
-    .article-content ul, .article-content ol {
-      margin: 20px 0;
-      padding-left: 30px;
-    }
-    
-    .article-content li {
-      margin-bottom: 8px;
-      color: #374151;
-    }
-    
-    .article-content code {
-      background: #f3f4f6;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-family: 'JetBrains Mono', 'Fira Code', monospace;
-      color: #dc2626;
-    }
-    
-    .article-content pre {
-      background: #1f2937;
-      color: #f9fafb;
-      padding: 20px;
-      border-radius: 8px;
-      overflow-x: auto;
-      margin: 20px 0;
-    }
-    
-    .article-content blockquote {
-      border-left: 4px solid #6366f1;
-      padding-left: 20px;
-      margin: 20px 0;
-      color: #4b5563;
-      font-style: italic;
-    }
-    
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: #6366f1;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      transition: all 0.3s ease;
-    }
-    
-    .back-to-top:hover {
-      background: #4f46e5;
-      transform: translateY(-2px);
-    }
-    
-    footer {
-      background: #1f2937;
-      color: #d1d5db;
-      padding: 40px;
-      text-align: center;
-    }
-    
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-    
-    .footer-link {
-      color: #d1d5db;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    
-    .footer-link:hover {
-      color: white;
-    }
-    
-    /* 響應式設計 */
     @media (max-width: 768px) {
-      header, main, footer {
-        padding: 30px 20px;
-      }
-      
-      nav {
-        padding: 15px 20px;
-      }
-      
-      h1 {
-        font-size: 2em;
-      }
-      
-      .nav-links {
-        gap: 15px;
-      }
-      
-      .back-to-top {
-        bottom: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
-      }
+      .container { margin: 0; box-shadow: none; }
+      header { padding: 30px 20px; }
+      h1 { font-size: 2em; }
+      main { padding: 30px 20px; }
     }
+    
+    footer { background: #1f2937; color: white; text-align: center; padding: 30px; }
+    .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 15px; flex-wrap: wrap; }
+    .footer-link { color: #d1d5db; text-decoration: none; transition: color 0.3s ease; }
+    .footer-link:hover { color: #6366f1; }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
       <div class="breadcrumb">
-        <a href="index.html">🏠 AIOGEO 知識庫</a> > 關於專案
+        <a href="index.html" style="color: white; text-decoration: none;">AIOGEO 知識庫</a> / 🔒 AIOGEO GPTs 隱私權政策
       </div>
-      <h1>隱私政策</h1>
+      <h1>🔒 AIOGEO GPTs 隱私權政策</h1>
       <div class="article-meta">
-        📅 最後更新：2025年7月8日 | 👤 作者：廖天佑 Bless Liao
+        作者：廖天佑 Bless Liao | 更新時間：2025-07-07
       </div>
     </header>
     
     <nav>
       <div class="nav-links">
         <a href="index.html" class="nav-link">🏠 首頁</a>
-        <a href="geo-fundamentals.html" class="nav-link">📚 GEO 基礎</a>
-        <a href="tools-checklists.html" class="nav-link">🛠️ 工具</a>
         <a href="about.html" class="nav-link">👤 關於</a>
         <a href="contributing.html" class="nav-link">🤝 貢獻</a>
+        <a href="https://github.com/bless25min/AIOGEO-Knowledge" class="nav-link" target="_blank">📂 GitHub</a>
       </div>
     </nav>
     
     <main>
-      <article class="article-content">
-        <h1>🔒 AIOGEO GPTs 隱私權政策</h1>
-
-<h2>📋 資料收集說明</h2>
-
-<h3>🔍 我們收集的資料</h3>
-<p>本 GPT 助理在運作過程中可能接觸到以下資訊：</p>
-<li>您提交的內容文本（用於 GEO 分析）</li>
-<li>您的查詢問題和對話內容</li>
-<li>使用功能的統計資料（如搜尋頻率）</li>
-
-<h3>🚫 我們不會收集的資料</h3>
+<h1 id="aiogeo-gpts-隱私權政策">🔒 AIOGEO GPTs 隱私權政策</h1>
+<h2 id="資料收集說明">📋 資料收集說明</h2>
+<h3 id="我們收集的資料">🔍 我們收集的資料</h3>
+<p>本 GPT 助理在運作過程中可能接觸到以下資訊： - 您提交的內容文本（用於
+GEO 分析） - 您的查詢問題和對話內容 -
+使用功能的統計資料（如搜尋頻率）</p>
+<h3 id="我們不會收集的資料">🚫 我們不會收集的資料</h3>
+<ul>
 <li>個人身份識別資訊（姓名、電子郵件、電話等）</li>
 <li>財務或支付資訊</li>
 <li>敏感的個人資料</li>
 <li>裝置位置資訊</li>
-
-<h2>🔒 資料使用方式</h2>
-
-<h3>✅ 合法使用目的</h3>
-<p>您提供的資料僅用於：</p>
-<p>1. <strong>提供 GEO 分析服務</strong>：分析您提交的內容並提供優化建議</p>
-<p>2. <strong>改善服務品質</strong>：優化回答準確性和服務體驗</p>
-<p>3. <strong>知識庫檢索</strong>：從 AIOGEO GitHub 知識庫中檢索相關資訊</p>
-
-<h3>🛡️ 資料保護措施</h3>
+</ul>
+<h2 id="資料使用方式">🔒 資料使用方式</h2>
+<h3 id="合法使用目的">✅ 合法使用目的</h3>
+<p>您提供的資料僅用於： 1. <strong>提供 GEO
+分析服務</strong>：分析您提交的內容並提供優化建議 2.
+<strong>改善服務品質</strong>：優化回答準確性和服務體驗 3.
+<strong>知識庫檢索</strong>：從 AIOGEO GitHub 知識庫中檢索相關資訊</p>
+<h3 id="資料保護措施">🛡️ 資料保護措施</h3>
+<ul>
 <li>所有對話透過 OpenAI 的安全連線進行</li>
 <li>不會將您的內容儲存在第三方伺服器</li>
 <li>遵循 OpenAI 的資料保護政策</li>
-
-<h2>🌐 第三方服務</h2>
-
-<h3>GitHub API</h3>
-<p>本服務使用 GitHub API 檢索 AIOGEO 知識庫內容：</p>
-<li><strong>目的</strong>：獲取最新的 GEO 相關文章和資源</li>
-<li><strong>範圍</strong>：僅檢索公開的知識庫內容</li>
-<li><strong>隱私</strong>：不會上傳您的個人資料到 GitHub</li>
-
-<h3>OpenAI 平台</h3>
-<p>本 GPT 運行在 OpenAI 平台上：</p>
-<li>遵循 [OpenAI 使用政策](https://openai.com/policies/usage-policies)</li>
-<li>適用 [OpenAI 隱私權政策](https://openai.com/policies/privacy-policy)</li>
-
-<h2>🔄 資料保留</h2>
-
-<h3>對話資料</h3>
+</ul>
+<h2 id="第三方服務">🌐 第三方服務</h2>
+<h3 id="github-api">GitHub API</h3>
+<p>本服務使用 GitHub API 檢索 AIOGEO 知識庫內容： -
+<strong>目的</strong>：獲取最新的 GEO 相關文章和資源 -
+<strong>範圍</strong>：僅檢索公開的知識庫內容 -
+<strong>隱私</strong>：不會上傳您的個人資料到 GitHub</p>
+<h3 id="openai-平台">OpenAI 平台</h3>
+<p>本 GPT 運行在 OpenAI 平台上： - 遵循 <a
+href="https://openai.com/policies/usage-policies">OpenAI 使用政策</a> -
+適用 <a href="https://openai.com/policies/privacy-policy">OpenAI
+隱私權政策</a></p>
+<h2 id="資料保留">🔄 資料保留</h2>
+<h3 id="對話資料">對話資料</h3>
+<ul>
 <li>對話內容依據 OpenAI 政策管理</li>
 <li>不會無限期保留個人對話記錄</li>
 <li>用戶可隨時刪除對話記錄</li>
-
-<h3>分析資料</h3>
+</ul>
+<h3 id="分析資料">分析資料</h3>
+<ul>
 <li>用於 GEO 分析的內容僅在服務期間使用</li>
 <li>不會創建永久性的個人檔案</li>
 <li>統計資料採匿名化處理</li>
-
-<h2>👤 用戶權利</h2>
-
-<h3>您的控制權</h3>
+</ul>
+<h2 id="用戶權利">👤 用戶權利</h2>
+<h3 id="您的控制權">您的控制權</h3>
+<ul>
 <li><strong>存取權</strong>：可隨時查看您的對話記錄</li>
 <li><strong>修正權</strong>：可要求修正不準確的資訊</li>
 <li><strong>刪除權</strong>：可隨時刪除對話記錄</li>
 <li><strong>拒絕權</strong>：可選擇不使用本服務</li>
-
-<h3>行使權利方式</h3>
-<p>如需行使上述權利，請：</p>
-<p>1. 透過 ChatGPT 介面直接管理對話記錄</p>
-<p>2. 聯絡 OpenAI 客服處理相關請求</p>
-<p>3. 參考 OpenAI 官方指導文件</p>
-
-<h2>🛠️ 服務特性說明</h2>
-
-<h3>開源知識庫</h3>
+</ul>
+<h3 id="行使權利方式">行使權利方式</h3>
+<p>如需行使上述權利，請： 1. 透過 ChatGPT 介面直接管理對話記錄 2. 聯絡
+OpenAI 客服處理相關請求 3. 參考 OpenAI 官方指導文件</p>
+<h2 id="服務特性說明">🛠️ 服務特性說明</h2>
+<h3 id="開源知識庫">開源知識庫</h3>
+<ul>
 <li>本服務基於公開的 AIOGEO 知識庫</li>
 <li>所有檢索的內容均為公開資訊</li>
 <li>知識庫內容遵循開源授權條款</li>
-
-<h3>專業諮詢服務</h3>
+</ul>
+<h3 id="專業諮詢服務">專業諮詢服務</h3>
+<ul>
 <li>提供 GEO（生成式引擎優化）專業建議</li>
 <li>基於學術研究和最佳實務</li>
 <li>不涉及商業推廣或銷售</li>
-
-<h2>📞 聯絡資訊</h2>
-
-<h3>服務提供者</h3>
+</ul>
+<h2 id="聯絡資訊">📞 聯絡資訊</h2>
+<h3 id="服務提供者">服務提供者</h3>
+<ul>
 <li><strong>專案</strong>：AIOGEO 知識庫</li>
 <li><strong>維護者</strong>：廖天佑 Bless</li>
 <li><strong>GitHub</strong>：https://github.com/bless25min/AIOGEO-Knowledge</li>
-
-<h3>問題回報</h3>
-<p>如有隱私權相關疑問，請透過以下方式聯絡：</p>
-<p>1. GitHub Issues：https://github.com/bless25min/AIOGEO-Knowledge/issues</p>
-<p>2. OpenAI 客服：https://help.openai.com/</p>
-
-<h2>📅 政策更新</h2>
-
-<h3>修訂說明</h3>
+</ul>
+<h3 id="問題回報">問題回報</h3>
+<p>如有隱私權相關疑問，請透過以下方式聯絡： 1. GitHub
+Issues：https://github.com/bless25min/AIOGEO-Knowledge/issues 2. OpenAI
+客服：https://help.openai.com/</p>
+<h2 id="政策更新">📅 政策更新</h2>
+<h3 id="修訂說明">修訂說明</h3>
+<ul>
 <li>本政策可能因應法規要求或服務異動而更新</li>
 <li>重大異動將透過服務公告通知用戶</li>
 <li>建議定期查閱最新版本</li>
-
-<h3>生效日期</h3>
+</ul>
+<h3 id="生效日期">生效日期</h3>
 <p>本隱私權政策自 2025 年 1 月生效。</p>
-
-<p>---</p>
-
-<h2>📌 重要提醒</h2>
-
+<hr />
+<h2 id="重要提醒">📌 重要提醒</h2>
 <p>⚠️ <strong>使用本服務即表示您同意本隱私權政策</strong></p>
-
 <p>✅ <strong>本服務致力於保護您的隱私權</strong></p>
-
-<p>🔗 <strong>相關連結</strong>：</p>
-<li>[OpenAI 隱私權政策](https://openai.com/policies/privacy-policy)</li>
-<li>[AIOGEO 知識庫專案](https://github.com/bless25min/AIOGEO-Knowledge)</li>
-
-<p>---</p>
-
-<em>最後更新：2025 年 1 月</em>
-      </article>
+<p>🔗 <strong>相關連結</strong>： - <a
+href="https://openai.com/policies/privacy-policy">OpenAI 隱私權政策</a>
+- <a href="https://github.com/bless25min/AIOGEO-Knowledge">AIOGEO
+知識庫專案</a></p>
+<hr />
+<p><em>最後更新：2025 年 1 月</em></p>
     </main>
     
     <footer>
@@ -416,9 +197,5 @@
       <p>&copy; 2025 AIOGEO 知識庫 | 讓 AI 看見你的內容</p>
     </footer>
   </div>
-  
-  <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="回到頂部">
-    ↑
-  </button>
 </body>
 </html>

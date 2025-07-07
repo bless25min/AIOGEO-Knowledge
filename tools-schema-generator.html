@@ -3,67 +3,547 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Schema 生成器 | AIOGEO 知識庫</title>
-  <meta name="description" content="自動化工具幫您生成正確的結構化資料標記，提升內容技術標準">
-  <meta name="keywords" content="GEO, 生成式引擎優化, AI搜尋, Schema 生成器, 廖天佑, Bless Liao">
+  <title>⚙️ Schema 產生器工具 | AIOGEO 知識庫</title>
+  <meta name="description" content="⚙️ Schema 產生器工具 - AIOGEO知識庫專業內容">
   <meta name="author" content="廖天佑 Bless Liao">
-  <link rel="canonical" href="https://bless25min.github.io/AIOGEO-Knowledge/tools-schema-generator.html">
+  <meta property="og:title" content="⚙️ Schema 產生器工具 | AIOGEO 知識庫">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bless25min.github.io/AIOGEO-Knowledge/tools-schema-generator.html">
   
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.8; color: #1f2937; background: #f9fafb; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif; 
+      line-height: 1.8; color: #1f2937; background: #f9fafb; 
+    }
     .container { max-width: 900px; margin: 0 auto; background: white; min-height: 100vh; box-shadow: 0 0 30px rgba(0,0,0,0.1); }
     header { background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; padding: 40px; text-align: center; }
-    .breadcrumb { font-size: 0.9em; opacity: 0.9; margin-bottom: 15px; }
-    .breadcrumb a { color: white; text-decoration: none; }
-    h1 { font-size: 2.5em; font-weight: 800; margin-bottom: 15px; text-shadow: 1px 1px 3px rgba(0,0,0,0.3); }
-    .article-meta { font-size: 1em; opacity: 0.9; }
+    h1 { font-size: 2.5em; font-weight: 800; margin-bottom: 15px; }
     nav { background: #1f2937; padding: 15px 40px; }
     .nav-links { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
     .nav-link { color: #d1d5db; text-decoration: none; padding: 8px 16px; border-radius: 6px; transition: all 0.3s ease; }
     .nav-link:hover { background: #374151; color: white; }
     main { padding: 50px 40px; }
-    .status-badge { background: #fef3c7; border: 2px solid #f59e0b; border-radius: 10px; padding: 20px; margin: 30px 0; text-align: center; }
-    .status-badge h2 { color: #92400e; margin-bottom: 10px; }
-    .status-badge p { color: #78350f; }
-    .back-link { display: inline-block; background: #6366f1; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; transition: all 0.3s ease; margin-top: 20px; }
-    .back-link:hover { background: #4f46e5; transform: translateY(-2px); }
-    footer { background: #1f2937; color: #d1d5db; padding: 40px; text-align: center; }
-    @media (max-width: 768px) { header, main, footer { padding: 30px 20px; } nav { padding: 15px 20px; } h1 { font-size: 2em; } .nav-links { gap: 15px; } }
+    
+    h2 { color: #1f2937; font-size: 1.8em; margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 3px solid #6366f1; }
+    h3 { color: #374151; font-size: 1.4em; margin: 30px 0 15px; }
+    h4 { color: #374151; font-size: 1.2em; margin: 25px 0 10px; }
+    p { margin: 15px 0; line-height: 1.7; }
+    
+    pre { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 20px 0; overflow-x: auto; }
+    code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-family: 'Monaco', 'Consolas', monospace; font-size: 0.9em; }
+    pre code { background: none; padding: 0; }
+    
+    ul, ol { margin: 15px 0 15px 30px; }
+    li { margin: 8px 0; line-height: 1.6; }
+    
+    table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    th, td { border: 1px solid #e5e7eb; padding: 12px; text-align: left; }
+    th { background: #f9fafb; font-weight: 600; }
+    
+    blockquote { border-left: 4px solid #6366f1; background: #f8fafc; padding: 15px 20px; margin: 20px 0; font-style: italic; }
+    
+    a { color: #6366f1; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    
+    .summary { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border: 2px solid #0ea5e9; border-radius: 12px; padding: 24px; margin: 20px 0 30px 0; font-size: 1.1em; line-height: 1.7; }
+    
+    @media (max-width: 768px) {
+      .container { margin: 0; box-shadow: none; }
+      header { padding: 30px 20px; }
+      h1 { font-size: 2em; }
+      main { padding: 30px 20px; }
+    }
+    
+    footer { background: #1f2937; color: white; text-align: center; padding: 30px; }
+    .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 15px; flex-wrap: wrap; }
+    .footer-link { color: #d1d5db; text-decoration: none; transition: color 0.3s ease; }
+    .footer-link:hover { color: #6366f1; }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
       <div class="breadcrumb">
-        <a href="index.html">🏠 AIOGEO 知識庫</a> > 專業文章
+        <a href="index.html" style="color: white; text-decoration: none;">AIOGEO 知識庫</a> / ⚙️ Schema 產生器工具
       </div>
-      <h1>Schema 生成器</h1>
+      <h1>⚙️ Schema 產生器工具</h1>
       <div class="article-meta">
-        📅 最後更新：2025年7月8日 | 👤 作者：廖天佑 Bless Liao
+        作者：廖天佑 Bless Liao | 更新時間：2025-07-07
       </div>
     </header>
     
     <nav>
       <div class="nav-links">
         <a href="index.html" class="nav-link">🏠 首頁</a>
-        <a href="geo-fundamentals.html" class="nav-link">📚 GEO 基礎</a>
         <a href="about.html" class="nav-link">👤 關於</a>
         <a href="contributing.html" class="nav-link">🤝 貢獻</a>
+        <a href="https://github.com/bless25min/AIOGEO-Knowledge" class="nav-link" target="_blank">📂 GitHub</a>
       </div>
     </nav>
     
     <main>
-      <div class="status-badge">
-        <h2>📝 工具開發中</h2>
-        <p>自動化工具幫您生成正確的結構化資料標記，提升內容技術標準</p>
-        <p>我們正在精心撰寫這篇深度解析文章，敬請期待高品質的 GEO 專業內容！</p>
-      </div>
-      
-      <a href="index.html" class="back-link">🏠 返回首頁</a>
+<h1 id="schema-產生器工具">⚙️ Schema 產生器工具</h1>
+<p>自動化生成符合 Schema.org 標準的結構化資料，幫助您的內容更容易被 AI
+搜尋引擎理解和引用。</p>
+<h2 id="工具概述">🎯 工具概述</h2>
+<p>Schema 產生器是針對 GEO
+優化設計的結構化資料自動生成工具，支援多種常用的 Schema
+類型，為您的內容提供額外的語義線索，提升 AI 引用機率。</p>
+<h3 id="核心功能">✨ 核心功能</h3>
+<ul>
+<li>🎨
+<strong>視覺化操作介面</strong>：無需編程知識，填表單即可生成</li>
+<li>⚡ <strong>一鍵生成代碼</strong>：自動產生完整的 JSON-LD
+結構化資料</li>
+<li>✅ <strong>即時語法驗證</strong>：確保生成的代碼符合 Schema.org
+標準</li>
+<li>📋 <strong>模板庫支援</strong>：內建常用模板，快速套用</li>
+<li>🔍 <strong>預覽功能</strong>：即時預覽 Rich Snippets 效果</li>
+</ul>
+<h2 id="支援的-schema-類型">📊 支援的 Schema 類型</h2>
+<h3 id="基本網站-schema">🧑‍💻 基本網站 Schema</h3>
+<h4 id="article-schema---文章基本資訊">Article Schema -
+文章基本資訊</h4>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;@context&quot;</span><span class="fu">:</span> <span class="st">&quot;https://schema.org&quot;</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;Article&quot;</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;headline&quot;</span><span class="fu">:</span> <span class="st">&quot;文章標題&quot;</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;description&quot;</span><span class="fu">:</span> <span class="st">&quot;文章摘要描述&quot;</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;author&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;Person&quot;</span><span class="fu">,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;作者姓名&quot;</span><span class="fu">,</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;url&quot;</span><span class="fu">:</span> <span class="st">&quot;作者個人頁面&quot;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;publisher&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;Organization&quot;</span><span class="fu">,</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;發布機構&quot;</span><span class="fu">,</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;logo&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;ImageObject&quot;</span><span class="fu">,</span> </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;url&quot;</span><span class="fu">:</span> <span class="st">&quot;機構Logo網址&quot;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;datePublished&quot;</span><span class="fu">:</span> <span class="st">&quot;2025-07-06&quot;</span><span class="fu">,</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;dateModified&quot;</span><span class="fu">:</span> <span class="st">&quot;2025-07-06&quot;</span><span class="fu">,</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;mainEntityOfPage&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;WebPage&quot;</span><span class="fu">,</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;@id&quot;</span><span class="fu">:</span> <span class="st">&quot;文章完整網址&quot;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h4 id="person-schema---作者個人資料">Person Schema - 作者個人資料</h4>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;@context&quot;</span><span class="fu">:</span> <span class="st">&quot;https://schema.org&quot;</span><span class="fu">,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;Person&quot;</span><span class="fu">,</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;廖天佑 Bless&quot;</span><span class="fu">,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;jobTitle&quot;</span><span class="fu">:</span> <span class="st">&quot;AI 搜尋引擎優化專家&quot;</span><span class="fu">,</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;affiliation&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;Organization&quot;</span><span class="fu">,</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;AIOGEO 知識庫&quot;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;url&quot;</span><span class="fu">:</span> <span class="st">&quot;https://aiogeo.com/about&quot;</span><span class="fu">,</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;sameAs&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;https://linkedin.com/in/bless-liao&quot;</span><span class="ot">,</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;https://github.com/bless25min&quot;</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;knowsAbout&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Generative Engine Optimization&quot;</span><span class="ot">,</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;AI 搜尋引擎優化&quot;</span><span class="ot">,</span> </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;內容策略&quot;</span><span class="ot">,</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;數位行銷&quot;</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h3 id="互動內容-schema">❓ 互動內容 Schema</h3>
+<h4 id="faqpage-schema---常見問題頁面">FAQPage Schema -
+常見問題頁面</h4>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;@context&quot;</span><span class="fu">:</span> <span class="st">&quot;https://schema.org&quot;</span><span class="fu">,</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;FAQPage&quot;</span><span class="fu">,</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;mainEntity&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;Question&quot;</span><span class="fu">,</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;什麼是 GEO（生成式引擎優化）？&quot;</span><span class="fu">,</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;acceptedAnswer&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;Answer&quot;</span><span class="fu">,</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;text&quot;</span><span class="fu">:</span> <span class="st">&quot;GEO 是針對 AI 搜尋引擎優化的策略，目標是讓內容更容易被 ChatGPT、Claude 等 AI 平台理解和引用。&quot;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">}</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;Question&quot;</span><span class="fu">,</span> </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;GEO 和傳統 SEO 有什麼差別？&quot;</span><span class="fu">,</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;acceptedAnswer&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;Answer&quot;</span><span class="fu">,</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;text&quot;</span><span class="fu">:</span> <span class="st">&quot;傳統 SEO 專注於搜尋引擎排名，而 GEO 專注於被 AI 引用。GEO 更重視內容的語義清晰度和結構化。&quot;</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>      <span class="fu">}</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h4 id="howto-schema---操作教學指南">HowTo Schema - 操作教學指南</h4>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;@context&quot;</span><span class="fu">:</span> <span class="st">&quot;https://schema.org&quot;</span><span class="fu">,</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;HowTo&quot;</span><span class="fu">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;如何優化內容的 AI 引用率&quot;</span><span class="fu">,</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;description&quot;</span><span class="fu">:</span> <span class="st">&quot;完整的 GEO 優化步驟指南&quot;</span><span class="fu">,</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;totalTime&quot;</span><span class="fu">:</span> <span class="st">&quot;PT30M&quot;</span><span class="fu">,</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;supply&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;HowToSupply&quot;</span><span class="fu">,</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;現有的網站內容&quot;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;HowToSupply&quot;</span><span class="fu">,</span> </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;GEO 優化檢查清單&quot;</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;tool&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;HowToTool&quot;</span><span class="fu">,</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Schema 產生器工具&quot;</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;step&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;HowToStep&quot;</span><span class="fu">,</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;分析現有內容結構&quot;</span><span class="fu">,</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;text&quot;</span><span class="fu">:</span> <span class="st">&quot;使用 GEO 評估工具分析當前內容的 AI 引用潛力，識別需要改善的領域。&quot;</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;HowToStep&quot;</span><span class="fu">,</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;實作結構化標記&quot;</span><span class="fu">,</span> </span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;text&quot;</span><span class="fu">:</span> <span class="st">&quot;為重要內容加入適當的 Schema.org 標記，提供額外的語義資訊。&quot;</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;HowToStep&quot;</span><span class="fu">,</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;監控引用表現&quot;</span><span class="fu">,</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;text&quot;</span><span class="fu">:</span> <span class="st">&quot;定期在主要 AI 平台測試內容的引用情況，根據結果調整優化策略。&quot;</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h3 id="組織與網站-schema">🏢 組織與網站 Schema</h3>
+<h4 id="organization-schema---組織機構資訊">Organization Schema -
+組織機構資訊</h4>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;@context&quot;</span><span class="fu">:</span> <span class="st">&quot;https://schema.org&quot;</span><span class="fu">,</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;Organization&quot;</span><span class="fu">,</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;AIOGEO 知識庫&quot;</span><span class="fu">,</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;description&quot;</span><span class="fu">:</span> <span class="st">&quot;專注於生成式引擎優化的知識分享平台&quot;</span><span class="fu">,</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;url&quot;</span><span class="fu">:</span> <span class="st">&quot;https://aiogeo.com&quot;</span><span class="fu">,</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;logo&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;ImageObject&quot;</span><span class="fu">,</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;url&quot;</span><span class="fu">:</span> <span class="st">&quot;https://aiogeo.com/logo.png&quot;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;founder&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;Person&quot;</span><span class="fu">,</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;廖天佑 Bless&quot;</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;foundingDate&quot;</span><span class="fu">:</span> <span class="st">&quot;2025&quot;</span><span class="fu">,</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;sameAs&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;https://github.com/bless25min/AIOGEO-Knowledge&quot;</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h4 id="breadcrumblist-schema---麵包屑導航">BreadcrumbList Schema -
+麵包屑導航</h4>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;@context&quot;</span><span class="fu">:</span> <span class="st">&quot;https://schema.org&quot;</span><span class="fu">,</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;BreadcrumbList&quot;</span><span class="fu">,</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;itemListElement&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;ListItem&quot;</span><span class="fu">,</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;position&quot;</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;首頁&quot;</span><span class="fu">,</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;item&quot;</span><span class="fu">:</span> <span class="st">&quot;https://aiogeo.com&quot;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;ListItem&quot;</span><span class="fu">,</span> </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;position&quot;</span><span class="fu">:</span> <span class="dv">2</span><span class="fu">,</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;工具庫&quot;</span><span class="fu">,</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;item&quot;</span><span class="fu">:</span> <span class="st">&quot;https://aiogeo.com/tools&quot;</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;ListItem&quot;</span><span class="fu">,</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;position&quot;</span><span class="fu">:</span> <span class="dv">3</span><span class="fu">,</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Schema 產生器&quot;</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h2 id="使用指南">🛠️ 使用指南</h2>
+<h3 id="基本使用流程">📝 基本使用流程</h3>
+<h4 id="步驟-1選擇-schema-類型">步驟 1：選擇 Schema 類型</h4>
+<p>根據您的內容性質選擇適當的 Schema 標記：</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Schema 類型選擇指南</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### 內容類型對應表</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**部落格文章、新聞報導** → Article Schema</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**教學指南、操作說明** → HowTo Schema  </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**FAQ 頁面、問答內容** → FAQPage Schema</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**個人介紹、作者資訊** → Person Schema</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**公司介紹、關於我們** → Organization Schema</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**導航路徑** → BreadcrumbList Schema</span></code></pre></div>
+<h4 id="步驟-2填寫內容資訊">步驟 2：填寫內容資訊</h4>
+<p>在對應的表單中填入您的內容資訊：</p>
+<p><strong>Article Schema 必填欄位</strong>： - 📰 標題（headline） - 📝
+描述（description） - 👤 作者（author） - 🏢 發布者（publisher） - 📅
+發布日期（datePublished） - 🔗 文章網址（mainEntityOfPage）</p>
+<p><strong>可選進階欄位</strong>： - 🖼️ 文章圖片（image） - 🏷️
+分類標籤（about） - 🕒 修改日期（dateModified） - 📊
+文字數量（wordCount）</p>
+<h4 id="步驟-3生成-json-ld-代碼">步驟 3：生成 JSON-LD 代碼</h4>
+<p>系統自動產生符合標準的結構化資料：</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- 生成的代碼範例 --&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> type=</span><span class="st">&quot;application/ld+json&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;@context&quot;</span><span class="op">:</span> <span class="st">&quot;https://schema.org&quot;</span><span class="op">,</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;Article&quot;</span><span class="op">,</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;headline&quot;</span><span class="op">:</span> <span class="st">&quot;您輸入的標題&quot;</span><span class="op">,</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;description&quot;</span><span class="op">:</span> <span class="st">&quot;您輸入的描述&quot;</span><span class="op">,</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">// ... 其他自動填充的屬性</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div>
+<h4 id="步驟-4部署與驗證">步驟 4：部署與驗證</h4>
+<p>將生成的代碼嵌入網頁並進行驗證：</p>
+<ol type="1">
+<li><strong>代碼嵌入</strong>：將 JSON-LD 代碼放入
+<code>&lt;head&gt;</code> 區域</li>
+<li><strong>語法驗證</strong>：使用 <a
+href="https://validator.schema.org/">Schema.org Validator</a></li>
+<li><strong>效果測試</strong>：使用 <a
+href="https://search.google.com/test/rich-results">Google Rich Results
+Test</a></li>
+<li><strong>上線監控</strong>：觀察 Search Console
+中的結構化資料報告</li>
+</ol>
+<h3 id="進階功能">🎨 進階功能</h3>
+<h4 id="自訂模板功能">自訂模板功能</h4>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 創建自訂 Schema 模板</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> customTemplate <span class="op">=</span> {</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;部落格文章模板&quot;</span><span class="op">,</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">type</span><span class="op">:</span> <span class="st">&quot;Article&quot;</span><span class="op">,</span> </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">fields</span><span class="op">:</span> {</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">headline</span><span class="op">:</span> <span class="st">&quot;必填&quot;</span><span class="op">,</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">description</span><span class="op">:</span> <span class="st">&quot;必填&quot;</span><span class="op">,</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">author</span><span class="op">:</span> <span class="st">&quot;必填&quot;</span><span class="op">,</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">publisher</span><span class="op">:</span> <span class="st">&quot;預設填入&quot;</span><span class="op">,</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">datePublished</span><span class="op">:</span> <span class="st">&quot;自動生成&quot;</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">defaults</span><span class="op">:</span> {</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">publisher</span><span class="op">:</span> {</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;Organization&quot;</span><span class="op">,</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;您的網站名稱&quot;</span><span class="op">,</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;logo&quot;</span><span class="op">:</span> <span class="st">&quot;您的Logo網址&quot;</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h4 id="批量生成功能">批量生成功能</h4>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## 批量生成使用場景</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### 適合批量處理的情況</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>📚 大量部落格文章需要加入 Article Schema</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>❓ 多個 FAQ 頁面需要結構化標記</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>👥 團隊成員個人頁面需要 Person Schema</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>📖 系列教學需要 HowTo Schema</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">### 批量操作步驟</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>準備 CSV 格式的內容清單</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>上傳到批量生成器</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>選擇對應的 Schema 模板</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>系統自動生成所有代碼</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>打包下載全部 JSON-LD 檔案</span></code></pre></div>
+<h2 id="最佳實務建議">📊 最佳實務建議</h2>
+<h3 id="schema-實作檢查清單">✅ Schema 實作檢查清單</h3>
+<h4 id="基本品質檢查">基本品質檢查</h4>
+<ul class="task-list">
+<li><label><input
+type="checkbox" /><strong>必填屬性完整</strong>：確保所有必要欄位都已填寫</label></li>
+<li><label><input
+type="checkbox" /><strong>資料準確性</strong>：所有資訊與實際內容完全一致</label></li>
+<li><label><input type="checkbox" /><strong>語法正確性</strong>：通過
+Schema.org 官方驗證工具</label></li>
+<li><label><input type="checkbox" /><strong>編碼規範</strong>：使用
+UTF-8 編碼，避免特殊字元問題</label></li>
+</ul>
+<h4 id="進階優化建議">進階優化建議</h4>
+<ul class="task-list">
+<li><label><input
+type="checkbox" /><strong>豐富屬性</strong>：除必填欄位外，盡量填寫可選屬性</label></li>
+<li><label><input type="checkbox" /><strong>圖片優化</strong>：確保圖片
+URL 可正常訪問，建議高解析度</label></li>
+<li><label><input type="checkbox" /><strong>日期格式</strong>：使用 ISO
+8601 標準格式（YYYY-MM-DD）</label></li>
+<li><label><input type="checkbox" /><strong>URL 規範</strong>：所有 URL
+使用絕對路徑，確保可正常訪問</label></li>
+</ul>
+<h4 id="geo-特殊優化">GEO 特殊優化</h4>
+<ul class="task-list">
+<li><label><input type="checkbox" /><strong>語義豐富化</strong>：在
+<code>about</code> 屬性中加入相關主題標籤</label></li>
+<li><label><input type="checkbox" /><strong>權威性標示</strong>：在
+<code>author</code> 中包含專業背景資訊</label></li>
+<li><label><input
+type="checkbox" /><strong>時效性標記</strong>：定期更新
+<code>dateModified</code> 屬性</label></li>
+<li><label><input type="checkbox" /><strong>關聯性建立</strong>：使用
+<code>sameAs</code> 連結到權威來源</label></li>
+</ul>
+<h3 id="常見錯誤避免">🎯 常見錯誤避免</h3>
+<h4 id="技術性錯誤">❌ 技術性錯誤</h4>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">//</span> <span class="er">錯誤示範</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;@context&quot;</span><span class="fu">:</span> <span class="st">&quot;https://schema.org&quot;</span><span class="fu">,</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;Article&quot;</span><span class="fu">,</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;headline&quot;</span><span class="fu">:</span> <span class="st">&quot;&quot;</span><span class="fu">,</span> <span class="er">//</span> <span class="er">空值</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;datePublished&quot;</span><span class="fu">:</span> <span class="st">&quot;2025/07/06&quot;</span><span class="fu">,</span> <span class="er">//</span> <span class="er">錯誤日期格式</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;author&quot;</span><span class="fu">:</span> <span class="st">&quot;作者姓名&quot;</span> <span class="er">//</span> <span class="er">應該是對象而非字串</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="er">//</span> <span class="er">正確示範</span>  </span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;@context&quot;</span><span class="fu">:</span> <span class="st">&quot;https://schema.org&quot;</span><span class="fu">,</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;Article&quot;</span><span class="fu">,</span> </span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;headline&quot;</span><span class="fu">:</span> <span class="st">&quot;具體的文章標題&quot;</span><span class="fu">,</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;datePublished&quot;</span><span class="fu">:</span> <span class="st">&quot;2025-07-06&quot;</span><span class="fu">,</span> <span class="er">//</span> <span class="er">ISO</span> <span class="er">格式</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;author&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;Person&quot;</span><span class="fu">,</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;作者姓名&quot;</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h4 id="內容不一致錯誤">❌ 內容不一致錯誤</h4>
+<ul>
+<li><strong>標題不符</strong>：Schema 中的標題與頁面 H1 不一致</li>
+<li><strong>作者錯誤</strong>：標記的作者與實際撰寫者不符</li>
+<li><strong>日期錯誤</strong>：發布日期與實際發布時間不符</li>
+<li><strong>描述偏差</strong>：Schema 描述與頁面內容主題不符</li>
+</ul>
+<h3 id="效果監控指標">📈 效果監控指標</h3>
+<h4 id="google-search-console-監控">Google Search Console 監控</h4>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## 結構化資料報告檢查要點</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### 錯誤監控</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 語法錯誤數量：目標 0 個</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 警告訊息數量：目標 &lt;5%</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 無效項目比例：目標 &lt;2%</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">### 覆蓋率監控  </span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 有效項目數量：持續增長</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Rich Results 展示：監控展示頻率</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 點擊率變化：觀察結構化資料對 CTR 的影響</span></code></pre></div>
+<h4 id="ai-引用效果追蹤">AI 引用效果追蹤</h4>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Schema 對 AI 引用的影響分析</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### 追蹤維度</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**引用準確性**：AI 是否更準確地引用內容</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**引用完整性**：是否包含更多結構化資訊</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**來源標註**：AI 是否更清楚地標註來源</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**相關性匹配**：內容是否與更多相關查詢匹配</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">### 測試方法</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>實作 Schema 前後對比測試</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>在多個 AI 平台進行問答測試</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>記錄引用頻率和品質變化</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>分析結構化資料的具體貢獻</span></code></pre></div>
+<h2 id="工具整合建議">🔧 工具整合建議</h2>
+<h3 id="cms-整合">🌐 CMS 整合</h3>
+<h4 id="wordpress-整合">WordPress 整合</h4>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode php"><code class="sourceCode php"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">// WordPress 函數範例</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> add_article_schema() {</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (is_single()) {</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">$schema</span> <span class="op">=</span> generate_article_schema(get_post())<span class="ot">;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">echo</span> <span class="st">&#39;&lt;script type=&quot;application/ld+json&quot;&gt;&#39;</span> <span class="op">.</span> </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>             <span class="fu">json_encode</span>(<span class="va">$schema</span><span class="ot">,</span> <span class="cn">JSON_UNESCAPED_UNICODE</span>) <span class="op">.</span> </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>             <span class="st">&#39;&lt;/script&gt;&#39;</span><span class="ot">;</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>add_action(<span class="st">&#39;wp_head&#39;</span><span class="ot">,</span> <span class="st">&#39;add_article_schema&#39;</span>)<span class="ot">;</span></span></code></pre></div>
+<h4 id="hugo-靜態網站">Hugo 靜態網站</h4>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Hugo 模板範例 --&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>{{ if .IsPage }}</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> type=</span><span class="st">&quot;application/ld+json&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;@context&quot;</span><span class="op">:</span> <span class="st">&quot;https://schema.org&quot;</span><span class="op">,</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;Article&quot;</span><span class="op">,</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;headline&quot;</span><span class="op">:</span> <span class="st">&quot;{{ .Title }}&quot;</span><span class="op">,</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;description&quot;</span><span class="op">:</span> <span class="st">&quot;{{ .Summary }}&quot;</span><span class="op">,</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;datePublished&quot;</span><span class="op">:</span> <span class="st">&quot;{{ .Date.Format &quot;</span><span class="dv">2006</span><span class="op">-</span><span class="bn">01</span><span class="op">-</span><span class="bn">02</span><span class="st">&quot; }}&quot;</span><span class="op">,</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;author&quot;</span><span class="op">:</span> {</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;Person&quot;</span><span class="op">,</span> </span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;{{ .Params.author }}&quot;</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>{{ end }}</span></code></pre></div>
+<h3 id="自動化工具">⚡ 自動化工具</h3>
+<h4 id="cicd-整合">CI/CD 整合</h4>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># GitHub Actions 範例</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Schema Validation</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">push</span><span class="kw">]</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">validate-schema</span><span class="kw">:</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v2</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Validate Schema</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>          # 自動驗證所有 JSON-LD 檔案</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>          find . -name &quot;*.json&quot; -exec schema-validator {} \;</span></code></pre></div>
+<h2 id="常見問題解答">❓ 常見問題解答</h2>
+<p><strong>Q1：一個頁面可以有多個 Schema 嗎？</strong>
+A1：可以，但建議每個頁面有一個主要 Schema（如 Article），搭配支援性
+Schema（如 BreadcrumbList）。</p>
+<p><strong>Q2：Schema 多久會生效？</strong> A2：通常 1-2
+週內會被搜尋引擎處理，但 AI 平台的採用時間可能更長，建議持續監控。</p>
+<p><strong>Q3：Schema 錯誤會影響 SEO 嗎？</strong>
+A3：一般不會負面影響，但正確的 Schema
+能提升搜尋表現，建議及時修正錯誤。</p>
+<p><strong>Q4：哪些 Schema 對 AI 引用最有幫助？</strong>
+A4：FAQPage、HowTo 和 Article 是最有效的，它們直接對應 AI
+常見的回答格式。</p>
+<h2 id="開始使用">🚀 開始使用</h2>
+<h3 id="快速上手三步驟">🎯 快速上手三步驟</h3>
+<ol type="1">
+<li><strong>選擇內容</strong>：挑選一篇重要文章開始</li>
+<li><strong>生成 Schema</strong>：使用工具產生對應的結構化資料</li>
+<li><strong>部署測試</strong>：嵌入代碼並驗證效果</li>
+</ol>
+<h3 id="相關資源">🔗 相關資源</h3>
+<ul>
+<li>📋 <a href="checklists.html">GEO 優化檢查清單</a> - 確保 Schema
+實作品質</li>
+<li>📊 <a href="assessment-tools.html">評估工具清單</a> - 監控 Schema
+效果</li>
+<li>📖 <a href="../posts/ai-citation-tracking.html">AI 引用追蹤指南</a>
+- 分析結構化資料影響</li>
+<li>🕸️ <a href="../posts/semantic-mesh.html">Semantic Mesh 架構</a> -
+了解整體內容策略</li>
+</ul>
+<hr />
+<p><strong>結構化資料是 AI 理解您內容的重要橋樑。透過 Schema
+產生器，讓您的內容在 AI 搜尋時代更具競爭力！</strong></p>
+<p><strong>最後更新</strong>：2025-07-06 | <a
+href="https://github.com/bless25min/AIOGEO-Knowledge/issues">問題回報</a>
+| <a
+href="https://github.com/bless25min/AIOGEO-Knowledge/discussions">功能建議</a></p>
     </main>
     
     <footer>
+      <div class="footer-links">
+        <a href="about.html" class="footer-link">關於作者</a>
+        <a href="contributing.html" class="footer-link">參與貢獻</a>
+        <a href="https://github.com/bless25min/AIOGEO-Knowledge" class="footer-link" target="_blank">GitHub</a>
+      </div>
       <p>&copy; 2025 AIOGEO 知識庫 | 讓 AI 看見你的內容</p>
     </footer>
   </div>
