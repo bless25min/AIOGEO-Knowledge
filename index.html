@@ -9,7 +9,7 @@
   <meta name="author" content="廖天佑 Bless Liao">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   
-  <!-- Open Graph Meta Tags for Social Sharing -->
+  <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="AIOGEO 知識庫 | 生成式引擎優化專業指南">
   <meta property="og:description" content="探索AI搜尋時代的內容優化策略，提升在ChatGPT、Google SGE等AI平台的引用率">
   <meta property="og:type" content="website">
@@ -17,18 +17,8 @@
   <meta property="og:image" content="https://bless25min.github.io/AIOGEO-Knowledge/assets/images/aiogeo-social-preview.png">
   <meta property="og:site_name" content="AIOGEO 知識庫">
   
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AIOGEO 知識庫 | 生成式引擎優化專業指南">
-  <meta name="twitter:description" content="探索AI搜尋時代的內容優化策略，提升在ChatGPT、Google SGE等AI平台的引用率">
-  <meta name="twitter:image" content="https://bless25min.github.io/AIOGEO-Knowledge/assets/images/aiogeo-social-preview.png">
-  
   <!-- Canonical URL -->
   <link rel="canonical" href="https://bless25min.github.io/AIOGEO-Knowledge/">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="./assets/images/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/apple-touch-icon.png">
   
   <!-- Docsify Theme -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
@@ -42,7 +32,6 @@
       --bless-purple: #8b5cf6;
     }
     
-    /* Loading Animation */
     .app-loading {
       display: flex;
       align-items: center;
@@ -59,7 +48,6 @@
       font-weight: 500;
     }
     
-    /* Enhanced Summary Styling */
     .summary {
       background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
       border: 2px solid #0ea5e9;
@@ -83,7 +71,6 @@
       letter-spacing: 0.5px;
     }
     
-    /* Article Navigation */
     .article-nav {
       background: #f8fafc;
       border: 1px solid #e2e8f0;
@@ -116,93 +103,10 @@
       box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
     }
     
-    /* Learning Path Styling */
-    .learning-path {
-      background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
-      border: 2px solid #f59e0b;
-      border-radius: 12px;
-      padding: 24px;
-      margin: 24px 0;
-    }
-    
-    /* FAQ Styling */
-    .faq summary {
-      font-weight: 600;
-      color: var(--theme-color);
-      cursor: pointer;
-      padding: 12px;
-      background: #f8fafc;
-      border-radius: 8px;
-      margin-bottom: 8px;
-    }
-    
-    .faq[open] summary {
-      margin-bottom: 16px;
-    }
-    
-    .faq details > *:not(summary) {
-      padding-left: 12px;
-    }
-    
-    /* Code Block Enhancements */
-    .markdown-section pre {
-      background: #1e293b !important;
-      border-radius: 12px;
-      padding: 20px;
-      position: relative;
-      margin: 20px 0;
-    }
-    
-    /* Table Styling */
-    .markdown-section table {
-      border-collapse: collapse;
-      width: 100%;
-      margin: 1rem 0;
-    }
-    
-    .markdown-section table th,
-    .markdown-section table td {
-      border: 1px solid #e2e8f0;
-      padding: 0.75rem;
-      text-align: left;
-    }
-    
-    .markdown-section table th {
-      background: var(--sidebar-bg);
-      font-weight: 600;
-      color: var(--theme-color);
-    }
-    
-    /* Responsive Design */
     @media (max-width: 768px) {
-      .summary {
-        padding: 16px;
-        margin: 16px 0;
-      }
-      
-      .article-nav {
-        padding: 16px;
-      }
-      
-      .nav-links {
-        grid-template-columns: 1fr;
-      }
-      
-      .learning-path {
-        padding: 16px;
-        margin: 16px 0;
-      }
-    }
-    
-    /* Print Styles */
-    @media print {
-      .sidebar, .app-loading {
-        display: none !important;
-      }
-      
-      .content {
-        margin-left: 0 !important;
-      }
+      .summary { padding: 16px; margin: 16px 0; }
+      .article-nav { padding: 16px; }
+      .nav-links { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -217,10 +121,8 @@
     </div>
   </div>
   
-  <!-- Docsify Core -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   
-  <!-- Docsify Configuration -->
   <script>
     window.$docsify = {
       name: 'AIOGEO 知識庫',
@@ -232,19 +134,14 @@
       auto2top: true,
       maxLevel: 4,
       
-      // 🔧 關鍵修改：啟用 History API 模式
-      routerMode: 'history',
-      basePath: '/AIOGEO-Knowledge/',
+      // 🔧 保持 Hash 模式（不使用 History API）
       
-      // 確保所有目錄都使用根目錄的 _sidebar.md
       alias: {
         '/.*/_sidebar.md': '/_sidebar.md',
         '/posts/_sidebar.md': '/_sidebar.md',
-        '/micro/_sidebar.md': '/_sidebar.md',
         '/tools/_sidebar.md': '/_sidebar.md'
       },
       
-      // Search Configuration
       search: {
         maxAge: 86400000,
         paths: 'auto',
@@ -254,14 +151,12 @@
         hideOtherSidebarContent: false
       },
       
-      // Copy Code Configuration
       copyCode: {
         buttonText: '📋 複製代碼',
         errorText: '❌ 複製失敗',
         successText: '✅ 已複製!'
       },
       
-      // Pagination
       pagination: {
         previousText: '⬅️ 上一頁',
         nextText: '下一頁 ➡️',
@@ -269,26 +164,7 @@
         crossChapterText: true
       },
       
-      // Tabs
-      tabs: {
-        persist: true,
-        sync: true,
-        theme: 'classic',
-        tabComments: true,
-        tabHeadings: true
-      },
-      
-      // Zoom Images
-      zoom: {
-        selector: '.markdown-section img',
-        delay: 1000,
-        margin: 40,
-        background: 'rgba(0,0,0,0.8)'
-      },
-      
-      // Custom Plugins
       plugins: [
-        // Add reading time
         function(hook, vm) {
           hook.beforeEach(function(html) {
             const wordCount = html.replace(/<[^>]*>/g, '').length;
@@ -303,45 +179,21 @@
           });
         },
         
-        // Update canonical URL for History API
-        function(hook, vm) {
-          hook.beforeEach(function(html) {
-            // 更新 canonical URL
-            const currentPath = vm.router.getCurrentPath();
-            const canonicalUrl = `https://bless25min.github.io/AIOGEO-Knowledge${currentPath}`;
-            
-            let canonicalTag = document.querySelector('link[rel="canonical"]');
-            if (canonicalTag) {
-              canonicalTag.href = canonicalUrl;
-            }
-            
-            // 更新頁面標題
-            const route = vm.route;
-            if (route.file && route.file !== 'README.md') {
-              const title = route.file.replace('.md', '').replace(/\//g, ' | ');
-              document.title = `${title} | AIOGEO 知識庫`;
-            }
-            
-            return html;
-          });
-        },
-        
-        // Add article navigation
         function(hook, vm) {
           hook.afterEach(function(html, next) {
             const footer = `
               <div class="article-nav">
                 <h3>📍 導航與學習資源</h3>
                 <div class="nav-links">
-                  <a href="/" class="nav-link">
+                  <a href="#/" class="nav-link">
                     <strong>🏠 返回首頁</strong><br>
                     <small>AIOGEO 知識庫總覽</small>
                   </a>
-                  <a href="/about" class="nav-link">
+                  <a href="#/about" class="nav-link">
                     <strong>👤 關於作者</strong><br>
                     <small>廖天佑 Bless 專業背景</small>
                   </a>
-                  <a href="/contributing" class="nav-link">
+                  <a href="#/contributing" class="nav-link">
                     <strong>🤝 參與貢獻</strong><br>
                     <small>協助改善知識庫</small>
                   </a>
@@ -367,26 +219,19 @@
         }
       ],
       
-      // Custom 404 - 修正為首頁重導向
       notFoundPage: {
         '/': 'README.md'
       },
       
-      // 新增：錯誤處理
       catchPluginErrors: true
     };
   </script>
   
-  <!-- Docsify Plugins -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code@2"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-css.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
 </body>
 </html>
