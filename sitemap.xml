@@ -1,182 +1,392 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <!-- 首頁與核心頁面 -->
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-    </url>
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/about</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/contributing</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <!-- GEO 基礎系列文章 (最高優先級) -->
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/posts/geo-fundamentals</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.95</priority>
-    </url>
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/posts/geo-fundamentals-index</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/posts/geo-fundamentals-overview</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/posts/geo-fundamentals-content-design</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/posts/geo-fundamentals-technical</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/posts/geo-fundamentals-measurement</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-
-    <!-- 核心策略文章 -->
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/posts/seo-geo-integration</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/posts/answer-layer-design</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.85</priority>
-    </url>
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/posts/semantic-anchoring</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.85</priority>
-    </url>
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/posts/semantic-mesh</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.85</priority>
-    </url>
-
-    <!-- 技術實作文章 -->
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/posts/schema-implementation</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/posts/faq-design</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/posts/citation-enhancement</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <!-- 多模態內容優化 -->
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/posts/multimodal-optimization</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/posts/multimodal-creation</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <!-- AI 相關專業文章 -->
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/posts/ai-search-algorithm</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/posts/ai-citation-tracking</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.75</priority>
-    </url>
-
-    <!-- 測量與評估 -->
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/posts/geo-measurement</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.75</priority>
-    </url>
-
-    <!-- 工具與資源頁面 -->
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/tools/README</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/tools/assessment-tools</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.75</priority>
-    </url>
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/tools/checklists</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.75</priority>
-    </url>
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/tools/content-templates</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.75</priority>
-    </url>
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/#/tools/schema-generator</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.75</priority>
-    </url>
-
-    <!-- 互動式圖表頁面 -->
-    <url>
-        <loc>https://bless25min.github.io/AIOGEO-Knowledge/assets/infographics/geo-vs-seo.html</loc>
-        <lastmod>2025-07-07</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-</urlset>
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>AIOGEO 知識庫 | 生成式引擎優化專業指南</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="AIOGEO知識庫：探索AI搜尋時代的內容優化策略。提供GEO理論基礎、實戰技巧、Semantic Mesh架構設計等專業指南，讓您的內容在ChatGPT、Google SGE等AI平台獲得更高引用率。">
+  <meta name="keywords" content="GEO, 生成式引擎優化, AI搜尋, ChatGPT, Google SGE, 內容優化, SEO, AI引用, Semantic Mesh, Answer Layer">
+  <meta name="author" content="廖天佑 Bless Liao">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  
+  <!-- Open Graph Meta Tags for Social Sharing -->
+  <meta property="og:title" content="AIOGEO 知識庫 | 生成式引擎優化專業指南">
+  <meta property="og:description" content="探索AI搜尋時代的內容優化策略，提升在ChatGPT、Google SGE等AI平台的引用率">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bless25min.github.io/AIOGEO-Knowledge/">
+  <meta property="og:image" content="https://bless25min.github.io/AIOGEO-Knowledge/assets/images/aiogeo-social-preview.png">
+  <meta property="og:site_name" content="AIOGEO 知識庫">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AIOGEO 知識庫 | 生成式引擎優化專業指南">
+  <meta name="twitter:description" content="探索AI搜尋時代的內容優化策略，提升在ChatGPT、Google SGE等AI平台的引用率">
+  <meta name="twitter:image" content="https://bless25min.github.io/AIOGEO-Knowledge/assets/images/aiogeo-social-preview.png">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://bless25min.github.io/AIOGEO-Knowledge/">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="./assets/images/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/apple-touch-icon.png">
+  
+  <!-- Docsify Theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  
+  <style>
+    :root {
+      --theme-color: #6366f1;
+      --accent-color: #ec4899;
+      --text-color-base: #1f2937;
+      --sidebar-bg: #f8fafc;
+      --bless-purple: #8b5cf6;
+    }
+    
+    /* Loading Animation */
+    .app-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+      background: #f8fafc;
+    }
+    
+    .loading-text {
+      font-size: 1.2em;
+      color: var(--text-color-base);
+      margin-top: 20px;
+      font-weight: 500;
+    }
+    
+    /* Enhanced Summary Styling */
+    .summary {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      border: 2px solid #0ea5e9;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 20px 0 30px 0;
+      box-shadow: 0 4px 12px rgba(14, 165, 233, 0.1);
+      font-size: 1.05em;
+      line-height: 1.7;
+      color: #0c4a6e;
+    }
+    
+    .summary::before {
+      content: "📖 內容摘要";
+      display: block;
+      font-weight: bold;
+      font-size: 0.9em;
+      color: #0369a1;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    /* Article Navigation */
+    .article-nav {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 40px 0;
+    }
+    
+    .nav-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    
+    .nav-link {
+      display: block;
+      padding: 16px;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--text-color-base);
+      transition: all 0.2s ease;
+    }
+    
+    .nav-link:hover {
+      border-color: var(--theme-color);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+    }
+    
+    /* Learning Path Styling */
+    .learning-path {
+      background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
+      border: 2px solid #f59e0b;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+    }
+    
+    /* FAQ Styling */
+    .faq summary {
+      font-weight: 600;
+      color: var(--theme-color);
+      cursor: pointer;
+      padding: 12px;
+      background: #f8fafc;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+    
+    .faq[open] summary {
+      margin-bottom: 16px;
+    }
+    
+    .faq details > *:not(summary) {
+      padding-left: 12px;
+    }
+    
+    /* Code Block Enhancements */
+    .markdown-section pre {
+      background: #1e293b !important;
+      border-radius: 12px;
+      padding: 20px;
+      position: relative;
+      margin: 20px 0;
+    }
+    
+    /* Table Styling */
+    .markdown-section table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 1rem 0;
+    }
+    
+    .markdown-section table th,
+    .markdown-section table td {
+      border: 1px solid #e2e8f0;
+      padding: 0.75rem;
+      text-align: left;
+    }
+    
+    .markdown-section table th {
+      background: var(--sidebar-bg);
+      font-weight: 600;
+      color: var(--theme-color);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .summary {
+        padding: 16px;
+        margin: 16px 0;
+      }
+      
+      .article-nav {
+        padding: 16px;
+      }
+      
+      .nav-links {
+        grid-template-columns: 1fr;
+      }
+      
+      .learning-path {
+        padding: 16px;
+        margin: 16px 0;
+      }
+    }
+    
+    /* Print Styles */
+    @media print {
+      .sidebar, .app-loading {
+        display: none !important;
+      }
+      
+      .content {
+        margin-left: 0 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app" class="app-loading">
+    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column; height: 200px;">
+      <div style="font-size: 3em;">🚀</div>
+      <div class="loading-text">正在載入 AIOGEO 知識庫...</div>
+      <div style="font-size: 0.9em; margin-top: 10px; opacity: 0.8;">
+        讓AI看見你的內容 | 廖天佑 Bless 製作
+      </div>
+    </div>
+  </div>
+  
+  <!-- Docsify Core -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  
+  <!-- Docsify Configuration -->
+  <script>
+    window.$docsify = {
+      name: 'AIOGEO 知識庫',
+      repo: 'https://github.com/bless25min/AIOGEO-Knowledge',
+      homepage: 'README.md',
+      loadSidebar: true,
+      loadNavbar: false,
+      subMaxLevel: 3,
+      auto2top: true,
+      maxLevel: 4,
+      
+      // 🔧 關鍵修改：啟用 History API 模式
+      routerMode: 'history',
+      basePath: '/AIOGEO-Knowledge/',
+      
+      // 確保所有目錄都使用根目錄的 _sidebar.md
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md',
+        '/posts/_sidebar.md': '/_sidebar.md',
+        '/micro/_sidebar.md': '/_sidebar.md',
+        '/tools/_sidebar.md': '/_sidebar.md'
+      },
+      
+      // Search Configuration
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: '🔍 搜尋 AIOGEO 知識...',
+        noData: '找不到結果，請嘗試其他關鍵字',
+        depth: 6,
+        hideOtherSidebarContent: false
+      },
+      
+      // Copy Code Configuration
+      copyCode: {
+        buttonText: '📋 複製代碼',
+        errorText: '❌ 複製失敗',
+        successText: '✅ 已複製!'
+      },
+      
+      // Pagination
+      pagination: {
+        previousText: '⬅️ 上一頁',
+        nextText: '下一頁 ➡️',
+        crossChapter: true,
+        crossChapterText: true
+      },
+      
+      // Tabs
+      tabs: {
+        persist: true,
+        sync: true,
+        theme: 'classic',
+        tabComments: true,
+        tabHeadings: true
+      },
+      
+      // Zoom Images
+      zoom: {
+        selector: '.markdown-section img',
+        delay: 1000,
+        margin: 40,
+        background: 'rgba(0,0,0,0.8)'
+      },
+      
+      // Custom Plugins
+      plugins: [
+        // Add reading time
+        function(hook, vm) {
+          hook.beforeEach(function(html) {
+            const wordCount = html.replace(/<[^>]*>/g, '').length;
+            const readTime = Math.ceil(wordCount / 500);
+            
+            if (readTime > 1) {
+              return `<div style="background: #f1f5f9; padding: 8px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.9em; color: #64748b;">
+                📖 預估閱讀時間：${readTime} 分鐘 | 📝 字數：約 ${Math.ceil(wordCount/100)*100} 字
+              </div>\n\n` + html;
+            }
+            return html;
+          });
+        },
+        
+        // Update canonical URL for History API
+        function(hook, vm) {
+          hook.beforeEach(function(html) {
+            // 更新 canonical URL
+            const currentPath = vm.router.getCurrentPath();
+            const canonicalUrl = `https://bless25min.github.io/AIOGEO-Knowledge${currentPath}`;
+            
+            let canonicalTag = document.querySelector('link[rel="canonical"]');
+            if (canonicalTag) {
+              canonicalTag.href = canonicalUrl;
+            }
+            
+            // 更新頁面標題
+            const route = vm.route;
+            if (route.file && route.file !== 'README.md') {
+              const title = route.file.replace('.md', '').replace(/\//g, ' | ');
+              document.title = `${title} | AIOGEO 知識庫`;
+            }
+            
+            return html;
+          });
+        },
+        
+        // Add article navigation
+        function(hook, vm) {
+          hook.afterEach(function(html, next) {
+            const footer = `
+              <div class="article-nav">
+                <h3>📍 導航與學習資源</h3>
+                <div class="nav-links">
+                  <a href="/" class="nav-link">
+                    <strong>🏠 返回首頁</strong><br>
+                    <small>AIOGEO 知識庫總覽</small>
+                  </a>
+                  <a href="/about" class="nav-link">
+                    <strong>👤 關於作者</strong><br>
+                    <small>廖天佑 Bless 專業背景</small>
+                  </a>
+                  <a href="/contributing" class="nav-link">
+                    <strong>🤝 參與貢獻</strong><br>
+                    <small>協助改善知識庫</small>
+                  </a>
+                  <a href="https://github.com/bless25min/AIOGEO-Knowledge/discussions" target="_blank" class="nav-link">
+                    <strong>💬 社群討論</strong><br>
+                    <small>加入 GitHub 討論區</small>
+                  </a>
+                  <a href="https://github.com/bless25min/AIOGEO-Knowledge/issues" target="_blank" class="nav-link">
+                    <strong>🐛 問題回報</strong><br>
+                    <small>回報錯誤或建議</small>
+                  </a>
+                </div>
+                <div style="text-align: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
+                  <small style="color: #6b7280;">
+                    📅 持續更新中 | ⭐ <a href="https://github.com/bless25min/AIOGEO-Knowledge" target="_blank">給我們一個 Star</a> | 
+                    📧 <a href="https://github.com/bless25min" target="_blank">聯繫作者</a>
+                  </small>
+                </div>
+              </div>
+            `;
+            next(html + footer);
+          });
+        }
+      ],
+      
+      // Custom 404 - 修正為首頁重導向
+      notFoundPage: {
+        '/': 'README.md'
+      },
+      
+      // 新增：錯誤處理
+      catchPluginErrors: true
+    };
+  </script>
+  
+  <!-- Docsify Plugins -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code@2"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-css.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
+</body>
+</html>
