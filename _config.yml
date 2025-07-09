@@ -1,8 +1,8 @@
 # GitHub Pages 配置
 title: "AIOGEO 知識庫"
 description: "專業的 GEO (Generative Engine Optimization) 知識庫"
-url: "https://bless25min.github.io"
-baseurl: "/AIOGEO-Knowledge"
+url: "https://geo.25min.co"
+baseurl: ""
 
 # 作者資訊
 author:
@@ -42,7 +42,7 @@ social:
   name: 廖天佑 Bless Liao
   links:
     - https://github.com/bless25min
-    - https://bless25min.github.io/AIOGEO-Knowledge/
+    - https://geo.25min.co
 
 # 預設值
 defaults:
