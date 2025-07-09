@@ -1,5 +1,3 @@
-Sitemap: https://bless25min.github.io/AIOGEO-Knowledge/sitemap.xml
-
 # AIOGEO 知識庫 - AI 友善設定
 
 User-agent: *
@@ -29,7 +27,7 @@ User-agent: Bingbot
 Allow: /
 
 # Sitemap 位置
-Sitemap: https://bless25min.github.io/AIOGEO-Knowledge/sitemap.xml
+https://geo.25min.co/sitemap.xml
 
 # 爬取延遲設定
 Crawl-delay: 1
