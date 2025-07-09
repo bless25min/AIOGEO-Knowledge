@@ -1,4 +1,4 @@
-https://bless25min.github.io/AIOGEO-Knowledge/sitemap.xml
+Sitemap: https://bless25min.github.io/AIOGEO-Knowledge/sitemap.xml
 
 # AIOGEO 知識庫 - AI 友善設定
 
